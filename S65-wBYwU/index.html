@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>内蒙古师范大学疫情情况-AutoPush | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">内蒙古师范大学疫情情况-AutoPush</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-05-07 18:06:50" itemprop="datePublished" pubdate="">2020-05-07</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="0x01-起因">0x01 起因</h2>
+<p>因为每天都要按时打卡,作为个程序员,怎么能每天做这种无用的动作那…</p>
+<p>瞎说…</p>
+<p>额…..</p>
+<p>主要还是太懒了…. 脚本也没想过要写,趁今天无聊,就简单实现一下</p>
+<p>没啥技术含量,因为懒,就直接抓包,改一下变量,直接通过python发包!</p>
+<p>主要是系统只能通过扫码或者验证码登录..</p>
+<p>所有就写了用微信的authtoken获取JESSonid直接,来提交..简单省事…</p>
+<p><strong>Github 地址:</strong> <a> https://github.com/a1ices/IMNU_nCOV-AutoPush/</a></p>
+<h2 id="0x02-使用步骤">0x02  使用步骤:</h2>
+<p>1.安装<strong>HackRequests</strong>库: <strong>pip install HackRequests</strong></p>
+<p>2.安装<strong>Requests</strong>库 : <strong>pip install requests</strong></p>
+<p>3.抓取微信提交表单的数据包:</p>
+<ol>
+<li>
+<p>手机设置代理,微信打开疫情填报,获取到定位标识和已填数据后,保存数据包提换脚本 raw</p>
+</li>
+<li>
+<p>添加标识: {0} {1} {2}</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506123726.png" alt="image-20200506122750547" loading="lazy"></figure>
+<ol start="3">
+<li>
+<p>修改脚本配置:</p>
+<p>1.<strong>authToken</strong> 就是抓到的数据包=后面的值</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506123723.png" alt="image-20200506122915146" loading="lazy"></figure>
+<p>​		2.添加微信提示的Server酱的Key,先绑定微信:</p>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506123259.png" alt="image-20200506123247326" loading="lazy"></figure>
+<p>​	<img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506123721.png" alt="image-20200506123211923" loading="lazy"></p>
+<ol start="3">
+<li>填入脚本:</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506123717.png" alt="image-20200506123459985" loading="lazy"></figure>
+<ol start="4">
+<li>
+<p>运行测试一下!</p>
+<p>如果已经提交过,会返回如下:</p>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506123713.png" alt="image-20200506123632132" loading="lazy"></figure>
+</li>
+<li>
+<p>直接扔到服务器上,定时任务,每天规定一个时间自动执行就好了!</p>
+</li>
+</ol>
+<h2 id="0x04-代码具体如下">0x04 代码具体如下:</h2>
+<pre><code>#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+'''
+ @Name:     Imnu_nCov.py
+ @Author:   loecho
+ @Email:    1loechome@gmail.com
+ @Blog:     https://www.loecho.me
+ @Time:     2020-05-05 10:12:31
+'''
+
+import requests
+import HackRequests
+import json
+import time
+from requests.sessions import Session
+
+
+#==================================================
+#
+# Author: loecho
+
+# 使用说明:
+#
+# 1.填入自己企业微信AuthToken
+# 2.提交成功提醒会通过Server酱提醒,所以需要填入Server酱_Key
+# 3.先获取自己的formId,以及定位标识
+# 4.自己抓一下提交的数据包,替换内容!修改标识
+#
+#==================================================
+
+## 获取方式,抓包指定的参数:
+user_authToken = ''
+
+## 获取方式,打开链接,绑定微信: http://sc.ftqq.com/?c=code
+user_Server_Key = ''
+
+
+
+def getCookies(user_authToken):
+
+    
+    # 因为eip系统只能通过扫码或者获取验证码的方式登录,想了一个办法,通过微信authtoken,配合企业微信的一个接口,直接获取jsid
+    cookies_header = {
+
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 9; SM-G9650 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045215 Mobile Safari/537.36 MMWEBID/4044 MicroMessenger/7.0.13.1640(0x27000D35) Process/tools NetType/WIFI Language/zh_CN ABI/arm64 WeChat/arm64',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+                'X-Requested-With': 'com.tencent.mm',
+                'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+                'Cookie':  'ht_platform=wxWork;''authToken='+str(user_authToken)
+            }
+
+    cookies_ses = Session()
+    cookies_req = cookies_ses.get(headers=cookies_header,url='http://eip.imnu.edu.cn/EIP/nonlogin/weixinWork/cookie/13.htm?url=/weixin/weui/jiugongge.htmlSPT623e8474576a41e5959ec47f0505109e')
+    Cookies = requests.utils.dict_from_cookiejar(cookies_ses.cookies)
+
+    return Cookies['JSESSIONID']
+
+def submit_Info():
+
+    #获取当前日期
+    This_Day = time.strftime(&quot;%Y-%m-%d+%H:%M:00&quot;, time.localtime())
+    print(This_Day)
+    JsId = str(getCookies(user_authToken))
+    #print(JsId)
+    nCOV_Req = HackRequests.hackRequests()
+    
+    # 下面是所需要提交的信息,因为参数太多了,定位,乱七八糟一堆,就直接发包,改需要的变量!
+    
+    # 使用前,请使用自己的数据包替换内容,有三个标识字符,替换数据包后,自己改一下: 日期.JESSIONID.authtoken 对应 {0} {1} {2}
+    
+    raw ='''
+    '''
+    Send_Data = nCOV_Req.httpraw(raw.format(JsId,user_authToken,This_Day))
+
+    print(Send_Data.text())
+    
+    # 提交状态,Server酱提醒!
+    data = Send_Data.text()
+    user_key = 'https://sc.ftqq.com/{}.send'.format(user_Server_Key)
+    #print(user_key)
+    Server_Wechat = requests.get(user_key+'?text=IMNU_NCOV_提交结果:&amp;desp='+ data)
+
+
+if __name__ == &quot;__main__&quot;:
+
+    submit_Info()
+
+
+</code></pre>
+<h2 id="0x05-to-do">0x05 To do…</h2>
+<p>1.实现功能就好了,没啥技术含量的,以后有时间可以自己在改下</p>
+<p>2.因为数据包中定位信息按照你抓包时的定位信息来提交,如果位置改变建议修改下数据包</p>
+<p>3.只适用于向我这样每天苟在家里的人..</p>
+<p>4.代码原理很简单…有需要自己改一下也可以</p>
+<p>5.不要吐槽我…我的目的是能用就行…没啥多于想法….</p>
+<h2 id="有什么技术交流问题加我微信">有什么技术交流问题,加我微信!</h2>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200506124537.png" alt="image-20200506124534140" loading="lazy"></figure>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		 
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

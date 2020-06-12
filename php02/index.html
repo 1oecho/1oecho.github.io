@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>PHP代码审计-02 | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">PHP代码审计-02</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-02-25 03:03:00" itemprop="datePublished" pubdate="">2020-02-25</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="0x01-postmail">0x01 POSTMail</h2>
+<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2020/02/22/3Mih7D.png" alt="3Mih7D.png" loading="lazy"></figure>
+<h2 id="0x02-函数用途和分析">0x02 函数用途和分析</h2>
+<p>想快速看一下整体的代码,实现的功能大致就是,通过内部函数处理输入数据POST发送请求,发送一条邮件!</p>
+<p>主要的函数:</p>
+<h3 id="mail-函数">mail 函数:</h3>
+<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2020/02/22/3MFm4J.png" alt="3MFm4J.png" loading="lazy"></figure>
+<p>过滤传入数据的函数:</p>
+<h4 id="fileter_var">fileter_var</h4>
+<figure data-type="image" tabindex="3"><img src="https://s2.ax1x.com/2020/02/22/3MkpVO.png" alt="3MkpVO.png" loading="lazy"></figure>
+<h3 id="escapeshellarg">escapeshellarg</h3>
+<figure data-type="image" tabindex="4"><img src="https://s2.ax1x.com/2020/02/22/3MksQ1.png" alt="3MksQ1.png" loading="lazy"></figure>
+<p>这道题其实是考察由 <strong>php</strong> 内置函数 <strong>mail</strong> 所引发的命令执行漏洞。我们先看看 <strong>php</strong> 自带的 <strong>mail</strong> 函数的用法：</p>
+<pre><code class="language-php">bool mail (
+	string $to ,
+	string $subject ,
+	string $message [,
+	string $additional_headers [,
+	string $additional_parameters ]]
+)
+</code></pre>
+<p>其参数含义分别表示如下：</p>
+<blockquote>
+<ul>
+<li>to，指定邮件接收者，即接收人</li>
+<li>subject，邮件的标题</li>
+<li>message，邮件的正文内容</li>
+<li>additional_headers，指定邮件发送时其他的额外头部，如发送者From，抄送CC，隐藏抄送BCC</li>
+<li>additional_parameters，指定传递给发送程序sendmail的额外参数。</li>
+</ul>
+</blockquote>
+<p>在Linux系统上， <strong>php</strong> 的 <strong>mail</strong> 函数在底层中已经写好了，默认调用 <strong>Linux</strong> 的 <strong><a href="http://www.sendmail.com/">sendmail</a></strong> 程序发送邮件。而在额外参数( <strong>additional_parameters</strong> )中， <strong>sendmail</strong> 主要支持的选项有以下三种：</p>
+<blockquote>
+<ul>
+<li>
+<p>-O option = value</p>
+<p>QueueDirectory = queuedir 选择队列消息</p>
+</li>
+<li>
+<p>-X logfile</p>
+<p>这个参数可以指定一个目录来记录发送邮件时的详细日志情况。</p>
+</li>
+<li>
+<p>-f from email</p>
+<p>这个参数可以让我们指定我们发送邮件的邮箱地址。</p>
+</li>
+</ul>
+</blockquote>
+<p>代码中,<code>filter_var($email, FILTER_VALIDATE_EMAIL)</code>对数据进行处理,但是关于 <strong>filter_var()</strong> 中 <strong>FILTER_VALIDATE_EMAIL</strong> 这个选项作用，我们可以看看这个帖子 <a href="https://stackoverflow.com/questions/19220158/php-filter-validate-email-does-not-work-correctly">PHP FILTER_VALIDATE_EMAIL</a> 。这里面有个结论引起了我的注意： <strong>none of the special characters in this local part are allowed outside quotation marks</strong> ，表示所有的特殊符号必须放在双引号中。 <strong>filter_var()</strong> 问题在于，我们在双引号中嵌套转义空格仍然能够通过检测。同时由于底层正则表达式的原因，我们通过重叠单引号和双引号，欺骗 <strong>filter_val()</strong> 使其认为我们仍然在双引号中，这样我们就可以绕过检测。 虽然我们可以绕过<strong>filter_var</strong>的过滤,但是,mail函数执行在Linux底层,还有<strong>escapeshellarg</strong>函数进行再次处理,没有办法达到命令执行,看一下函数处理代码:</p>
+<figure data-type="image" tabindex="5"><img src="https://s2.ax1x.com/2020/02/22/3MAshQ.png" alt="3MAshQ.png" loading="lazy"></figure>
+<p>但是然而 <strong>escapeshellcmd()</strong> 和 <strong>escapeshellarg</strong> 一起使用，会造成特殊字符逃逸，下面我们给个简单例子理解</p>
+<p>一下：</p>
+<pre><code class="language-php">&lt;?php
+    
+    $param = &quot;127.0.0.1' -V -d a=1&quot;;
+    $a= escapeshellarg($param);
+    $b= escapeshellcmd($a);
+    $cmd = &quot;curl &quot;.$b;
+    var_dump($a).&quot;\n&quot;;
+ 	var_dump($b).&quot;\n&quot;;
+ 	var_dump($cmd).&quot;\n&quot;;
+	system(cmd)
+
+?&gt;
+</code></pre>
+<h3 id="步骤">步骤:</h3>
+<p>1.传入参数```$param='127.0.0.1' -v- d a=1``</p>
+<p>2.函数<code>escapeshellarg</code>对单引号进行转义,处理后用单引号将左右俩部分括起来,起到连接作用,处理后:</p>
+<pre><code class="language-shell">'127.0.0.1'\\'' -v -d a=1'
+</code></pre>
+<p>3.接着 <code>escapeshellcmd</code> 函数对第二步处理后字符串中的 <code>\</code> 以及 <code>a=1'</code> 中的单引号进行转义处理，结果如下所示：</p>
+<pre><code class="language-shell">'127.0.0.1'\\'' -v -d a=1\'
+</code></pre>
+<p>4.由于第三步处理之后的payload中的 <code>\\</code> 被解释成了 <code>\</code> 而不再是转义字符，所以单引号配对连接之后将payload分割为三个部分，具体如下所示：</p>
+<figure data-type="image" tabindex="6"><img src="https://s2.ax1x.com/2020/02/22/3MVwFS.png" alt="3MVwFS.png" loading="lazy"></figure>
+<p>请求大致为:</p>
+<p><code>curl 127.0.0.1\ -v -d a=1'</code> 意思就是,给<code>127.0.0.1\</code>发起请求,POST内容为<code>a=1’</code></p>
+<p>总结一下,这题就是考察绕过<code>filter_var()</code>函数的邮件名检测,通过<code>mail()</code>函数底层实现调用<code>escapeshellcmd()</code>函数处理字符串,再结合<code>escapeshellarg()</code>,最终实现参数逃逸,导致远程代码执行</p>
+<h2 id="0x03-漏洞利用">0x03 漏洞利用:</h2>
+<p>漏洞有一些基本要求：<br>
+<strong>1、php version &lt; 5.2.0</strong><br>
+<strong>2、phpmailer &lt; 5.2.18</strong><br>
+<strong>3、php 没有安装 pcre（no default）</strong><br>
+<strong>4、safe_mode = false（default）</strong></p>
+<p>存在正则绕过之后，以及 <strong>escapeshellarg</strong>  和 <strong>escapeshellcmd</strong> 一起使用造成的神奇现象之后。</p>
+<p>只需要 <strong>phpmailer &lt; 5.2.20</strong></p>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://loecho.me/xOMPD6Zs0/" rel="prev"> Wooyun 靶场练习记录-01</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/php01/" rel="next"> PHP代码审计-01</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

