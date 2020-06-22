@@ -28,9 +28,6 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
             <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
             
-                <!--点击特效-->
-                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
-                
                     <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic@latest/assets/media/script/APlayer.min.js"></script>
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
                     
@@ -67,22 +64,14 @@
 
             <div class="menu navbar-right">
                 
-                    <a class="menu-item" href="https://1oecho.github.io">
-                        Home
-                    </a>
-                    
                     <a class="menu-item" href="https://1oecho.github.io/archives">
                         NoteBook
-                    </a>
-                    
-                    <a class="menu-item" href="https://1oecho.github.io/c-zJSfh0F">
-                        Tips
                     </a>
                     
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1592828400685" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1592828892984" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -101,7 +90,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1592828400685" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1592828892984" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -112,16 +101,8 @@
                 </div>
                 <div class="menu" id="mobile-menu">
                     
-                        <a class="menu-item" href="https://1oecho.github.io">
-                            Home
-                        </a>
-                        
                         <a class="menu-item" href="https://1oecho.github.io/archives">
                             NoteBook
-                        </a>
-                        
-                        <a class="menu-item" href="https://1oecho.github.io/c-zJSfh0F">
-                            Tips
                         </a>
                         
                 </div>
@@ -437,40 +418,6 @@ the problem once and for all.</p>
 
                         </div>
                         
-                            <div class="post-toc">
-                                <ul class="markdownIt-TOC">
-<li><a href="#ssrf%E6%A6%82%E8%BF%B0">SSRF概述</a></li>
-<li><a href="#0x01-%E4%BB%80%E4%B9%88%E5%9C%B0%E6%96%B9%E6%9C%80%E5%AE%B9%E6%98%93%E5%87%BA%E7%8E%B0ssrf">0X01 什么地方最容易出现SSRF</a></li>
-<li><a href="#0x02-ssrf%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8D%B1%E5%AE%B3">0X02 SSRF漏洞的危害</a></li>
-<li><a href="#0x03-ssrf%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">0x03 SSRF基本原理:</a>
-<ul>
-<li><a href="#php%E5%B8%B8%E8%A7%81%E6%9C%89%E4%B8%89%E7%A7%8D">PHP常见有三种:</a></li>
-<li><a href="#file_get_contents-%E7%B1%BB%E5%9E%8B">file_get_contents 类型:</a></li>
-<li><a href="#curl_exec">curl_exec</a></li>
-<li><a href="#python%E7%9A%84urllib%E5%BA%93">Python的urllib库</a></li>
-</ul>
-</li>
-<li><a href="#0x04-ssrf%E5%9F%BA%E6%9C%AC%E5%88%A9%E7%94%A8">0x04 SSRF基本利用</a>
-<ul>
-<li><a href="#%E6%8C%96%E6%8E%98%E4%BD%BF%E5%9F%BA%E6%9C%AC%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95">挖掘使基本验证方法:</a></li>
-<li><a href="#ssrf%E7%A5%9E%E5%99%A8-curl%E7%9A%84%E5%88%A9%E7%94%A8">SSRF神器 Curl的利用</a></li>
-<li><a href="#pikachu%E9%9D%B6%E5%9C%BA%E4%B8%BA%E4%BE%8B">Pikachu靶场为例:</a>
-<ul>
-<li><a href="#curl_exec%E7%B1%BB%E5%9E%8B">curl_exec(类型)</a>
-<ul>
-<li><a href="#0%E5%8D%8F%E8%AE%AE%E6%8E%A2%E6%B5%8B">0.协议探测</a></li>
-<li><a href="#1%E5%86%85%E7%BD%91%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B">1.内网端口探测:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#0x05-%E9%98%B2%E5%BE%A1">0x05 防御</a></li>
-</ul>
-
-                            </div>
-                            
                                 
                                                     
                                                                     <!--Share-->
@@ -478,19 +425,11 @@ the problem once and for all.</p>
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
                                                                     <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/ssrf/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/ssrf/&sharesource=qzone&title=SSRF漏洞挖掘技巧&pics=https://1oecho.github.io/images/avatar.png?v=1592828400685&summary="><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/ssrf/&sharesource=weibo&title=SSRF漏洞挖掘技巧 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1592828400685 "><i class="fa fa-weibo "></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/ssrf/&sharesource=qzone&title=SSRF漏洞挖掘技巧&pics=https://1oecho.github.io/images/avatar.png?v=1592828892984&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/ssrf/&sharesource=weibo&title=SSRF漏洞挖掘技巧 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1592828892984 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
-                                                                        <div class="reward ">
-                                                                            <div class="reward-button ">&yen;
-                                                                                <span class="reward-code "> 
-                        <span class="alipay-code "> <img class="alipay-img " alt = "support " src="https://blog.itjoker.cn/alipay.jpg"><b>支付宝</b> </span>
-                                                                                <span class="wechat-code "> <img alt ="support " class="wechat-img " src="https://blog.itjoker.cn/wechat.jpg"><b>微信</b> </span> </span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
                                                                             <!--zh-->
                                                                             <section class="post-tags zh ">
                                                                                 <div>
@@ -535,19 +474,8 @@ the problem once and for all.</p>
         <footer id="footer" class="footer">
             <div class="copyright">
                 
-                    <div class="Like">
-                        <div class="tip" data-tooltip="Do you like it?">
-                            <a href="https://github.com/ITJoker233/Gridea-theme-Chic" target="_blank" title=""><svg class="icon"
-                        aria-hidden="true">
-                        <use xlink:href="#like"></use>
-                    </svg><b class="like_text" id="star"></b></a>
-                        </div>
-                    </div>
-                    
                         Red Team@loecho /CTFer@Web /SRC
                             
-                                <b id="hitokoto"></b><br>
-                                
                                         <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
             <path
                 d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
@@ -559,8 +487,8 @@ the problem once and for all.</p>
                                                 document.write("" + date.getFullYear());
                                             </script>
                                             | Powered by
-                                            <a href="https://coding.net" target="_blank">
-                                                Coding.net
+                                            <a href="https://loecho.me" target="_blank">
+                                                loecho.me
                                             </a>
             </div>
             <div id="update" style="display:none;">
@@ -578,8 +506,6 @@ the problem once and for all.</p>
                     </script>
         </footer>
         
-            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
-            
                 <script>
                     
 
@@ -605,10 +531,6 @@ the problem once and for all.</p>
                     LoadPlayer();
                     
                     
-                    loadlive2d();
-                    
-                    
-                    hitokoto();
                     
                     getStar();
                     hljs.initHighlighting();
@@ -617,7 +539,7 @@ the problem once and for all.</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1592828400685);
+                    newDate.setTime(1592828892984);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
