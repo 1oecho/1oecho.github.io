@@ -178,24 +178,24 @@ window.onload=getCSS();
 </code></pre>
 <p>​</p>
 <p>**(2).**通过构造虚拟表的方式,来查询数据,也就是我们说的子查询注入,数据如下</p>
-<figure data-type="image" tabindex="1"><img src="https://img03.sogoucdn.com/app/a/100520146/b659a22d8ef8ecc70adbe645f2875a5b" alt="UTOOLS1592823899727.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_18-57-42.png" alt="Snipaste_2020-06-22_18-57-42" loading="lazy"></figure>
 <ul>
 <li>
 <p>具体步骤如下:</p>
 <ol>
 <li>构造一个虚拟表</li>
 </ol>
-<figure data-type="image" tabindex="2"><img src="https://img03.sogoucdn.com/app/a/100520146/f786c119e2a6ad10868f4c86890fb761" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-00-43.png" alt="Snipaste_2020-06-22_19-00-43" loading="lazy"></figure>
 <ol start="2">
 <li>查询虚拟表的内容,就会查到我们需要的数据</li>
 </ol>
-<figure data-type="image" tabindex="3"><img src="https://img01.sogoucdn.com/app/a/100520146/0967df2dbfc22c5d83b1c630ec8527d6" alt="UTOOLS1592824132042.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-08-40.png" alt="Snipaste_2020-06-22_19-08-40" loading="lazy"></figure>
 <ol start="3">
 <li>可以发现我们构造的数据第一列为用户名,第二列为密码,我们构造查询得到所有密码</li>
 </ol>
 </li>
 </ul>
-<figure data-type="image" tabindex="4"><img src="https://img02.sogoucdn.com/app/a/100520146/7df45db1a5074b4eff295744dcdffd4a" alt="UTOOLS1592824333021.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-12-05.png" alt="Snipaste_2020-06-22_19-12-05" loading="lazy"></figure>
 <p>4 . 实现我们的查询效果,同理第一列为用户名,在实际测试中,列名我们需要通过自己构造条件来判断,如果列数过多则会报错</p>
 <p>​	<strong>(2)  第二种情况:</strong></p>
 <p><strong>限制条件:</strong></p>
@@ -205,8 +205,8 @@ window.onload=getCSS();
 <li>特殊盲注,<strong>mysql error的前提下延时与不延时</strong></li>
 </ul>
 <h3 id="实际案例">实际案例:</h3>
-<h4 id="1-2019全国大学生安全竞赛-web题目全宇宙最简单的的sql">(1).  2019全国大学生安全竞赛  Web题目:<strong>全宇宙最简单的的SQL</strong></h4>
-<figure data-type="image" tabindex="5"><img src="https://img04.sogoucdn.com/app/a/100520146/c71f47d49c50e20d7953b9f62a4553cc" alt="UTOOLS1592826837794.png" loading="lazy"></figure>
+<h4 id="2019全国大学生安全竞赛-web题目全宇宙最简单的的sql">2019全国大学生安全竞赛  Web题目:<strong>全宇宙最简单的的SQL</strong></h4>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-53-51.png" alt="Snipaste_2020-06-22_19-53-51" loading="lazy"></figure>
 <p><strong>本题突破点:</strong></p>
 <ul>
 <li>
