@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1oecho.github.io</id>
     <title>loecho</title>
-    <updated>2020-06-12T16:41:28.061Z</updated>
+    <updated>2020-06-22T11:58:15.263Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1oecho.github.io"/>
     <link rel="self" href="https://1oecho.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://1oecho.github.io/images/avatar.png</logo>
     <icon>https://1oecho.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, loecho</rights>
+    <entry>
+        <title type="html"><![CDATA[MySQL未知列名的注入Tips]]></title>
+        <id>https://1oecho.github.io/c-zJSfh0F/</id>
+        <link href="https://1oecho.github.io/c-zJSfh0F/">
+        </link>
+        <updated>2020-06-22T11:57:49.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Fastjson < 1.2.47 RCE 利用]]></title>
         <id>https://1oecho.github.io/rxcPG2L_G/</id>
@@ -72,12 +79,5 @@
         <link href="https://1oecho.github.io/k0o40unYd/">
         </link>
         <updated>2020-03-15T06:45:27.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[内网渗透学习Tips总结]]></title>
-        <id>https://1oecho.github.io/9Ua5xZkbb/</id>
-        <link href="https://1oecho.github.io/9Ua5xZkbb/">
-        </link>
-        <updated>2020-03-12T05:46:22.000Z</updated>
     </entry>
 </feed>

