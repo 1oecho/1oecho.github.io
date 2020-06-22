@@ -171,17 +171,15 @@ window.onload=getCSS();
 </li>
 </ul>
 <p>正常情况下我们在联合查询注入时,通过判断列长度,以及显示位后,构造联合查询语句,查询MySQL的 information_schema 表来查询我们需要的数据,当以存在这种情况,可以通过:</p>
-<p><strong>(1).</strong> 查询sys数据库进行数据查询，使用sys数据库需要满足：</p>
+<p>(1). 查询sys数据库进行数据查询，使用sys数据库需要满足：</p>
 <pre><code class="language-mysql">     1.数据库版本大于等于5.7
      
      2.数据库用户为root@localohost用户
 </code></pre>
 <p>​</p>
-<p>**(2).**通过构造虚拟表的方式,来查询数据,也就是我们说的子查询注入,数据如下</p>
+<p>(2). 通过构造虚拟表的方式,来查询数据,也就是我们说的子查询注入,数据如下</p>
 <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_18-57-42.png" alt="Snipaste_2020-06-22_18-57-42" loading="lazy"></figure>
-<ul>
-<li>
-<p>具体步骤如下:</p>
+<h4 id="具体步骤如下">具体步骤如下:</h4>
 <ol>
 <li>构造一个虚拟表</li>
 </ol>
@@ -193,8 +191,6 @@ window.onload=getCSS();
 <ol start="3">
 <li>可以发现我们构造的数据第一列为用户名,第二列为密码,我们构造查询得到所有密码</li>
 </ol>
-</li>
-</ul>
 <figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-12-05.png" alt="Snipaste_2020-06-22_19-12-05" loading="lazy"></figure>
 <p>4 . 实现我们的查询效果,同理第一列为用户名,在实际测试中,列名我们需要通过自己构造条件来判断,如果列数过多则会报错</p>
 <p>​	<strong>(2)  第二种情况:</strong></p>
