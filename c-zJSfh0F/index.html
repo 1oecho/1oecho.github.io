@@ -134,7 +134,7 @@
 </li>
 </ul>
 <p>正常情况下我们在联合查询注入时,通过判断列长度,以及显示位后,构造联合查询语句,查询MySQL的 information_schema 表来查询我们需要的数据,当以存在这种情况,可以通过:</p>
-<p>** (1). 查询sys数据库进行数据查询，使用sys数据库需要满足：**</p>
+<p><strong>(1). 查询sys数据库进行数据查询，使用sys数据库需要满足:</strong></p>
 <pre><code class="language-sql">     1.数据库版本大于等于5.7
      
      2.数据库用户为root@localohost用户
