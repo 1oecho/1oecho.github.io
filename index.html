@@ -13,7 +13,7 @@
 
     
 
-  <meta name="description" content="Red Team@loecho /CTFer@Web /SRC" />
+  <meta name="description" content="<b>Red Team@loecho /CTFer@Web /SRC</b>" />
 </head>
 <body>
   <div class="antialiased flex flex-col min-h-screen" id="app">
@@ -26,10 +26,6 @@
     </div>
   </div>
   <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
-    
-      <a href="https://1oecho.github.io/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        NoteBook
-      </a>
     
     <a href="https://1oecho.github.io/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
       RSS
@@ -45,13 +41,21 @@
       loecho
     </div>
     <div class="text-xl text-gray-500 mt-4 text-center md:text-left">
-      Red Team@loecho /CTFer@Web /SRC
+      <b>Red Team@loecho /CTFer@Web /SRC</b>
     </div>
+    
+      <div class="mt-8 text-center md:text-left">
+        <a
+          href="/post/about" 
+          arget="_blank"
+          class="text-sm bg-yellow-50 dark:bg-indigo-500 dark:text-gray-700 font-semibold px-4 py-2 inline-block yellow-btn transition-fast rounded"
+        >whoami</a>
+      </div>
     
     
   </div>
   <div class="md:mx-8 flex-shrink-0 self-start rounded-full border-4 border-dotted border-transparent hover:border-yellow-50 p-2 w-32 h-32 order-1 md:order-2 mx-auto s3-dotted">
-    <img class="rounded-full object-cover" src="https://1oecho.github.io/images/avatar.png?v=1592878162884" alt="loecho" width="100%" height="100%">
+    <img class="rounded-full object-cover" src="https://1oecho.github.io/images/avatar.png?v=1592878797192" alt="loecho" width="100%" height="100%">
   </div>
 </header>
       
@@ -277,58 +281,6 @@ mysql&gt; se...
     </div>
     
   </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://1oecho.github.io/o4wtG8cGe/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          SQL注入盲注Script分析(基于时间,基于布尔值)
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-03-16</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        0x01 常用函数
-1.limit()
-limit()函数的作用是限制由SELECT语句返回的数据数量，用法是
-SELECT column1, column2, columnN 
-FROM table_name
-LIMIT [no of r...
-      </div>
-      <a href="https://1oecho.github.io/o4wtG8cGe/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://1oecho.github.io/k0o40unYd/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          2019 GXYCTF BabySQli Writeup
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-03-15</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        BabySql
-1.看提示,试着解码base32可以解码,貌似像base64继续解码
-得到语句:
-
-// 查询username
-
-select * from user where username = '$name'
-
-
-稍微Fuzz了一下...
-      </div>
-      <a href="https://1oecho.github.io/k0o40unYd/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
   
       </div>
 
@@ -344,7 +296,7 @@ select * from user where username = '$name'
   </div>
 
       <footer class="py-12 text-center px-4 md:px-0" v-pre>
-  Red Team@loecho
+  Red Team@loecho /CTFer@Web /SRC
 </footer>
 
     </div>

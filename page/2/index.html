@@ -13,7 +13,7 @@
 
     
 
-  <meta name="description" content="Red Team@loecho /CTFer@Web /SRC" />
+  <meta name="description" content="<b>Red Team@loecho /CTFer@Web /SRC</b>" />
 </head>
 <body>
   <div class="antialiased flex flex-col min-h-screen" id="app">
@@ -27,10 +27,6 @@
   </div>
   <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
     
-      <a href="https://1oecho.github.io/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
-        NoteBook
-      </a>
-    
     <a href="https://1oecho.github.io/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
       RSS
     </a>
@@ -42,6 +38,58 @@
 
       <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
         
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://1oecho.github.io/o4wtG8cGe/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          SQL注入盲注Script分析(基于时间,基于布尔值)
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-03-16</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        0x01 常用函数
+1.limit()
+limit()函数的作用是限制由SELECT语句返回的数据数量，用法是
+SELECT column1, column2, columnN 
+FROM table_name
+LIMIT [no of r...
+      </div>
+      <a href="https://1oecho.github.io/o4wtG8cGe/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://1oecho.github.io/k0o40unYd/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          2019 GXYCTF BabySQli Writeup
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-03-15</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        BabySql
+1.看提示,试着解码base32可以解码,貌似像base64继续解码
+得到语句:
+
+// 查询username
+
+select * from user where username = '$name'
+
+
+稍微Fuzz了一下...
+      </div>
+      <a href="https://1oecho.github.io/k0o40unYd/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+  </div>
+
   <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
     
     <div class="flex-1 order-2 md:order-1">
@@ -190,101 +238,6 @@ PHP     脚本在服务器上执行。...
     </div>
     
   </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://1oecho.github.io/otcXOSew_/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          垃圾数据混淆流量BypassWAF
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-02-26</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        0x01 起因
-最近接到授权,测试了一个某学校的一个站,因为目标子aliyun上,会抓冰蝎的流量特征,于是便使用了,先知上一位师傅发的垃圾流量BypassWAF的方法,原帖在这:https://xz.aliyun.com/t/7126
-试过...
-      </div>
-      <a href="https://1oecho.github.io/otcXOSew_/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://1oecho.github.io/xOMPD6Zs0/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          Wooyun 靶场练习记录-01
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-02-26</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        <h2 id="0x01-准备">0x01 准备</h2>
-<h4 id="环境">环境:</h4>
-<p>| <strong>浏览器</strong>   | <code>Firefox</code> |</p>
-
-      </div>
-      <a href="https://1oecho.github.io/xOMPD6Zs0/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://1oecho.github.io/php02/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          PHP代码审计-02
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-02-25</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        0x01 POSTMail
-
-0x02 函数用途和分析
-想快速看一下整体的代码,实现的功能大致就是,通过内部函数处理输入数据POST发送请求,发送一条邮件!
-主要的函数:
-mail 函数:
-
-过滤传入数据的函数:
-fileter_var
-
-...
-      </div>
-      <a href="https://1oecho.github.io/php02/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
-    
-    <div class="flex-1 order-2 md:order-1">
-      <h2 class="text-2xl font-semibold mb-4">
-        <a href="https://1oecho.github.io/php01/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
-          PHP代码审计-01
-        </a>
-      </h2>
-      <div class="mb-4 text-xs text-gray-500">2020-02-25</div>
-      <div class="mb-4 text-gray-500 dark:text-gray-300">
-        PHP代码审计(01)
-前言
-因为现在疫情的影响,开学推迟了.开学具体日期也没有确定.正好这段时间充实自己,那感觉是极好的,看到了
-Gothub上,红日安全团队的一个PHP代码审计审计系列教程,学习一下!
-Day 1 - In_Array ...
-      </div>
-      <a href="https://1oecho.github.io/php01/" class="btn">
-        Read more
-      </a>
-    </div>
-    
-  </div>
   
       </div>
 
@@ -305,7 +258,7 @@ Day 1 - In_Array ...
   </div>
 
       <footer class="py-12 text-center px-4 md:px-0" v-pre>
-  Red Team@loecho
+  Red Team@loecho /CTFer@Web /SRC
 </footer>
 
     </div>
