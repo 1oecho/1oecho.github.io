@@ -14,25 +14,28 @@
 
     
 
-  <meta name="description" content="0x01 思路
+  <meta name="description" content="
+0x01 思路
 ​		SQL查询中,替换一下内部特征的东西,构造无用字符串,替换空格以及字符串连接处,得到的效果暴力又高效,最早提出这个思路是某个大佬提出来的,真香!
 1.编写脚本,生成一个字典,已被后续使用
-2.BurpSuit Turb..." />
+2.BurpSuit Tur..." />
   <meta property="og:title" content="SQLi_ByPass-WaF_FUZZ-Tips 分享 - loecho">
-  <meta property="og:description" content="0x01 思路
+  <meta property="og:description" content="
+0x01 思路
 ​		SQL查询中,替换一下内部特征的东西,构造无用字符串,替换空格以及字符串连接处,得到的效果暴力又高效,最早提出这个思路是某个大佬提出来的,真香!
 1.编写脚本,生成一个字典,已被后续使用
-2.BurpSuit Turb..." />
+2.BurpSuit Tur..." />
   <meta property="og:type" content="articles">
   <meta property="og:url" content="https://1oecho.github.io/G9StXUF8l/" />
   <meta property="og:image" content="https://1oecho.github.io/images/avatar.png">
   <meta property="og:image:height" content="630">
   <meta property="og:image:width" content="1200">
   <meta name="twitter:title" content="SQLi_ByPass-WaF_FUZZ-Tips 分享 - loecho">
-  <meta name="twitter:description" content="0x01 思路
+  <meta name="twitter:description" content="
+0x01 思路
 ​		SQL查询中,替换一下内部特征的东西,构造无用字符串,替换空格以及字符串连接处,得到的效果暴力又高效,最早提出这个思路是某个大佬提出来的,真香!
 1.编写脚本,生成一个字典,已被后续使用
-2.BurpSuit Turb...">
+2.BurpSuit Tur...">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://1oecho.github.io/G9StXUF8l/">
 
@@ -62,12 +65,13 @@
           
         </div>
         <div class="markdown mb-8" v-pre>
-          <h2 id="0x01-思路">0x01 思路</h2>
+          <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200627122342.png" alt="" loading="lazy"></figure>
+<h2 id="0x01-思路">0x01 思路</h2>
 <p>​		SQL查询中,替换一下内部特征的东西,构造无用字符串,替换空格以及字符串连接处,得到的效果暴力又高效,最早提出这个思路是某个大佬提出来的,真香!</p>
 <p><strong>1.编写脚本,生成一个字典,已被后续使用</strong></p>
 <p><strong>2.BurpSuit Turbo 插件 无敌推荐</strong></p>
 <p><strong>(80000+的请求,每秒166个,无敌)</strong></p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/03/25/qGXkZtbWNlVFi1m.png" alt="image-20200325193521995" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2020/03/25/qGXkZtbWNlVFi1m.png" alt="image-20200325193521995" loading="lazy"></figure>
 <hr>
 <p><strong>3.替换Paylaod</strong></p>
 <h2 id="0x02-脚本实现">0x02 脚本实现:</h2>
@@ -95,10 +99,10 @@ if __name__ == &quot;__main__&quot;:
 <p><strong>生成数据很多,只取了文件大小为15MB的字符串测试</strong></p>
 <h2 id="0x03-验证payload">0x03 验证Payload</h2>
 <p>已SQLi-Lab靶场为例子:</p>
-<figure data-type="image" tabindex="2"><img src="https://1oecho.github.io/post-images/1585136994150.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://1oecho.github.io/post-images/1585136994150.png" alt="" loading="lazy"></figure>
 <h2 id="实践_某waf挑战赛测试结果">实践_某WAF挑战赛测试结果:</h2>
-<figure data-type="image" tabindex="3"><img src="https://1oecho.github.io/post-images/1585137008925.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="4"><img src="https://1oecho.github.io/post-images/1585137044283.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://1oecho.github.io/post-images/1585137008925.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://1oecho.github.io/post-images/1585137044283.png" alt="" loading="lazy"></figure>
 <h2 id="0x03-to-do">0x03 To do:</h2>
 <p><strong>1.完善Payload字典</strong></p>
 <p><strong>2.替换空格一些必要字符</strong></p>
