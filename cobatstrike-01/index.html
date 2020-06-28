@@ -1611,37 +1611,34 @@ java -cp ./java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.Con
 <p><strong>1. 创建项目,导入反编译后解压的jar文件里面的具体代码,目录结构设置为一致:</strong></p>
 <figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628183939649.png" alt="image-20200628183939649" loading="lazy"></figure>
 <ol start="2">
-<li>
-<p>设置相关配置,处理依赖,添加jar路径,应用设置:</p>
+<li>设置相关配置,处理依赖,添加jar路径,应用设置:</li>
+</ol>
 <figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184340221.png" alt="image-20200628184340221" loading="lazy"></figure>
 <figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184516995.png" alt="image-20200628184516995" loading="lazy"></figure>
-</li>
-</ol>
 <p><strong>3. 配置主类的名称:</strong></p>
-<pre><code>    ![image-20200628184850052](https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184850052.png)
-</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184850052.png" alt="image-20200628184850052" loading="lazy"></figure>
 <h3 id="3-接下来就是修改代码">(3) 接下来就是,修改代码:</h3>
 <p>你修改那个文件,就把<code>jar</code>文件下的.java文件,复制到<code>src</code>目录,如果需要更改子目录下的名称同名的文件,目录结构也要保持一致</p>
 <p>下面以 <code>windows/Aggressor.java</code>文件为例</p>
 <p>​	 1.将反编译源代码下的具体文件,复制文件到<code>src</code>目录:</p>
-<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628192537236.png" alt="image-20200628192537236" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628192537236.png" alt="image-20200628192537236" loading="lazy"></figure>
 <p><strong>2. 创建同名的目录<code>aggressor</code>,复制文件进去:</strong></p>
-<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628192557396.png" alt="image-20200628192557396" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628192557396.png" alt="image-20200628192557396" loading="lazy"></figure>
 <p><strong>3. 修改文件,添加一个弹窗:</strong></p>
-<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190152854.png" alt="image-20200628190152854" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190152854.png" alt="image-20200628190152854" loading="lazy"></figure>
 <p><strong>4.保存打包为jar包,运行看一下效果</strong></p>
-<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190414700.png" alt="image-20200628190414700" loading="lazy"></figure>
-<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190424679.png" alt="image-20200628190424679" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190414700.png" alt="image-20200628190414700" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190424679.png" alt="image-20200628190424679" loading="lazy"></figure>
 <p><strong>5. 输出文件在<code>out</code>文件夹下,运行,添加运行jar的配置文件:</strong></p>
-<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190851451.png" alt="image-20200628190851451" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190851451.png" alt="image-20200628190851451" loading="lazy"></figure>
 <ol start="6">
 <li>添加俩个vm选项,将<code>auth</code>文件放进目录:</li>
 </ol>
-<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191349173.png" alt="image-20200628191349173" loading="lazy"></figure>
-<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191553414.png" alt="image-20200628191553414" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191349173.png" alt="image-20200628191349173" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191553414.png" alt="image-20200628191553414" loading="lazy"></figure>
 <p>7 . 可以直接运行,运行成功,弹出了我们设置的消息框,CS客户端也成功运行了:</p>
-<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191641358.png" alt="image-20200628191641358" loading="lazy"></figure>
-<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191755803.png" alt="image-20200628191755803" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191641358.png" alt="image-20200628191641358" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191755803.png" alt="image-20200628191755803" loading="lazy"></figure>
 <h2 id="0x03-to-do">0x03 To do</h2>
 <p>后续我们就可以通过这种方式来进行 自定义改造了,改造那个文件,就把源码复制进src,修改完后打包jar文件,就可以</p>
 <ol>
