@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1oecho.github.io</id>
     <title>loecho</title>
-    <updated>2020-06-27T04:25:08.444Z</updated>
+    <updated>2020-06-28T11:28:45.074Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1oecho.github.io"/>
     <link rel="self" href="https://1oecho.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://1oecho.github.io/images/avatar.png</logo>
     <icon>https://1oecho.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, loecho</rights>
+    <entry>
+        <title type="html"><![CDATA[CobaltStrike-反编译自定义功能学习 (一) ]]></title>
+        <id>https://1oecho.github.io/cobatstrike-01/</id>
+        <link href="https://1oecho.github.io/cobatstrike-01/">
+        </link>
+        <updated>2020-06-28T11:27:41.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Oracle  注入 All in All]]></title>
         <id>https://1oecho.github.io/oracle-sqli/</id>
@@ -72,12 +79,5 @@
         <link href="https://1oecho.github.io/FtRTsYiXp/">
         </link>
         <updated>2020-03-17T03:59:31.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SQL注入盲注Script分析(基于时间,基于布尔值)]]></title>
-        <id>https://1oecho.github.io/o4wtG8cGe/</id>
-        <link href="https://1oecho.github.io/o4wtG8cGe/">
-        </link>
-        <updated>2020-03-16T10:55:45.000Z</updated>
     </entry>
 </feed>
