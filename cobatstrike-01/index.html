@@ -66,12 +66,14 @@
 <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628181814456.png" alt="image-20200628181814456" loading="lazy"></figure>
 <p><strong>2. 因为这个只是一个插件,将<code>jar</code>文件拷贝出来,直接通过<code>java -jar</code>运行,会运行失败!</strong></p>
 <p><strong>直接通过命令,运行<code>jar</code>里面的反编译主类:</strong></p>
-<pre><code>  # 具体命令如下:
+<pre><code class="language-java">
+# 具体命令如下:
+
 java -cp java -cp ./java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler -dgs=true (1)需要反编译的jar文件路径 (2)反编译完的jar文件保存路径
   
-  # 反编译CS的Cobaltstrike.jar文件,命令为:
-  
-  java -cp ./java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler -dgs=true ./cs_bin/cobaltstrike.jar ./cs_src/
+# 反编译CS的Cobaltstrike.jar文件,命令为:
+
+java -cp ./java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler -dgs=true ./cs_bin/cobaltstrike.jar ./cs_src/
 </code></pre>
 <p><strong>执行成功,结果如下:</strong></p>
 <figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628182608372.png" alt="image-20200628182608372" loading="lazy"></figure>
