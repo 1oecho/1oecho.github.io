@@ -109,7 +109,7 @@ DMZ网段为:192.168.111.1/24,Web服务IP:192....">
 <h3 id="基本探测结果如下">基本探测结果如下:</h3>
 <p>​</p>
 <figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710115249.png" alt="image-20200710115249691" loading="lazy"></figure>
-<h3 id="存在问题">存在问题</h3>
+<h3 id="存在问题">存在问题：</h3>
 <figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710115803.png" alt="image-20200710115803908" loading="lazy"></figure>
 <h5 id="1-存在weblogic中间件并且存在-aweblogic-iiop-rce-cve-2020-2551a漏洞可getshell">1) 存在Weblogic中间件,并且存在 <a>Weblogic IIOP RCE (CVE-2020-2551)</a>漏洞,可GetShell</h5>
 <h5 id="2-存在aeternalbluedoublepulsar-ms17-010-smb-rce-永恒之蓝a可getshell">2) 存在<a>Eternalblue/DOUBLEPULSAR MS17-010 SMB RCE 永恒之蓝</a>,可GetShell</h5>
@@ -164,69 +164,67 @@ content-type: text/xml
 </li>
 <li>
 <p>对服务器进行详细的信息收集,尝试抓取各类密码:</p>
+</li>
+</ul>
+</li>
+</ul>
 <figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710123059.png" alt="image-20200710123059107" loading="lazy"></figure>
+<pre><code>- 通过&lt;a&gt;seatbelt&lt;/a&gt;进行详细的信息收集: **seatbelt.exe -group=all -full**
+</code></pre>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200713222312.png" alt="image-20200713222312537" loading="lazy"></figure>
 <ul>
-<li>
-<p>通过<a>seatbelt</a>进行详细的信息收集: <strong>seatbelt.exe -group=all -full</strong></p>
-</li>
-<li>
-<p><a>Ladon</a>对内网10.10.10.0/24网段,以及192.168.111.0/24进行存活探测,发现主机</p>
-</li>
+<li><a>Ladon</a>对内网10.10.10.0/24网段,以及192.168.111.0/24进行存活探测,发现主机</li>
 </ul>
-<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710145111.png" alt="image-20200710145111512" loading="lazy"></figure>
-</li>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710145111.png" alt="image-20200710145111512" loading="lazy"></figure>
+<ul>
+<li>尝试提权,提取SYSTEM权限,通过MS14058,提权成功!,继续进行信息收集,域渗透</li>
 </ul>
-</li>
-<li>
-<p>尝试提权,提取SYSTEM权限,通过MS14058,提权成功!,继续进行信息收集,域渗透</p>
-</li>
-</ul>
-<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710150752.png" alt="image-20200710150752758" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710150752.png" alt="image-20200710150752758" loading="lazy"></figure>
 <h2 id="0x03-横向渗透">0x03 横向渗透</h2>
 <p>收集域信息,得到结果:</p>
-<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151100.png" alt="image-20200710151100304" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151100.png" alt="image-20200710151100304" loading="lazy"></figure>
 <ul>
 <li>域控我们判断正确,实际情况下DNS服务所在的服务器通常为域控:</li>
 </ul>
-<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151202.png" alt="image-20200710151202486" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151202.png" alt="image-20200710151202486" loading="lazy"></figure>
 <ul>
 <li>进行信息收集,包括域管理员hash 密码 当前服务器密码,通过工具:lazagne 和 Mimikatz 收集</li>
 </ul>
-<figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151628.png" alt="image-20200710151628485" loading="lazy"></figure>
-<figure data-type="image" tabindex="17"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151817.png" alt="image-20200710151817038" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151628.png" alt="image-20200710151628485" loading="lazy"></figure>
+<figure data-type="image" tabindex="18"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710151817.png" alt="image-20200710151817038" loading="lazy"></figure>
 <ul>
 <li>
 <p>接下来我们查看域内机器,域管理员,域组账户,等等</p>
-<figure data-type="image" tabindex="18"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710164902.png" alt="image-20200710164902480" loading="lazy"></figure>
-<figure data-type="image" tabindex="19"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710152115.png" alt="image-20200710152115661" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710164902.png" alt="image-20200710164902480" loading="lazy"></figure>
+<figure data-type="image" tabindex="20"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710152115.png" alt="image-20200710152115661" loading="lazy"></figure>
 </li>
 </ul>
-<figure data-type="image" tabindex="20"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710152227.png" alt="image-20200710152227007" loading="lazy"></figure>
-<figure data-type="image" tabindex="21"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710152317.png" alt="image-20200710152317283" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710152227.png" alt="image-20200710152227007" loading="lazy"></figure>
+<figure data-type="image" tabindex="22"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710152317.png" alt="image-20200710152317283" loading="lazy"></figure>
 <ul>
 <li>
-<p>通过筛选PID,我们找到域管理员的PID进程,进行伪造Token,因为已经抓取到明文密码了,也可以直接上线,方式很多,我使用假设没有抓到密码的情况</p>
-<figure data-type="image" tabindex="22"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710155055.png" alt="image-20200710155055574" loading="lazy"></figure>
+<p>通过筛选PID,我们找到域管理员的PID进程,进行伪造Token,因为已经抓取到明文密码了,也可以生成Token，直接上线,方式很多,我使用假设没有抓到密码的情况</p>
+<figure data-type="image" tabindex="23"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710155055.png" alt="image-20200710155055574" loading="lazy"></figure>
 </li>
 <li>
 <p>得到Token后,看一下是否能共享文件:</p>
 </li>
 </ul>
-<figure data-type="image" tabindex="23"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710155205.png" alt="image-20200710155205477" loading="lazy"></figure>
+<figure data-type="image" tabindex="24"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710155205.png" alt="image-20200710155205477" loading="lazy"></figure>
 <ul>
 <li>
 <p>可以伪造成功,可以共享文件:</p>
-<figure data-type="image" tabindex="24"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710155746.png" alt="image-20200710155745949" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710155746.png" alt="image-20200710155745949" loading="lazy"></figure>
 </li>
 <li>
 <p>上线域控,我们通过Web服务器进行中转流量,以后的机器流量都通过Web服务进行跳板:</p>
 </li>
 </ul>
-<figure data-type="image" tabindex="25"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710165257.png" alt="image-20200710165257422" loading="lazy"></figure>
+<figure data-type="image" tabindex="26"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710165257.png" alt="image-20200710165257422" loading="lazy"></figure>
 <ul>
 <li>同样方式,通过域管理员的账号密码,上线 <strong>mssql</strong></li>
 </ul>
-<figure data-type="image" tabindex="26"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710165520.png" alt="image-20200710165520434" loading="lazy"></figure>
+<figure data-type="image" tabindex="27"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200710165520.png" alt="image-20200710165520434" loading="lazy"></figure>
 <h2 id="0x04-总结与想法">0x04 总结与想法</h2>
 <ol>
 <li>
@@ -313,7 +311,7 @@ content-type: text/xml
 </ul>
 </li>
 <li><a href="#%E5%9F%BA%E6%9C%AC%E6%8E%A2%E6%B5%8B%E7%BB%93%E6%9E%9C%E5%A6%82%E4%B8%8B">基本探测结果如下:</a></li>
-<li><a href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98">存在问题</a><br>
+<li><a href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98">存在问题：</a><br>
 *
 <ul>
 <li><a href="#1-%E5%AD%98%E5%9C%A8weblogic%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%B9%B6%E4%B8%94%E5%AD%98%E5%9C%A8-aweblogic-iiop-rce-cve-2020-2551a%E6%BC%8F%E6%B4%9E%E5%8F%AFgetshell">1) 存在Weblogic中间件,并且存在 <a>Weblogic IIOP RCE (CVE-2020-2551)</a>漏洞,可GetShell</a></li>
