@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1oecho.github.io</id>
     <title>loecho</title>
-    <updated>2020-07-26T07:33:53.354Z</updated>
+    <updated>2020-08-14T07:26:05.221Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1oecho.github.io"/>
     <link rel="self" href="https://1oecho.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://1oecho.github.io/images/avatar.png</logo>
     <icon>https://1oecho.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, loecho</rights>
+    <entry>
+        <title type="html"><![CDATA[SQL注入"Strange-Tps"汇总]]></title>
+        <id>https://1oecho.github.io/all-in-sql/</id>
+        <link href="https://1oecho.github.io/all-in-sql/">
+        </link>
+        <updated>2020-08-14T07:24:29.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[深度隐藏C2—本地C2隐匿于SSH加密隧道 (Experiment)]]></title>
         <id>https://1oecho.github.io/C2-01/</id>
@@ -72,12 +79,5 @@
         <link href="https://1oecho.github.io/MQsrzmFhV/">
         </link>
         <updated>2020-04-27T02:30:19.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CobaltStrike Becon上线 微信实时推送!]]></title>
-        <id>https://1oecho.github.io/CX976pZ6d/</id>
-        <link href="https://1oecho.github.io/CX976pZ6d/">
-        </link>
-        <updated>2020-04-21T08:09:40.000Z</updated>
     </entry>
 </feed>
