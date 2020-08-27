@@ -1,0 +1,465 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>2020CISCN-线上初赛WriteUp - loecho</title>
+<link rel="shortcut icon" href="https://1oecho.github.io/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://1oecho.github.io/media/css/tailwind.css">
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="2020CISCN-线上初赛WriteUp - loecho - Atom Feed" href="https://1oecho.github.io/atom.xml">
+
+    
+
+  <meta name="description" content="2020  CISCN Writeup
+WEB题目
+Babyunserialize
+
+
+先探测了一下目录，得到备份文件，代码审计：
+
+
+
+
+题目提示为反序列化，关键字找一下，每个目录看一下，看看具体的调用方法
+
+
+
+
+3 .具体调用在cli..." />
+  <meta property="og:title" content="2020CISCN-线上初赛WriteUp - loecho">
+  <meta property="og:description" content="2020  CISCN Writeup
+WEB题目
+Babyunserialize
+
+
+先探测了一下目录，得到备份文件，代码审计：
+
+
+
+
+题目提示为反序列化，关键字找一下，每个目录看一下，看看具体的调用方法
+
+
+
+
+3 .具体调用在cli..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://1oecho.github.io/b32GT6sbw/" />
+  <meta property="og:image" content="https://1oecho.github.io/images/avatar.png">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="2020CISCN-线上初赛WriteUp - loecho">
+  <meta name="twitter:description" content="2020  CISCN Writeup
+WEB题目
+Babyunserialize
+
+
+先探测了一下目录，得到备份文件，代码审计：
+
+
+
+
+题目提示为反序列化，关键字找一下，每个目录看一下，看看具体的调用方法
+
+
+
+
+3 .具体调用在cli...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://1oecho.github.io/b32GT6sbw/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://1oecho.github.io/media/css/prism-synthwave84.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://1oecho.github.io" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      loecho
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          2020CISCN-线上初赛WriteUp
+        </h1>
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-08-27 · 2 min read</div>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <h1 id="2020-ciscn-writeup">2020  CISCN Writeup</h1>
+<h2 id="web题目">WEB题目</h2>
+<h2 id="babyunserialize">Babyunserialize</h2>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094622.png" alt="image-20200820164936436" loading="lazy"></figure>
+<ol>
+<li>先探测了一下目录，得到备份文件，代码审计：</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094625.png" alt="image-20200820133129648" loading="lazy"></figure>
+<ol start="2">
+<li>
+<p>题目提示为反序列化，关键字找一下，每个目录看一下，看看具体的调用方法</p>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094627.png" alt="image-20200820135514471" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094630.png" alt="image-20200820165228840" loading="lazy"></figure>
+</li>
+</ol>
+<p>3 .具体调用在cli.php,构造得到payload,成功！：</p>
+<h2 id="easyphp">easyphp</h2>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094632.png" alt="image-20200821071240623" loading="lazy"></figure>
+<h5 id="payload">payload：</h5>
+<pre><code>
+</code></pre>
+<h2 id="easytrick">easytrick</h2>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094634.png" alt="image-20200821071636350" loading="lazy"></figure>
+<ol>
+<li>
+<p>代码审计，要求为:trick1与trick2长度&lt;=5,并且后续md5比较通过，得到Flag<img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200821071611205.png" alt="image-20200821071611205" loading="lazy"></p>
+</li>
+<li>
+<p>在本地环境模拟，尝试了科学计数法与精度问题，得到结果：</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094638.png" alt="image-20200821072212449" loading="lazy"></figure>
+<h2 id="原型链污染">原型链污染</h2>
+<p>原型链污染：https://snyk.io/vuln/SNYK-JS-SETVALUE-450213，直接打</p>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094640.png" alt="image-20200820170709773" loading="lazy"></figure>
+<h2 id="misc题目">MISC题目：</h2>
+<h2 id="the_best_ctf_game">the_best_ctf_game</h2>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094642.png" alt="" loading="lazy"></figure>
+<ol>
+<li>直接打开文件，发现关键字Flag：</li>
+</ol>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094645.png" alt="image-20200820134914182" loading="lazy"></figure>
+<ol start="2">
+<li>得到Flag：<strong>flag{65e02f26-0d6e-463f-bc63-2df733e47fbe}</strong></li>
+</ol>
+<h2 id="电脑被黑">电脑被黑</h2>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094648.png" alt="image-20200820165827482" loading="lazy"></figure>
+<ol>
+<li>
+<p>下载得到附件，BInkwalk看一下文件：</p>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094650.png" alt="image-20200820171623811" loading="lazy"></figure>
+</li>
+</ol>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094652.png" alt="image-20200820171311058" loading="lazy"></figure>
+<ol start="2">
+<li>通过fsstat看目录：</li>
+</ol>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094653.png" alt="image-20200820171355720" loading="lazy"></figure>
+<ol start="3">
+<li>
+<p>通过<strong>ext3grep</strong>，恢复文件：</p>
+<pre><code class="language-bash"># 查看需要恢复的文件：
+
+ext3grep disk_dump  --ls --inode 2
+
+# 获取文件名：
+
+ext3grep disk_dump --dump-names
+
+# 直接恢复所有文件：
+
+ext3grep disk_dump --restore-all
+
+
+</code></pre>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094656.png" alt="image-20200820171933296" loading="lazy"></figure>
+</li>
+</ol>
+<figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094658.png" alt="image-20200820172107556" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094700.png" alt="image-20200820172221885" loading="lazy"></figure>
+<ol start="4">
+<li>查找关键字，flag乱码！</li>
+</ol>
+<figure data-type="image" tabindex="18"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094702.png" alt="image-20200820175514005" loading="lazy"></figure>
+<ol start="5">
+<li>查看demo程序，逆向,发现加密算法，写脚本：</li>
+</ol>
+<figure data-type="image" tabindex="19"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094704.png" alt="image-20200824113135585" loading="lazy"></figure>
+<pre><code class="language-python">#!/usr/bin/ python
+# -*- coding:utf-8 -*-
+&quot;&quot;&quot;
+-------------------------------------------------
+Author:    loecho
+Datetime:  2020/8/20 15:56
+ProjectN:  exp-xor.py
+Blog:      https://loecho.me
+Email:     loecho@foxmail.com
+-------------------------------------------------
+&quot;&quot;&quot;
+
+def main():
+
+    flag = &quot;&quot;
+    v4 = 34
+    v5 = 0
+    with open('flag.txt', 'a+') as f:
+        data = f.read()
+
+    for i in data:
+        flag = flag + chr((ord(i) ^ v4) - v5)
+        v4 = (v4+34)&amp;0xff
+        v5 = (v5+2)&amp;0x0f
+        
+    print flag
+    
+if __name__ == '__main__':
+
+    main()
+
+</code></pre>
+<h4 id="得到flag">得到Flag：</h4>
+<figure data-type="image" tabindex="20"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094708.png" alt="image-20200820180109169" loading="lazy"></figure>
+<h2 id="pwn题目">PWN题目：</h2>
+<ol>
+<li>分析后，nc连接，得到哑Shell，通过python，弹一个完整的shell：</li>
+</ol>
+<pre><code class="language-python">python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+</code></pre>
+<figure data-type="image" tabindex="21"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094710.png" alt="image-20200820163836505" loading="lazy"></figure>
+<ol start="2">
+<li>flag搜索一下，得到路径：</li>
+</ol>
+<figure data-type="image" tabindex="22"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094712.png" alt="image-20200820164216625" loading="lazy"></figure>
+<ol start="3">
+<li>得到flag</li>
+</ol>
+<figure data-type="image" tabindex="23"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200827094714.png" alt="image-20200820164237204" loading="lazy"></figure>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Red Team@loecho /CTFer@Web /SRC
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li><a href="#2020-ciscn-writeup">2020  CISCN Writeup</a>
+<ul>
+<li><a href="#web%E9%A2%98%E7%9B%AE">WEB题目</a></li>
+<li><a href="#babyunserialize">Babyunserialize</a></li>
+<li><a href="#easyphp">easyphp</a><br>
+*<br>
+*<br>
+* <a href="#payload">payload：</a></li>
+<li><a href="#easytrick">easytrick</a></li>
+<li><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93">原型链污染</a></li>
+<li><a href="#misc%E9%A2%98%E7%9B%AE">MISC题目：</a></li>
+<li><a href="#the_best_ctf_game">the_best_ctf_game</a></li>
+<li><a href="#%E7%94%B5%E8%84%91%E8%A2%AB%E9%BB%91">电脑被黑</a><br>
+*
+<ul>
+<li><a href="#%E5%BE%97%E5%88%B0flag">得到Flag：</a></li>
+</ul>
+</li>
+<li><a href="#pwn%E9%A2%98%E7%9B%AE">PWN题目：</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://1oecho.github.io/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://1oecho.github.io/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+</body>
+
+</html>
