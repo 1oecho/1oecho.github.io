@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1oecho.github.io</id>
     <title>loecho</title>
-    <updated>2020-09-11T01:35:59.211Z</updated>
+    <updated>2020-09-15T01:33:48.305Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1oecho.github.io"/>
     <link rel="self" href="https://1oecho.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://1oecho.github.io/images/avatar.png</logo>
     <icon>https://1oecho.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, loecho</rights>
+    <entry>
+        <title type="html"><![CDATA[静态免杀学习记录： Hex字符串反转BypassAV]]></title>
+        <id>https://1oecho.github.io/3OkCP7q2p/</id>
+        <link href="https://1oecho.github.io/3OkCP7q2p/">
+        </link>
+        <updated>2020-09-15T01:33:17.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[内网渗透： 资源定位及攻击思路]]></title>
         <id>https://1oecho.github.io/NET-01/</id>
@@ -72,12 +79,5 @@
         <link href="https://1oecho.github.io/c-zJSfh0F/">
         </link>
         <updated>2020-06-22T11:57:49.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Fastjson < 1.2.47 RCE 利用]]></title>
-        <id>https://1oecho.github.io/rxcPG2L_G/</id>
-        <link href="https://1oecho.github.io/rxcPG2L_G/">
-        </link>
-        <updated>2020-06-11T07:21:57.000Z</updated>
     </entry>
 </feed>
