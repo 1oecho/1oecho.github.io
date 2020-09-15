@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1oecho.github.io</id>
     <title>loecho</title>
-    <updated>2020-09-15T01:47:36.687Z</updated>
+    <updated>2020-09-15T09:43:33.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1oecho.github.io"/>
     <link rel="self" href="https://1oecho.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://1oecho.github.io/images/avatar.png</logo>
     <icon>https://1oecho.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, loecho</rights>
+    <entry>
+        <title type="html"><![CDATA[ All in XrayScan 简单实现]]></title>
+        <id>https://1oecho.github.io/ZE5av21E3/</id>
+        <link href="https://1oecho.github.io/ZE5av21E3/">
+        </link>
+        <updated>2020-09-15T09:39:55.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[静态免杀学习记录： Hex字符串反转BypassAV]]></title>
         <id>https://1oecho.github.io/bypassAV-01/</id>
@@ -72,12 +79,5 @@
         <link href="https://1oecho.github.io/oracle-sqli/">
         </link>
         <updated>2020-06-24T04:49:39.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MySQL未知列名的注入Tips]]></title>
-        <id>https://1oecho.github.io/c-zJSfh0F/</id>
-        <link href="https://1oecho.github.io/c-zJSfh0F/">
-        </link>
-        <updated>2020-06-22T11:57:49.000Z</updated>
     </entry>
 </feed>
