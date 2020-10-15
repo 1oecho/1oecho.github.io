@@ -359,7 +359,7 @@ schtasks /delete /F /tn WindowsUpdates /s 192.168.3.108 /U &quot; administrator&
 <ul>
 <li>RDP端口查看方式：</li>
 </ul>
-<pre><code class="language-powershell"># 通过注册表查询3389
+<pre><code># 通过注册表查询3389
 
 REG QUERY &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections # 查看RDP服务是否开启：1关闭，0开启
 
@@ -375,32 +375,32 @@ netstat -ano | find &quot;3220&quot; # 找到进程对应的端口号
 # 通过监听端口查看
 
 netstat -ano | findstr LIS # 查看当前监听端口，有些情况可能RDP端口更改
-
-</code></pre>
-<ul>
-<li>
-<p>强开RDP端口方法:</p>
-<pre><code class="language-powershell"># 注册表开启，高权限用户：
-
-REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 00000000 /f
-
-REG ADD &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d 0x00000d3d /f  # 监听 3389 端口
-
-# 注册表文件开启，高权限用户：
-
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
-&quot;fDenyTSConnections&quot;=dword:00000000
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
-&quot;PortNumber&quot;=dword:00000d3d 
-
-# Wmic启动远程主机RDP服务：
-
-wmic /node: &quot;10.10.10.130&quot; /USER:&quot;10.10.10.130\administrator&quot; PATH win32_erminalservicesetting WHERE (__Class!=&quot;&quot;) CALL SetAllowTSConnections 1 # 需要输入远程机器上管理员密码
 </code></pre>
 </li>
 </ul>
-</li>
+<pre><code>
+  - 强开RDP端口方法:
+
+    ```
+    # 注册表开启，高权限用户：
+    
+    REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 00000000 /f
+    
+    REG ADD &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d 0x00000d3d /f  # 监听 3389 端口
+    
+    # 注册表文件开启，高权限用户：
+    
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
+    &quot;fDenyTSConnections&quot;=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
+    &quot;PortNumber&quot;=dword:00000d3d 
+    
+    # Wmic启动远程主机RDP服务：
+    
+    wmic /node: &quot;10.10.10.130&quot; /USER:&quot;10.10.10.130\administrator&quot; PATH win32_erminalservicesetting WHERE (__Class!=&quot;&quot;) CALL SetAllowTSConnections 1 # 需要输入远程机器上管理员密码
+</code></pre>
+<ul>
 <li></li>
 </ul>
 
