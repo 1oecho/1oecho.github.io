@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://1oecho.github.io</id>
     <title>loecho</title>
-    <updated>2020-10-15T09:46:29.033Z</updated>
+    <updated>2020-10-22T11:28:36.354Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://1oecho.github.io"/>
     <link rel="self" href="https://1oecho.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://1oecho.github.io/images/avatar.png</logo>
     <icon>https://1oecho.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, loecho</rights>
+    <entry>
+        <title type="html"><![CDATA[一次简单的实战—TP二次开发代码审计]]></title>
+        <id>https://1oecho.github.io/RealCode-01/</id>
+        <link href="https://1oecho.github.io/RealCode-01/">
+        </link>
+        <updated>2020-10-22T11:27:56.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一次简单的实战—TP二次开发代码审计]]></title>
+        <id>https://1oecho.github.io/aUVv0aOLf/</id>
+        <link href="https://1oecho.github.io/aUVv0aOLf/">
+        </link>
+        <updated>2020-10-22T11:27:56.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[内网渗透：  横向渗透方法总结(未完结)]]></title>
         <id>https://1oecho.github.io/Net-6/</id>
@@ -65,19 +79,5 @@
         <link href="https://1oecho.github.io/NET-01/">
         </link>
         <updated>2020-09-10T01:35:11.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2020CISCN-线上初赛WriteUp]]></title>
-        <id>https://1oecho.github.io/b32GT6sbw/</id>
-        <link href="https://1oecho.github.io/b32GT6sbw/">
-        </link>
-        <updated>2020-08-27T01:47:33.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SQL注入"Strange-Tps"汇总]]></title>
-        <id>https://1oecho.github.io/all-in-sql/</id>
-        <link href="https://1oecho.github.io/all-in-sql/">
-        </link>
-        <updated>2020-08-14T07:24:29.000Z</updated>
     </entry>
 </feed>
