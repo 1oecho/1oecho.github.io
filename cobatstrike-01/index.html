@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                红队开发: CobaltStrike-反编译自定义功能学习
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-06-28</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">2.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">714</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/yIBqAOj4E/">红队开发</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="cobaltstrike-反编译自定义功能学习-一">CobaltStrike-反编译自定义功能学习 (一)</h1>
+<p>最近看了<code>RedCore</code>红队学院的CSTips的直播课程,学习到了大佬,在渗透测试中的一些关于CS自定义功能的一些方法和步骤,于是按照大佬的方法自己尝试搞一下,本身自己Java代码能力很弱,慢慢学习,以此为记录</p>
+<h2 id="0x02-基本过程">0x02 基本过程</h2>
+<p>​</p>
+<h3 id="1-反编译jar包">(1). 反编译Jar包</h3>
+<p>平时自己在反编译时,只会通过<code>jd-jui</code>或者用其他一些反编译工具,这些工具反编译的结果和效果也不是很好 ,看了课程学会了新知识! 步骤如下</p>
+<p><strong>1. 通过<code>IntelliJ IDEA</code>自带的插件进行,反编译,插件路径为,IDE的跟目录下的<code>plugins</code>下的<code>java-decompiler.jar</code>:</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628181814456.png" alt="image-20200628181814456" loading="lazy"></figure>
+<p><strong>2. 因为这个只是一个插件,将<code>jar</code>文件拷贝出来,直接通过<code>java -jar</code>运行,会运行失败!</strong></p>
+<p><strong>直接通过命令,运行<code>jar</code>里面的反编译主类:</strong></p>
+<pre><code class="language-java">
+# 具体命令如下:
+
+java -cp java -cp ./java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler -dgs=true (1)需要反编译的jar文件路径 (2)反编译完的jar文件保存路径
+  
+# 反编译CS的Cobaltstrike.jar文件,命令为:
+
+java -cp ./java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler -dgs=true ./cs_bin/cobaltstrike.jar ./cs_src/
+</code></pre>
+<p><strong>3. 反编译完成后,解压反编译后的<code>jar</code>文件就会得到完整的源码,目录结构如下</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/carbon.png" alt="" loading="lazy"></figure>
+<h3 id="2-配置ieda的具体配置处理相关依赖">(2) 配置IEDA的具体配置,处理相关依赖</h3>
+<p><strong>1. 创建项目,导入反编译后解压的jar文件里面的具体代码,目录结构设置为一致:</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628183939649.png" alt="image-20200628183939649" loading="lazy"></figure>
+<ol start="2">
+<li>设置相关配置,处理依赖,添加jar路径,应用设置:</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184340221.png" alt="image-20200628184340221" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184516995.png" alt="image-20200628184516995" loading="lazy"></figure>
+<p><strong>3. 配置主类的名称:</strong></p>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628184850052.png" alt="image-20200628184850052" loading="lazy"></figure>
+<h3 id="3-接下来就是修改代码">(3) 接下来就是,修改代码:</h3>
+<p>你修改那个文件,就把<code>jar</code>文件下的.java文件,复制到<code>src</code>目录,如果需要更改子目录下的名称同名的文件,目录结构也要保持一致</p>
+<p>下面以 <code>windows/Aggressor.java</code>文件为例</p>
+<p>​	 1.将反编译源代码下的具体文件,复制文件到<code>src</code>目录:</p>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628192537236.png" alt="image-20200628192537236" loading="lazy"></figure>
+<p><strong>2. 创建同名的目录<code>aggressor</code>,复制文件进去:</strong></p>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628192557396.png" alt="image-20200628192557396" loading="lazy"></figure>
+<p><strong>3. 修改文件,添加一个弹窗:</strong></p>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190152854.png" alt="image-20200628190152854" loading="lazy"></figure>
+<p><strong>4.保存打包为jar包,运行看一下效果</strong></p>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190414700.png" alt="image-20200628190414700" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190424679.png" alt="image-20200628190424679" loading="lazy"></figure>
+<p><strong>5. 输出文件在<code>out</code>文件夹下,运行,添加运行jar的配置文件:</strong></p>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628190851451.png" alt="image-20200628190851451" loading="lazy"></figure>
+<ol start="6">
+<li>添加俩个vm选项,将<code>auth</code>文件放进目录:</li>
+</ol>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191349173.png" alt="image-20200628191349173" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191553414.png" alt="image-20200628191553414" loading="lazy"></figure>
+<p>7 . 可以直接运行,运行成功,弹出了我们设置的消息框,CS客户端也成功运行了:</p>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191641358.png" alt="image-20200628191641358" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/image-20200628191755803.png" alt="image-20200628191755803" loading="lazy"></figure>
+<h2 id="0x03-to-do">0x03 To do</h2>
+<p>后续我们就可以通过这种方式来进行 自定义改造了,改造那个文件,就把源码复制进src,修改完后打包jar文件,就可以</p>
+<ol>
+<li>添加自定义功能呢,实现一键信息收集到内网渗透</li>
+<li>修改特征,自定以功能</li>
+<li>等等…</li>
+</ol>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/cobatstrike-01/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/cobatstrike-01/&sharesource=qzone&title=红队开发: CobaltStrike-反编译自定义功能学习&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/cobatstrike-01/&sharesource=weibo&title=红队开发: CobaltStrike-反编译自定义功能学习 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/yIBqAOj4E/">#
+                    红队开发
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/ATK&amp;CK-02/">
+                                                                                            ATK&amp;CK红队评估靶场 (二) WriteUp
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/oracle-sqli/">
+                                                                                                    知识汇总: Oracle  注入 All in ONE
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

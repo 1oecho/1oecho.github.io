@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                内网渗透：Widows认证学习记录
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-10-09</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">3.8
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">921</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Qt3VXtj3c/">内网渗透</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h3 id="00-密码存储路径">00. 密码存储路径：</h3>
+<ul>
+<li>
+<p>%SystemRoot%\system32\config\sam</p>
+</li>
+<li>
+<p><strong>流程</strong>： 输入密码与Sam进行对比</p>
+</li>
+<li>
+<p>Sam： 存储windows ntlm</p>
+</li>
+</ul>
+<h3 id="01-ntlm-nt-lan-manager-hash">01. NTLM （NT LAN Manager ）hash</h3>
+<ul>
+<li>ntlm Hash 是支持Net NTlm认证新协议及本地认证过程中重要参与物，长度为32，由数字贺字母组成</li>
+<li>WIndows 不存储用户的明文密码，只存储<strong>ntlm</strong>，后续对产生的ntlm与<strong>sam</strong>文件中的ntlm进行比较</li>
+<li>NTLM 前 版本为：<strong>LM_Hash (Windows XP WIndows 2003)</strong></li>
+</ul>
+<h3 id="02-ntlm-生成">02. NTLM 生成：</h3>
+<ul>
+<li>
+<p>基本流程：</p>
+<ul>
+<li>字母转hex(十六进制)</li>
+<li>十六进制转Unicode</li>
+<li>unicode 通过 md4 加密得到ntlm，最终生成结果为：32位：</li>
+<li>实现代码：</li>
+</ul>
+<pre><code class="language-python"># poc-t 框架下，流程生产：
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+ @Name:     getntlm.py
+ @Author:   loecho
+ @Email:    1loechome@gmail.com
+ @Blog:     https://www.loecho.me
+ @Time:     2020/7/23 17:58
+'''
+
+import hashlib, binascii
+
+def poc(password):
+
+    ntlmHash = binascii.hexlify(hashlib.new('md4', password.encode('utf-16le')).digest())
+    with open(r'ntlmHash.txt', 'a')as f:
+        f.write(ntlmHash+'\n')
+        return '[+] htlmHash: ' + ntlmHash
+        #print ntlmHash
+        # return '[+]'+ password+'\t'+'[+]' + ntlmHash
+
+# 直接调用库生产：
+
+Python 3.7.9 (tags/v3.7.9:13c94747c7, Aug 17 2020, 16:30:00) [MSC v.1900 64 bit (AMD64)] on win32
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; from passlib.hash import nthash
+&gt;&gt;&gt; ntlm_hash = nthash.hash('loecho')
+&gt;&gt;&gt; ntlm_hash
+'659ff5f9cbeaef25947510fab544cfee'
+&gt;&gt;&gt;      
+</code></pre>
+</li>
+<li>
+<p>POC-T 生成：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Administrator</th>
+<th>!@#tools9012#@!</th>
+<th>B700A</th>
+<th></th>
+<th>mimikatz</th>
+<th>10.6.19.12</th>
+<th>1598925126465</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200829094836.png" alt="image-20200829094124601" loading="lazy"></figure>
+<ul>
+<li>直接生成：</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200829094832.png" alt="image-20200829094828999" loading="lazy"></figure>
+<h2 id="03-lm-hash">03. LM-Hash</h2>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200829100809.png" alt="image-20200829100700611" loading="lazy"></figure>
+<ul>
+<li>小写转大写字母</li>
+<li>密码未达到七位，填充14位，每8比特填充0</li>
+<li>由于DES加密，Key位硬编码,单次DES，安全性低</li>
+<li>DES结果脆弱，较容易被破解猜解</li>
+</ul>
+<h3 id="04-本地认证流程">04.  本地认证流程：</h3>
+<ul>
+<li>WIndows Logon Process ，接受输入</li>
+<li>LSASS，对输入进行认证处理</li>
+</ul>
+<h3 id="05-windows-网络认证">05. Windows 网络认证：</h3>
+<ul>
+<li>内网渗透，工作组环境，只能点对点认证</li>
+<li>内网渗透，域环境，NTLM认证协议</li>
+</ul>
+<h3 id="ntlm-协议">NTLM 协议：</h3>
+<ul>
+<li>SMB协议，早期为明文口令</li>
+<li>WindowsNT挑战/相应验证机制，最新NTLMv2</li>
+</ul>
+<h4 id="挑战challenge响应response">挑战（Challenge）/响应（Response）</h4>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200829101843.png" alt="image-20200829101839969" loading="lazy"></figure>
+<ul>
+<li>
+<p>协议协商</p>
+</li>
+<li>
+<p>客户端---&gt;服务端：信息包含用户名</p>
+</li>
+<li>
+<p>服务端查找后与对应用户名的ntlm+16为随机字符，生产challenge1，发送给客户端</p>
+</li>
+<li>
+<p>客户端接收challenge，使用对应NTLM Hash 加密Challenge生产Response，发送至服务端</p>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162033.png" alt="image-20200829102221624" loading="lazy"></figure>
+</li>
+</ul>
+<h3 id="ntlm-v2-协议">NTLM v2 协议</h3>
+<ul>
+<li>
+<p>NTLM v1 与 NTLM v2 最显著的区别就是Challenge与加密算法不同</p>
+</li>
+<li>
+<p>CHallenge: NTLM v1 的Challenge有8位， NTLM v2的Challenge位16位</p>
+</li>
+<li>
+<p>Net-NTLM Hash： NTLM v1的主要加密算法DES NTLM v2的主要加密算法HMAC-MD5</p>
+</li>
+<li>
+<p>Responder smbexec</p>
+</li>
+</ul>
+<h3 id="pass-the-hash-哈希传递">Pass The Hash （哈希传递）</h3>
+<ul>
+<li>
+<p>不需要账号密码，获得认证的过程</p>
+<h4 id="必要条件">必要条件：</h4>
+<ul>
+<li>
+<p>互通</p>
+</li>
+<li>
+<p>认证的用户名</p>
+</li>
+<li>
+<p>需要NTLM Hash</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="active-directory活动目录概念">Active Directory（活动目录）概念</h4>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200902103433.png" alt="image-20200902103428775" loading="lazy"></figure>
+<ul>
+<li>服务器及客户端计算机管理</li>
+<li>用户服务</li>
+<li>资源管理</li>
+<li>桌面配置</li>
+<li>应用系统支持</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162041.png" alt="image-20200902103705461" loading="lazy"></figure>
+<h3 id="域认证体系-kerbroes">域认证体系 - Kerbroes</h3>
+<p>Kerberos是一种网络认证协议，其设计目标是通过密钥系统为客户机/服务器应用程序提供强大的认证服务。该认证过程的实现不依赖于主机操作系统的认证，无需基于主机地址的信任，不要求网络上所有主机的物理安全，并假定网络上传送的数据包可以被 任意地读取、修改和插入数据。在以上情况下，Kerberos作为一种可信任的第三方认证服务，是通过传统的密码技术（如：共享<br>
+密钥）执行认证服务的。</p>
+<h4 id="域认证所参与的角色">域认证所参与的角色</h4>
+<ul>
+<li>Client</li>
+<li>Server</li>
+<li>KDC (Key Distribution Center) = DC
+<ul>
+<li>AD (Accent Database): 存储所有client的白名单，只有存在Celient才能申请到TGT</li>
+<li>AS： 为Client生成TGT的服务</li>
+<li>TGS：为Client生成某个服务ticket</li>
+</ul>
+</li>
+</ul>
+<h4 id="认证流程">认证流程：</h4>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162048.png" alt="image-20200902170705754" loading="lazy"></figure>
+<ol>
+<li><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162053.png" alt="image-20200902170832032" loading="lazy"></li>
+</ol>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162057.png" alt="image-20200902170849927" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162102.png" alt="image-20200902171115988" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162112.png" alt="image-20200902171244873" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162154.png" alt="image-20200902171437186" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162201.png" alt="image-20200902171854778" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162123.png" alt="image-20200902171936275" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162126.png" alt="image-20200902171958594" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162128.png" alt="image-20200902172120335" loading="lazy"></figure>
+<ul>
+<li>针对获得到NTLM Hash的服务
+<ul>
+<li>Mimikatz</li>
+<li>针对单一服务进行伪造</li>
+<li>DCSync 域同步 ---&gt; LDAP</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="18"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162133.png" alt="image-20200903170209253" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201009162212.png" alt="image-20200903170506436" loading="lazy"></figure>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/Net-00/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/Net-00/&sharesource=qzone&title=内网渗透：Widows认证学习记录&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/Net-00/&sharesource=weibo&title=内网渗透：Widows认证学习记录 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Qt3VXtj3c/">#
+                    内网渗透
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/Net-04/">
+                                                                                            内网渗透： NET-NTLM认证流程分析记录
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/ZE5av21E3/">
+                                                                                                    小工具: All-in-XrayScan
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

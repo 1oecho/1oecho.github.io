@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="loecho">
+<meta name="description" content="安全行业的从业人员">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://1oecho.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                <!--点击特效-->
+                <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+                
+                        <!--CDN样式-->
+                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://1oecho.github.io">
+                    
+                </a>
+            </div>
+
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                        Index
+                    </a>
+                    
+                    <a class="menu-item" href="https://1oecho.github.io/tags">
+                        Tags
+                    </a>
+                    
+                    <a class="menu-item" href="https://github.com/loecho-sec">
+                        Whoami
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://1oecho.github.io">
+                            
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1702539383157" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="https://1oecho.github.io/NoteBook">
+                            Index
+                        </a>
+                        
+                        <a class="menu-item" href="https://1oecho.github.io/tags">
+                            Tags
+                        </a>
+                        
+                        <a class="menu-item" href="https://github.com/loecho-sec">
+                            Whoami
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                SQL注入漏洞利用技巧总结
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-08-14</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">11.2
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">3027</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://1oecho.github.io/kxNen4dTe/">Something</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="sql注入strange-tps汇总">SQL注入&quot;Strange-Tps&quot;汇总</h1>
+<h2 id="0x01-什么是sql注入">0x01 什么是SQL注入？</h2>
+<p><strong>SQL注入</strong>即是指web应用程序对用户输入数据的合法性没有判断或过滤不严，攻击者可以在web应用程序中事先定义好的查询语句的结尾上添加额外的SQL语句，在管理员不知情的情况下实现非法操作，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步得到相应的数据信息。</p>
+<p>这是百度百科给的定义，我们通俗来讲: 就是恶意用户构造SQL语句插入到原有SQL语句中，被服务正常的执行利用，从而获得了超出当前用户权限的数据库内部资料。</p>
+<p>所以我们就要把握好<strong>侧重点</strong>，你的SQL语句被服务执行！</p>
+<h2 id="0x02-漏洞探测">0x02 漏洞探测</h2>
+<h3 id="一-基础的测试流程大致为">一. 基础的测试流程大致为：</h3>
+<ul>
+<li>
+<p>判断注入的类型(字符,数字,搜索...)</p>
+</li>
+<li>
+<p>判断后端数据库类型(Oracle,MySQL,Mssql,PostgreSql...)</p>
+</li>
+<li>
+<p>判断语句是否被成功执行(构造差异条件...)</p>
+</li>
+<li>
+<p>判断当前环境可以利用的注入方式(sqlmap的分类: 堆叠注入，联合查询，报错注入，布尔盲注，时间盲注..利用效率从高到低）</p>
+</li>
+<li>
+<p>判断后端安全方式(无防护，黑名单，白名单，WAF...利用难度依次递增)</p>
+</li>
+</ul>
+<h4 id="二-步骤细节">二. 步骤细节：</h4>
+<h5 id="一-注入类型判断">一. 注入类型判断：</h5>
+<p>我们可以通过当前也去环境交互的数据来判断，与数字型相比，需要逃逸字符，后续闭合逃逸出的字符，在真实情况下，最多的情况！数字型会执行我们构造的运算条件，而字符型则会异常或不执行</p>
+<h5 id="1-服务直接报错-插入发现为单引号闭合-判断为字符型反之后无字符为数字型">(1) 服务直接报错！ 插入<code>\</code>，发现为单引号闭合<code>'</code> 判断为字符型，反之<code>\</code>后无字符，为数字型:</h5>
+<ul>
+<li>字符型</li>
+</ul>
+<h5 id=""><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813215155.png" alt="image-20200813214826967" loading="lazy"></h5>
+<ul>
+<li>数字型:</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813215923.png" alt="image-20200813215919713" loading="lazy"></figure>
+<h5 id="2-加入算数运算符sql语句异常页面会不变因为我们加入的算数条件没有被正常执行所以无异常判断为字符型反之为数字型">(2) 加入算数运算符，SQL语句异常，页面会不变，因为我们加入的算数条件没有被正常执行，所以无异常，判断为字符型，反之为数字型：</h5>
+<ul>
+<li>
+<p>字符型，正常情况：</p>
+<figure data-type="image" tabindex="2"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813215401.png" alt="image-20200813215358513" loading="lazy"></figure>
+</li>
+<li>
+<p>字符型，添加运算条件后(<strong>加减乘除都可以加，主要url编码</strong>)：</p>
+<figure data-type="image" tabindex="3"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814102124.png" alt="image-20200813220132309" loading="lazy"></figure>
+</li>
+<li>
+<p>数字型，添加运算条件后(<strong>加减乘除都可以加</strong>,注意url编码)，因为SQL语句正确被执行，导致数据库内部错误，显示的内容，也会异常：</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814102128.png" alt="image-20200813220357615" loading="lazy"></figure>
+<h4 id="搜索型注入和字符型一样都需要闭合语句后续注释逃逸出的字符">搜索型注入和字符型一样都需要闭合语句，后续注释逃逸出的字符：</h4>
+<p>1). 搜索型注入通过 <code>%</code> 来闭合</p>
+<p>2). 字符型需要通过fuzz来测试闭合,常用: <code>'</code> <code>&quot;</code> <code>')</code> <code>&quot;)</code>:</p>
+<ol>
+<li>fuzz姿势如下，总结所有的可能的闭合方式:</li>
+</ol>
+<pre><code class="language-sql">'
+&quot;
+''
+'&quot;
+;
+)
+')
+&quot;)
+&quot;);
+';
+&quot;;
+%'
+%&quot;
+%')
+%&quot;)
+'))
+&quot;))
+&quot;)))
+</code></pre>
+<ol start="2">
+<li><strong>BurpSuit标记字符的位置，同时加上注释符 <code>#</code> <code>--</code>,判断返回页面差异，从而准确判断闭合的字符</strong></li>
+</ol>
+<figure data-type="image" tabindex="5"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813223532.png" alt="image-20200813221658293" loading="lazy"></figure>
+<ol start="3">
+<li>
+<p><strong>结果判断，因为正常执行会输出<code>Your Login name:Dumb</code>,我们如果成功闭合则内部SQL就会执行<code>1/0</code>的操作，从而内部错误，显示异常，不输出登录名，以此为差异来判断结果：</strong></p>
+<ul>
+<li>标记<code>√</code>号的是存在字符，不标记的为不存在关键字</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813223527.png" alt="image-20200813222145479" loading="lazy"></figure>
+<ul>
+<li>我们查看不存在标记的数据包,<code>paylaod</code>的共同点，都存在单引号<code>'</code>,通过此我们便可以知道需要闭合的字符为单引号<code>'</code>，其他的同样如此：</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813222401.png" alt="image-20200813222358571" loading="lazy"></figure>
+<ul>
+<li>
+<p>我们找一个单引号括号<code>')</code>的例子来看，构造个减的条件，id=2，<strong>name: Angelina</strong> id=3, <strong>name: :Dummy</strong>,如果语句正常执行，将返回id=2的内容：</p>
+<figure data-type="image" tabindex="8"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813223509.png" alt="image-20200813223025467" loading="lazy"></figure>
+<p>同理找共同点，为 单引号括号<code>')</code>,所以闭合方式为: 单引号括号<code>')</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<figure data-type="image" tabindex="9"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813223514.png" alt="image-20200813223350609" loading="lazy"></figure>
+<h3 id="二后端数据库类型判断">二.后端数据库类型判断：</h3>
+<h5 id="1-直接回显错误-通过报错语句来判断">1.  直接回显错误！ 通过报错语句来判断：</h5>
+<ul>
+<li>MSQL</li>
+</ul>
+<figure data-type="image" tabindex="10"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200813224329.png" alt="image-20200813224326812" loading="lazy"></figure>
+<ul>
+<li>Oracle</li>
+</ul>
+<figure data-type="image" tabindex="11"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814104138.png" alt="image-20200814104123071" loading="lazy"></figure>
+<ul>
+<li>mssql</li>
+</ul>
+<p>会直接报出 <code>Sql server</code>的相关错误，从而可以判断</p>
+<h5 id="2-通过特定注释符号来判断">2. 通过特定注释符号来判断：</h5>
+<ul>
+<li>
+<p>MySQL</p>
+<p>（1）如果说既能够使用–--作为注释标志，又能够使用#做注释标志，那么基本可以确定是 MySQL</p>
+<p>（2）行间注释 /<em>!version command</em>/，这样的语法是 MySQL 专属，其中 version 是一个数字，如果 MySQL 的版本大于这个数字的话就会把 command 作为 SQL 语句的一部分。 /<em>!50000SELECT</em>/</p>
+</li>
+<li>
+<p>Oracle</p>
+<p>(1) 通过/**/ -- 来注释，则为oracle数据库</p>
+</li>
+</ul>
+<h5 id="3-通过特定函数来判断">3. 通过特定函数来判断：</h5>
+<ul>
+<li>
+<p>MySQL</p>
+<p>（1）既能使用<code>substr</code>也可以使用<code>substring</code>,判断为MySQL</p>
+<p>​	(2)  能够使用 <code>trim </code>函数、 <code>rtrim </code>函数、 <code>ltrim</code> 函数，但是不能使用 <code>btrim</code> 函数（Postgresql 以及 AWS Redshift SQL 所有）</p>
+<p>​	(3)  conv、load_file（读取文件的函数需要权限）、benchmark...</p>
+<p>​	(4) <code>database()</code> <code>user()</code>  <code>@@datadir</code>等等内置函数</p>
+</li>
+<li>
+<p>Oracle</p>
+<p>​	(1) 版本探测方式：<code>select version from v$instance;</code></p>
+<p>​	(2) 当前数据表探测方式： <code>select name from v$database';</code></p>
+<p>​	(3) ： 支持 <code>minus select</code> 是 <code>ORACLE</code> 的显著特征..等等</p>
+</li>
+<li>
+<p>mssql</p>
+<p>​	(1) <code>waitfor delay time</code>延时注入，可以确定是 SQL Server</p>
+<p>​	(2)  <code>Top</code>语法的使用</p>
+</li>
+</ul>
+<h5 id="4-通过字符串连接符来判断">4. 通过字符串连接符来判断</h5>
+<ul>
+<li>MySQL,通过使用<code>''</code>来连接字符串</li>
+<li>Oracle，通过 <code>||</code>来连接字符串</li>
+<li>Mssql，通过<code>+</code>来连接字符串</li>
+</ul>
+<h5 id="5-通过特定数据库数据表来判断">5. 通过特定数据库数据表来判断</h5>
+<ul>
+<li>
+<p>Mysql，<code> information_schema</code></p>
+</li>
+<li>
+<p>Oracle, <code>SYSAUX表,SYSTEM表,TEMP表,UNDO表,USERS表</code></p>
+</li>
+<li>
+<p>Mssql, <code>master..sysmessages、master..sysservers</code></p>
+</li>
+</ul>
+<h5 id="6-通过主流搭配方案来判断">6. 通过主流搭配方案来判断：</h5>
+<ul>
+<li>MySQL， 常用于后端为<code>php</code></li>
+<li>Oracle,  常用于后端为<code>java</code></li>
+<li>Mssql, 常用于后端为<code>.net</code></li>
+</ul>
+<h5 id="7-p牛的集大成测试方式">7. P牛的集大成测试方式：</h5>
+<ul>
+<li>MySQL    <code>SELECT ... WHERE title REGEXP BINARY '^(An?|The) +'; -- MySQL</code></li>
+<li>Oracle     <code>SELECT ... WHERE REGEXP_LIKE(title, '^(An?|The) +', 'c'); -- Oracle</code></li>
+<li>MSsql     <code>SELECT ... WHERE title LIKE '%[^A-Z]%' -- Mssql</code></li>
+<li>PostgreSQL   <code>SELECT ... WHERE title ~ '^(An?|The) +'; --postgreSQL</code></li>
+</ul>
+<h3 id="三语句执行构造">三.语句执行构造：</h3>
+<h4 id="注意-在测试时避免使用-and-11-这样大概率被拦截的语句来探测sql注入漏洞">注意： 在测试时避免使用 and 1=1 这样大概率被拦截的语句，来探测SQL注入漏洞</h4>
+<h4 id="一mysql-数据库的注入探测技巧">（一）MySQL 数据库的注入探测技巧：</h4>
+<ul>
+<li>构造运算符来判断：</li>
+</ul>
+<figure data-type="image" tabindex="12"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814114640.png" alt="image-20200814112505138" loading="lazy"></figure>
+<ul>
+<li>除法（加减乘取余同理）：</li>
+</ul>
+<figure data-type="image" tabindex="13"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814114918.png" alt="image-20200814114915339" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814114937.png" alt="image-20200814114935157" loading="lazy"></figure>
+<ul>
+<li>取余：</li>
+</ul>
+<figure data-type="image" tabindex="15"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814115209.png" alt="image-20200814115202053" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814115256.png" alt="image-20200814115251410" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814115339.png" alt="image-20200814115333038" loading="lazy"></figure>
+<ul>
+<li>在参数后添加注释符，页面正常返回</li>
+</ul>
+<figure data-type="image" tabindex="18"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814115813.png" alt="image-20200814115810994" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814115847.png" alt="image-20200814115844726" loading="lazy"></figure>
+<ul>
+<li>通过<code>MySQL的特性，隐式类型转换</code>来判断,(要结合具体环境来使用):</li>
+</ul>
+<figure data-type="image" tabindex="20"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814121030.png" alt="image-20200814121028097" loading="lazy"></figure>
+<ul>
+<li>通过构造逻辑运算符，配合比较运算符来判断:</li>
+</ul>
+<figure data-type="image" tabindex="21"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814121255.png" alt="image-20200814121230778" loading="lazy"></figure>
+<figure data-type="image" tabindex="22"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814121301.png" alt="image-20200814121252543" loading="lazy"></figure>
+<h4 id="example相互配合起来灵活应用">Example（相互配合起来灵活应用）:</h4>
+<p><strong>(1). 构造 &amp;&amp; 3&lt;&gt;1+--+ ,等价于and，注意url编码：</strong></p>
+<ul>
+<li>真：</li>
+</ul>
+<figure data-type="image" tabindex="23"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814121829.png" alt="image-20200814121802787" loading="lazy"></figure>
+<ul>
+<li>假：</li>
+</ul>
+<figure data-type="image" tabindex="24"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814121832.png" alt="image-20200814121826831" loading="lazy"></figure>
+<p><strong>(2). 构造 <code>false || 3&gt;1+--+ </code>(MySQL为或等价于<code>or</code>，Oracle为连字符)</strong></p>
+<ul>
+<li>真：</li>
+</ul>
+<figure data-type="image" tabindex="25"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814140017.png" alt="image-20200814135954318" loading="lazy"></figure>
+<ul>
+<li>假：</li>
+</ul>
+<figure data-type="image" tabindex="26"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814140019.png" alt="image-20200814140013568" loading="lazy"></figure>
+<p><strong>（3）通过条件判断语句配合<code>1/0</code>来判断(我最常用的方式)</strong></p>
+<pre><code class="language-sql">此Payload适用于MySQL和ORacle
+
+http://192.168.111.1/sqli/Less-1/?id=-1' DIV (case when 3&gt;1 then 1 else end)+--+
+
+cash when 条件 
+
+	为真执行: then 1,就是最终结果为1，1/1=1，语句正确
+	
+	为假执行：else 0,就是最终结果为0，1/0 Mysql返回空 Oracle内部报错
+</code></pre>
+<ul>
+<li>真：</li>
+</ul>
+<figure data-type="image" tabindex="27"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814140612.png" alt="image-20200814140609679" loading="lazy"></figure>
+<ul>
+<li>假：</li>
+</ul>
+<figure data-type="image" tabindex="28"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814140632.png" alt="image-20200814140630664" loading="lazy"></figure>
+<p><strong>（4）短路<code>and</code>报错来判断注入：</strong></p>
+<pre><code class="language-sql">适用于回显为: (1) SQL语句正确，返回一种情况; SQL语句错误返回一种情况
+
+http://192.168.111.1/sqli/Less-1/?id=1'+and+1=(case when 3&lt;1 then 1 else 0 end)+and+pow(999,999)--+
+
+同理的有很多，只要构造好报错条件，短路and即可，可以用&amp;&amp;代替and
+
+http://192.168.111.1/sqli/Less-1/?id=1'+and+1=(case when 3&lt;1 then 1 else 0 end)+and+~0--+
+</code></pre>
+<ul>
+<li>为真，语句正常执行，报错条件执行，语句报错</li>
+</ul>
+<figure data-type="image" tabindex="29"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814151917.png" alt="image-20200814141258784" loading="lazy"></figure>
+<ul>
+<li>为假，语句正常执行，报错条件因为and短路，不执行报错语句，内部错误</li>
+</ul>
+<figure data-type="image" tabindex="30"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814151914.png" alt="image-20200814140921498" loading="lazy"></figure>
+<h3 id="把握好重点即可配合不同函数能够成功判断并且确认语句被正常执行了就是存在sql注入配合延时也是同样道理">把握好重点即可，配合不同函数，能够成功判断并且确认，语句被正常执行了，就是存在SQL注入，配合延时也是同样道理</h3>
+<h3 id="三-判断当前环境可以利用的注入方式">三 判断当前环境可以利用的注入方式</h3>
+<h4 id="-2"></h4>
+<h4 id="注入方式优先级排序个人认为">注入方式优先级排序(个人认为):</h4>
+<h3 id="堆叠注入-联合查询注入-报错注入-布尔盲注-时间盲注">堆叠注入 &gt;= 联合查询注入 &gt; 报错注入 &gt; 布尔盲注 &gt; 时间盲注</h3>
+<ol>
+<li>
+<p><strong>堆叠注入如果存在，直接通过<code>;</code>闭合上一段语句构造新语句即可执行</strong></p>
+</li>
+<li>
+<p><strong>联合查询注入，如果目标业务存在显示位，我们先判断列数，在判断显示位，从而后续构造语句直接查询，适用于直接返回SQL错误的目标</strong></p>
+</li>
+<li>
+<p><strong>报错注入，构造报错条件，通过报错带出我们查询的数据，适用于直接返回SQL错误的目标</strong></p>
+</li>
+<li>
+<p><strong>时间盲注，判断条件为时间条件，或者是大量运算所造成的高于正常的延时操作，以此为条件查询数据</strong></p>
+</li>
+<li>
+<p><strong>布尔盲注，我重点叙述，上面SQL判断阶段的描述配合查询数据即可，与时间盲注为我们真实测试中最常遇到的情况</strong></p>
+</li>
+</ol>
+<h2 id="四-判断后端安全方式">四 判断后端安全方式</h2>
+<h4 id="黑名单白名单">黑名单,白名单：</h4>
+<p>就是在业务编写阶段为防止SQL注入，而禁用了一些特殊字符，比如数据库函数，注释符等等</p>
+<h6 id="测试流程">测试流程：</h6>
+<ol>
+<li>通过Fuzz模糊测试，判断后端具体过滤函数，从而找出缺陷函数，来绕过黑名单限制，通常SQL注入的CTF所选用的方式</li>
+<li>找到<code>漏网之鱼</code>的函数，配合逻辑语句查询数据内容</li>
+<li>找常用注入语句中关键字的替代品</li>
+</ol>
+<h4 id="waf">WAF</h4>
+<h4 id="web应用防护系统也称为网站应用级入侵防御系统-英文web-application-firewall简称-waf-利用国际上公认的一种说法web应用防火墙是通过执行一系列针对httphttps的安全策略来专门为web应用提供保护的一款产品">(Web应用防护系统（也称为：网站应用级<a href="https://baike.baidu.com/item/%E5%85%A5%E4%BE%B5%E9%98%B2%E5%BE%A1%E7%B3%BB%E7%BB%9F/2083032">入侵防御系统</a>。英文：Web Application Firewall，简称： WAF）。利用国际上公认的一种说法：Web应用<a href="https://baike.baidu.com/item/%E9%98%B2%E7%81%AB%E5%A2%99">防火墙</a>是通过执行一系列针对HTTP/HTTPS的<a href="https://baike.baidu.com/item/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5/2890163">安全策略</a>来专门为Web应用提供保护的一款产品。)</h4>
+<h4 id="我只写出我在测试中常用的方法全部方法可以看公众号bypass里面的详细专题">我只写出我在测试中常用的方法，全部方法可以看公众号<code>bypass</code>里面的详细专题：</h4>
+<h6 id="一-找缺陷函数和替代品以及数据库特性">一. 找缺陷函数和替代品以及数据库特性：</h6>
+<p>ascii()函数 可以用 char() ,函数代替</p>
+<p>and逻辑判断，可以使用 &amp;&amp; 代替</p>
+<p>or逻辑判断， 可以使用||代替</p>
+<p>空格， 可以使用 %00-%0z 注释符 /**/替代</p>
+<p>/<em>!50000SELECT</em>/ MySQL 特性  如果 MySQL 的版本大于5.00.00的话就会把 SELECT 识别出来。这个特性同样可以用来探测 MySQL 的版本号</p>
+<h6 id="二-改变请求方式get-post-转换为上传文件类型的-multipart类型">二. 改变请求方式，get post 转换为上传文件类型的 multipart类型</h6>
+<p>一些WAF在进行数据包解析处理时，可能会存在类似的设计缺陷。例如在处理普通的GET、POST型请求时，会进行SQL注入、XSS等攻击特征的匹配。但是在处理multipart请求时，很可能只对类似恶意文件上传等攻击（文件上传包相关）进行检测， SQL注入等攻击就不再进行规则匹配了。那么此时若尝试以multipart方式进行业务提交，并且植入恶意的注入攻击语句，若服务器能解析的话，即可绕过WAF进行注入深入利用。</p>
+<h6 id="测试方法">测试方法：</h6>
+<ol>
+<li>BurpSuit 右键，选择：</li>
+</ol>
+<figure data-type="image" tabindex="31"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814151906.png" alt="image-20200814150219925" loading="lazy"></figure>
+<ol start="2">
+<li>转换为下面效果：</li>
+</ol>
+<figure data-type="image" tabindex="32"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814150339.png" alt="image-20200814150337175" loading="lazy"></figure>
+<h6 id="三垃圾数据填充">三.垃圾数据填充</h6>
+<p>有些WAF，因为性能的需要向业务做出妥协，当数据包超过WAF的规定阈值后，有的会丢弃掉数据包，而有的也会直接通过数据包，利用这个特性，我们构造超长的数据包便可以绕过waf</p>
+<h6 id="测试方法-2">测试方法:</h6>
+<ol>
+<li>添加无用的字符串，SQL注入注释符中添加</li>
+<li>添加多个同样的Cookies（截图为随意添加，真实环境把原有Cookies复制粘贴，增加即可），增大数据包的体积</li>
+</ol>
+<figure data-type="image" tabindex="33"><img src="https://loecho.oss-cn-beijing.aliyuncs.com/Blog-Img/20200814151854.png" alt="image-20200814151043219" loading="lazy"></figure>
+<h6 id="四-分块传输">四 分块传输</h6>
+<p><strong>分块传输编码</strong>（<strong>Chunked transfer encoding</strong>）是超文本传输协议（HTTP）中的一种数据传输机制，允许<a href="https://baike.baidu.com/item/HTTP">HTTP</a>由网页服务器发送给<a href="https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E7%AB%AF">客户端</a><a href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8">应用</a>（ 通常是<a href="https://baike.baidu.com/item/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%99%A8">网页浏览器</a>）的数据可以分成多个部分。分块传输编码只在HTTP协议1.1版本（HTTP/1.1）中提供。</p>
+<h6 id="测试方法-3">测试方法：</h6>
+<p>推荐查看大佬文章：https://gv7.me/articles/2019/chunked-coding-converter/</p>
+<p>利用方式以及工具，里面都有；目前新版的Sqlmap已经支持分块传输，参数为：<code>--chunked</code></p>
+<h2 id="0x03-总结">0x03 总结</h2>
+<ol>
+<li>先写这么多，还有 <code>order by</code> <code> update</code> <code> insert</code>  <code>limit</code> 等等的注入，后续补充</li>
+<li>持续更新，有错私信我修改</li>
+<li>点击 <code>whoami</code>私我！！</li>
+</ol>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1oecho.github.io/all-in-sql/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1oecho.github.io/all-in-sql/&sharesource=qzone&title=SQL注入漏洞利用技巧总结&pics=https://1oecho.github.io/images/avatar.png?v=1702539383157&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://1oecho.github.io/all-in-sql/&sharesource=weibo&title=SQL注入漏洞利用技巧总结 + " - " + &pic="https://1oecho.github.io/images/avatar.png?v=1702539383157 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://1oecho.github.io/kxNen4dTe/">#
+                    Something
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://1oecho.github.io/NET-01/">
+                                                                                            内网渗透： 资源定位及攻击思路
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://1oecho.github.io/X8bxOrMBK/">
+                                                                                                    实战模拟: SSRF--&gt;Redis--&gt;DC 全过程记录
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '61442cf87c4266a18189',
+        clientSecret: '7a1fd1e53e9179e32c4600883cd0612d09e0f292',
+        repo: 'loecho',
+        owner: '1oecho',
+        admin: ['1oecho'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        loecho-sec
+                            
+                                <b id="hitokoto"></b><br>
+                                
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                         &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://1oecho.github.io/" target="_blank">
+                                                loecho-sec
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.5
+                </div>
+                
+                    <script>
+                        var pat = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + pat + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    hitokoto();
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1702539383157);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+                
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
